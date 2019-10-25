@@ -3,8 +3,8 @@
 Notes Notations ->
 
 #(no.) <- For Heading<br/>
-@@ <- Important Point 
-// <- Comment
-{{...}} <- Unconfirmed
-?? <- To do Exercise
-(( )) <- Belongs To Single Topic
+@@ <- Important Point<br/>
+// <- Comment<br/>
+{{...}} <- Unconfirmed<br/>
+?? <- To do Exercise<br/>
+(( )) <- Belongs To Single Topic<br/>
