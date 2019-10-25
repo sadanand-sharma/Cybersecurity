@@ -36,4 +36,32 @@ An automated user-targeting attack - Mydoom exploit, Confiker virus -> Screensho
 
 An attack targeting a Service - Screenshot(326, 327, 328)
 
-#(2) Immutable Laws of Security
+#(2) Immutable Laws of Security -> Screenshot(329)
+
+Law 1 -> If a bad guy can persuade you to run his program on your computer, it's not solely your computer anymore. Screenshot(331, 333)
+
+Law 2 -> If a bad guy can alter the operating system on your computer, it's not your computer anymore. Screenshot(334, 335)
+
+- edlin.exe from Windows Vista is a cmd line editor, only few people knew that this file existed. If some one manages to modify the
+file edlin.exe it means that the person has trusted installed permission and that person can easily cover up his actions as well.
+
+Law 3 -> If a bad guy has unrestricted physical access to ur computer, it's not your computer anymore. Screenshot(337, 338)
+
+Law 4 -> If u allow a bad guy to run active content on ur website or online application, it's not ur website anymore. Screenshot(339)
+
+Law 5 -> Weak passwords trump strong security. Screenshot(340, 341)
+
+Law 6 -> A computer is only as secure as the administrator is trustworthy. Screenshot(342)
+
+Law 7 -> Encrypted data is only as secure as its decryption key. Screenshot(343)
+
+Law 8 -> An out of date malware scanner is only marginally better than no malware scanner at all. Screenshot(344, 345, 346)
+
+Law 9 -> Absolute anonymity isn't practically achievable, online or offline. Screenshot(348, 349)
+
+Law 10 -> Technology is not a panecea. Screenshot(350)
+
+Laws for administrators -> Screenshot(351)
+
+#(3) Disaster Recovery 
+
