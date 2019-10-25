@@ -1,6 +1,6 @@
 Course Link -> https://academy.ehacking.net/courses/550930/lectures/9988041
 
-## Defence in Depth -> Screenshot(306)
+#(1) Defence in Depth -> Screenshot(306)
 
 Defence in Depth Tactic in IT -> Screenshot(307)
 
@@ -14,4 +14,26 @@ Defence in Depth (Perimeter and Physical Access Layers) -> Screenshot(312, 313)
 Exercise -> Screenshot(314) - ?? -> https://academy.ehacking.net/courses/550930/lectures/9988044
 
 - DaRT(Diagnostics and Recovery Toolset) tool kit can be used to delete the SAM file in Windows
+
+- Password and Registry Editor - ?? -> https://academy.ehacking.net/courses/550930/lectures/9988055
+
+- 'chntpw' is a software utility for reseting or blanking local passwords used by Windows, it does this by editing the SAM database
+where windows stores password hashes.
+
+Ques -> You've gained physical access to a Windows 2008 R2 server which has an accessible disc drive. When you attempt to boot the 
+server and log in, you are unable to guess the password. In your tool kit you have an Ubuntu 9.10 Linux Live CD. Which Linux based
+tool has the ability to change any user's password or to activate disabled Windows accounts?
+Ans -> chntpw
 ))
+
+- Defence in Depth is most vunerable to Local access attacks.
+
+Automated attack Targeting a Service - In 2001 CODE RED virus -> Screenshot(315, 316, 317)
+
+A virus with multiple propogation path - Nimda virus -> Screenshot(318, 319, 320)
+
+An automated user-targeting attack - Mydoom exploit, Confiker virus -> Screenshot(321, 322, 323, 324, 325)
+
+An attack targeting a Service - Screenshot(326, 327, 328)
+
+#(2) Immutable Laws of Security
