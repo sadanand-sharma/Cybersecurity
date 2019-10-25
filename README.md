@@ -2,7 +2,7 @@
 
 Notes Notations ->
 
-## <- For Heading
+#(no.) <- For Heading
 @@ <- Important Point 
 // <- Comment
 {{...}} <- Unconfirmed
