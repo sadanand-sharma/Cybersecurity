@@ -2,3 +2,6 @@ Course Link -> https://academy.ehacking.net/courses/551622/lectures/10002114
 
 Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
 
+whoami // to find who is logged in the system
+
+login -p username // to login into system
