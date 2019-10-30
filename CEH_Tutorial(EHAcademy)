@@ -1,1 +1,19 @@
 https://academy.ehacking.net/courses/409754/lectures/6250711
+
+Terminologies ->
+
+- Hack value defines the value that whether something is worth doing it or not.
+
+- Payload is the part of an exploit code that performs the intended malicious action. 
+
+- In Daisy Chainning the attacker will not get the access of the particular machine but it can get an access to a machine in that
+environmnet so this way the attacker can now reach to the target machine by going through the machines linked to it.
+
+- Leaking the PII(Personal Identity Information) of an individual. 
+
+- A software has unknown weaknesses and the developer has currently no-day knowledge means no knowledge of it but the hacker knows it
+and most of the times sell it on Dark Net and exploit the software which comes as a surprise to the developer and patches r not 
+available that soon or we can say that An attack that exploits the computer application vulnerabilites before the software developer
+releases a patch for that vulnerability.
+ 
+- Bots r simple softwares that can be controlled remotely to automate attacks, Ex -> DDOS attacks
