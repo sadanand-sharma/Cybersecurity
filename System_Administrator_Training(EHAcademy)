@@ -5,3 +5,25 @@ Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10
 whoami // to find who is logged in the system
 
 login -p username // to login into system
+
+Wildcards -> Screenshot(352, 353, 354)
+{} widlcard, Ex -> touch abcd{1..9}-xyz // this will create 9 files with name as abcd1-xyz to abcd9-xyz
+
+xdg-open filename // to open file
+
+File System Paths -> Absolute and Relative Paths -> Screenshot(355)
+
+Remote Access to different OS -> Screenshot(356)
+
+Linux File Types -> Screenshot(357)
+
+Soft and Hard Links -> Screenshot(358)
+to create a soft link use cmd -> ln -s full_path_to_file // to verify if link is done to ls -al and u will see that the filename is
+directing to the path of the file, now if u will do the change in the original file then the link file would be also change accordingly
+ls -li // to list the inodes
+The inodes for the soft link is different from the original file of which it is link and if the original file is deleted the content
+in the soft link will also not appear as the file is removed but in hard link even if the original file is removed the hard link file
+still show the content.
+Note for hard link -> Screenshot(359)
+When a hard link is created it would not be shown as 'link' in details instead shown as normal file and also when u do ls -al u will
+not see the filename is directing to the path of the file like in soft link
