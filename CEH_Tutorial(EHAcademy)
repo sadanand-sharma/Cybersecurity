@@ -17,3 +17,12 @@ available that soon or we can say that An attack that exploits the computer appl
 releases a patch for that vulnerability.
  
 - Bots r simple softwares that can be controlled remotely to automate attacks, Ex -> DDOS attacks
+
+- cve(common vulnerability and exploit) website provides the latest and previous vulnerabilites.
+
+- 'securityfocus' website has a big library of vulnerabilites and not just explaining them but also provide exploits. 
+
+- Elemets of Security : CIA Traid -> Confidentiality -> Integreity -> Availability -> Authenticity -> Non-Repudation
+
+- Non-Repudation -> It will not allow a person to deny from the work that person has done, such as a person can not deny that
+  if he has sent the mail or not.
