@@ -27,3 +27,17 @@ still show the content.
 Note for hard link -> Screenshot(359)
 When a hard link is created it would not be shown as 'link' in details instead shown as normal file and also when u do ls -al u will
 not see the filename is directing to the path of the file like in soft link
+
+File System Structure and its Description -> Screenshot(363)
+
+Important things to remember -> Screenshot(364)
+
+ip addr -> for seeing IP related data
+
+hostname cmd ?
+
+Linux File System -> Screenshot(365, 366)
+
+Command Syntax -> Screenshot(367)
+
+File Permissions -> Screensho(368)
