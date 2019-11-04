@@ -1,0 +1,75 @@
+Youtube Link -> https://www.youtube.com/watch?v=jtcpREJLN1Y&list=PLxhvVyxYRviYPIlYxEFpzI6-rQkkvNgM1&index=2
+
+Cryptography ->
+
+XOR -> Screenshot(133, 134, 135)
+
+OTP(One Time Pad) -> Sreenshot(136, 137)
+
+Types of Ciphers -> Screenshot(138)
+
+Stream Ciphers -> Screenshot(139, 140)
+
+Block Ciphers -> Screenshot(141, 142)
+
+ECB(Electronic CodeBook) mode -> Screenshot(143, 144)
+
+CBC(Cipher Block Chaining) mode -> Screenshot(145, 146)
+
+Asymmeric Ciphers -> Screenshot(147, 148)
+
+Hashes -> Screenshot(149, 150)
+
+MACs(Message Authentication Code) -> Screenshot(151)
+
+HMAC -> Screenshot(152)
+
+Stream Cipher Reuse -> Screenshot(153, 154, 155, 156)
+
+ECB Block Reordering -> Screenshot(157, 158, 159, 160)
+
+ECB Decryption -> Screenshot(161)
+
+Mitigation -> Screenshot(162)
+
+Never MAC first then Encrypt -> Screenshot(163)
+
+Padding -> Screenshot(164)
+
+PKCS#7 -> Screenshot(165, 166, 167)
+
+Padding Oracle -> Screenshot(168, 169, 170, 171, 172, 173, 174)
+
+Mitigation -> Screenshot(175)
+
+Hash Extension -> Screenshot(176, 177, 178, 179, 180, 181)
+
+Mitigation -> Screenshot(182)
+
+Detection of ECB -> Screenshot(183, 184)
+
+Detection of Block Size -> Screenshot(185)
+
+Detection of Offset -> Screenshot(186)
+
+Notes on Padding Oracle -> Screenshot(187, 188)
+
+Padding Oracle Detection -> Screenshot(189)
+
+Padbuster tool -> Screenshot(190)
+
+TLS and PGP -> Screenshot(192)
+
+Important Note -> Screenshot(191, 193)
+
+Use BCrypt -> Screenshot(194, 199, 200)
+
+Goals for Strong Password -> Screenshot(195)
+
+MD5 -> Screenshot(196, 197)
+
+Salting -> Screenshot(198)
+
+Use BCrypt -> Screenshot(304)
+
+If Not BCrypt -> Screenshot(305)
