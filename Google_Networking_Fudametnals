@@ -1,0 +1,2250 @@
+NAT (Network Address Translation)->
+NAT is used in routers, it's purpose is to translate a set of IP addresses to a another set of IP addresses
+NAT helps in preserve the limited amount of IP4 public IP addresses
+Routers provide the private IP addresses to the devices in network and when devices wants to interact with the internet, then
+our private IP address for the device will be translated by NAT to the public IP address
+So NAT translates from private to public and also from public to private, as if the internet wants to interact with the
+computer on private network then the public IP address needs to translated by NAT to private IP address of that computer
+In the future we won't need NAT or private IP address bcz of IP6, bcz with IP6 every device in the world will have it's own
+public IP address.
+
+Protocol -> a define set of standards that computer must follow in order to communicate properly
+
+TCP/IP 5 layer Model-> ScreenShot(44)
+1) Physical Layer -> It represents the physical devices that interconnect computers
+2) Data Link Layer(Network Interface or Network Access Layer) -> At this layer we introduce our 1st protocols, It is
+   responsible for defining a common way of interpreting signals so network devices can communicate
+   The Ethernet standards also define a protocol responsible for getting data to nodes on the same network or link
+3) Network Layer(Internet layer) -> This layer allows different networks to communicate with each other through devices
+   known as routers
+   - A collection of networks connected together through routers, the most famous of these being the internet.
+   The Data link layer is responsible for getting data across a single link while a network layer is responsible for getting
+   data deliver across a collection of networks
+   - Most common Protocol for Network layer is IP
+   Network software is usually divided among the client and server categories, with the client application initiating the
+   request for data and the server software answering for the request across the network
+   A single node may be running multiple client and server applications
+   So u might run an email program and a web browser both client application on ur PC at the same time, and ur email and web
+   server might both run on the same server even so emails end up in ur email applications and web pages end up in ur web
+   browser that's bcz of transport layer
+4) Transport layer -> while the network layer delivers data between 2 individual nodes the transport layer sorts out that
+   which client and server programs r supposed to get that data
+   Protocol most commonly used in the 4th layer is TCP(Transmission control Protocol)
+   Other transport Protocols also use IP to get around, including a Protocol known as UDP(User Datagram Protocol)
+   TCP provides mechanisms that data reliably deliver while UDP does not
+   Network layer is in this case is IP which is responsible to get data from one node to another
+   Transport layer mostly TCP and UDP is responsible for ensuring that data gets to the right application running on those
+   nodes.
+5) Application Layer -> Protocols used to allow u to browse the web, or send or receive email are some common ones used in
+   this layer
+
+We can think of 5 layers like this
+Physical layer is the delivery truck and the roads ,data link layer is how the delivery truck gets from one intersection of
+road to another, the network layer identifies which roads to be taken to get from address A to address B, transport layer
+tells that the delivery driver knows how to knock on ur door for ur package and the application layer is the contents of the
+package itself
+
+The basis of Networking devices cables ->
+Cables -> They connect different devices to each other, allowing data to be transmitted over them, most network cables can 
+be split in two categories copper and fibre, Copper cables r most common, the sending device communicates binary data across
+these copper wires by changing the voltage between two ranges, the system at the receiving end interpret these voltage
+changes as binary 1's and 0's
+The most common forms of copper twisted pair cables used in networking are Cat5, Cat5e and Cat6 cables, these category
+twisted pairs are arranged to define the types of usable links and transfer rates
+Cat 5e is better then cat 5 bcz it's internals reduce crosstalk(when an electrical pulse on one wire is accidentally detected
+on another wire) bcz of which the receiving end does not understand data causing a network error
+
+Their are higher level protocols which have methods for detecting missing data and asking for the data second time.
+cat 6 is better then cat 5e in many aspects except they have a shorter maximum distance when used at higher speed.
+
+Fibre -> Contains individual optical fibres which r tiny tubes made out of glass about the width of human hair
+Fibre cables uses pulses of light to represent the 1's and 0's of the underlying data
+Fibres r used in areas where r many elector magnetic disturbances and they r also more faster at more distances with out
+potential data loss then cables
+
+Hubs and Switches ->
+Cables allow u to form point to point network connections, these r networks where only single device at each end exists.
+
+Hub -> It is a physical layer device that allows for connections from many computers at once
+All the devices connected to Hub will end up talking to all other devices at the same time, it's upto each system connected
+to the Hub to determine that the incoming data is meant for them or to ignore it, in this cases lots of noise create on the
+network and called collision domain
+
+Collision domain -> A network segment where only one device can communicate at a time, if multiple systems try sending data
+at the same time, the electrical pulses sent across the cable can interfere with each other, this makes the system to wait
+for the required period and this leads to slow down of network communications and this is the primary reasons why the Hubs
+r rare and historical artifact today
+
+In Switch u can connect many devices to it so that they can communicate, the difference in the Hub is that it is a physical
+layer device while a switch is a layer 2(Data Link) device, this means the switch can actually inspect the contents of the
+ethernet protocol data being sent around the network determine which system the data is intended for and then only send that
+data to that one system, this reduces the size of collision domain on the network which leads to less re-transmissions and
+high through put
+
+Routers ->
+The hubs and switches are the primary devices used to connect computers on a single network, usually referred to as LAN but
+we often wanna send the data to other networks here routers come in.
+Router is a device that knows how to forward data between independent networks
+Router operates at layer 3 (Network layer)
+Just like a switch can inspect ethernet data to determine where to send it a router can inspect IP data to determine where
+to send things
+
+Router store internal tables containing information about how to route traffic between lots of different networks all over
+the world.
+The most common type of routers u see r in home network or small office these devices generally don't have detailed routing
+tables, the purpose of these routers is generally to take traffic originating from inside the home or office to LAN which is
+to be forward to ISP
+Once traffic is at the ISP more sophisticated router takes over and these core routers form the backbone of the internet
+
+Core routers usually have many different connections to many other routers
+
+BGP(Border Gateway Protocol) -> Routers share data with each other via this protocol, which lets them learn about the most
+optimal paths to forward traffic
+- Routers are kind of global guides to get to right places
+
+Servers and Clients ->
+All the network devices exists to communicate with each other, we call these devices 'nodes'
+Servers could be understand simply as the something will provides data to something which requests those data and the thing
+receiving that data is referred to as Clients, we refer something in above definition bcz it's not just nodes which can be
+servers or clients, individual computer programs running on the same node can be servers and clients to each other.
+So most devices are not servers and clients, almost all nodes are both at the some time
+In most network topologies each node is primarily a server or a client, sometimes we refer email server as an email server
+even though it itself is a client of a DNS server bcz its primary reason for existing is to serve data to it's client
+likewise if a desktop machine occasionally access a server and sends that to another computer it's primary reason for
+existing is to fetch data from servers so that the user at the computer can do the work
+So server is anything that provide a data to a client
+
+Physical Layer ->
+It's main focus is to move 1's and 0's from one end of the link to the next
+The physical layer consist of devices and means of transmitting bits across computer networks
+A bit is the smallest representation of data that a computer can understand, it's a one or a zero
+Modulation is a way of varying the voltage of this charge moving across the copper cable
+In Computer Networks this kinds of modulation is commonly called Line Coding, it allows devices on either end of the link to
+understand the electrical charge in certain state is 0 and in another state is 1
+
+Twisted Pair Cabling and Duplexing -> These twisted pair of copper cables allow for Duplex communication
+Duplex communication is the concept that information can flow in both the directions across the cable
+Simplex communication is unidirectional
+The Duplexing communication is possible by reserving one or two pairs for communicating in one direction they then use the
+other pairs for communicating in other direction
+If their is something wrong with the connection u might see network link degrade and reporting it self as Half duplex, means
+the communication is possible in each direction but only one device can be communicating at a time
+
+Network Ports and Patch Panels ->
+The final steps of how the physical layer works takes place is at the endpoints of our network links, the twisted pair of the
+cables end up with a plug, the most common plug is the "RJ45", So RJ45 plug can connect to RJ45 network port
+Network ports r generally directly attached to the devices that make up a computer network
+Switches would have many network ports bcz their purpose is to connect many network devices, but servers and desktops have
+usually one or two
+Sometimes ur computer will not directly linked to ports as they as first connected to patch panels, Patch Panel is a device
+containing many network ports that's it, it's just a container for the end points or many cables, additional cables are 
+generally run from patch panel to switches and routers to provide network access to the computers to the other ends of those
+links.
+
+The Data Link Layer ->
+Ethernet and Mac addresses -> The Protocol most widely used to send data across individual links is Ethernet, Ethernet and
+Data link layer provides means for software at the higher level stack to send and receive data, one of the primary purposes
+of this layer is to abstract away the need for any other layers to care about the physical layers and what hardware is in
+use, by dumping this responsibility on the Data link layer the Network, Transport and Application layers can all operate the
+same way no matter how the device they r running on is connected.
+Such as ur Web browser doesn't need to know it is running on twisted pair or fibre etc, it just needs the underlying layer to
+send and receive data for it
+
+CSMA/CD -> Used to determine when the communication channels are clear and when the device is free to transmit data, it works
+like this if their is no data currently being transmitted on the network segment a node will feel free to send data, if it
+turns out that the two or more computers end up transmitting data at the same time, the computers detect this collision and
+stop sending data, each device involved in the collision then will be waiting random interval of time before trying to send
+data again, this random interval will help all the computers involved in the collision from colliding again next time when
+they try to transmit any thing
+When a network segment is a collision domain it means that all devices on that segment receive all communication across the
+entire segment this means we need a way to determine which node the transmission was actually meant for, this is known as
+Media access control address or MAC address
+
+MAC Address -> it is globally unique identifier attached to an individual network interface, it's a 48bit no. normally
+represented by 6 groupings of two hexadecimal numbers
+A MAC address is split in two sections
+The first 3 octets of MAC address r known a OUI(Organizationally Unique Identifier) these r assigned to individual hardware
+manufactures by the IEEE, the last three octets of the MAC address can be assigned in any way the manufacturer would like 
+with the condition that they only assign each possible address once to keep all MAC addresses globally unique
+
+Ethernet uses MAC addresses to ensure that the data it sends has both an address for the machine that sent the transmission
+as well as the one the transmission was intended for.
+This way even the network segment acting as a single collision domain, each node on that network knows when traffic is
+intended for it.
+
+Unicast, Multicast and Broadcast ->
+Transmit data from one device to another device is known as Unicast, A unicast transmission is always meant for just one
+receiving address
+At the ethernet level this done by looking at special bit in the destination MAC address
+If the least significant bit in the first octet of a destination address is set to zero, it means that ethernet frame is
+intended for only the destination address
+This means it will send to all devices on the collision domain but actually received and process by the intended destination
+If the least significant bit in the first octet of a destination address is set to one, it means u r dealing with multicast
+frame in multicast frame is similarly set to all devices on the local network segment and it will be accepted and discarded
+by each device depending on criteria aside from their own hardware mac address
+
+Network interfaces can be configured to accept lists of configured multicast addresses for these sorts of communication
+
+The third type of ethernet transmissions is known as broadcast, In ethernet broadcast it sends it to every single device on 
+a LAN, this is accomplished by using a special destination known as Broadcast address
+
+The Ethernet broadcast address is all FF:FF:FF:FF:FF:FF
+
+Ethernet broadcast r used so that the devices can learn more about each other
+
+Dissecting an Ethernet Frame ->
+Data Packet -> Is an all-encompassing term that represents any single set of binary data being sent across a network link
+The term Data-packet isn't tied up with any layer or technology, it just represents a concept as one set of Data sent from
+point a to point b.
+
+Data-Packets at the ethernet level r known as Ethernet Frames.
+Ethernet Frame is a highly structured collection of information presented in specific order, this way the network interfaces
+at the physical layer can convert a stream of bits travelling across a link into meaning full data or vice-versa
+Almost all sections of a ethernet frame are mandatory and most of them have a fix size. Screenshot(45)
+
+The First part of Ethernet Frame is known as Preamble, it is 8 bytes long and can itself be split into two sections, the 1st
+7 bytes r alternating series of 1's and 0's, these act partially as buffer between frames and can also be used by the network
+interfaces to synchronize internal clocks they use to regulate the speed at which they send data and the last byte in 
+Preamble is known as SFD
+SFD(Start Frame Delimiter) -> It signals to a receiving device that the preamble is over and the actual frame contents will
+                              now follow
+
+The Second part is the Destination Mac Address, this is the hardware address of the intended recipient, it is 6 bytes long
+
+The Third part is Source Address, it is 6 bytes long, it is the place from where the frame is originated from
+
+The Fourth Part is VLAN header, it is 4 bytes long, it indicates that the frame itself is called VLAN's frame, If a VLAN
+header is present the ethertype field follows it
+VLAN(Virtual LAN) -> It's a technique that lets u have multiple logical LAN's operating on the same physical equipment
+
+Any frame with the VLAN tag will only be delivered out of a switch interface configured to relay that specific tag, this way
+u can have a single physical network that operates like it's multiple LAN's
+VLAN's r usually used to segregate different forms of traffic
+So u might see a companies IP phones operate on one VLAN while all desktops operating on another
+
+The Fifth Part is Ethernet Type, it is 2 bytes long, it is used to describe the protocol of the contents of the frame
+
+The Sixth part is Data Payload, it ranges from 0-1500 bytes
+A Payload in networking term which is the actual data being transported, which is everything that isn't a header
+The data payload of a traditional ethernet frame can be any where from 46-1500 bytes long, this contains all of the data
+from higher layers such as the Network, transport and application layers that actually being transmitted
+
+The Seventh and last part is the FCS(Frame Check Sequence), it is 4 bytes long, it represents the checksum value for entire
+frame, This checksum value is calculated by performing what's known as a cyclical redundancy check against the frame
+
+Cyclical Redundancy Check(CRC) is an important concept for data integrity and is used all over computing, not just network
+transmissions.
+CRC is a mathematical transformation to create a no. that is larger set of data, any time u perform a CRC against a set of 
+data u should end up with the same checksum no.
+The reason it is included in the ethernet frame is so the receiving network interface can confirm that if it receives the
+uncorrupted data
+When a device gets ready for sending the ethernet frame, it collects all the information like the destination and the
+originating MAC address ,the data payload and so on. then it performs a CRC against that data and attaches the resulting
+checksum no. as the Frame check Sequence
+At the end of the frame this data is then send across a link and received at the other end
+Here all the various fields of the ethernet frame r collected and now the receiving side performs a CRC against that data, 
+if the checksum computed by the receiving end doesn't match the checksum in FCS field the data is thrown out, this is bcz 
+some amount of data must have been lost or corrupted during transmission, it's then out to a protocol of a higher layer to
+decide that data should be retransmitted
+Ethernet itself only reports on the data integrity, it doesn't perform data recovery
+
+Network Layer ->
+On a LAN nodes can communicate with each other through their physical MAC addresses, this is suitable for small scale bcz
+switches can learn MAC addresses connected to each of the Ports to forward transmissions appropriately, every single Network
+interface has a unique MAC address and they are not ordered in any form of systematic way, their is no way of knowing where
+in the planet a certain MAC address might be at any one point in time, so it's not ideal for communication across distances
+
+IP Address -> IP addresses r 32 bit long no. made of 4 octets, IP addresses r distributed in large sections to various
+organizations and companies instead of determined by Hardware vendors, this means the IP addresses r more hierarchical and
+easier to store data then the physical addresses
+Think about IBM which owns every single IP that has no. 9 as it's 1st octet, at high level this means if the internet router
+needs to figure out where to send a data packet intended for the IP address 9.0.0.1 that router has get to know only one of
+IBM's router and that router handle rest of the delivery process from their
+IP addresses belong to networks not to the devices attached to those networks, So ur laptop will always have the same MAC
+address no matter where u use it but it will have different IP addresses assigned to it as in the Internet cafe then it 
+would when u r home.
+The LAN in internet cafe or at ur house will each be individually responsible for handing out an IP address to ur laptop.
+
+On many modern networks u can connect a new device and an IP address will be assign to it automatically, through a technology
+known as DHCP(Dynamic Host Configuration Protocol) the IP address assigned this way is known as Dynamic IP address, While 
+Static IP address must be configured on a Node manually.
+
+In most cases static IP addresses r reserved for servers and network devices while dynamic IP addresses r reserved for 
+clients but their r certainly situations where this might not be true
+
+IP Datagrams and Encapsulation -> Just like all the data packets at the ethernet layer have a specific name ethernet frames,
+So do packets at the network layer under the IP protocol a packet is usually refer to IP datagram
+An IP datagram is a highly structured series of fields that r strictly defined
+The two primary sections of a IP datagram r the Header and the Payload, IP datagram header contains a lot more data then the
+ethernet data frame does. ScreenShot(46)
+
+1st field (Version) is 4 bits and indicates what version of internet protocol is used, The most common version of IP is 
+version 4(IPv4)
+
+2nd field (Header Length) is 4 bits and declares how long the header is, it is almost always 20 bytes in length when dealing
+with IP4, infact 20 bytes is the minimum length of IP header, u couldn't fit all the data u need for a properly formatted IP
+header in any less space
+
+3rd field (Service TypeField) these 8 bits can be used to specify details about quality of service or QoS technologies, These
+r services that allow routers to make decisions about which IP datagram may be more important then others
+
+4th field (Total Length) is 16 bit field, it indicates the total length of the IP datagram it's attached to
+
+5th field (Identification Field) it is 16 bit number used to group msgs together, The maximum size of a single datagram is
+the largest datagram u can represent with 16 bits, If the total amount of data that needs to be sent is larger than what can
+fit in a single datagram, the IP layer needs to split this data up into many individual packets and when this happens the
+Identification field is used so that the receiving end understands that every packet with the same value in that field is 
+part of the same transmission
+
+6 th and 7th fields r Flags Field and Fragment Offset Field, the Flag field is used to indicate if a datagram is allowed to
+be fragmented, or to indicate that the datagram is already been fragmented
+Fragmentation is the process of taking a single IP datagram and splitting it up into several smaller datagrams
+Well most networks operate with similar settings in terms of what size an IP datagram is allowed to be sometimes this could
+be configured differently, if a datagram has to cross from a network allowing a larger datagram size to one with a smaller
+datagram size, the datagram have to be fragmented into smaller ones
+The Fragment offset field contains values used by the receiving end to take all the parts from a fragmented packet and put
+them back together in a correct order
+
+8th field(TTL) it is an 8 bit field that indicates how many router hops a datagram can traverse before it's thrown away
+Every time a datagram reaches a new router, that router decrements the TTL field by 1, once this value reaches 0, a router 
+knows it doesn't have to forward datagram any further
+The main purpose of this field is to make sure that when their is misconfiguration in routing that causes an endless loop,
+datagrams don't spend all eternity trying to reach the destination.
+This endless loop could be when router 'a' thinks router 'b' is the next hop and router 'b' thinks router 'a' is next hop
+
+9th field (Protocol) it is an 8 bit field that contains data about what transport layer protocol is being used, The most 
+common transport layer protocols are TCP and UDP
+
+10th field (Header checksum) this field is the checksum of the contents of the entire IP datagram header, it functions very
+much like the ethernet checksum field
+Since the TTL field has to be recomputed at every router that a datagram touches, the checksum field necessary changes too
+
+11th and 12th fields the Source IP Address and Destination IP Address
+
+13th field (Options field) it is an optional field and is used to set special characteristics for datagram primarily used 
+for testing purposes, the Options field is usually followed by Padding field, Since the options field is both optional and
+variable in length, the Padding field is a series of zeros used to ensure the header is the correct total size
+
+IP datagram is the Data Payload section and this process is known as Encapsulation. Screenshot(47)
+The entire contents of the IP datagram r encapsulated as the payload of ethernet frame
+The IP datagram also has a payload section, the contents of this payload r entirely of TCP or UDP packet
+Each layer in Networking is needed by the one above it
+
+The IP Address Classes ->
+The IP addresses can be split into two sections the network ID and the host ID
+Ex -> 9.100.100.100, the network id will be the first octet '9' here and other 3 octets will come in Host ID
+Address Class System -> A way of defining how the global IP address space is split up
+their r 3 primary types of address classes ->
+- Class A -> these r those where the 1st octet is used for the network ID and the last 3 r used for the Host ID
+- Class B -> these r where 1st two octets r used for the network ID and the last 2 used for the host ID
+- Class C -> these r where 1st three octets r used for the network ID and the last one used for the host ID
+
+Each Address class represent network of vastly different size, range and max hosts no.'s. ScreenShot(48)
+We can identify the class of IP by looking at the range chart for each class
+The chart also translate nicely how these addresses r represented in dotted decimal notation, as u remember each octet in IP
+address is 8 bits which means each octet can take value between 0 and 255, If 1st bit has to be a 0 as it is with class A
+address, the possible values for the first octet is from 0-127 and go on for other class types of IP
+For Class B it would be from 128-191
+For Class C it would be from 192-224
+Class D addresses always begin with the bites 1110 and r used for multicasting which is how a single IP datagram can be sent
+to an entire network at once, these addresses began with decimal values between 224-239
+Class E addresses make up all of the remaining IP addresses but they r unassigned and only used for testing purposes
+This class system has mostly being replaced by an system known as CIDR(Classless inter-domain routing)
+
+ARP(Address Resolution Protocol) -> It is a protocol used to discover the hardware address of a node with a certain IP 
+address, Once an IP datagram has being fully formed it needs to be encapsulated inside the ethernet frame, this means the
+transmission device needs a destination MAC address to complete the ethernet frame header.
+Almost all network connected devices will retain a local ARP table.
+ARP table -> it is just a list of IP addresses and the MAC addresses associated with them
+
+Lets say we wants to send some data from Host 'A' to IP address 10.20.30.40, their might be the case that this destination
+doesn't have an entry in the ARP table when this happens the node that wants to send data, sends a broadcast ARP msg 
+of(FF:FF:FF:FF:FF:FF) to the MAC broadcast address which is all FF's, these ARP msgs will be delivered to all computers on
+the local Network when the network interface that has been assigned 10.20.30.40 receives this ARP broadcast it sends back an
+ARP response this response msg will contain the MAC address for the Network interfacing. Now the transmitting computer knows
+what MAC address to put in the destination hardware address field and the ethernet frame is ready for delivery, It will also
+likely store this IP address in it's local ARP table so it won't have to send that local ARP broadcast next time when it
+needs to communicate with this IP.
+
+ARP table entries generally expire after a short amount of time to ensure changes in the network r accounted for.
+
+Subnetting ->
+It is the process of taking a large network and splitting it up into many individual and smaller subnetworks or subnets
+
+Incorrect subnetting setups are a common problem u might run into as an IT support Specialist, so it's important to have a 
+strong understanding of how it works
+
+Address classes give us a way to break a total global IP space into discreat networks, If u wanna communicate with IP 
+address 9.100.100.100, core routers on the internet will know that this IP belongs to the 9.0.0.0 class A network, they then
+route the msg to the gateway router responsible for the network by looking at the network ID
+A gateway router(core router) specifically serves as the entry and the exit path to a certain network, once ur packet gets
+to the gateway router to the 9.0.0.0 class A network that router is now responsible for getting that data to the proper 
+system by looking at the host ID
+
+With Subnets u can spilt ur large networks up into many smaller one's, these individual subnets will have their own gateway
+routers serving as the ingress and egress point for each subnet
+
+Subnet masks ->
+In subnetting some bits that will normally comprise the Host ID r actually used for the subnet ID with all 3 of these ID's
+(Subnet,Host , Network) representable by single IP address, will know have a single 32 bit no. that can be accurately
+delivered across many different networks.
+
+At the internet level core routers only care about the network ID and use this to send the Datagram along to the appropriate
+gateway router of that network, that gateway router then has some additional information that it can use to send the datagram
+along to the destination machine or the next router in the path to get their, Finally the host ID is used by that last router
+to deliver the datagram to the intended receipent machine. Subnet ID's r calculated via known as subnet mask
+
+Subnet masks r 32 bit numbers that r normally written out as 4 octets in decimal
+We can compare one subnet mask to an IP address to understand
+
+We have IP address as -> 9    .    100    .     100   .     100
+IP in binary ->     0000 1001 . 0110 0100 . 0110 0100 . 0110 0100
+Subnet Mask  ->     1111 1111 . 1111 1111 . 1111 1111 . 0000 0000 // subnet mask is a binary no. that has 2 sections just the
+                                                                  // last octet contains 0's
+
+Subnet mask which has part of the no. all the 1's tells us what we can ignore when computing a host ID and the part with 0's
+tells us what to keep
+
+we here r using the common subnet mask 255.255.255.0 the part that all 1's is to tell a router what part of an IP address is
+the subnet ID
+
+we know that 9.100.100.100 is a class A network so 9 is the first octet and we will here use last 3 octets, the no's which
+have corresponding 1's in the subnet mask are the subnet ID the no.'s in the remaining octet which has corresponding 0's r
+the host ID,
+the size of the subnet is entirely decided by it's subnet mask
+So for Example with a subnet mask of 255.255.255.0 here we know the last octet with 0 is remaining for host ID's regardless
+of what network or subnet ID's are
+
+A single 8 bit no. can represent 256 different numbers, or more specifically the numbers 0-255, but 0 is normally not used
+and 255 is normally reserved as a broadcast address for the subnet this means that only the no.'s from 1 to 254  r available
+for assignment to a host
+Generally speaking u r referred to the no. of host available in a subnet is the entire no.
+
+So even if that is understood two addresses with 0 and 255 r not available for assignment u still say that 8 bits host ID 
+space has 256 address available not 254 this is bcz those other IP's r still IP addresses even if they r not assigned 
+directly to a node on that subnet
+
+The subnet mask 255.255.255.224 will translate to 1111 1111.1111 1111.1111 1111.1110 0000 this means that we have 5 bit's of
+host ID space or a total of 32 addresses
+
+Now if we r dealing with 9.100.100.100 with subnet mask of 255.255.255.224 now this subnet mask represents 27 of 1's followed
+by 5 of 0's a quicker way of referencing this is with the notation /27 the entire IP and subnet mask could be written now as
+ -> 9.100.100.100/27
+
+In general a subnet can usually only contain 2 less then the total no. of Host ID's available
+
+Basic Binary Math ->
+Binary and Base two r same
+
+If u have 8 bit no. u can perform as 2**8(2 to the power 8) = 256, So it shows that a 8 bit no. can represent 256 decimal no.
+or from 0 to 255
+In the same way If u have 4 bit no. u can perform as 2**4 = 16, So it shows that a 4 bit no. can represent 16 decimal no. as
+it goes on with
+If u have 16 bit no. u can perform as 2**16 = 65536, So it shows that a 16 bit no. can represent 65536 decimal no.
+
+So we represent binary as base 2 and decimal as base 10
+
+Ex -> lets take a base 10 no. with two columns of digits -> 00 00 and this will translate to 10**2 =100 which makes it
+now -> 99 99
+Similarly for base 10 no. with 3 columns of digits -> 00 00 00 and this will translate to 10**3=1000 which makes it now ->
+999 999 999
+
+0+0 -> 0
+0+1 -> 1
+1+0 -> 1
+1+1 -> 10
+
+Two most important operators r AND & OR and 1 represents true and 0 represents false
+
+Subnet Mask is a way for a computer to use AND operators to determine if an IP address exists on the same Network, this means
+the host id portion is also known since their will be anything leftout
+
+We have IP address as -> 9    .    100    .     100   .     100
+  IP in binary ->     0000 1001 . 0110 0100 . 0110 0100 . 0110 0100
+  Operation to Perform  AND         AND         AND         AND
+  Subnet Mask  ->     1111 1111 . 1111 1111 . 1111 1111 . 0000 0000 // this is binary for 255.255.255.0
+  Result       ->     0000 1001 . 0110 0100 . 0110 0100 . 0000 0000 // the Result would be the Network ID and subnet ID of 
+                                                                    // our portion which is
+                        9       .   100     .    100    .    0
+The computer that just performed this operation can now compare the results with it's own Network ID to determine that is 
+the address is on the same network or different one.
+
+CIDR -> Address classes were the first attempt in splitting up the global internet IP space, subnetting was introduced when
+it was realized that the address classes r not an efficient way for keeping classes organized but as the internet grows the
+traditional subnetting just couldn't keep up
+With Traditional subnetting and address classes the Network ID is always either 8 bit for class A networks, 16 bit for class
+B networks ,24 bits for class C networks
+This means that their might only be 254 class A networks in existance but it also means that their r around 297 million 
+potential class C networks
+
+The Sizing of these networks are not always appropriate for the needs of most buissness
+
+So 254 hosts for class C is too small and 65534 of class B is too large, so many companies ended up with various adjoining
+class c networks to meat their needs that means the routing table ended up with bunch of entries for bunch of class c 
+networks that r all actually being routed with the same place this is where CIDR comes into play
+
+CIDR is more approriate approach for describing blocks of IP addresses, it expands on the concept of subnetting by using
+subnet masks to demarcate networks
+
+To Demarcate something means to set something off
+Demarcation point -> To describe where one network or system ends and another one begins
+
+In previous model we relied on Network ID, Subnet ID and Host ID to deliver an IP datagram to the correct location with CIDR
+the Network ID and subnet ID r combined into one CIDR where we get this '/27' kind of notation which is also known as CIDR
+notation
+CIDR basically abondans the concept of address classes entirely allowing an address to be defined by only two individual ID's
+
+Lets take IP address as -> 9    .    100    .     100   .     100
+           Subnet Mask  ->255   .    255    .     255   .       0   // this can also be written as 9.100.100.10/24
+In the world in which we donot care about the address class of IP all we need is what the Network mask tells to determine the
+network ID in this case that would be 9.100.100 as the Host ID remains the same
+
+Before this network sizes were static based on class A, B, C and only subnets can be of different sizes while CIDR allows for
+networks themselves to be in different sizes before this if a company needed more addresses then a single class c can provide
+they need an entire 2nd class c but with CIDR they can combine that address space into one contigous chunk with a netmask of
+/23 or 255.255.254.0 this means that the router now only need to know one entry in the routing table to deliver traffic to 
+these address instead of two
+
+It also important that u get additional available host ID's out of this practice, remember that u always lose 2 host ID's per
+network So if a /24 network is 8 host bits means 2**8 = 256 hosts then u only have 256 - 2 = 254 available IP's to assign
+If u need 2 networks of this size then u have 254+254 = 508 hosts on the otherhand
+a single /23 network is 9 host bits means 2**9 = 512 and then 512 - 2 =510 hosts
+
+Basic Routing Concepts ->
+A router is network device that forwards traffic depending on the destination address of that traffic, Router is device that
+has atleast two network interfaces since it has to be connected to 2 networks to do it's job
+
+Basic Routing Steps ->
+1) A router receives a packet of data on one of it's interfaces
+2) Router examins the destination IP of this packet
+3) The router then Looks up the IP destination network in it's routing table
+4) The router forwards that out through the interface that's closest to the remote network as determined by the additional
+   info in the routing table
+5) These steps r repeated often until traffic reaches it's destination
+
+Let's assume that the router is connected to two networks 1st Network 'A' have an address space of 192.168.1.0/24 and 2nd 
+network 'B' which has an address space of 10.0.0.0/24 and the router has interface on each network, on network A it has IP
+of 192.168.1.1 and on network B it has an IP of 10.0.0.254 remember IP address belongs to networks not individual nodes on
+the network a computer on Network A with IP address of 192.168.1.100 sends a packet to the address 10.0.0.10 and this 
+computer knows that 10.0.0.10 is in it's local subnet, So it sends this packet to the MAC address of it's gateway the router.
+ScreenShot(49)
+
+The Routers Interface on Network A receives the packet bcz it sees that destination MAC address belongs to it, the router
+strips away the Data link layer encapsulation by removing ethernet header and ethernet footer and leaving only the network
+layer contents the IP datagram, now the router can directly inspect the IP datagram Header for the destination IP field, it
+finds the destination IP as 10.0.0.10 then router looks at it's routing table and sees that network B or 10.0.0.0/24 network
+is the correct network for the destination IP, it also sees that this network is only one HOP away infect since it's directly
+connected the router even has the MAC address for this IP in it's ARP table.
+Next a router needs to form a new packet to forward along to network B, it takes all of the data from it's 1st IP datagram
+and duplicates it but it decrements the TTL field by 1 and calculates a new checksum then it encapsulates this new IP 
+datagram inside of a new ethernet frame this time it sets it's own MAC address on the interface of Network B as the source
+MAC address, Since it has the MAC address of 10.0.0.10 in it's ARP table it sets that as the destination MAC address and
+lastly the packet is send to it's destination network (Network B) and the data finally gets delivered to the node living at
+10.0.0.10
+
+Now lets introduce a New network in above scenerio
+
+The third network with the address space of 172.16.1.0/23 and a second router connected network B and new network C it's 
+interface on network B has IP 10.0.0.1 and it's interface on network C has an IP of 171.16.1.1 this time around our computer
+at 192.168.1.100 wants to send some data that has an IP of 172.16.1.100 here we r skipping the Data link layer process like
+above but remember it is still happening the computer at 192.168.1.100 knows that computer 172.16.1.100 is not on it's local
+network, So it sends the packet to it's gateway the Router between network A and network B, again the Router inspects the
+content of this packet it sees the destination address of 172.16.1.100 and then lookup through it's routing table, it knows
+that quickest way to 172.16.1.0 /23 network is being at another router with an IP of 10.0.0.1 the router decrements the TTL
+field and sends it along to the router of 10.0.0.1, this router goes through the motions and knows that the destination IP
+of 172.16.1.100 is directly connected and forward the packet to it's final destination
+
+The difference in above example and real life scenerio is the scale as the routers r connected to many more routers, as ur
+traffic may have to cross a dozen routers before it reach it's final destination and in order to protect against breakages
+the core internet routers r typically connected in a Mesh, meaning their might be many different paths for a packet to take
+still the concept is same the router inspects the destination IP then look at the routing table that which path is the 
+quickest and forward the packet along the path
+
+Routing Tables ->
+All major operating systems today have a routing table that they can saw before transmitting data, U can still build ur own
+router today if u had a computer with 2 network interfaces and a manually updated routing table, Routing tables varies on the
+class of Router but they all share few things in common as the most basic routing table will have 4 columns
+
+1)Destination network -> This column will contain a row for a each network that the router knows about, this is just the
+defination of the remote network as a network ID and the net mask as ->
+   IP          -> 192.168.1.1
+ Subnet Mask   -> 255.255.255.0
+ CIDR          -> 192.168.1.1/24
+These could be store in one column inside a notation or the network ID and the net mask in the seperate column either way 
+it's the same concept, the router has a defination of a network and therefore knows what IP addresses might live on that
+network when the router receives an incoming packet it examines the destination IP address and determines which network it
+belongs to a routing table will generally have a catch all entry that matches any IP address that it doesn't have a explict
+network list for.
+
+2)Next HOP -> This is the IP address of the next router that should receive data intended for the destination network in
+question or this could just state the network directly connected and their aren't any additional hops needed
+
+3)Total Hops -> On any complex network their will be lots of different paths to get from point A to point B, Routers try to
+pick the shortest possible path to ensure timely delivery of data but a shortest possible path to a destination network is
+something that could change over time sometimes very rapidly as links could be disconnected, new routers can be introduced, 
+traffic conjection or certain routes could become slow to use
+So for each next HOP and each destination network the router will have to keep track that how far away that destination 
+currently is and that way when it receives updated information from neighbouring routers it will know if it currenlty knows
+about the best path or if they knew better path is available
+
+4) Interface -> The router also has to know which of it's interfaces it should forward traffic matching the destination
+network, In most cases routing tables r pretty simple as many core internet routers have millions of rows in the routing
+table, these must be consulted for every single packet that flows through a router on it's way to it's final destination
+
+Interior Gateway Protocols -> These protocols helps u identify routing problems on any network
+The routers use the Routing protocols these r special protocols that routers use to speak to each other in order to share
+what information they might have, this is how the router on the one side of the planet can learn about the best path to a
+network on the other side of the planet
+
+Routing protocols fall into two main categories: interior gateway protocols and exterior gateway protocols
+
+Interior gateway protocols r further split into two categories: Link state routing protocols and distance-vector protocols
+
+Interior gateway protocols are used by routers to share information within a single autonomous system
+Autonomous System is a collection of networks that all fall under the control of a single network operator
+Ex -> A large coperation that needs to route data between many offices and each of which might have their own local area
+network another example is that the many routers employed by ISP who's reaches r usally national in scale we can contrast
+this with exterior gateway protocols which r used for the exchange of information between independent autonoumous systems.
+
+Distance vector Protocols r older standard, A router using a distance vector protocol basically just takes it's routing table
+which is a list of every network known to it and how far away these networks r in terms of HOP's then the router sends this
+list to every neighbouring router which is basically every router directly connected to it
+
+In computer science a 'list' is known as a 'vector'
+
+This is why a protocol that just sends a list of distances to networks is known as distance vector protocol
+With a Distance vector protocol routers don't really know much about the total state of an autonomous system they just have 
+some information about their immediate neighbours
+
+Distance vector protocol working ->
+Router A and Router B influence each others routing tables, Router A has a routing table with bunch of entries and one of
+these entries is for 10.1.1.0/24 network which we currently refer to as network X, Router A beleives the quickest path to the
+Network X is through it's own interface '2' which is where router C is connected, Router A knows that sending data intended
+for Network X through interface '2' through router C means it will take 4 HOPs to get to the destination,
+Meanwhile router B is only 2 HOPs away from network X and this will reflect in it's routing table, Router B using the
+distance vector protocol sends the basic contents of it's routing table to Router A, now router A will see that network X is
+only 2 HOPs away from router B, even with the extra hop to get from router A to router B this means the network x is only 3
+HOPs away from router A now it forwards data to router B instead of router C So now the router A updates it's routing table
+to reflect this in order to reach network X it should forward traffic through it's own interface 1 to router B
+
+The Distance vector Protocols r pretty simple by they don't allow for a router to have much information about the state of
+the world outside of their own direct neoghbours bcz of this a router might be slow to react to a change in the network far
+away from it and this is why link state protocols where invented
+
+Routers using the link state protocol take more sophesticated approach to determine best path, In this each router advertise
+the state of the link of each of it's interfaces, These interfaces could be connected to another routers or they could be
+direct connections to the networks, the information of each router is propogated to every other router on the autonomous
+system, This means that every router on the system knows every detail about every other router in the system, Each router
+then uses this much larger set of information and runs complicated algorithms against it to determine whats the best path to
+any destination network might be
+
+Link state protocols require both the more memory in order to hold all this data and also much more processing power this is
+bcz it has to run algorithms against this data in order to determine the quickest path to update the routing tables
+
+As computer hardware becomes more powerfull and cheaper over the years the link state protocols have made the distance
+vector protocols outdated
+
+Exterior Gateway Protocols ->
+They r used to communicate data between the routers representing the edges of an autonomous system, since router sharing data
+using the interior gateway protocols are all under control of the same organization, routers use exterior gateway protocols
+when they need to share information across different organizations
+Exterior gateway protocols r really key to the internet operating how it does today
+
+The internet is an enourmous mesh of autonomous systems, at the highest levels core internet routers need to know about
+autonomous systems in order to properly forward traffic. Since autonoumous systems r known and defined collections of
+networks, getting data to the edge router of an autonoumous system is the first goal of the core internet routers.
+
+Internet Assigned Numbers Authority(IANA) is a non-profit organization that helps manage things like IP address allocation, 
+without it anyone can try and use any IP space they wanted which would cause total chaos
+
+Along with managing IP address allocation, the IANA is also responsible for ASN(Autonomous System Number) allocation.
+
+ASN r numbers assigned to individual autonomous systems, just like IP addresses ASN r 32 bit numbers but unlike IP addresses
+they normally referred to as just a single decimal number instead of split out into readable bits, their r 2 reasons for this
+1) IP addresses need to be able to represent a Network ID portion and a Host ID portion for each network this is more easily
+   accomplished by spliting the no. in 4 sections of 8 bits specially back in the day when address classes were used, In ASN
+   network needs to change in order for it's represent more networks or hosts, it's just a core internet routing tables that
+   need to be updated to know what the ASN represents
+2) ASN is looked far less then often then IP addresses r, So bcz it can be usefull to be able to look at the IP ->
+   9.100.100.100 and know that 9.0.0.0/8 address space is own by IBM, ASN's represent entire autonomous systems just being
+   able to look up the fact that AS19604 belongs to IBM
+
+Understanding how exterior gateway protocols work is out of scope for most peoples in IT but on ask being the basics of
+autonomous systems ASN's and how core internet routers route traffic between them is important to understand
+
+Non-Routable Address Space ->
+Even in 1996 internet was growing at rate that couldn't be sustain, when IP was first defined it define an IP address as a
+single 32 bit no. a single 32 bit no. can represent around 4 billion unique no. which sounds like a lot but as of 2017 their
+r estimated 7.5 billion humans on earth this means the IPv4 standard doesn't have enough IP addresses available for every
+person on planet
+
+It also can't account for entire data centers filled with thousands of computers required for large scale technolgy companies
+to operate, So in 1996 the RFC1918 was published, the RFC stands for Requests for Comments and it is a long standing way for
+those how r respinsible for keeping the internet running to agree upon the standard requirements to do so.
+RFC1918 outlined a no. of networks that would be defined as Non-routable address space, it is basically a ranges of IP's set
+aside for use by anyone that cannot be routed to as not every computer on internet needs to be able to communicate with every
+other computer connected to the internet, Non-routable address space allows for nodes for such a network to communicate with
+each other but no gateway router attempt to forward traffic to this type of network.
+
+NAT allows for computers on Non routable address space to communicate with other devices in the internet
+
+RFC1918 defines 3 ranges of IP addresses that will never be routed any where by core routers, that means that they belong to
+no one and any one can use them, infact since they r seperated from the way traffic moves on the internet their is no limit
+that how many people might use these addresses for their internal networks
+
+The primary 3 ranges for Non-Routable Address Space r ->
+1) 10.0.0.0/8
+2) 172.16.0.0/12
+3) 192.168.0.0/16
+These ranges r free for anyone to use for their internal networks, the interior gateway protocols will route these address
+spaces, So they r appropriate for use with in an autonomus system but exterior gateway protocols will not
+
+Transport and Application Layers Intro ->
+The transport layer allows the traffic to be directed to specific network applications and the application layer allows these
+applications to communicate in a way they understand
+
+Transport Layer ->
+It is liable for lots of important functions of reliable computer networking these include multiplexing and demultiplexing
+traffic, insuring long running connections and data integrity through error checking and data verification.
+The transport layer has the ability to multiplex and demultiplex.
+Multiplexing in transport layer means that nodes on the network have the ability to direct traffic toward many different
+recieving services, demultiplexing is the same concept just at the receiving end, it takes the traffic that is all aimed at
+the same node and delivering it to the proper receving service. ScreenShot(56)
+
+The transport layer handles multiplexing and demultipexing through ports
+
+Port is a 16 bit number that's used to direct traffic to specific services running on a networked computer.
+Different network services run while listening on specific Ports for incoming requests.
+Ex-> HTTP traditional port is 80, if we want to request a web page from a web server running on a computer listening on IP
+10.1.1.100 the traffic will be directed to PORT 80 on that computer
+
+Ports r normally denoted with colon after the IP address, Ex -> 10.1.1.100:80, when it is written in this way then it is 
+known as socket address or socket number
+The same device might also be running on FTP(File Transfer Protocol)Server, FTP is an older method used for transfering
+files from one computer to another but u still see it in use today.
+FTP traditionally listens on Port 21, So if u want to establish a connection to a FTP server, running on the same IP that r
+example web server running on, U direct traffic to 10.1.1.100:21
+
+A single server can host almost all the applications to run a small buissness, The same computer might host an internal
+website, the mail server for company, fileserver, printeserver etc and this possible bcz of multiplexing and demultiplexing
+and the addition of Ports to our address and scheme
+
+Disection of a TCP segment -> Screenshot(57)
+Just like an Ethernet frame encapsulates and IP datagram, the IP datagram ecapsulates TCP segment, As the payload section
+of the Ethernet frame is the entire IP datagram the same way the IP datagram payload section consists the TCP segment
+
+TCP segment is made up of a TCP header and a data section, The data section here is just an another payload area for where
+the application layer places it's data.
+
+TCP header ->
+1st and 2nd field -> Source Port and Destination Port, the Destination Port is the port of the service the traffic is
+intended for and a Source port is a high-numbered port chosen from a special section of ports known as ephemeral ports
+They range typically between 1024 and 65535, and releases the port after the related TCP connection terminates.
+The source port is required to keep lots of outgoing connections seperate, the destination port such as port 80 is needed to
+make sure that the traffic reaches the web server on a certain IP, similarly a source port is needed when the web server
+replies the computer who make the request can send this data to the program that is actually requesting it and this a when a
+web server respond to ur request to view a web page that this response get received by a web browser and not ur wordprocessor
+
+3rd field -> Sequence number, this is a 32 bit number that's used to keep track of where in a sequence of TCP segments this
+one is expected to be,
+In the protocol stack thier r limits to the total size of what we send across the wire, an ethernet frame is usally limited
+in size to 1500 bytes, but we usally need to send way more data then that, so at the transport layer TCP splits all of it's
+data up into many segments, the sequence number is used to keep track of which segment out of many is particular segment
+could be.
+
+4th field -> Acknowledgement Number, It is lot like the sequence number, it is the number of the next expected segment,
+Simply saying a sequence number of 1 and the acknowledgement no. of 2 could be read as -> this is segment 1 expects segment 2
+
+5th field -> Header length(Data offset field), this is a 4bit number that communicates how long the TCP header for this
+segment is, this is so that the receiving network device understands that where the actual data payload begins,
+then their r 6 bits that r reserved for the 6 TCP control flags
+
+6th field -> TCP window, It specifies the range of sequence numbers that might be send before an acknowledgement is required
+, we know that the TCP is a protocol that super rely on acknowledgements, this is done in order to make sure that all 
+expected data is actually being received and then the sending device doesn't waste time in sending data that isn't being
+received.
+
+7th field -> Checksum, It operates just like the checksum fields at the IP and ethernet level, once all of a segment has been
+injested by the receipent the checksum is calculated accross the entire segment and is compare with a checksum in the header
+to make sure that their was no data corruption along the way
+
+8th field -> Urgent pointer field, It is used in conjunction with one of the TCP control flags to point out particular
+segments that might be more important than others
+This is a feature of TCP that hasn't really seen an adoption and u will probably never find it in modern networking
+
+9th field -> Options field, this is also rarely used in real world, but it is sometimes used for more complicated flow
+control protocols
+
+10th field -> Padding field, it is just a sequence of 0's to ensure that the data payload section begins at the expected
+location.
+
+11th field -> Data Payload
+
+TCP control flags and 3way handshake -> As a protocol TCP establishs connecetions used to send long chains of segments of
+data, these include IP and ethernet which just send individual packets of data
+The way TCP establishes a connection is through the use of different TCP control flags used in very specific order
+
+TCP 6 control flags ->
+1) URG(Urgent) Flag -> A value of 1 here indicates that the segment is considered urgent and that the urgent pointer field
+has more data about this.
+2) ACK(acknowledged) -> A value of 1 in this field means that the acknowledgement number field should be examined
+3) PSH(push) -> The transmitting device wants the recieving device to push currently-buffered data to the application on
+the recieving end as soon as possible
+A buffer is a computing technique where a certain amount of data is held somewhere before being sent somewhere else, In terms
+of TCP it is used to send large chunks of data more efficiently by keeping some amount of data in a buffer, TCP can deliever
+more meaningfull chunks of data to the program waiting for it but in some cases u might be sending a very small amount of
+information that u need the listening program to respond to immediatley and this is what push flag does
+4) RST(reset) -> One of the sides in a TCP connection hasn't been able to properly recover from a series of missing or 
+malformed segments, it is a way for one of the parteners in the TCP connection to basically say Wait I don't know what u
+mean, let's start from scratch
+5) SYN(synchronize) -> It's used when first establishing a TCP connection and makes sure the receiving end knows to examine
+the sequence number field
+6) FIN(finish) flag -> When this flag is set to 1, it means the transmitting computer doesn't have any more data to send data
+and the connection can be closed
+
+Scenerio -> Computer A is our transmitting computer and computer B is our recieving computer, the computer A sends a TCP 
+segment to computer B with a SYN flag set, this is computer A's way of saying lets establish a connection and look in my
+sequence no. field so we know where this conversation starts. Screenshot(58)
+Computer B then responds with a TCP segment with both the SYN and ACK flags r set, this way computer B is saying that sure
+let's establish a connection and I acknowledge ur sequence no.
+Then computer A responds with just the ACK flag sent which says, I acknowledge ur acknowledgement lets start sending data.
+Screenshot(59)
+These steps r taken every time when a TCP connection is established anywhere and this is called the 3way handshake
+
+Handshake is a way of 2 devices to ensure they r speaking the same protocol and will be able to understand each other
+Once the 3 way handshake is complete the TCP connections is established, Now computer A is free to send what ever data it
+wants from computer B and vice versa, Since both the sides have send SYN,ACK pair to each other so the TCP connection in this
+state is operating in full Duplex
+Each segment send in either direction should be responded to by a TCP segment with the ACK field set, this way the other side
+always knows what has been received, once one of the device in TCP connection is ready to close the connection, then the
+4 way handshake happens
+The computer ready to close the connection sends a FIN flag which the other computer acknowledges with the ACK flag, then if
+this computer is also ready to close the connection which is most of the times the case, it will send a FIN flag and this is
+again responed to by an ACK flag.Screenshot(60)
+Hypothetically a TCP connection can stay open in simplex mode with only one side closing the connection but it is not common
+
+TCP socket States ->
+Socket is the instantiation of an endpoint in a potential TCP connection
+Instantiation is the actual implementation of something defined elsewhere
+
+TCP sockets require actual Programs to instantiate them, u can contrast this with a Port which is more of a virtual scripted
+thing, in other words u can send traffic to any Port u want but u can only going to get a response if a program has opened a
+socket on that port
+TCP sockets can exist in lots of states and being able to understand what they means will help u to able to troubleshoot the
+connectivity issues as an IT support specialist
+
+Some common ones of TCP states r ->
+
+LISTEN -> A TCP socket is ready and listening for incoming connections, u see this on the server side only
+
+SYN_SENT -> A synchroniztion request has been sent, but the connection hasn't been established yet, U see this on the client
+side only
+
+SYN_RECEIVED -> A socket previously in a LISTEN state has recieved a synchronization request and sent a SYN/ACK back, but it
+hasn't recieved the final ACK from the client yet, u see this on the server side only
+
+ESTABLISHED -> The TCP connection is in working order and both sides r free to send each other data, u see this state on the
+both client and server sides of a connection. THis will be true of all the socket states too
+
+FIN_WAIT -> This means that a FIN has been sent, but the corresponding ACK from the other end hasn't been received yet
+
+CLOSE_WAIT -> The connection has been closed at the TCP layer, but that the application that opened the socket hasn't
+released it's hold on the socket yet
+
+CLOSED -> The connection has been fully terminated and that no further communication is possible
+
+The socket states and their names can vary from operating systems, that's bcz they exist outside the scope of the defination
+of TCP itself, TCP as a protocol is universal in how it's used since every device speaking to TCP protocol has to do this in
+the exact same way for communications to be succesfull
+
+Choosing how to describe the states of a socket at the OS level isn't quite universal, When troubleshooting issues at the TCP
+layer make sure u checkout the exact socket state definations for the systems u r working with
+
+Connection-Oriented and Connectionless Protocols ->
+TCP is a connection-oriented protocol
+A connection-oriented protocol establishes a connection, and use this to ensure that all data has been properly transmitted
+
+A connection at the transport layer implies that every segment of the data sent is acknowleged, this way both ends of the
+connection always know which bits of data have definately being delivered to the other side and which haven't.
+
+Connection-oriented protocols r important bcz the internet is vast and buzy place and lot's of things can go wrong when we
+try to send data from point A to point B. If a single bit hasn't been delivered properly the resulting data is often 
+incomprehensible by the receiving end and at the lowest level a bit is just an electrical signal within a certain voltage
+range.
+Their could be other reasons too such as pure conjuction might cause a router to drop ur traffic in favour of forwarding
+more important traffic, Hence the connection-oriented protocols like TCP protect against this by forming connections end
+through a constant stream of acknowledgements
+Our protocols at lower level of our network model like IP and ethernet use the checksums to ensure that all the data they
+receive was correct but we don't decide if we want to resend the data bcz it's entirely upto the transport layer protocol
+
+At the ethernet level if a checksum doesn't compute then all of that data is just discarded, it's upto TCP to determine when
+to resend this data, since TCP aspects an ACK for every bit of data it sends, it is in the best position to know what data
+successfully got delievered and can make the decision to resend a segment if needed, this is the another reason why sequence
+no. is so important of TCP segment
+Well TCP will generally send all segments in sequential order they may not always arrive in that order, if some of the 
+segments had to be resend due to the errors at lower layers, it doesn't matter if they arrive slightly out of order, this is
+bcz sequence no.'s allow for all of the data to be put back together in the right order.
+
+In connection-oriented such as TCP u have to establish a connection, send a stream of constant streams of acknowledgements,
+u have to tear the connection down at the end which accounts for lot of extra traffic but it's necessary if u wants to make
+sure that ur data got deliever reliably.
+
+Connectionless protocols -> The most common of these is UDP(User Datagram Protocol), unlike TCP the UDP doesnot relly on 
+connection and it doesn't even support the concept of acknowledgement.
+
+With UDP u can set a destination Port and send the packet, this is usefull for msgs that r not that important.
+EX -> streaming video, let's imagine that each UDP datagram is a single frame of a video, for the best viewing experience u
+might hope that every single frame makes it to the viewer but it doesn't really matter if u get lost along the way as the
+video will still be pretty watchable unless it is missing it's lot of frames, So u most probably get able to send higher
+quality video with UDP that's bcz u will be saving more of the available bandwidth for actual data transfer instead of the
+overhead of establishing connections and acknowledging the delivered data segments.
+
+Firewalls -> It is just a device that blocks traffic that meets certain criteria, It is a critical concept for keeping the
+network secure since the primary way to stop traffic u don't want entering a network
+Firewalls can operate at lots of different layers of the network, their r firewalls which do the inspection at the 
+application layer traffic and firewalls that block the ranges of the IP addresses.
+
+Firewalls r most commonly used at the transportation layer, Firewalls that operate at the transportation layer will generally
+have a configuration enables them to block traffic to certain ports while allowing traffic to other ports.
+
+Lets think of a small buissness network which has 1 server which host mulitple network services, this server might have a web
+server that host companies website and also serving as the file server for the confidential internal document and a firewall
+placed at the perimeter of the network could be configured to allow anyone to send traffic to port 80 inorder to view web
+page at the same time it could block all access for external IP's to any other port, So that no one outside of the local area
+network could access the file server(Screenshot 61)
+
+Firewalls r sometimes independent network devices but it is better to think of them as a program that can run anywhere
+For many companies and almost all home users the functianlity of a router and a firewall is performed by a same device and
+firewalls can run on individual hosts instead of being a network device, all major modern operating systems have firewall
+functionality built in that way blocking and allowing traffic to various ports and to specific services can be performed
+at the host level as well.
+
+Application Layer -> As like other the TCP segment has also a Data payload section in it, and this section is the entire 
+content of what ever data applications want to send to each other, it could be the contents of web page if their web browsers
+r connecting to a web server, this could be a streaming video content on ur netflix app on ur playstation connecting to the
+netflix servers, it could be the documents of ur word processor sending to a printer.
+
+At the data link layer the most common protocol is ethernet, The wireless technolgies do use different protocols at the Data
+link layer.
+At the network layer the use of IP is everywhere u look.
+At the transport layer TCP/UDP cover most of the usecases.
+But at application layer their r so many different protocols in use.
+
+The application layer protocols r still standerdize across application types.
+Ex -> Their r lot's of different web browsers but u don't need to speak the protocol, same is for web servers, So here the
+web browser would be the client and the web server would be the server.
+Some popular web servers -> Microsoft IIS, Apache, nginx but they also speak the same protocol, this way no matter which 
+browser u r using u still be able to speak to any server, for web traffic the application layer protocol is known as HTTP
+All of these different web browsers and web servers have to communicate using the same HTTP protocol specifications in order
+to ensure operatibility, the same is true for most other classes of application.
+U might have dozens of choices for FTP client, but they all need to speak the FTP protocol in the same way.
+
+OSI Model -> Their r many other models then our this 5 layer model in real time, As some models might combine the physical
+and data link layers into one and only talk about 4 layers
+
+OSI(Open Systems Connection) model has 7 layers and introduces 2 additional layers between our transport layer and 
+application layer, the session layer is responsible for Facilitating the communication between actual applications and the
+transport layer, it's the part of the operating system that takes the application layer data that's been un encapsulated and
+hand it off to the presentation layer. Screenshot(62)
+
+The presentation layer is responsible for making sure that the unencapsulated application layer data is able to be understood
+by the application in question, this is the part of the Operating system that might handle encryption or compression of data
+, but u will notice that their isn't any encapsulation going on that's why in 5 layer model we merge Application, Session,
+Presentation layers in one as the 5 layer is more commonly used to understand networking for the day to day buissnes
+
+All the layers working in Unison(All together woorking of all 5 layers) ->
+Imagine 3 networks network A with address space 10.1.1.0/24, network B address space 192.168.1.0/24 and network c address
+space 172.16.1.0/24, the router A sits between network A and network B, with the interface configured with IP 10.1.1.1 on
+network A, and an interface at 192.168.1.254 on network B, now router B sits between network B and network C, it has an 
+interface at network B with IP address of 192.168.1.1 and the interface on network C with IP address of 172.16.1.1
+Now a desktop lets say Computer 1 is part of network A and assigned an IP address of 10.1.1.100
+Now a server at a data center which will here act as an server and we will refer to it as Computer 2 and assigned an IP 
+address of 172.16.1.100 and has a web server listening on Port 80, Screenshot(63)
+
+On the Computer 1 the user opens a web browser and enters 172.16.1.100 into the browser address bar, the web browser running
+on computer 1 knows it has been ordered to retrieve a web page from 172.16.1.100, The web browser communicates with the local
+networking stack which is part of the operating system responsible for handling networking functions and explains that it
+wants to establish a TCP connection to 172.16.1.100:80. Screenshot(64)
+So the networking stack will now examine it's own subnet and it sees it lives on the network 10.1.1.0/24 which means the
+destination 172.16.1.100 is on another network, at this point computer 1 knows that it have to send any data to it's gateway
+for routing to a remote network and it's being configured with a gateway of 10.1.1.1
+
+Next computer 1 look at it's ARP table to determine what MAC address of 10.1.1.1 is but it doesn't find any corresponding
+entry So the computer A broadcast an ARP request for an IP address of 10.1.1.1, So this ARP request will be send to every
+node on the local network(Network A) ,Screenshot(65)
+When router A receives this ARP msg it sees it's the computer that currently assigned the IP address of 10.1.1.1 so it 
+responds to computer 1 to let it know about it's MAC address such as 00:11:22:33:44:55 and computer 1 receives this response
+and now knows the hardware address of it's Gateway. Screenshot(66), this means it is really to start constructing the
+outbound packet, Computer 1 knows that it has been asked by the web browser to form an outbound TCP connection, which means
+it will need an outbound TCP port, the operating system identifies the ethermal port of 50000 as being avialbale and opens a
+socket connecting the web browser to this port.
+Since this is a TCP connection the networking stack knows that before it can actually transmit any of the data the web
+browser wanted to it will need to establish a connection. Screenshot(67)
+So the networking stack starts building a TCP segment and fills all the appropriate fields in the header including a source
+port of 50000 and destination port of 80 and a sequence number will be choosen and filled in the field and finally the SYN
+flag is set and a checksum is calculated and written to the checksum field. Screenshot(68)
+
+Our newly constructed TCP segment is now passed along to the IP layer of the networking stack, this layer constructs an IP
+datagram and the header part is field with the source IP and the destination IP and TTL with 64 in TTL field which is pretty
+standard value for this field. Screenshot(69)
+Now the TCP segment is inserted as the data payload for the IP datagram and a checksum is calculated for a whole thing, Now
+the IP datagram is construted computer 1 needs to get this to it's gateway of which it now knows the MAC address due the
+previous steps of the ARP request we did and so the ethernet frame is constructed and all the fields r filled such as source
+and destination MAC addresses and the IP datagram is inserted as the data payload of ethernet frame and the other checksum 
+is calculated. Screenshot(70)
+
+Now the network interface connected to computer 1 sends it's ethernet frame binary data as modulations of the voltage in
+electrical current which is running across a Cat 6 cable that's connected between Computer 1 and network switch.
+Screenshot(71)
+Now this switch receives the frame and inspects the destination MAC address, the switch knows which of it's interfaces this
+MAC address is attached to and forward the frame across only to the cable connected to this interface. ScreenShot(72)
+
+At the other end of this link is router A which receives the frame, recognize it's own hardware address as the destination,
+router A knows that this frame is intended for itself, So now it takes the entire frame and calculated the checksum against
+it, Router A compares this checksum with the one in the ethernet frame and sees if they match.Screenshot(73)
+Next router A strips away the ethernet frame and leaving it with just the IP datagram and again performs the checksum
+calculation against the entire datagram and check for the Match, it inspects the destination IP address and performs a look
+up of this destination (172.16.1.100) in it's routing table, Router A sees in order to get the data to 172.16.1.0/24 network
+the quickest path is one HOP be at router B which has an IP of 192.168.1.1, router A looks at all the data in the IP 
+datagram then decrements the TTL by 1 calculates a new checksum and makes a new IP datagram
+Now router A knows that it needs to get the new IP datagram to router B with IP of 192.168.1.1 so it looks at it's ARP table
+entry for this IP address, now router A can begin to construct it's ethernet frame with the MAC address of it's interface
+on network B as the source and the MAC address of router B interface on network B as the destination and once it is done, 
+The router A places the newly constructed IP datagram into the ethernet frame payload field then calculate the checksum and
+places this checksum into place and sends this frame out to network B.Screenshot(74)
+Just like before this ethernet frame makes it across network B and is recieved by router B then router B performs all the 
+checks Screenshot(75) then removes the ethernet frame encapsulation and performs the checksum against the IP datagram and
+then it examines the destiantion IP address(172.16.1.100) look at it's routing table, and router B sees that the destiantion
+address of Computer 2 is on a locally connected network, So it decrements the TTL by 1 again calculate a new checksum and
+creates a new IP datagram, this new IP datagram is again encapsulated with a new ethernet frame this one with the source and
+destination MAC address of Router B and computer 2 and the whole process is repeated one last time, the frame is sent out to
+network C. Screenshot(76), then a switch ensures it get sent out to the interface the computer 2 is connected to, then the
+computer 2 recieves the frame, identifies it's own MAC address as the destination and knows it is intended for itself
+Computer 2 then strips away the ethernet frame leaving with IP datagram then perfroms a CRC and then recognize the
+destination MAC address as its own, Now the computer 2 strips away the IP datagram and leaves just only with the TCP segment
+,Screenshot(77), again the chechsum is checked then the computer 2 examines the destination port which is 80, the networking
+stack on computer 2 checks to ensure that their is an open socket at Port 80, it's in the LISTEN state and held open by
+running the apcahe web server then computer 2 sees that this packet has sent the SYN flag set, So it examines the sequence
+no. and stores that since it will need to put the sequence no. in the acknowledgement field once it crafts the response.
+
+After all of that all we have done is get a single TCP segment containing a SYN flag from one computer to second one, and
+everything have to happen all over again for computer 2 to send a SYN/ACK response to computer 1, and again everything to
+send the ACK from computer 1 to computer 2 for the 3way handshake.
+
+Networking Services ->
+At the end of the day, main purpose of computer networking is that so network services, can be avilable to answer request
+for the data from client.
+
+Is sometime in the network isn't working as expected, the first place to look at r the services covered here.
+
+Name Resolution->
+Why do we need DNS?
+Computers speak to each other in no.s at the lowest level all computers really understand r 1 and 0, hence these binary
+no.'s r represented in lots of different forms specially in networking as the IP and MAC addresses r just only binary
+no.'s that's why the DNS comes into play
+
+DNS -> A global and highly distributed network service that resolves strings of letters into IP addresses for you.
+
+Suppose u want's to check a whether website, to see what is temparature going to be like and it is much easier to type ->
+www.weather.com into a web browser then is to remember one of the IP addresses for this site and the IP address for a
+Domain name can also change all the time for lot of different reasons
+
+Domain Name -> It is just a term we use for something that can be resolved by DNS
+Here the www.weather.com is the domain name
+
+Suppose the www.weather.com is moving their web server to a new data center, by using DNS the organization can just change
+the IP what the Domain Name resolves too and the end user will never even know.
+So not only this DNS make it easier for humans to remember how to get to a website, it also let's administrative changes
+happen behind the scenes without the end user to change any behaviour.
+IP addresses might resolve to different things depending upon where in the world u r, well most internet communications
+travel at the speed of light still the further u have to route the data the slower things will become.
+In almost all situations it is going to be quicker to transmit certain amount of data between places that r geographically
+close to each other.
+
+If u r a global web company u want people to all over the world to have a great experience accessing ur website, So instead
+of keeping all of ur web servers in one place, u can distribute them accross data centers across the globe, this way some
+one in newyork visiting a website might get served by the server close to newyork, while someone in New Delhi might get
+served to a server close to New Delhi and DNS helps provide this functionality, bcz of it's global structure the DNS lets
+organizations decide if u r in the region resolve the domain name to this IP and if u r in another region then it will
+resolve the domain name to another IP.
+
+DNS serves lots of purposes
+
+Name Resolution->.
+Many Steps of Name Resolution->
+At the most basic the DNS is a system that converts Domain Names to IP addresses, this process of using DNS to turn a
+Domain Name to a IP address is known as Name Resolution
+- The DNS server is one of the things that need to be specifically configured at a Node on a Network, For a computer to
+operate on a modern network they need to have certain no. of things configured such as IP address, Subnet Mask, Gateway of
+a Host and DNS server for a network.
+These r almost always the things that must be configured for a Host to operate on a Network in an aspected way.
+A computer can operate just fine without DNS Server being configured but this make things difficult for any human who is
+using that computer.
+
+There r 5 primary types of DNS servers ->
+1) Caching name servers
+2) Recursive name servers
+3) Root name servers
+4) TLD name servers
+5) Authoritative name servers
+
+It is important to know that any given DNS server can fullfill many of these roles at once
+Caching and Recursive name servers generally provided by an ISP or ur local network
+Caching and Recursive name servers purpose is to store domain name lookups for a certain amount of time.
+
+Their r lots of steps in order to perform a fully qualified resolution of a Domain name, In order to prevent this from
+happening every single time when new TCP connection is established ur ISP or local network will generally have a
+caching name server available, Most caching name servers r also recursive name servers.
+
+Recursive name servers r ones that perform full DNS resolution requests, In most cases ur local name server will perform the
+duties of both but it is definatly possible for a name server to be either just caching or just recursive.
+
+Scenerio -> u and ur friend both connected to a same network and u both wants to checkout facebook.com, then ur frnd enters
+the www.facebook.com into the web browser which means their computer now needs to know the IP of facebook.com in order to
+establish a connection and remember both of these computers r on same network which usally means that they both can be
+configured with the same name server
+So ur frnds computer ask the name server for the IP of facebook.com which it doesn't know, this name server now performs a
+fully recursive resolution to discover the correct IP for facebook.com, this IP will both delivered to ur frnds computer
+and stored locally in a cache.
+Few minutes later u enter facebook.com in ur web browser again ur computer needs to know the IP of this domain, So ur
+computer asks the local name server with which it's been configured with which is the same one ur frnds computer was just
+taking too.
+Since the domain name facebook.com had just been looked up, So the local name server still has the IP they resolved to store
+and is able to deliver that back to ur computer without having to perform a full lookup, this is how the same servers act
+as a caching server.
+All domain name in a Global DNS system have a TTL or Time To Live
+TTL is a value in seconds that can be configured by the owner of a domain name for how long a name server is allowed to
+cache an entry before it should discard it and perform a full resolution again.
+
+Several years ago it was normal for these TTL's to be really long, this is bcz the general band width available on the
+internet was just much less, So network administrator's didn't wanna waste what bandwidth was available to them by
+constantly performing full DNS lookups.
+As the internet has grown and got faster, these TTL's for most domains have dropped from anywhere to few minutes to few
+hours, but it's important to know that sometimes u still running to a domain names that have very lengty TTL's, it means
+that it can take up to the length of a total TTL for a change in a DNS record to be known to the entire internet.
+
+When ur local recursive server needs to perform a full recursive resolution.
+Step 1-> To contact a root name server, their r 13 total root name servers and they r responsible for directing queries
+toward the appropriate TLD name server.sreenshot(78), In the past these 13 root servers where distributed to very specific
+geographic regions but today they r mostly distributed across the globe via Anycast.
+
+Anycast is a technique that's route to route traffic to different destinations depending on factors like location, 
+congestion or link health.
+
+Using Anycast a computer can send a datagram to a specific IP but get see it routed to one of many actual destinations
+depending on a few factors, their r also not only totally 13 root name servers any more so it's better to think of them as
+13 authorities to provide a root name lookups as a service, The root server will respond to a DNS lookup with a TLD name
+server that should be queried.Screenshot(79)
+
+TLD(Top Level Domain) it represents the top of the hierachial DNS name resolution system, a TLD is the last part of any
+domain name, such as .com portion should be think as the TLD, For each TLD in existance their is TLD name server but just
+like root servers this doesn't mean their is only physically one server in question, It's most likely a global distribution
+of Anycast assessible servers responsible for each TLD, The TLD name servers respond again with a redirect, this time
+informing the computer performing the name lookup with what authoritive name server to contact, authoritive name servers r
+responsible for last two parts of any domain name which is the resolution and single organization may be responsible for
+DNS lookups.
+
+Using www.weather.com as an example, the TLD name server would point a lookup at the authoritive server for weather.com
+which would likely be controlled by the weather channel, the organization itself that runs the site.
+Finally the DNS lookup can be redirected at the authorative server for weather.com which would finally provide the actual
+IP of the server in question. Screenshot(80)
+
+This strict hierachy is very important to the stability of the internet making sure that all four DNS resolutions go through
+strictly regulated and controlled series of lookups, To get the current responses is the best way to protect malicious
+parties redirecting traffic, ur computer will blindly send traffic to whatever IP it's told too, So by using a heirachial
+system controlled by trusted entities in the way DNS does, we can better ensure that the responses to DNS lookups are 
+accurate.
+
+Now then u see how many steps r involved it should make sense that why we trust our local name servers to cache DNS lookups,
+It so that full lookup path doesn't have to happen for every single TCP connection, Infact ur local computer from ur phone
+to a desktop will generally have it's own temporary DNS cache as well, that way it doesn't have to bother it's local name
+server for every TCP connection needed.
+
+DNS and UDP ->
+DNS is a great example of application layer service that uses UDP for the transport layer, instead of TCP, this can be
+broken down into a few simple reason
+As the UDP is connectionless, this means their is no setup or tear down of a connection, So much less traffic needs to be
+transmitted overall, A single DNS request and it's response can usally fit inside of a single UDP datagram making it an
+ideal candidate for a connectionless protocol, it's also worth calling out that DNS can generate a lot of traffic.
+It's true that caches of DNS entries r stored on both local machines and caching name servers but it is also true that if
+full resolution needs to be process we r then taking about a lot more traffic
+
+For a full DNS lookup to take place via TCP ->
+First the host that is making the DNS resolution request would send a SYN packet to the local name server on port 53 which
+is the Port the DNS listens on, this name server then need to respond with SYN/ACK packet that means the original host have
+to respond with an ACK in order to complete the 3 way handshake.
+Once the connection has been established, the original host will have to send the actual request, Such as if we ask for IP
+address for facebook.com plz and then after this request the name server has to respond with another ACK which says I got ur
+request for facebook.com.
+And then 5 packets r send now,Screenshot(81), In this scenrio the 1st caching name server doesn't have anything cached for
+facebook.com so it needs to talk to a Root name server to find out who is responsible for the '.com' TLD and this will
+require a 3 way handshake, the actual request, the ACK other request, the response and then the ACK of the response and then
+finally the connection has to be closed via 4 way handshake which is 11 more packets means 16 total packets, Screenshot(82)
+Now the recurssive name server has the correct TLD name server, It needs to repeat that entire process, to discover the
+proper authoritive name server which is 11 more packets means total packets now 27, finally the recurssive name server had
+to repeat the entire process one more time while taking to the authoritive name server in order to actually get the IP of
+facebook.com which means 11 more packets means the total packets now r 38, Screenshot(83)
+Now that the local name server finally has the IP address of facebook.com, It can finally respond to the initial request
+In response to the DNS resolver that originally made the request and then this computer sends an ACK back to confirm that
+it receives the response that's two more packets so now the total packets is 40.Screenshot(84)
+Finally the TCP connection needs to be closed via 4 way handshake this means the total packets now 44 at the minimum in
+order to do fully recursive DNS request to be fullfilled via TCP. Screenshot(85)
+44 packets is really a huge no. in terms of a how fast modern networks orperate but it heads up fast as u can see.
+
+Remember the DNS traffic is precorssor to actual traffic
+
+A computer almost always performs a DNS lookup bcz it needs to know the IP of the Domain Name in order to send an additional
+data.
+
+For a full DNS lookup to take place via UDP ->
+The computer sends a UDP packet or 1 packet to it's local name server on Port 53 asking for the IP of facebook.com, the
+local name server access a recurssive server and sends up a UDP packet to the root server which sends a response containing
+a proper TLD name server now total packets is 3, The resurssive server sends a packet to the TLD server and receives back a
+response containing the correct authorative server now their r total 5 packets, the recursive name server sends it's final
+request to the authorative name server which sends a response contianing the IP for facebook.com that's total now 7 packets.
+Finally the local name server responds to the DNS resolver that made the request in the first place with the IP of
+facebook.com that makes total packets of 8. Screenshot(86)
+
+So this shows that how much TCP really requires as the Packets for the full name resolution requires 44 while for UDP it
+requires only 8 and So for DNS it is just not needed via TCP and that's also the one of the reasons why UDP is needed then
+the more robust TCP.
+The DNS resolver asks again if it doesn't get the response for the error handling, basically the same functionality the TCP
+provides at the transport layer is provided by the DNS at the application layer in the simple manner.
+A DNS server never needs to care about anything but responding to incoming lookups and a DNS resolver simply needs to 
+perform lookups and repeat them if they don't succeded which is real show case to the simplicity of both the DNS and UDP.
+
+The DNS over TCP does infact exist and is also in use all over, as the web has got more complex it's no longer the case
+that all DNS lookup responses can fit in a single UDP datagram, In these situations the DNS name server will respond with a
+packet explaining that the response is too large, the DNS client will then establish a TCP connection inorder to perform a
+lookup.
+
+Name Resolution in Practice ->
+Resource Record Types -> DNS in practice operates with a set of defined resource record types, these allow for different
+kinds of DNS resolutions to take place, their r dozens of different resource record types defined but a lot of them only
+server very specialized purposes, the most common resource record is known as 'A' record.
+
+An 'A record' is used to point a certain domain name at a certain IPv4 IP address, In the previous scenerios and examples we
+were making the assumption that the DNS resolver was asking for the 'A record' for a domain name, In it's most basic use a
+single 'A record' is configured for a single domain name but a single domain name can have multiple 'A' records too, this
+allows for a technique known as DNS Round robin to be used to balance traffic across multiple IP's.
+
+Round Robin is a concept that involves iterating over a list of items one by one in an orderly fashion, this ensure that a
+fairly equal balance of each entry on the list is selected.
+Suppose we r incharge of the domain name -> www.microsoft.com, Microsoft is a large company which means it will see a lot of
+traffic, to help balance this traffic across multiple servers we can figure 4 'A records' for www.microsoft.com at the
+authoritive name server for the microsoft.com domain we will use the IP'S ->
+10.1.1.1
+10.1.1.2
+10.1.1.3
+10.1.1.4
+When a DNS resolver performs a lookup for www.microsoft.com all 4 IP's would be returned in the order first configured means
+the 10.1.1.1 followed by 10.1.1.2 followed by 10.1.1.3 and finally 10.1.1.4, the DNS resolving computer would know that it
+should try the first entry which is 10.1.1.1 but it knows about all 4 just for the case when the connection to 10.1.1.1
+fails.
+The next computer to perform a lookup for www.microsoft.com would also receive all 4 IP's in the response but the ordering
+will have changed as the first entry will be 10.1.1.2 followed by 10.1.1.3 followed by 10.1.1.4 and finally 10.1.1.1, this
+pattern will continue for every DNS resolution attempt cyclying through all of the 'A records' configured and balancing the
+traffic across these IP's and this is basic's of how the DNS Round Robin logic works.
+
+Another resource type which is becoming more popular is Quad A(AAAA) record, a Quad A record is very similar to A record
+except it returns an IPv6 address instead of an IPv4 address.
+
+The CNAME record is also very common, A CNAME record is used to redirect traffic from one domain name to another.
+Let's say that the microsoft runs a webservers at www.microsoft.com they also wanna make sure that any one that enters just
+microsoft.com into the web browser will get properly redirected by configuring a CNAME record for microsoft.com that 
+resolves to www.microsoft.com, The resolving client then know to perform an another resolution attmept, this time for
+www.microsoft.com and then use the IP returned at second attempt.
+CNAMES r really usefull bcz they ensure u only have to change the cannonical IP address of a server in one place, infact
+CNAME is just short for cannonical name.
+So if we look on above example of CNAME for www.microsoft.com and microsoft.com get to the same place we can do this in
+2 ways ->
+- We can setup identical 'A records' for both microsoft.com and www.microsoft.com domain names and this will work fine but
+if the underlying IP address ever changes we need to change it at two places, as the 'A records' for both microsoft.com and
+www.microsoft.com and by setting up a CNAME that points microsoft.com at www.microsoft.com u only have to change the
+'A Record' for www.microsoft.com and the clients pointing at either domain will get the new IP address.
+
+MX record - mail exchange -> This resource record is used in order to deliver each email to the correct server, many
+companies run their web and mail servers on different machines with different IP's, So the MX record makes it easy to ensure
+that email gets delivered to a companies mail server while other traffic like web traffic get delivered to web server
+A record type similar to MX record is the SRV record - service record, SRV record is used to define the location of various
+specific services, It serves the exact same purpose as the MX record type except for one thing while MX is only for mail
+services, in SRV record can be defined to return the specifics of many different service types for example SRV records r
+often used to return the records of services like 'caldev' which is a calender and schedulling service.
+
+TXT record - text -> It was orignally intended to be used only for associating some discrivtive text with a domain name for
+human consumption, the idea was that u can leave notes and msgs that humans can discover and read about the arbitary
+specifics of ur network, but over the years as the internet and services run on it have become more and more complex, the
+TXT record has been increasingly used to convey additional data intended for computers to process.
+Since a TXT record has a field that is entirely free form, we can use it to communicate data which was not originally
+intended to be communicated by a system like DNS, this TXT record is often used to communicate configuration preferences
+about network services that u can trust this with other organizations to handle for ur domain.
+For example it's common for a TXT record to be used to convey additional info to an email as a Service Provider which is a
+company that handles ur email delivery for u.
+
+Their r lots of other DNS resource records types in common use like an NS or SOA records which r used to define an
+authorative informations about DNS zones
+
+Anatomy of a Domain Name -> Any given domain name have 3 primary parts and they all serves specific purposes such as domain
+name www.google.com, the 3 primary parts here r www, google, com
+
+TLD(Top Level Domain) -> this is the last part of a domain name, here it is '.com'
+Their only a certain restricted no.s of defined TLD's available, although that no. has been growing a lot in recent years.
+Some of the common TLD's r -> .com, .edu, .net etc
+.de TLD is a country specific TLD for germany
+.cn TLD is a country specific TLD for china
+
+Many of the TLD's originally defined have become very crowded due to the growth of the internet
+So today the no. of vanity TLD's available everthing from .muesem to .pizza as the TLD
+
+Administration and defination of TLD's is handled by a non profit organization known as ICANN(Internet Corporation for
+Assigned Names and Numbers), ICANN is the sister organization to the IANA and together they help define and control both
+the global IP spaces along with the global DNS system.
+
+A domain is the name commonly used to refer the 2nd part of the domain name which would be google in our case.
+
+Domains r used to demarcate where control moves from a TLD name server to an authoritative name server, which is typically
+under control of an independent organization which is outside of ICANN.
+
+Domains can be registered or choosen by any individual or company, but they must all end in one of the predefined TLD's.
+
+The 'www' portion is known as the subdomain, sometimes also refered to as Host name, if it is being assigned to only one
+Host.
+
+When u combine all above parts together u then have FQDN.
+
+FQDN(Fully Qualified Domain Name) -> This is when u combine all the three parts.
+Well it costs money to officially register a domain with a registrar, Subdomains can be freely choosen and assigned by
+anyone who controls such a registered domain.
+
+A registrar is just a company that has an agreement with ICANN to sell unregistered domain names.
+
+Technically u can have lot's of subdomain names, For ex-> host.sub.sub.subdomain.domain.com could be completely valid, 
+although u rarely see FQDN names with that many levels.
+
+DNS can technically support upto 127 levels of domain in total for a single FQDN.
+
+Their some other restrictions too that how the domain name can be specified, such as each individual section can be only 63
+characters long.
+A complete FQDN is limited to a total of 255 characters.
+
+DNS Zones -> A authoritative name server is actually responsible for a specific DNS zone.
+
+DNS zone is a hierarchial concept, the root name servers covered above r responsible for the root zone, each TLD name server
+is responsible for the zone covering it's specific TLD and what we refer to as authoritative name servers r responsible for
+even finer grain zones underneath that
+
+The root and TLD name servers r actually just authoritative name servers too, it's just that the zones that they r 
+authoritative for r special cases.
+
+Zones don't overlap for ex the adminstrative authority for the TLD name server for the .com TLD doesn't incompass the
+google.com domain instead it ends with the authoritative name server responsible for google.com.
+
+The purpose of DNS zones is to allow for easier control over multiple levels of a domain, as the no. of resource record in a
+single domain name increases it becomes more of a headache to manage them all.
+
+Network adminstrators can ease this pain by spiliting up the configuration in to mulitple zones, let's imagine a large
+company that owns the domain as largecompany.com and this company has offices in LA, paris and shingai, and lets say each
+office has around 200 people with their own uniquely named desktop computer and now this would be 600 'A-records' to keep
+track off if they all have being configured as a single zone, but what the company can do instead is that they can split
+office into their own zone, So now we can have la.largecompany.com, pa.largecompany.com and sh.largecompany.com as
+subdomains each with their own DNS Zones. Screenshot(87)
+A total of 4 authorative name servers would now be required for the setup, one for largecompany.com and one for the each
+subdomains.
+
+Zones r configured through known as Zone files,these r Simple configuration files that declare all resource records for a
+particular zone.
+So a zone file has to contain an SOA(Start of Authority) resource record declaration.
+SOA -> It declares the zone and the name of the name server that is authorative for it.
+Along with the SOA record u will usually find NS records
+
+NS records -> It indicates other name servers that might also be responsible for this zone.
+For simplicity we have been refering the server as singular when we r discussing what is responsible for zone whether at the
+root, TLD or Domain level, but r often going to be multiple physical servers with their own FQDN's and IP addresses involved
+Having mulitple servers in place for something as important as DNS is pretty common bcz if one server would have a problem
+or suffer a hardware failure u can always rely on the other ones to serve DNS traffic.
+Besides SOA and NS records u will also find some or all of the other resource types like A, AAAA, CNAME records along with
+configuration such as default TTL values for the record served by this zone.
+Just like subdomains can go many levels deep, zones can be configured to this too but just like with subdomains, it's rare
+to see zones then just a few levels.
+
+Some times u will also see Reverse lookup zone files.
+
+Reverse lookup zone files -> These let DNS resolvers ask for an IP and get the FQDN associated with it returned.
+These reverse lookup zones files r same as the zone files, except instead of A and AAAA records which resolve names to IP's
+u will find mostly pointer resource records declarations.
+
+PTR(Pointer Resource Record) -> It resolves an IP to a Name.
+
+Overview of DHCP -> Managing hosts on a network can be time consuming task, every single computer on a modern TCP/IP based
+network needs to have atleast 4 things specifically configured.
+- IP address
+- Subnet mask for the local network
+- Primary gateway
+- Name Server
+and configuring these on 100 of machines it becomes very tidious
+
+Out of these 4 things, the 3 r likely the same on just about every node on the network which r subnet mask, primary gateway
+and DNS name server but the IP address needs to be different on every single node on the network which could require a lot
+of tricky configuration work and this is where DHCP comes into play.
+
+As DHCP is critical to know as an IT support specialist when it comes to troubleshooting networks.
+
+DHCP(Dynamic Host Configuration Protocol) -> It is an application layer protocol that automates the configuration process
+of hosts on a network
+
+With DHCP a machine can query a DHCP server when the computer connects to the network and recieve all the networking
+configuration in one go, not just the DHCP reduce the administrative overhead having to configure lots of network devices
+on a single network, It also helps address the problem of having to choose what IP should assign to what machine, every
+computer on a network requires an IP for communications but very few of them will require an IP that would be commonly
+known, For servers or network equipments on ur network like ur gateway router, static or known IP address is pretty
+important.
+For example the devices on network needs to know the IP of their gateway alltime, if the local DNS server is not functioning
+, the network adminstrators will still need a way to connect to some of these devices through their IP.
+Without a static IP configured for a DNS server, it would be hard to connect to it to diagnose any problems if it was
+malfunctioning, But for a bunch of client devices like dsektops and laptops or even mobile phones, it really only important
+that they have the IP on the right network, it's much less important that which IP that is.
+Using DHCP u can configure a range of IP addresses that set aside for these client devices, this ensures that any of these
+devices connect can obtain an IP address when they need one but solves the problem of having to maintaining every list of
+node on the network and it's corresponding IP.
+
+Their r few standard ways by which DHCP can operate ->
+DHCP Dynamic Allocation is the most common.
+
+Dynamic Allocation -> A range of IP addresses is set aside for client devices and one of these IPs is issued to these
+devices when they request one, under the dynamic allocation the IP of a computer could be different almost every time it
+connects the network.
+Automatic allocation is very similar to Dynamic allocation
+
+Automatic Allocation -> A range of IP addresses is set aside for assignment purposes.
+
+The main difference is that the DHCP server is asked to keep track of which IP is assigned to certain devices in the past,
+using this information the DHCP server will assign the same IP to the same machine each time if possible.
+
+Fixed Allocation -> It requires a manually specified list of MAC address and their corresponding IPs.
+
+When a computer requests an IP, the DHCP server looks for it's MAC address in a table and assigns the IP that corresponds to
+that MAC address, if the MAC address isn't found the DHCP server might fallback to automatic or dynamic allocation or it
+might refuse to assign an IP all together
+This can be used as a security measure to ensure that only devices that had their MAC address specifically configured at the
+DHCP server will ever be able to obtain an IP and communicate on the network
+
+DHCP discovery can be used to configure lots of things beyond the touch down here,along with things like IP address and
+primary gateway u can also use DHCP to assign things like NTP servers.
+
+NTP(Network Time Protocol) servers r used to keep all computers on a network synchronized in time,
+Hence DHCP can be used for more IP, subnet mask, gateway and DNS server.
+
+DHCP in Action->
+DHCP is an Application layer Protocol which means it realies on the transport, network , datalink and physical layers to
+operate but u might have notices that the entire point of DHCP is to help confgure the network layer itself.
+
+DHCP discovery -> It is the process by which a client configured to use DHCP attempts to get network configuration
+information.
+
+The DHCP discovery process has 4 steps->
+1) The server discovery step -> The DHCP client sends the DHCP discover msg out on to the network, since the machine doesn't
+have an IP and it doesn't know the IP of the DHCP server, specially crafted broadcast msg if formed instead.
+DHCP listens on UDP port 67
+And DHCP discovery msgs r always sent from UDP port 68, So the DHCP discover msg is encapsulated in UDP datagram with the
+destination port of 67 and a source port of 68 this is then encapsulated in an IP datagram with an destination IP of
+255.255.255.255 and the source IP of 0.0.0.0, this broadcast msg will deliver to every node on the local area network and
+if a DHCP server is present it will receive this msg. Screenshot(88)
+Next the DHCP server will examine it's own configuration and then make a decision on what if any IP address to offer to the
+client, this would depend if it configured to run with dynamic, automatic or fixed address allocation, the response would be
+send as a DHCPOffer msg with a destination port of 68, a source port of 67, destination broadcast IP of 255.255.255.255 and
+it's actual IP as the source. Screenshot(89)
+Since the DHCPOffer is also a broadcast, it will reach every machine on the network, the original client will recognize that
+this msg was intended for itself, this is bcz the DHCPOffer has the field that specifies the MAC address of the client that
+send the DHCP discover msg, the client machine will process this DHCPOffer to see what IP has been offered to it.
+
+Technically a DHCP clint could reject this offer, it's totally possible for multiple DHCP servers to be running on the same
+network and for the DHCP client to be configured to be only respond to an offer of IP in a certain range but this is rare.
+
+More often the DHCP clint would respond to the DHCPOffer msg with a DHCPRequest msg, this msg essentially says yes I would
+like to have the IP u offered to me and since the IP hasn't been assigned yet this is again sent from an IP of 0.0.0.0 and
+to the broadcast IP of 255.255.255.255. Screenshot(90)
+
+Finally the DHCP server receives the DHCPRequest msg and responds with the DHCPAck(this is the acknowledgement msg), this
+msg is again sent to a broadcast IP of 255.255.255.255 and with a source IP corresponding to the actual IP of the DHCP
+server. Screenshot(91)
+Again the DHCP client would recognize that this msg was intended for itself by inclusion of it's MAC address in one of the
+msg fields, the networking stack on the client computer can now use the configuration information presented to it by the
+DHCP server to setup it's own network layer configuration at this stage the computer that is acting as the DHCP client 
+should have all the information it need to operate in full manner on the network it's connected to all of this configuration
+is known as DHCP lease as it includes an expiration time
+
+A DHCP lease might last for days or only for short amount of time and once a lease has expired the DHCP client would need to
+negotiate new lease by performing the entire DHCP discovery process all over again.
+
+A client can also release it's lease to the DHCP server which it would do when it disconnects from the network, this would
+allow the DHCP server to return the IP address that was assigned to it's pool of available IPs.
+
+Basics of NAT ->
+Unlike protocols like DNS and DHCP the NAT is a technique instead of a defined standard, Different operating systems and
+different network hardware vendors have impliment the details of NAT in different ways but the concept of what it
+accomplishes r pretty constant.
+
+NAT takes one IP address and translates it to another, their r lot's of reasons to do this as they range from security
+safeguards to preserving the limited amounts of available IPv4 space.
+At the most basic level the NAT is a technology that allows a gateway, usually a router or firewall, to rewrite the source
+IP of an outgoing IP datagram while retaining the original IP in order to rewrite it into the response.
+
+Ex -> We have 2 networks Network A consists of the 10.1.1.0/24 address space and network B consists of the 192.168.1.0/24
+address space sitting between these 2 networks is a router that has an interface in Network A with an IP of 10.1.1.1 and
+the interface in Network B of 192.168.1.1.
+Now lets put 2 computers on these networks computer 1 is on network A and has an IP of 10.1.1.100 and computer 2 is on
+network B and has an IP of 192.168.1.100.
+Computer 1 wants to communicate with a web server on computer 2, So it crafts the appropriate packet at all layers and send
+this to it's primary gateway which the router sitting between the two networks. Screenshot(92)
+Remember in this instance the router is configured to perform NAT for any outbound packets, Normally a router will inspect
+the contents of a IP datagram decrement the TTL by 1, recalculate the checksum and forward the rest of the data at the
+network layer without touching it but with NAT the router will also rewrite the source IP address which in this instance
+becomes the router IP on Network B or 192.168.1.1 when the datagram gets to computer 2, it will look like it is originated
+from router not from computer 1, Now the computer 2 crafts it's response and sends it back to the router, The router knowing
+that this traffic is actually intended for computer 1 rewrites the destination IP field before forwarding it along.
+Screenshot(93)
+So what NAT is doing in this example is hiding the IP of computer 1 from computer 2, this is known as IP masquerading.
+
+By this IP masquerading no one can establish a connection to ur computer if they don't know what IP address it has, by using
+NAT like above we can actually have 100's of computers on Network A all of their IP's being translated by the router to it's
+own.
+
+To the outside world, the entire address space of Network A is protected and invisible and this known as One-to-many NAT
+and u will see it in use on lot's of LAN's today.
+
+NAT and the Transport layer ->
+NAT at the network layer is pretty easy to follow as one IP address is translated to another by Device usually a router but
+at the transport layer things became little more complicated and several additional techniques come into play to make sure
+everything works properly, With one-to-many NAT we talked about how 100 and even 1000's computers can have their outbound
+traffic translated via NAT to a single IP. This is easy when traffic is outbound but things become more complicated when
+return traffic is involved.
+We now have potentially 100's of responses all directed at the same IP and the router at this IP needs to figure out which
+responses go to which computer. The simplest way to do this is through Port preservation.
+
+Port preservation is a technique where the source port choosen by a client is the same port used by the router, remember
+that outbound connection choose a source port at random from the emerpal ports or the ports in the range 49152 through 65535
+In the simplest setup a router setup to NAT outbound traffic will just keep track of what the source port is and use that to
+direct traffic back to the right computer.
+
+Ex -> A device with an IP of 10.1.1.100 which wants to establish an outbound connection and the networking stack of the
+Operating System chooses port 51300 for this connection, once this outbound connection gets to the router it performs
+Network Address Translation and places it's own IP in the source address field of the IP datagram but it leaves the source
+Port in the TCP datagram the same and stores this data internally in a table. Screenshot(94)
+Now when the traffic returns to the router on 51300 it knows that this traffic needs to be forwarded back to the IP
+10.1.1.100, even with how large the set of emerpal ports is, it's still possible for 2 different computers on a Network to
+both choose the same source port around the same time, when this happens the router normally selects an unused port at
+random to use instead.
+
+Port Forwarding -> It is a technique where specific destination ports can be configured to always be delivered to specific
+nodes.
+
+This technique of Port Forwarding allows for complete IP masquerading while still having services that can response the
+incoming traffic, let's say their is a web server configured with an IP of 10.1.1.5 with Port forwarding, no one even have
+to know this IP, respective web clients will only have to know about the external IP of the router let's say it's 
+192.168.1.1 and any traffic directed at Port 80 on, 192.168.1.1 would get automatically forwarded to 10.1.1.5 response
+traffic would have the source IP, rewritten to look what the external IP of the router. Screenshot(95)
+
+This technique not only allows for IP masquerading, it also simplifies how external users might interact with lots of
+services all run by the same organization.
+Ex -> let's imagine a company which have both a web server and a mail server both needs to be accessible to the outside
+world but they run on different servers with different IP's and let's say the web server has an IP of 10.1.1.5 and the mail
+server has an IP of 10.1.1.6, with Port forwarding traffic for weather of these services could be aimed at the same external
+IP and therefore the same DNS name but it would get delivered to entirely different internal servers due to their different
+destination ports. Screenshot(96)
+
+NAT, Non-Routable Address Space and the limits of IPv4 -> The IANA has been incharged of distributing IP addresses since
+1988, For some time now the IANA has primarly been responsible with assigning address blocks to the 5 Regional internet
+registries or RIRs, The 5 RIRs r ->
+- AFRINIC -> It serves the continent of africa
+- ARIN -> It serves the united states, canada and parts of the caribbean
+- APNIC -> It is responsible for most of Asia, Australia, New zealand and pacific island nations
+- LACNIC -> It covers central and south america and any parts of the caribbean not covered by ARIN
+- RIPE -> It servers europe , russia , the middle east and portions of central asia
+
+These 5 RIRs r responsible for assigning IP address blocks to organizations within their geographic areas and most of them
+already run out.
+The IANA assigned the last unallocated slash 8 network blocks to various RIRs on feb 3,2011 then in april 2011 the APNIC
+run out of  addresses and RIPE was next, In september 2012 LACNIC run out of addresses to assign in june 2014 and ARIN did
+the same in sep 2015, only AFRINIC has some IPs left but those r predicted to be deplited by 2018.
+
+Wikipedia has a great article about the IPv4 exhaution and the timelines involved althrough IPv6 will resolve these problems
+but  implementing IPv6 world wide is gonna take some time, For now we wanted to continue to grow and we want more people and
+devices connect to it but without IP addresses to assign a work around is needed such as NAT and Non-routable address space
+
+Non-routable address space is defined in RFC1918 and consist of several different IP ranges that anyone can use, an
+unlimited networks can use Non-routable address space internally bcz internet routers won't forward traffic to it, this
+means their never any global collision of IP addresses when people use those address spaces
+Non-routable address space is largelly usable today bcz of technologies like NAT, with NAT u can have thousands of machines
+using the non-routable address space with just a single public IP and all those computers can still send traffic too and
+recieve traffic from the internet, all u need is one single IPv4 address and via NAT a router with that IP can represent
+lots of computer behind it, it's not a perfect solution but untill IPv6 becomes more globally available Non-routable address
+space and NAT will have to do.
+
+VPNs and Proxies ->
+Virtaul Private Networks -> Buissnes need to make their network secure and they do this by some of the technolgies we have
+discussed above such as firewalls, NAT, Non-routable address space etc. 
+Organizations often had propriatary information that needs to remain secure, network services that r only intended for the
+employees to access etc, one of the easiest ways to keep network secure is to use various securing technologies so only
+devices physically connected to their local area network can access these resources but employees r not always in the office
+they might be working from home or buissness trip and to get access to these resources in order to get their work done the
+VPNs come in.
+
+VPN(Virtaul Private Networks) -> It is a technology that allows for the extension of a private or local networks to hosts
+that might not be on that local network.
+
+VPNs comes in many flavours and accomplish lots of different things but the most common example of how the VPNs r used is
+for the employees to access the buissness networks when they r not in the office.
+
+VPNs r a tunneling protocols, which means they provision access something not locally available when establishing a VPN
+connection u might also say that VPN tunnel has been established.
+Ex -> Of an employee who need to access the company resources when not in the office, The employee can use a VPN client to
+establish a VPN tunnel to the company network this will provision the computer with a virtual interface with an IP that
+matches the address space of the network that establish a VPN connection too, by sending data out of this virtual interface
+the computer can access internal resources just like as if they were physically connected to the private network,
+Screenshot(9)
+Most VPN's work by using the payload section of the transport layer to carry an encrypted payload that acctually contains an
+entire 2nd set of packets, the network, the transport and the application layers of a packet intended to traverse the remote
+network.
+Basically this payload is carried to the VPNs endpoint where all the other layers r stripped away and discarded then the
+payload is unecrypted leaving the VPN server with the top 3 layers of a new packet this gets encapsulated with the proper
+data link layer information and sent out accross the network, this process is completed in the inverse as in the opposite
+direction.
+VPN's usally requires strict authentication processors in order to ensure that they can only be connected to by computers
+and users authorized to do so infact VPNs were one of the first technology with two factor authentication became common.
+
+Two-factor authentication -> It is a technique where more then just a username and password r required to authenticate
+
+Usally a short lived numerical token is generated by the user through a specilized piece of hardware or software.
+
+VPNs can also be used to establish site to site connectivity conceptually their isn't much difference between how this works
+compare to our remote employee situation, it's jsut that the router or sometimes a specialized VPN device on the one network
+establishes the VPN tunnel to the router or VPN device on the other network, this way 2 physically seperated offices might
+be able to act as one network and access network resources across the tunnel, Screenshot(10)
+Just like NAT the VPNs r a general technology concept not a strictly defined protocol, their r lots of unique
+implementations of VPNs and the details of how they work can differ a ton, the most important take away is that VPNs r a
+technology that uses encrypted tunnels to allow for a remote computer or network to act as if its connected to a network
+that its not actually physically connected to.
+
+Proxy services -> It is a server that acts on behalf of a client in order to access another service.
+Proxies sits between clients and other servers providing some additional benefit such as anonymity, security, content 
+filtering and increased performance etc.
+Gateway routers is one of the exmaples of the proxies, u don't hear them refer to as this way but it definately meets the
+defination of a proxy and how it works.
+The concept of a Proxy is just that a concept or an abstraction it doesn't refer to any specific implementation, Proxies
+exists at almost every layer of our networking model.
+Most often u hear the term proxy used to refer the web proxies as these r the proxies specifcally built for web traffic, A
+web proxy can serve lots of purposes.
+Many years ago when most internet connections were much slower then they r today, lots of organizations use the web proxies
+for increased performance, using a web proxy an organization will direct all web traffic through it allowing the proxy
+server itself to actually retrieve the web page data from the internet, it will then cache this data and this way if someone
+requested the same web page it could just return the cache data instead of having to retrieve the fresh copy everytime and
+this kind of proxy is pretty old and u won't find them in use today Screnshot(11,12,13,14)
+
+We won't find them today bcz most organiztions now have connections fast enough that caching individual web pages doesn't
+provide much benefit and also the web has become much more dynamic as going to www.twitter.com is gonna look different to
+every person with their own twitter account so caching this data won't do much good and in more common use of web proxy
+today might to prevent someone from accessing sites like twitter entirely.
+
+A compnay might decide that accessing twitter during work hours reduces productivity and by using a web proxy they can
+direct all web traffic to it and allow the proxy to inspect what data has been requested and then allow or deny this request
+depending on what site has been accessed
+
+Another example of a proxy is the reverse proxy
+Reverse Proxy -> It is a service that might appear to be a single server to external clients, but actually represents many
+servers living behind it
+An Ex of this how lots of popular websites r architected today such as twitter which recieves so much traffic that their is
+no way a single website server can possibly handle all of it so it might need many web servers in order to keep up
+processing all incoming requests, a reverse proxy in this situation can act as a single front end for many web servers
+behind it and from the clients perspective it looks like they r all connected to the same server but behind the scenes this
+reverse proxy server is actually distributing these incoming requests to lots of different physical servers, Screenshot(26)
+
+Much like the concept of DNS round robin this is the form of load balancing another way the reverse proxies r commonly used
+by popular websites is to deal with decryption more then half of all traffic on the web is now encrypted and encrypting and
+decrypting data is a process then can take a lot of processing power, Reverse proxies r implemented in order to use hardware
+built specifically for crypotography to perform to perform the encryption and decryption work so that the web servers r free
+to just serve content.
+
+Proxies come in many other flavours, but important take away is that the proxies r any server act as an intermediory between
+the client and the other server
+
+Connecting to the Internet ->
+POTS and Dial-up ->
+Dial-up, Modems and Point to Point Protocols ->
+Public Switch Telephone Network(PSTN) is also sometimes referred to as Plain old telephone service or POTS on the basis on
+this the system was built called USENET before this a very primitive form was used of a Dial-up connection to exchange a
+series of msgs with each other, Dial-up connection uses POTS for data transfer and get its name bcz the connection gets
+established by actually dialing a phone no. and using dial-up back in the day. 
+Transfering data cross a dial-up connection is done through devices called modems, Modem stands for Modulator/Demodulator
+and they take data that computers can understand and turn them into audible wave lengths that can be transmitted over POTS,
+Screenshot(28)
+
+After all the telephone system was developed to transmit voice msgs or sounds from one place to another this is similar that
+how line coding is used to turn 1's and 0's to modulating electrical charges across ethernet cables, Earlier modems had very
+low Baud Rate.
+
+Baud Rate is a measurement of how many bits can be passed across a phone line in a second 
+
+By the late 1950's computers can only send a data to each other only on a phone line for 110bps and by the time USENET was
+developed this rate was increased to 300bps
+Dial-up internet connectivity is pretty rare today but it hasn't completely gone away on some rural areas it might be the
+only option still available
+
+Broadband connections -> In terms of internet connectivity it is used to refer to the any connectivity technology that isn't
+dial-up internet, and broadband is always faster then the dial-up and it refers to connections that r always ON this means
+that the long lasting connections that don't need to be establish with each use, their r essentially links that r always
+present Broadband shows the true potential of internet for the buissnesses.
+ 
+In a office with few employees the bandwidth available by a single dial-up connection would quickly be over saturated by
+just a few users.
+By the mid 1990's it had become pretty common for buissness that needed internet access for their employees to use various
+T-carrier technologies 
+
+T-carrier Technologies -> Originally invented by AT&T in order to transmit multiple phone calls over a single link,
+eventually they also became common transmission systems to transfer data much faster then any dial-up connection could
+handle.
+
+In earlier days for the dial-up connections a 2mb of photo could take upto 19.4 mins to be download at the speed of
+14.4 kb/s.
+
+T-carrier technolgies require dedicated lines which make them more expensive for this reason u usually see them to be use by
+only the buissnesses but other broadband solutions also exists for the busissness and consumers such as ->
+- DSL(Digital Subscriber Lines)
+- Cable broadband 
+- Fiber Connections
+
+In T-carrier technologies every individual phone call was made over the individual pairs of copper wire before Transmission
+System 1, the 1st T-carrier spefication called T1, with the T1 specification AT&T invented a way to carry upto 24
+simultaneous phone calls across a single piece of twisted pair copper, years later the same technology was used for the data
+transfers, Each of the 24 phone channels was cable of transmiting data at 64 kbs making a single T1 line capable of
+transmiting data at 1.544 mbs
+Over the years the phrase T1 has come to mean any twisted pair copper connection capable of speeds of 1.544 mbps even is
+doesn't follow strictly the original transmissions system 1 specification
+Originally T1 technology was only used to connect different telecom compnay sites to each other and to connect these
+companies to other telecom companies but with the rise of the internet more and more buissness started to pay for the lines
+installed at their offices to have faster intenet connectivity more improvements to the T1 line were made by developing a
+way of multiple T1's to act as a single link, So a T3 line is 28 T1's all multiplexed achiving a total throughput speed of
+44.7 mbps.
+
+U will still find the T-carrier technolgies in use today but they usually been surpass by other broadband technologies, for
+small type of busissness the cable broadband or fiber connetions r more common since they r much cheaper to operate, for
+inner high speed communication different fiber technolgies have all replaced older copper based once.
+
+Digital Subsriber Lines(DSL)-> On Research it was showed that the twisted pair copper used by modern telephone line was
+cable of transfering way more data then what was need then for voice to voice call by operating at the frequency range that
+didn't interfer with normal phone calls the DSL technology was able to send much more data across the wire then the
+traditional dial-up technology and this allowed for the normal voice phone calls and data transfer to occur at the same time
+on the same line, DSL technologies also uses their own modems but they were known as DSLAMs(Digital Subscriber Line Access
+Multiplexers) just like Dial-up modems these devices establish data connections across phone lines but unlike dial-up
+connections they r usually long running, this means the connection is generally established when the DSLAM powered on and
+isn't torn down untill the DSLAM is powered off.
+Their r lots of different kinds of DSL available but they all vary in a pretty minor way, for long time the two most common
+types of DSL were ADSL and SDSL
+
+ADSL stands for Asymmetric Digital Subcriber Line, they featured different speeds for outbound and incoming data, generally
+this means the faster download speeds and slower upload speeds as home users rarely need to upload as much data as they
+download as the upload data is much smaller then the download data for a webpage 
+
+SDSL stands for Symmetric Digital Subcriber Line, this is basically the same as ADSL except the uploads and the downloads
+speeds r the same, as one point the SDSL was mainly used by the buissnesses that hosted servers that needed to send data to
+clients as the general bandwidth available on the interent has been expanded and as the cost of operation has come down over
+the years SDSL is now more common to both buissnesses and home users, Most SDSL technologies have a upper cap of 1.544 mbps
+or the same as the T1 line.
+
+Further developments in the SDSL technolgies have lead to HDSL(Hogh Bit-rate Digital Subscriber Lines) these r DSL
+technologies that provision speeds above 1.544 mbps, their r lots of minor variations in DSL technology on the while
+offering different bandwidth options and operating distances, these variations can be so numerous and minor that they hardly
+differentiate from each others.
+
+Cable Broadband -> Originally all television broadcasts were wireless transmissions sent out by giant television towers and
+received by small antenas at the homes, The 1st cable television technology were mainly for the towns which were out of the
+range of the these big television towers at the time
+
+In 1984 Cable Communications Policy Act was passed this deregualted the cable television buissness and caused a massive boom
+in growth and adoption and soon the cable television infrastructure was about the size of the public telephone system and
+just line telephone lines it was realized that these cables can be used for much more data transfer then the televison data
+which could be used for the internet and this technology refer to the cable broadband.
+
+The main difference how the cable broadband works in compare to other broadband solutions is that the cables r generally
+known as the Shared bandwidth technology
+
+With technology like DSL and dial-up the connection from ur home and buissness goes directly to whats known as a Central
+office or CO, and long time ago these CO's were offices with staff of telephone operators who used a switch board to manully
+connect the caller with the cally and as the technology improved these CO's become smaller pieces of automated hardware that
+handled these functions for the telephone companies.
+Technologies that connect directly to CO's can guarentee a certain amount of bandwidth available over that connection since
+it's point to point and the cable broadband technology which employ a shared bandwidth model, with this model in place many
+users share certain amount of bandwidth untill the transmitions reached the ISPs core network, this could be any where from
+the single city block to entire sub divisions to sub routes it just depends on how the area was originally wired for cable,
+Screenshot(29)
+
+Today most cable operaters have tried to upgrade their networks to the point that the end users might not always notice this
+shared bandwidth but it's also still common to see, the cable internet connections slow down during the periods of heavy use
+, like when lots of people in the same region r using their internet connection at the same time, cable internet connections
+r usually managed which r known as the cable modems, this is the device that sits at the edge of the consumers network and
+connects it to the cable modem termination system(CMTS)
+
+CMTS connects lots of different cable connections to an ISPs core network
+
+Fiber Connections -> For the long time these connections were only used by ISPs within their core networks or may be for use
+in data centers bcz for their expensive installation but now it is become popular to use fiber to deliver data to the end
+user but it depends on the various measures still that is why the term FTTX is used
+FTTX(Fiber to the X) -> here X can be many things 
+
+FTTN(Fiber to the Neighbourhood) -> This means the fiber technologies r used to deliver data to a single physical cabinet
+that servers a certain amount of population, Screenshot(30), From this cabinet twisted pair copper or COAX might be used for
+the last length of the distance 
+
+FTTB(Fiber to the Building) -> These r genrally the cables to building physically enter, FTTB is a set up were fiber
+technology is used for data delivery to an individual building after that twisted pair copper is typically used to actually
+connect those inside of the building.
+ 
+FTTH(Fiber to the Home) -> This is used in the instances were fiber is run to each individual residences, in neighbourhood
+or the appartment building, FTTH and FTTB make both also to be refered as the FTTP(Fiber to the Premises)
+
+Instead of the modem the demarkation point for the fiber technologies is known as ONT
+
+ONT(Optical Network Terminator) -> It converts data from protocols the fiber network can understand, to those that more
+traditional, twisted-pair copper networks can understand.
+
+WAN(Wide Area Network) Technologies -> Suppose u r incharge of the network at a small company, at 1st buissness has only few
+employees with a few computers in a single office, u decide to use non-routable address space for the internal IPs, u set up
+a router and configure it to perform NAT, U configure a local DNS server and a DHCP server to make network configuration
+easier and for of this to work u sign a contract with the ISP to deliver a link to the internet to this office, So ur users
+can access the web.
+Now imagine the company grows and u r using non-routable address space for ur internal IPs, So u have plenty of space to
+grow their may be some sales people need to connect to the resources on the LAN u set up while u r on the road, so u can
+figure a VPN server and make sure the VPN server is accessible via Port forwarding, Now u can have employees all over the
+world to connect to the office LAN, but then CEO decides that they r going to open a new office across the city, suddenly
+hand full of sales people requiring remote acess to the resources on ur Network u have an entire 2nd office that needs it
+and this is where WAN technology come into play.
+Unlike LAN the WAN acts like a single network, but spans across multiple physical locations
+
+WAN technologies usally require that u contact a link across the internet with ur ISP, this ISP handle sending ur data from
+one side to the other so it could be like all of ur computers r in the same physical location, A typical WAN setup has a few
+sections.
+Imagine one network of computers on the one side of the country and the other network of computers on the others each of
+thosevnetworks ends at a Demarcation Point which is where the ISPs network takes over, the area between each Demarcation
+point and the ISPs actual core network is called a local loop, this local loop would be like a T carrier line or a high
+speed optical connection to the providers local regional office, from their it will connect out to the ISPs core network and
+the internet at large, Screenshot(31)
+
+WANs work by using no. of different protocols at the data link layer to transport ur data from one side to another infact
+these same protocols r where at sometimes at work at the core of the internet itself instead of our more familiar ethernet
+
+Point-to-point VPNs is a popular alternative to WAN technologies, WAN technologies r great when u need to transport large
+amounts of data across lots of sites bcz WAN technologies r built to be super fast, DSL line or cable might be way cheaper
+but it can't handle the load required in some of these situations.
+But for last few years the companies r moving their busisness in to the cloud, Cloud lets companies out source its all or
+different pieces of infrastructure to other companies to manage.
+Such the concept of email in past a company had to run their own email server if they wanted an email presence at all, 
+today u can have a cloud hosting provider host ur email server for u, even u can use email as a service provider then u
+won't have an email server at all anymore u just have to pay another company handle everything about ur email servers, with
+these type of cloud solutions in place lots of buissnes no longer require a exstream high speed connections between their
+sites, this makes the expense of a WAN technology totally unnecassry instead companies can use Point-to-point VPNs to make
+sure their different sites still communicate with each other.
+
+Point-to-point VPN also called site-to-site VPN eastablishes a VPN tunnel between two sites this operates alot like the
+traditional VPN setup lets individual users act as if they r on the network they r connecting to, Screenshot(32)
+Its just that the VPN tunneling logic is handled by network devices at either side so that users don't have to establish
+their own connections.
+
+Wireless Networking ->
+The most common specification for how wireless networking devices should communicate r defined by the IEEE 802.11 standards,
+this set of specifications also called the 802.11 family make up the set of technologies called WiFi.
+
+Wireless networking devices communicate with each other through radio waves, different 802.11 standards genually use the
+same basic protocol but might operate at different Frequency bands
+
+Frequency Band -> A Frequency band is a certain section of the radio spectrum that's been agreed upon to be used for certain
+communications such as in North America FM radio transmissions operate between 88 and 108 Mhz, this specific frequency band
+is called the FM broadcast band, WiFi networks operates on few different frequency bands most commonly the 2.4Ghz and 5 Ghz
+bands.
+
+The most common specifications u might run into r 802.11b, 802.11a, 802.11g, 802.11n and 802.11ac, they r listed here in the
+order they were adopted each newer version of the 802.11 specifications has genually seen some improvement whether it is
+higher access speeds or the ability for more devices to use the network simultaneously.
+In terms of our networking model u should think 802.11 protocols as defining how we operate at physical and data-link layers
+
+In 802.11 frame has a no. of fields, Screenshot(33)
+
+1st field is Frame Control, this field is 16 bits long and contains a no. of subfields that is used to describe how the
+frame itself should be processed, this includes things like what version of 802.11 was used
+
+2nd field is Duration, it specifies how long the total frame is so the reciver would know how long it should expect to have
+to listen to the transmition
+
+3rd, 4th, 5th and 7th are the address fields, so their r 4 address fields
+
+Wireless access point -> A device that bridges the wireless and wired portion of a network, a single wireless network might
+have lots of different access points to cover a large area devices on a wireless network which will associate with certain
+access point, this is usually the one they r physically closet to but it can also be determined by other things like general
+signal strength and wireless interferance, associations isn't just important for the wireless device that talk to specific
+access point it also allow for the incoming transmissions to the wireless device to be set by the right access point
+
+Their r 4 address fields that needs to be roomed to indicate which wireless access point should be accessing the frame so->
+- we have our normal source Address field which would represent the MAC address of the sending device
+- We also have the intended destination field on the network
+- We have the reciving address and the transmitor address these r described in the order of Address 1 to 4
+The reciver address would be the MAC address of the access point that should recive the frame and the transmitor address
+would be the MAC address of whatever have just transmitted the frame
+
+In lots of situations the destination and reciver address might be the same usally the source and transmitor addresses r
+also the same but depending on exactly the specific wireless network is been architected this won't always be the case, 
+sometimes wireless access points will relay these frames from one another, Since all addresses in 802.11 frame r MAC
+addresses each of those 4 fields is 6 bytes long.
+
+6th field is Sequence Control field, it is 16 bits long and mainly contains a sequence no. used to keep track of ordering
+the frames
+8th field is Data Payload
+9th field id FCS
+
+Wireless Network configurations -> The ways it could be configured r ->
+- ad-hoc networks were nodes all speak directly to each other
+- Wireless LANS(WLANS) were one or more access points act as a bridge between a wireless and a wired network
+- Mesh networks which is the hybrid of above two
+
+Ad-hoc networks r the simplest of the 3, In it their isn't really any supporting network infrastructure every device
+involved with the network communicates with every other device within range and all nodes help pass along msgs, 
+Screenshot(34)
+Even though the most simple ad-hoc networks are not the most common type of wireless network but they do have some practical
+applications, some smartphones can establish ad-hoc networks with other smart phones in the area so that people can exchange
+photos, videos or contact information, u also sometime see ad-hoc network used in industrial or warehouse settings were
+individual pieces of equipment might need to communicate with each other but not with any thing else, Finally ad-hoc
+networks can be powerfull tools during disaster situations, if a natual disaster like an earthquake or hurricane knocks out
+all of the existing infrastructure in area, disaster relief professionals can use ad-hoc network to communcate with each
+other while they perform searching rescue efforts.
+
+The most common type of wireless network used is buissness world is wireless LAN, WLAN consists of one or more access points
+which act as bridges between the wireless and wired networks, A wired network operates as an normal LAN, though wired LAN
+contains the outbound internet link, In order to access resources outside the WLAN, wireless devices would communicate with
+access points they then forward traffic along to the gateway router for everything proceeds like a normal, Screenshot(35)
+
+Mesh Networks r kind of like ad-hoc networks since lots of the devices can communicate with each other wirelessly forming a
+Mesh, if u have to draw lines between all the nodes most mesh networks u run into r only made up of wireless access points
+and will still be connected to wired network, this kind of network lets u deploy more access points to the mesh without
+having to run cable to each of them, with this kind of setup u can really increase the performance and range of the wireless
+network.
+
+Wireless channels -> Channels r individual smaller sections of the overall frequency band used by a wireless network
+channels help address an old networking concern which is collision domains, the problems of collisions domain on the wired
+network is mostly reduced by the switches, but the wireless devices r doomed to talk with over each other and channels help
+fix this problem to a certain extent.
+When we talk about the frequency bands used by Wifi we talk about only 2.4 Ghz and 5 Ghz, So the wireless networks that
+operate on 2.4Ghz band we roughly means that it works on the band of 2.4 Ghz to 2.5 Ghz and between these 2 frequencies
+their r no. of channels each with a width of certain megahertz,Screenshot(36), since different countries and regions have
+different regulatory commites for what radio frequency might be use for what exactly how many channels r available to use
+depends on the world u r.
+Ex -> dealing with 802.11b network channel 1 operates at 2412 mhz but since the channel width is 2 mhz the signals lives
+between 2401 mhz and 2413mhz this is bcz radio waves empharsize things so need some buffer around what exact frequencies
+transmission might actually arrive on.
+
+Some channels overlap but some r far enough apart that they won't interfer with each other at all, Screnshot(37),
+for 802.11b network channel 1, 6 and 11 will never overlap, today wireless networking equipment is built to auto sense what
+channels r most conjested, some access points will only perform this analysis when they start up, others will dynamically
+change their channel as needed between most two scenerios and manually specified channels u can still run into situations
+where u experience heavy channel conjuction, this is specially true in dense urban areas with lots of wireless networks and
+close proximity.
+
+Understanding how these channels overlap for all of the 802.11 specification is the way u can help troubleshoot bad wireless
+connectivity problems or slow downs in the network and u wanna avoid collision domains wherever u can, u wanna make sure
+that both ur access points and those of neighbouring buissness overlap channels as little as possible.
+
+Wireless Security ->
+WEP(Wired Equivalent Privacy) -> Do this from Zaid Wifi Hacks Notes
+WPA(Wifi protected Access) -> Do this from Zaid Wifi Hacks Notes
+Another common way to help securing ur Wireless networks is through MAC filtering -> Through MAC filtering u configure ur
+access points to only allow for connections from a specific set of MAC addresses belonging to devices u trust
+
+Cellular Networking -> They r now common all over the world, in some places for using the cellular network for the internet
+access is the most common way of connecting at high level the cellular networks has lot in common to 802.11 networks, just
+like their r many 802.11 specifications their r lots of different cellular specifications and they also operate over radio
+waves and they r specific frequency bands, specifically reserved for cellular transmissions one of the biggest difference
+is that these frequencies can travel over longer distances more easily usually over many miles.
+
+Cellular networks r built around the concepts of cells, each cell is assigned a specific frequency band for use neighbouring
+cells r setup to use bands that don't overlap,Screenshot(38), Infact the cell towers that broadcast and recieves cell
+transmissions can be though of like access points just with a much larger range.
+Lots of devices today use cellular networks for communcation and not just phones also tablets and some laptops also have
+cellular antenas, its beoome more an more common for high end automobiles to have built in cellular access too.
+
+Error detection is the ability for a protocol or program to determine that something went wrong.
+
+Error recovery is the ability for a protocol or program to attempt to fix it.
+
+Verifying Connectivity -> ping(Internet control message Protocol)
+When a network problems come up the most common issue u run into is the unability to establish a connection to something, it
+could be the server that u can't reach at all or a website that isn't loading many be u can only reach a resource on ur LAN
+and can't connect to anything on the internet.
+When a network error occurs the device that detects it need someway to communicate this to the source of the problematic
+traffic, it could be that a router doesn't know how to route to a destination or a certain port isn't reachable, it could be
+even that the TTL of an IP datagram expired and no further router hops would be attempted for all of these situatuons and
+more the ICMP or Internet Control Message Protocol is used to communicate these issues.
+
+ICMP is mainly used by a router or a remote host to communicate via transmission has failed back to the origin of the
+transmission, the make up of a ICMP packet is pretty simple it has a header with few fields and a data section that is used
+by a host to figure out which of the transmissions generated the error.
+
+1st field is the Type field, which is 8 bites long and specifies what type of message is being delivered some examples r
+destination unreachable or time exceeded.
+
+2nd field is the code field which indicates a more specific reason for the msg for just the Type for exmaple for the
+destination unreachable type their r individual codes like destination network unreachable and destination port unreachable
+
+3rd field is a 16 bit checksum and works like in the same way the other checksum fields work
+
+4th field is Rest of the header, this field is optionally used by some of the specific types and codes to send more data
+
+5th field is the data payload for the ICMP packet, Screnshot(39), the payload for the ICMP packet exists entirely so that
+the recipent of the msg knows which of their transmissions to cause the error being reported, it contains the entire IP
+header and the first 8 bytes of the data payload section of the offending packet.
+
+ICMP wasn't really developed for humans to interact with, the point is so that these sorts of error msgs can be delivered
+between network to computer automatically but their is also a specific tool and 2 msg types that can be very usefull to
+human operators which is ping, some version of it is present on every OS and has for being a very long time.
+
+Ping lets u send a special type of ICMP msg called a Echo Request.
+
+An ICMP echo Request essentially just asks ur destination like this hey r u their?
+
+If the destination is up and running and able to communicate on the network, it will send back an ICMP Echo Reply msg type
+U can invoke the ping cmd from the cmd line of the any modern OS
+cmd -> ping destination_IP // output of a ping cmd is very similar across each of the different operation systems
+Every line of output will generally display the address sending the ICMP echo reply and how long it took for the roundtrip
+communication, it will also show the TTL remaining and how large the ICMP msg is in bytes, once the cmd ends their will also
+be some statictics displayed like percentage of packets transmitted and received, average round trip time.
+
+ON Linux and MacOS the ping cmd will run untill its interupted by an end user sending a interept cmd by ctrl + c and on
+windows ping is default to send only 4 echo requests.
+
+In all environments ping supports a no. of cmd line flags that let u change the behaviour like the no. of echo requests
+send, how large they should be and how quickly they should be sent.
+
+Tracroute -> It is a utility that lets u discover the path between two nodes, and gives u information about each HOP along
+the way
+The way traceroute works is through a clever manupulation technique of the TTL field at the IP level, Traceroute uses the
+TTL field by 1st setting it to 1 for the 1st packet, then 2 for the second and so on, by doing this the traceroute ensures
+that the very 1st packet send will be discarded by the 1st router HOP which results in ICMP time exceeded msg, the 2nd 
+packet will make upto the 2nd router and so on, this continues untill the packet finally makes it all the way to it's 
+destination, for each HOP the traceroute will send 3 identical packets
+In the output of the traceroute u will see that on each line -> the no. of the HOP and the roundtrip time for the each 3
+packets, u will also see the IP of the device at each HOP and host name if traceroute can resolve one.
+
+On linux and MacOS traceroute sends UDP packets to very high port no.s, on windows the cmd has name as tracert and defaults 
+to using ICMP echo request 
+On all platforms the traceroute has more options that can be specify using cmdline flags
+
+Two more tools that r similar to traceroute r 'mtr' on Linux and MacOS and 'pathping' on windows, these 2 tools act as long
+running traceroutes, So u can better see how things change over a period of time
+'mtr' works in realtime and will continously update it's output with all the current aggregate data about the traceroute, u
+can compare this with pathping which runs for 50 seconds and displays the final aggregate data all at once.
+
+Testing Port Connectivity ->
+To know that if the things r working at transport layer we use these tools ->
+- netcat on linux and MacOS
+- Test-NetConnection on windows
+
+The netcat tool could be run through the cmd 'nc' and has 2 mandatory arguments a 'host' and a 'port', running the cmd ->
+nc google.com 80 will try to establish a connection on port 80 to goolge.com if the connection fails the cmd will exit
+if it succeded u will see a simple cursor which is waiting for more input, this is a way for u to actually send Application
+layer data to the listening service from ur keyboard, to know about the status of the port u can use flag '-z' which stands
+for Zero Input/Output mode, and '-v' for verbose.
+On windows the Test-NetConnection has some of the similar functionalities if u run it with only host specified like this ->
+Test-NetConnection goolge.com, it will be default for using the ICMP echo request but it will display way more data then nc
+, including the data-link layer protocol being used
+When u issue Test-NetConnection with '-port' flag u can ask it to test connectivity to a specific port
+
+Both netcat and Test-NetConnection have many options and flags.
+
+Name Resolution tools -> Most of the time ur OS handles all lookups for u but sometimes it is usefull to run these queries
+urself so that u can see exactly what is happening behind the seens, the most common tool for this is 'nslookup' and it is
+available on all 3 operating systems 
+Basic use of nslookup is that when u execute the cmd -> nslookup hostname , the output will tell what server was used to 
+perform the request and the resolution result
+Suppose u needed to know the IP address of twitter.com, u will just enter as -> nslookup twitter.com and the A record will
+be returned.
+nslookup includes the interactive mode which let u set additional options and run lots of queries in a row.
+To start intercative mode in nslookup just cmd -> nslookup, then u can add like this after '>' server ip_address // now
+all the name resolution queries will be attempted to be made using that server instead of that default name server
+u can also do > set type=resource_record_type // this will give the result accordingly
+to see more background working in nslookup use > set debug // this will allow the tool to display full response packets
+including any intermidiary requests and all of their contents this will give u lot of data such as TTL, serial number of
+the zone file the request was made against.
+
+Public DNS servers -> 
+- An ISP almost always gives u access to a 'recursive name server' as part of the service it provides.
+- In most cases these name servers r all u really need for ur computer to communicate with other devices on the internet,
+but most buissnesses also run their own DNS servers, this is at very least needed to resolve names of internal hosts, any
+thing from naming a computer to printer with name instead of an IP requires the name server.
+- Another option is to use the DNS as ur Serive provider which is becoming more and more popular
+- No matter waht DNS models u r using on ur network it's usefull to have a way to test DNS functianlity in case u suspects
+that something isn't working right 
+- It can be also super usefull to have a backup DNS option in case u expirence problem with ur own 
+- Some internet organizations run what r called Public DNS servers which r Name servers specifically set up so that anyone
+can use them, for free
+- Using these public DNS servers is handy technique for troubleshooting any kind of name resolution problems which u r 
+experiencing
+- Some people just use these name servers for all the resolution needs, for long time the public DNS servers where kind of
+tribal knowledge passed down from one sysadmin to another, it is said that for many years the most commonly used DNS servers
+were those run by level-3 communications one of the largest ISPs in the world 
+
+The IP addresses for level-3 public DNS servers r -> 4.2.2.1-6, these IPs r easy to remember but their were some mystery
+around them. which is one of the greatest mysteries of the sysadmin wars.
+For googles public DNS IPs r 8.8.8.8 and 8.8.4.4, unlike the level-3 IPs these r officially acknowledged and documented by
+google to be use for free by anyone
+
+Most public DNS servers r available globally through anycast.
+
+Lots of other organizations also provide public DNS servers but few r as easy to remember.
+Always do ur research before configuring any of ur devices to use that type of name server, hijacking outbound DNS requests
+with faulty responces is easy way to redirect ur users to malicious sites
+
+Always make sure the name server is run by a reputable company, and try to use the name servers provided by ur ISP outside
+of troubleshooting scenerios.
+
+Most public DNS serves r also respond to ICMP echo request, so they r great choice for testing general internet connections
+
+DNS Registration and Expiration ->
+Registrar -> An orgnaization responsible for assigning individual domain names to other organizations or individuals.
+U just need to create an account with the registrar use their web UI to search for a domain name to determine if it is
+still available then pay the price.
+Once u have the domain name u can either have the registrars name servers act as the authorative name servers for the domain
+or u can configure ur own servers to be authorative
+
+Domain names can also be transfered from one party to another and from one registrar to another, the way this usally works
+is that the reciepent registrar will generate a unique string of characters to prove that u own the domain and u r allowed
+to transfer it to someone else
+U configure ur DNS settings to contain this string in a specific record usually a TXT record, once this information is 
+propagated it can be confirmed that u both own the domain and aprove it's transfer, after that ownership will move to the
+new owner or registrar.
+These registrations only remain for a fixed amount of time, u typically pay the registered domain names for certain no. of
+years and when ur domain name expire any one can grasp and anyone else can register them.
+
+Hosts Files ->
+Before DNS the computer operators needed a language based system to refer to network devices so the original way that
+numbered network addresses were correalted with words was through hosts files.
+
+Hosts File is a flat file that contains on each line a network address followed by the host name it can be referred to as
+For Ex -> a line in a host file might read 1.2.3.4 webserver this means that on a computer where this host files resides a
+user can just refere to a web server instead of the IP 1.2.3.4.
+Host files r evaluted by the networking stack of the OS itself that means the presence of an entry their will translate to
+any where u might refer to  in networking atmosphere.
+Host files r ancient but they still stuck around all this time, all modern operating systems including those that power
+our phone and tablets still have host files one reason is bcz of a special IP address which is loopback address
+
+A loopback address always points to itself so it is a way of sending network traffic to urself.
+
+Sending traffic to loopback address bypasses all network infrastructure itself and traffic like that never leaves the node,
+The loopback IP for IPv4 is 127.0.0.1 and it configured on every modern operating system through an in host file
+
+Almost every host file in existance will in the very least contain a line that reads 127.0.0.1 localhost, most likely
+followed by ::1 localhost, where ::1 is the loopback address for IPv6.
+Some softwares even require the entry in host files operate properly 
+
+Hosts files r a popular way for computer viruses to disrupt and redirect users traffic.
+The host file also have some trouble shooting purposes that can be helpfull in IT support, Host files r examined before
+DNS resolution attempt occurs on just about every major OS. This lets u force a individual computer to think a certain
+domain name always point at a specific IP.
+
+Cloud ->
+Cloud computing is a technological approach where computing resources r provisioned in a shareable way, so that lots of 
+users get what they need, when they need it.
+
+Hardware virtulization which is at the heart of cloud computing, which is a core concept of how cloud computing technologies
+work, it allows the concept of a physical machine and a logical machine to be abstracted away from each other 
+
+Virtualization -> A single physical machine, called a host, could run many individual virtual instances, called guests.
+
+In OS expects to be able to communicate with underline hardware in certain ways, hardware virtulization platforms employ
+Hypervisor
+
+A Hypervisor is a piece of software that runs and manages virtual machines, while also offering these guests a virtual
+operating platform that's indistinguishable from actual hardware.
+With virtulization a single physical computer can act as a host for many virtual instances they each run their own 
+independent OS and in mnay ways r indistinguishable from the same OS's to running on a physical hardware. ScreenShot(48-1)
+The cloud takes this concept one step further if u build a huge cluster of interconnected machines that can all functions
+as hosts for lots of virtual guests then u got a system that lets u share resources among all of those instances
+
+Public Cloud -> A large cluster of machines run by another company
+Private Cloud -> Used by a single large corporation and generally physically hosted on its own premises.
+
+Hybrid Cloud -> It is a term to describe situations where companies might run things like their most sensitive prorietary
+technologies on a private cloud, while entrusting their less-sensitive servers to a public cloud.
+ 
+Cloud Computing -> It's a new model in computing where large clusters of machines let us use the total resources available
+in a better way.
+
+IPv6 Addressing and Subnetting ->
+IPv5 was a experimental protocol which represented the concept of connections but later on that connection state was handled
+better by the Transport layer
+IPv6 addresses r 128 bits in size, hence it has the address spaces in undecillion
+Every single IPv6 address that starts with 2001:0db8 has beed reserved for documentation and education which is around
+18 quitillion addresses
+
+There r two rules when it comes to shortening an IPv6 address. The 1st is that u can remove any leading zeroes from a group
+, 2nd is that any number of consecutive groups composed of just zeroes can be replaced with two colons. and this could
+happen once for any specific address otherwise u couldn't know how many zeros were replaced by double colons
+
+Ex -> 2001:0db8:0000:0000:0000:ff00:0012:3456	- IPv6 address
+	  2001: db8:   0:   0:   0:ff00:  12:3456	- After applying 1st rule
+      2001:db8::ff00:12:3456					- After applying 2nd rule
+
+	  ::1		<- IPv6 loopback address
+	  
+- Any address that begins with FF00:: is used for multicast which is a way of addressing groups of hosts all at once
+- Address begining with FE80:: r used for link local unicast
+
+Link-local unicast addresses allow for local network segment communcations and r configured based upon a host's MAC address
+
+Link-local address r used by IPv6 hosts to recieve their network configuration which is alot like how the DHCP works, The
+hosts MAC address is run through algorithms to turn it from a 48bit no. into a unique 64bit no., its then inserted into the
+addresses host ID, the IPv6 address space is so huge their was never any need to think about spliting it up to address
+classes like we used to do with IPv4 from the very begining in IPv6 address have a very simple line between network ID and
+host ID
+The 1st 64bits(1st 4 groups) of IPv6 address is the network ID and the 2nd 64bits r the Host ID
+
+IPv6 subnetting uses the same CIDR notation, this is used to define a subnet mask against the network ID portion of IPv6
+address
+
+IPv6 headers -> ScreenShot(49-1)
+ist field is Version field, this is a 4bit field that defines what version of IP is in use
+
+2nd field is the Traffic class field, this sis a 8 bit field that defines the type of traffic contained within the IP 
+datagram and allows for different classes of traffic to recieve different priorities 
+
+3rd field is flow label field, this is a 20 bit field thats used in conjunction with the traffic class field for routers to
+make decisions about the quality of service level for a specific datagram 
+
+4th field is Payload length field, this is a 16bit field that defines how long data payload section of the datagram is
+
+5th Next header field, this is a unique concept for IPv6 as IPv6 addresses r 4 times long then the IPv4 addresses that 
+means they have more 1's and 0's, which means they will take longer to transmit across a link, to help reduce the problems
+with additional data that IPv4 addresses impose on the network, the IPv4 header was built to be short as possible, one way
+to do that is to take all of the optional field and abstract them away from the IPv6 header itself, the next header field
+defines what kind of header is immediately after this current one, these additional headers r optional, so they r not 
+required for the complete IPv6 datagram, each of these additional optional headers contain a next header field and allow 
+for a chain of headers to be formed if their is lot of optional configuration
+
+6th HOP limit field, this is a 8 bit field thats identical in purpose to TTL field in IPv4 header
+
+7th Source Address and 8th Destination Address which r each 128 bits.
+
+If the next header field specifies the another header it will follow at this time, if not a data payload the same legnth
+specified in the payload length field will follow, ScreenShot(50)
+
+IPv6 and IPv4 harmony -> The only way IPv6 will ever take full replacement of IPv4 is that it should co-exist with IPv4
+at the same time as the old systems can't or don't know how to speak IPv6 and this could work by IPv4 mapped address space
+The IPv6 specifications has set asside a no. of addresses that can be directly co-related to a IPv4 address, any IPv6
+address that begins with 18 0's is then followed by 16 1's is understood as the part of the IPv4 mapped address space,
+the remaining 32 bits of the IPv6 address is just the same 32 bit's of the IPv4 address it's meant to represent.
+ScreenShot(51), this gives us a way for IPv4 traffic to travel over an IPv6 network and also vice-versa.
+the primary way right now it is done today is through IPv6 tunnels, these tunnels consist of IPv6 tunnel servers on either
+end of the connection 
+IPv6 tunnels -> Servers take incoming IPv6 traffic and encapsulate it within traditional IPv4 datagram, this is then 
+delievered accross the IPv4 internet space where it is received by the another IPv6 tunnel serber, that server performs the
+de-encapsulation and passes the IPv6 traffic further along the network
+
+Allow with IPv6 tunnel technologies the concept of IPv6 tunnel broker has also emerged 
+
+IPv6 tunnel broker -> These r companies that provide IPv6 tunneling endpoints for u, so u don't have to introduce additional
+equipment to ur network.
+   
