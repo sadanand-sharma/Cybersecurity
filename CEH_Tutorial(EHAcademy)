@@ -33,6 +33,61 @@ releases a patch for that vulnerability.
   domains at the time of the expiration and then resale it to the company again at very high prices bcz they need that
   domain for their buissness.
 
+
+------------------------------------------------------------------------------------------------------------
+
+- How to calculate network id, subnet id and host id from IP address?
+- 3 routers working diagram
+- Distance vector working diagram
+- link state working diagram
+- Non-routable address space ?
+
+- where is IP in 802.11 frame?
+
+- link-local unicast working with MAC ?
+- Bit Flipping ?
+- email harvest not working for eccouncil.org, w3schools etc ?
+- How to evade honeypots ?
+- Screenshot(14) CEH notes practice cmds?
+- brute force vs rainbow table attack?
+- Replay password online attack ?
+- On entering the 127.0.0.1 in browser not able to see the server technology, why?
+- Not able to find the DHCP settings in Network control pannel for IPv4, why?
+- understand tcpdump output as why it is not showing the IP instead indicating kind of Port forwrding and no domain?
+- changes in host file not working?
+- sudo hostnamectl set-hostname name_for_host doing this command changes the host name but not in Host file?
+- sudo service hostname restart cmd not working?
+- counter based security tokens ?
+- banking trojan?
+- MIME email?
+- snooping?
+- CEH questions -> Screenshot(125,126)
+- Forensic Attack 
+- Taxonomy - Risk Assessment
+- teardrop attack 
+- WEM?
+- STP manuplation attack?
+- sinkhole attack - 
+- difference between tunneling and stealth virus - more preffered?
+
+
+sqll injection time based blind?
+
+-https://www.ethicalhackx.com/category/hacking/
+- https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/ceh-assessment/
+
+http://www.gocertify.com/ethical-hacker/ethical-hacking-general-knowledge-quiz
+
+https://www.youtube.com/watch?v=pLcc-UIvJrg&list=PL1U-z6tCj5WBGqkXlfTfG8UwR8wd6acwb
+
+https://www.surveygizmo.com/s3/4779326/CEH-Practice-Quiz-1?
+
+https://www.skillset.com/
+
+https://ceh.cagy.org/
+
+https://www.test-questions.com/ceh-exam-questions-02.php
+--------------------------------------------------------------------------------------------------
 - Bit Flipping -> It is an attack on a cryptographic cipher in which the attacker can change the ciphertext in such a way as
   to result in a predictable change of the plaintext, although the attacker is not able to learn the plaintext itself. Note
   that this type of attack is not—directly—against the cipher itself, but against a particular message or series of messages.
