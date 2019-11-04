@@ -116,7 +116,7 @@ WMI - // Windows Management Instrumentation is a set of specifications from Micr
 Windows Management Instrumentation (WMI) connection. For the connection to succeed, the remote computer must permit incoming
 network traffic on TCP ports 135, 445, and additional dynamically-assigned ports, typically in the range of 1024 to 1034.
 
-
+---------------------------------------------------------------------------------------------------------------
 ##_02 Extra Points
 
 robots.txt // https://drive.google.com/drive/u/1/my-drive ques 80
