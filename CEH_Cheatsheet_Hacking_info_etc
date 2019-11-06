@@ -3091,3 +3091,5 @@ TLS wikipedia page to see the supported and Best Encryption algolithms in use fo
 ciphersuites // on mozilla.org and weakdh.org
 
 Exfiltration //bringing back the data to the attacker
+
+Microsoft baseline security analyzer -> this program will tell u what u r doing wrong and find the weak spots before attacker do.
