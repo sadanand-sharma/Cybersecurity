@@ -3093,3 +3093,8 @@ ciphersuites // on mozilla.org and weakdh.org
 Exfiltration //bringing back the data to the attacker
 
 Microsoft baseline security analyzer -> this program will tell u what u r doing wrong and find the weak spots before attacker do.
+
+ExactFile tool can be used to check the integrity of whole directory, best for Documents
+
+Sigcheck tool for system files integrity check, it check for the digital signatures for all the files or only the binaries in the
+selected location
