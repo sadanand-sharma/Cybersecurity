@@ -1,1 +1,111 @@
 Course Link -> https://academy.ehacking.net/courses/551622/lectures/10002114
+
+Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
+
+Commands ->
+
+- whoami // to find who is logged in the system
+
+- login -p username // to login into system
+
+- xdg-open filename // to open file
+
+- ip addr // for seeing IP related data
+
+- pwd       // This cmd shows the current working directory
+
+- ls        		// To list the files present in directory
+- ls option_cmd directory_name      // syntax for ls cmd
+- ls Documents          // this will list all the files which r in Documents directory
+- ls -al                // this will show the hidden files and the details about all files
+- ls -ltr		// to list every thing in timely reverse order 
+- ls -li 		// to list the inodes 
+
+- cat options_cmd filename1 filename2 .... // syntax for cat
+- cat               // this will allow u to write something on terminal and echo things u enter
+- use ctrl+d to come out of 'cat' cmd
+- cat file_name // to display contents of the file
+- cat filename1 filename2 // this will combine and display the contents of two files
+
+I/O Redirection -> to capture output from one file or program and send it to another file and program
+- output_cmd > file_name // syntax for redirection
+- cat > file_name // to write something in the file, it will also create file if not created and data will we overwritten if                
+                  //  it already contains some data in it
+- cat >> file_name // this will append the data with the previous data in the file not overwrite it
+
+- mkdir directory_name // to create the directory
+
+- rm filename                       // to remove a file
+- rm -r parent_directory_name       // this will remove the file and the directory's also
+
+- cp options_cmd src des        // 'cp' is used as copy command 'src' is the source from which we wants to copy and 'des' is
+                                // the destination where we wants to copy
+- cp file1 file2                // this will copy data of file1 to file2 and create file2 if it does not exist
+- cp file1 dir1                 // this will copy file1 to dir1 directory
+
+- mv options_cmd src des // syntax for mv
+- mv file1 file2 // this will move data and rename file and directories so here file1 will be renamed as file2 and if file2
+                 //  doesn't exist it will be created
+- mv file1 dir1 // this will move file1 to dir1 directory and if file1 exists then the data in it will be overwritten
+- mv -v file1 dir1      // for the verbose mode
+
+- 'touch' cmd is a way to create files in linux it is also used to change the timestamps on existing files and directories, u 
+  cannot use 'touch' cmd to create directories
+- touch filename                        //syntax to create a new file
+- touch hello.sh  //.sh extention is not necessary but for editor it is usefull, it is also best practice to provide extension
+- touch file1     // file1 should be already exist now the timestamp of the file would be the current time
+
+- nano filename // this will create the file if not exists
+- ctrl+o // to save the data in file and then press enter
+- other common cmds which will be used in nano editor will be already listed at bottom of the editor
+
+- 'sudo' cmd allows extra privilages as administrator or more then normal user
+- 'sudo' infront of any cmd will enhance the privilage creteria for that cmd
+- su - // to become root user
+
+- 'top' cmd provides dynamic real time view of ur system, Suppose u wants to know which process in ur computer is taking most
+of the CPU etc then use cmd -> top // a window will appear with data, Here PID -> Process ID, in linux every program and 
+process has it's own ID, u can see CPU usage, Memory usage etc
+- 'top' refreshes the data of process usage table in every 3 seconds bydeafult
+- U can change the delay time from 3 seconds to other interval also by pressing 's' after 'top' cmd is executed
+- To filter out ideal processes(processes u need not to know as they will always we running) press 'i'
+- To kill any process press 'k' and then enter the 'pid' of the process
+
+VIM Editor ->
+- sudo apt-get install vim // to install vim
+- vim name_of_file_to_edit // open the editor with file open
+- vim file.txt // to create a file
+      - press i // to insert
+      - press esc to exit the insert mode
+      - :w // to save
+      - :q // to exit
+      - :wq // to save and close the file or we can also use ZZ for the same task
+      - :q! // to exit file without saving
+      - press o // to get into the next line , don't press it in the insert mode
+
+- updatedb 	// this will build the database for file and directory, use this before using locate but not all the time, once
+ when u start using kali linux just execute it in starting.
+
+- locate file_name // the locate will help u to find the file in whole computer or all the directories and places
+
+- find // on executing it, this will search for everything
+- find /etc -name file_name // now this will search the file only in etc folder, so put the location in 2nd param 
+- find /etc -name p* // this will search for every file which starts with p in the given location
+
+'locate' uses a prebuilt database, which should be regularly updated, while 'find' interates over a filesystem to locate
+files, thus locate is much faster then find, but can be inaccurate if the database(can be seen as a cache) is not updated
+
+- ifconfig              // to show ethernet settings and other internet config things, if 'eth0' is their in o/p then it means
+                        // their is wired connection , if u see 'wlan0' then it is wireless connected, additional ethernet
+                        // connections would be shown as 'eth1' and so on
+                        // 'lo' is a loop back interface which is a special interface which system uses to communicate with
+                        // itself, 'inet addr' is the local are LAN address or NAT address, 'RX packets' is the received packet
+                        // 'TX packet' is the transmitted packet
+- ifconfig eth1         // it will now show details for 'eth1' interface only
+- ifconfig eth0 up      // this will enable the internet connection
+- ifconfig eth0 down    // this will disable the internet connection
+
+- ls /home/                 // to know the users
+- 'passwd' cmd allows u to change the password for the user
+- sudo passwd user_name // now u can change the password for the entered user if u enter username as root then it will
+change the password for root 
