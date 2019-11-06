@@ -8,3 +8,5 @@ Notes Notations ->
 {{...}} <- Unconfirmed<br/>
 ?? <- To do Exercise<br/>
 (( )) <- Belongs To Single Topic<br/>
+* <- Topics Done Once<br/>
+** <- Topics Done Twice<br/>
