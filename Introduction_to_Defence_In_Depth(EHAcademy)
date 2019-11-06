@@ -15,6 +15,8 @@ Exercise -> Screenshot(314) - ?? -> https://academy.ehacking.net/courses/550930/
 
 - DaRT(Diagnostics and Recovery Toolset) tool kit can be used to delete the SAM file in Windows
 
+- Microsoft baseline security analyzer -> this program will tell u what u r doing wrong and find the weak spots before attacker do.
+
 - Password and Registry Editor - ?? -> https://academy.ehacking.net/courses/550930/lectures/9988055
 
 - 'chntpw' is a software utility for reseting or blanking local passwords used by Windows, it does this by editing the SAM database
@@ -65,3 +67,28 @@ Laws for administrators -> Screenshot(351)
 
 #(3) Disaster Recovery 
 
+Minimizing attack and Intrusion damage -> Screenshot(369)
+
+Ensuring Continous Availability -> Screenshot(370, 371)
+
+Ensuring Continous Availability(Failover Clusters) -> Screenshot(372, 374)
+
+Ensuring Continous Availability(Active and Passive Nodes) -> Screenshot(373)
+
+Restoring a Service -> Screenshot(375)
+
+Threat Discovery -> Screenshot(377, 379, 380, 381, 382)
+
+Audit log codes for Thread Discovery -> Screenshot(383, 384, 385, 386)
+
+Collecting and Analsing Evidence -> Screenshot(387, 388)
+
+Exercise to Check File Authenticity using ExactFile tool -> https://academy.ehacking.net/courses/550930/lectures/9988266 time 2:55
+
+- ExactFile tool can be used to check the integrity of whole directory, best for Documents
+
+- Sigcheck tool for system files integrity check, it check for the digital signatures for all the files or only the binaries in the
+  selected location
+  
+Conficker Virus Case Study -> https://academy.ehacking.net/courses/550930/lectures/9988263,
+                              https://academy.ehacking.net/courses/550930/lectures/9988261
