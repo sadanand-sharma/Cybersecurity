@@ -148,3 +148,18 @@ Linux File System -> Screenshot(365, 366)
 Command Syntax -> Screenshot(367)
 
 File Permissions -> Screenshot(368)
+
+route // display existing kernel routing table entries
+
+netcat // https://www.youtube.com/watch?v=Dbz8wQLz2Sw&list=PLZOToVAK85MpiuxbK7Sg6CtQtlW9QygC-&index=4
+
+- tcpdump -D // lists the interfaces which tcpdump is capable of Listening or capture from
+- tcpdump -i interface_name -nn // to capture traffic on particular interface, -nn will display the ports instead of protocol 
+  Ex -> http will be shown as 80 using -nn
+- tcpdump -w file_name.pcap '(src src_IP and dst dst_IP) or (src src_IP and dst dst_IP)' // to capture packets on desired hosts
+networks, -w is to write captured data to file with extension pcap
+- tcpdump -r file_name.pcap // to read file with captured packets
+
+- netstat -ie // gives same output as ifconfig
+
+
