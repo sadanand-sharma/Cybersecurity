@@ -774,7 +774,10 @@ to focus on finding the OS on the target machine.
 
 'Passive OS fingerprinting' is done by analyzing network traffic along with TTL values and Window size
 
--V -> for banner grabing which help identify the service running on machine - Udemy Practice test _3 Question 59
+-sV -> for banner grabing which help identify the service running on machine and their versions - Udemy Practice test _3 Question 59
+
+--reason -> To tell why that port is open // https://geek-university.com/nmap/the-reason-flag/
+
 -A -> aggressive scanning and give more info , Udemy Practice test _5 Question 125
 //This is aggressive scan be carefull with this as it more easily detectable then the previous scans, this uses a variety of scan
 options which r included in a single param -A, this scan take a little longer
