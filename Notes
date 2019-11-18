@@ -159,7 +159,31 @@ netcat // https://www.youtube.com/watch?v=Dbz8wQLz2Sw&list=PLZOToVAK85MpiuxbK7Sg
 - tcpdump -w file_name.pcap '(src src_IP and dst dst_IP) or (src src_IP and dst dst_IP)' // to capture packets on desired hosts
 networks, -w is to write captured data to file with extension pcap
 - tcpdump -r file_name.pcap // to read file with captured packets
+- tcpdump host host_ip_address port 80 // use 'port' to define port
+- tcpdump -i eth0 -v src port 443 and dst dst_IP_address // here we r defining src port and and destination IP address
+- tcpdump -i eth0 tcp net 192.168.1.0/24  // to capture traffic on subnet and only show TCP data only
 
+Note -> use tcpdump to capture traffic and wireshark to analyse traffic
+
+- 'netstat' it is a cmd line tool that is used to display network connections, routing tables and network interfaces, it can
+be used to see network protocol statics
 - netstat -ie // gives same output as ifconfig
+- netstat -r  // to display routing table
+- netstat -c // display all continous listening services
+- netstat -a // display all current connections
+- netstat -at | less  // this will show only tcp connections
+- netstat -l | less   // this show the programs which r in listening state
+- netstat -lt | less   // this will show u listening tcp connection
+- netstat -lu | less   // this will show u listening udp connection
+- netstat -s | less   // this will show u the statictics such as the ip packets received and delivered
+- netstat -st | less  // to see statistics for the packets recived and delivered packets in tcp connection
+- netstat -su | less  // to see statistics for the packets recived and delivered packets in udp connection
+- netstat -p | less  // to see the pid of all connection which r available
+- netstat -n | less  // to see the numberic ports which r being used by different interfaces in ur system
+- netstat -an | grep  ':80'// now it will show the output for the connections with the grep entered pattern of text
+- netstat -ano // it will show that which port of ur computer is connected to the port of another computer in Local Address and
+Foreign Address and the if the connection is their between the local and Foreign address then the "state" would be "established"
+and also tell the process ids so we can check from their that what service connection is established their such as Dropbox or
+a hacker is using it. 
 
 
