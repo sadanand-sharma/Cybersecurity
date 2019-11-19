@@ -3091,7 +3091,8 @@ www.stationx.net/alerts -> for weekly threat intelligence report
 
 TLS wikipedia page to see the supported and Best Encryption algolithms in use for multiple TLS versions
 
-ciphersuites // on mozilla.org and weakdh.org
+ciphersuites // on mozilla.org and weakdh.org, the combination of algorithms r used is called ciphersuite
+check mozilla ssl-config-generator
 
 Exfiltration //bringing back the data to the attacker
 
@@ -3101,3 +3102,15 @@ ExactFile tool can be used to check the integrity of whole directory, best for D
 
 Sigcheck tool for system files integrity check, it check for the digital signatures for all the files or only the binaries in the
 selected location
+
+Device Guard is a way of using Digital Signatures to lock down what OS will or will not run for Windows
+
+TLS 1.3 is currently most secure communication Protocol and SSL was older Protocol. If some one is using older Protocol on the
+browser then multiple previous Heartbleed type attacks such as BEAST, CRIME, Logjam etc can be use on it.
+
+For SSL strip just the https:website.com would be loaded as website.com and people rarely notice the missing https
+
+SSL Strip -> Screenshot(410), ARPwatch to check Arp Spoofing
+
+HSTS -> HTTP Strict Transport Security
+
