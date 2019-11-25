@@ -186,4 +186,8 @@ Foreign Address and the if the connection is their between the local and Foreign
 and also tell the process ids so we can check from their that what service connection is established their such as Dropbox or
 a hacker is using it. 
 
+ arp -a // it will list the table of IP addresses with their corresponding MAC addresses, The ARP is used to find the MAC 
+ address for Known IP addresses and the RARP(Reverse ARP) is to find IP addresses for known MAC addresses
+
+
 
