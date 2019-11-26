@@ -4,7 +4,7 @@ values at a time but then all the entered values will be stored in form of Tuple
 Variables ->
 
 a=b=c=6
-print a,b,c  # o/p -> 6 5 5
+print a,b,c  # o/p -> 6 6 6
 
 '#' // This is used for comment
 
