@@ -713,6 +713,8 @@ nmap tool could be used as ->
 	packets in return for speed, while non-real time streaming videos in YouTube are buffered and use the slower, albe it
 	more reliable TCP.
 
+-sn -> Ping Scan, this will not do port scanning just sends ping requests
+
 - nmap -sP 192.168.50.0/24 // this is to scan a subnet here we r scanning from 192.168.50.0 to 192.168.50.254, by this we r
  now looking for hosts that r up and ping able  
 
@@ -748,8 +750,6 @@ open port response -> No response, closed port response -> RST
 -sF -> FIN scan, FIN packets can reliably pass firewall - Udemy Practice test _3 Question 65
 -sN -> NULL scan // This scan only works if operating system’s TCP/IP implementation is based on RFC 793. RFC 793 provides
        information for basic TCP which by design had Null scan vulnerability.
-
--sn -> Ping Scan
 
 Firewall present -> No response(means statefull firewall is filtering), firewall not present -> RST
 -sA -> 'ACK Flag Probe Scanning', sends TCP packets with ACK flag, analyse header info such as TTL, used to identify the
