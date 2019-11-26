@@ -114,6 +114,23 @@ Calling Function -> Screenshot(408)
 
 Pass by value and Reference -> Screenshot(409)
 
+Ex -> 
+
+def whileLoop(par1, list1):
+	i = par1
+	while i < 3:
+		print(i)
+		list1[2]='d'
+		print('List after Update : ', list1)
+		i = i + 1
+		
+var1 = ['a','b','c']
+for loop1 in range(0,3):
+	i=0
+	print('List values for loop ',loop1,' : ', var1)
+	if loop1 != 0:
+		whileLoop(i, var1)
+
 Global and Local Variables ->
 
 If a variable with same name is defined inside the scope of function as well then it will print the value given inside the
