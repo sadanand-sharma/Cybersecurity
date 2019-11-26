@@ -1,0 +1,166 @@
+var2 = input('Msg for Input Variable')  // input() is use to get input at run time, U can enter more then one
+values at a time but then all the entered values will be stored in form of Tuple
+
+Variables ->
+
+a=b=c=6
+print a,b,c  # o/p -> 6 5 5
+
+'#' // This is used for comment
+
+type(b) # to know datatype of b variable
+
+a,b,c = 5,10.0,"Hello"
+print a,b,c # o/p -> 5 10.0 Hello
+
+temp_var = a+b # o/p -> 15.0
+type(temp_var) # o/p -> float
+
+del a # this will delete the a variable
+
+print c, 'world'  # o/p -> Hello world
+
+String -> "50" + "30" = 5030
+
+List, Tuple, Dictionary r also datatypes which could be assigned to variables
+
+Slice ':' operator -> Screenshot(389)
+
+Lists -> Screenshot(390)
+
+We can use slice operator in Lists as the same way it is used in strings, Ex -> list1[1:5]
+
+Updating Lists -> Screenshot(391)
+
+Deleting Lists -> Screenshot(392)
+
+Basic List Operators -> Screenshot(393)
+
+list2=['ab','cde',0,3]
+list2[1][2]  # o/p -> 'e'
+list2[1][:1] # o/p -> 'c'
+
+Tuples -> Screenshot(394) // U cannot change particular value in tuple but can overwrite whole tuple for same variable
+
+Accessing values in Tuple -> Screenshot(395)
+
+Delete Tuple -> Screenshot(396)
+
+Dictionary -> Screenshot(397)
+
+Updating Dictionary -> Screenshot(398)
+
+dict1 = {'a': 'abc', 'b': 'bb'}
+del dict1['a']  # o/p -> {'b': 'bb'}  // we can use del to delete key value pairs inside dictionary
+
+For loop syntax -> for iterating_var in sequence
+                        statement(s)
+For loop Ex -> Screenshot(399)
+
+for a in 'abc':
+    print a
+
+    print 'Test'
+# o/p-> a
+        Test
+        b
+        Test
+        c
+        Test
+
+While Loop syntax -> while expression
+                        statement(s)
+While Loop Ex -> Screenshot(400)
+
+Nested Loops Syntax -> Screenshot(401)
+
+Nested Loop with range function Ex -> Screenshot(402)
+
+Python assumes any non-zero and non-null value as true otherwise false, '' empty string is considered null
+
+If Syntax -> if expression:
+                statement(s)
+if var in (val1, val2, val3)    # this will check if value in var is equivalent to val1, val2, val3
+if var not in (val1, val2, val3)    # this will check if value in var is not equivalent to val1, val2, val3
+
+Else syntax ->    if expression:
+                    statement(s)
+                  else:
+                    statement(s)
+
+ElseIf(elif) syntax ->    if expression:
+                             statement(s)
+                          elif expression:
+                             statement(s)
+                          else:                 # it's not necessary to use else with 'elif'
+                             statement(s)
+
+Operators -> 2**3 -> 8 # this is 2 power 3
+9 / 2 -> 4
+9.0/2 -> 4.5
+9.0//2 -> 4.0 # the operator '//' removes the decimal portion from the division output
+
+'<>' this is equivalent to '!=' # '<>' this operator is deprecated now
+
+Assignment Arthmatic Operators -> Screenshot(403)
+
+Bitwise Operators -> Screenshot(404)
+
+Logical Operators -> Screenshot(405)
+
+Functions -> Screenshot(406, 407)
+
+Calling Function -> Screenshot(408)
+
+Pass by value and Reference -> Screenshot(10)
+
+Global and Local Variables ->
+
+If a variable with same name is defined inside the scope of function as well then it will print the value given inside the
+function only and not the global value.
+# This function has a variable with
+# name same as s.
+def f():
+	s = "Me too."
+	print s
+
+# Global scope
+s = "I love Geeksforgeeks"
+f()
+print s
+# o/p -> Me too.
+         I love Geeksforgeeks.
+
+if we change the value of s inside of the function f()?
+def f():
+	print s
+
+	# This program will NOT show error
+	# if we comment below line.
+	s = "Me too."
+
+	print s
+
+# Global scope
+s = "I love Geeksforgeeks"
+f()
+print s
+
+o/p -> Line 2: undefined: Error: local variable 's' referenced before assignment
+
+Proper way is to use "global" ->
+# This function modifies global variable 's'
+def f():
+	global s
+	print s
+	s = "Look for Geeksforgeeks Python Section"
+	print s
+
+# Global Scope
+s = "Python is great!"
+f()
+print s
+
+# o/p -> Python is great
+         Look for Geeksforgeeks Python Section.
+         Look for Geeksforgeeks Python Section.
