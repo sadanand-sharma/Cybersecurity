@@ -18,7 +18,7 @@ SSH/SCP/SFTP - 22 // SCP(Secure Copy Protocol) -> The SCP is a network protocol,
                Mar 1, 2016, 7:33:28 AM 10.240.250.23 – 54373 10.249.253.15 – 22 tcp_ip
     Answer   ->Application is SSH and 10.240.250.23 is the client and 10.249.253.15 is the server
 Telnet - 23 
-SMTP - 25 TCP
+SMTP - 25 TCP // Use to send emails
 TACACS/TACACS+ - 49 // TACACS+, stands for Terminal Access Controller Access Control Server, is a security protocol used in AAA
     framework to provide centralised authentication for users who want to gain access to the network.
 DNS - 53 (TCP/UDP) //
