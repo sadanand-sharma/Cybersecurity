@@ -725,24 +725,22 @@ nmap tool could be used as ->
 
 -sn -> Ping Scan // this will not do port scanning just sends ping requests, it list which hosts r UP
 
--Pn -> this is used to disable host discovery, it lists the ports open on the host
+-Pn -> this is used to disable host discovery, it lists the ports open on the host, just cmd -> nmap ip_address // gives
+the same output as using '-Pn' flag // it will return open ports and it return the services that belong to the open ports
 
-- nmap -sP 192.168.50.0/24 // this is to scan a subnet here we r scanning from 192.168.50.0 to 192.168.50.254, by this we r
- now looking for hosts that r up and ping able  
+- nmap -sP 192.168.50.0/24 -> Skip Port Scan, this is to scan a subnet here we r scanning from 192.168.50.0 to 192.168.50.254, by
+this we r now looking for hosts that r up and ping able, 'sP' This option tells Nmap not to do a port scan after host discovery, and
+only print out the available hosts that responded to the scan.  It is also known as 'ping sweep', to check live host as host 'UP'
+using ICMP packets.  - Udemy Practice test _3 Question 105
 
--sP -> 'ping sweep', to check live host as host 'UP' using ICMP packets 
-	   - Udemy Practice test _3 Question 105
-
--sP -PE -PA -> 'quick scan'
+-sP -PE -PA -> 'PA' flag // 'TCP ACK ping', use when ICMP and SYN r blocked, 'PE' is for ICMP echo, timestamp and netmask
+	request discovery probes
+-PS -> 'TCP SYN scan'
 
 Ping sweep tools -> Solarwinds Ping sweep tool, Angry IP scanner
 
 - When its about the time in nmap command look for T0, T1, T2 or T4 : it shows the speed(noise) of scanning, T0 being the
   lowest and T5 the noisiest. - Udemy Practice test __3 Question 19
-
-- nmap ip_of_machine_to_scan // it will return open ports and it return the services that belong to the open ports
-
-{{nmap and nmap -sT both have same results}}
 
 open port response -> SYN+ACK, closed port response -> RST
 -sT -> 'full open scan' or 'TCP connect' and known as {{'vanilla scan'}} for checking live hosts, this scan can be detected
@@ -802,8 +800,6 @@ options which r included in a single param -A, this scan take a little longer
 -sL -> list hosts
 -sn -> 'No port scan', tells host up or down,  Udemy Practice test _5 Question 76
 -Pn -> 'No ping scan', tells how many ports open
--PS -> 'TCP SYN scan'
--PA -> 'TCP ACK ping', use when ICMP and SYN r blocked
 -PU -> 'UDP ping'
 -PY -> 'SCTP init ping scan'
 -PE -> 'ICMP echo ping'
