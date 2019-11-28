@@ -696,6 +696,7 @@ used emailtrackerpro
 ##_05 Nmap
 
 https://securitytrails.com/blog/top-15-nmap-commands-to-scan-remote-hosts
+https://acc3ssp0int.com/2019/03/03/breaking-down-nmap-part-2/    <-  Very important to understand o/p analysis for nmap flags
 
 nmap tool could be used as ->
 - Promiscous detection as sniffing detection technique
@@ -723,15 +724,15 @@ nmap tool could be used as ->
 	packets in return for speed, while non-real time streaming videos in YouTube are buffered and use the slower, albe it
 	more reliable TCP.
 
--sn -> Ping Scan // this will not do port scanning just sends ping requests, it list which hosts r UP
+-sn -> Ping Scan // this will not do port scanning just sends ping requests, it list which hosts r UP - @@
 
 -Pn -> this is used to disable host discovery, it lists the ports open on the host, just cmd -> nmap ip_address // gives
-the same output as using '-Pn' flag // it will return open ports and it return the services that belong to the open ports
+the same output as using '-Pn' flag // it will return open ports and it return the services that belong to the open ports -@@
 
 - nmap -sP 192.168.50.0/24 -> Skip Port Scan, this is to scan a subnet here we r scanning from 192.168.50.0 to 192.168.50.254, by
 this we r now looking for hosts that r up and ping able, 'sP' This option tells Nmap not to do a port scan after host discovery, and
 only print out the available hosts that responded to the scan.  It is also known as 'ping sweep', to check live host as host 'UP'
-using ICMP packets.  - Udemy Practice test _3 Question 105
+using ICMP packets.  - Udemy Practice test _3 Question 105 -@@
 
 -sP -PE -PA -> 'PA' flag // 'TCP ACK ping', use when ICMP and SYN r blocked, 'PE' is for ICMP echo, timestamp and netmask
 	request discovery probes
@@ -745,9 +746,13 @@ Ping sweep tools -> Solarwinds Ping sweep tool, Angry IP scanner
 open port response -> SYN+ACK, closed port response -> RST
 -sT -> 'full open scan' or 'TCP connect' and known as {{'vanilla scan'}} for checking live hosts, this scan can be detected
        {{while simple 'nmap ip_address' could not be detected as it not completes the 3-way handshake also known as SYN scan
-	   and half open scan }}
+	   and half open scan }} - @@
+	   O/P is Open ports, and services running on them
 -sS -> 'steath scan' or 'half open scan', in 3 way handshake the final 'ACK' is replaced by 'RST', and show different
-		services running // Udemy Practice test _5 Question 138
+		services running // Udemy Practice test _5 Question 138  -@@
+		O/P is Open ports, and services running on them
+	Note -> If we don't specify a range of ports, nmap will perform a SYN scan on 1000 well-known ports TCP ports on
+	the target
 -sI -> 'IDLE/IPID header scan', to identify host port status, it keeps low profile, the zombie system is used for scan
 Steps ->
 - SYN+ACK send from attacker to zombie, zombie sends back the IPID, take IPID from zombie for spoofing of IP
@@ -756,14 +761,22 @@ Steps ->
 - If port is closed, then target reply with RST to zombie and zombie doesn't reply back
 
 open port response -> No response, closed port response -> RST
--sX -v -> 'XMAS scan' or 'Inverse TCP Flag', flags FIN, URG, PSH r send; if no flags send then it's 'NULL scan'
+-sX -v -> 'XMAS scan' or 'Inverse TCP Flag', flags FIN, URG, PSH r send; if no flags send then it's 'NULL scan'  - @@
+	Note -> This scan is very noisy, This scan only works on Linux Machines, Exploiting a subtle loophole in TCP RFC helps
+	to determine the state of a port using the -sN -sF & -sX scan methods. In this scenario, the status returns either as
+	closed or as open | filtered.
+	O/P is Open ports, and services running on them, and their filtered state // If u will add '-reason' to the scan
+	then the reason for Open port consideration would be also shown which is 'No Response'
 -sF -> FIN scan, FIN packets can reliably pass firewall - Udemy Practice test _3 Question 65
 -sN -> NULL scan // This scan only works if operating system’s TCP/IP implementation is based on RFC 793. RFC 793 provides
        information for basic TCP which by design had Null scan vulnerability.
 
 Firewall present -> No response(means statefull firewall is filtering), firewall not present -> RST
 -sA -> 'ACK Flag Probe Scanning', sends TCP packets with ACK flag, analyse header info such as TTL, used to identify the
-       filtering system
+       filtering system  -@@
+       Note -> This scan type serves no purpose in determining the state of a port. Instead, it is used to map out firewall
+       rulesets (determining whether they are stateful or not) and finding out which ports are filtered.
+       Exercise -> Try this scan on windows machine by doing following changes to Firewall -> Screenshot(412)
 
 open port response -> No response, closed port response -> Port Unreachable msg
 -sU -v -> 'UDP port scanning' // most of the Malicious Programs, Trojans, Spywares uses UDP ports to access the target.
@@ -891,6 +904,9 @@ Udemy Practice test 5 Question 19
 hping3 cmdline flags -> Do from PDF page 16
 
 - hping3 -1 ip_address // -1 switch is used for Ping Scans
+- hping3 -8 0-5000 -S ip_address // -8 enables SCAN mode, -S is to set SYN flag, 0-5000 is range of ports
+	In the output u will get the list of ports which r responding means they r open on the system and not prevented by firewall
+	or the firewall was not present on target otherwise all the ports would be represent as Closed or 'Not Responding Ports'
 
 - hping3 tool can be used for SYN flood attack(DoS attack))
 - netscan (tool for network scanning)
