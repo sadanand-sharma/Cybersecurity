@@ -250,7 +250,10 @@ to the next layer.
 Screened subnet - firewall architecture that is designed to host servers that offer public services
 
 Web application firewall -> - Udemy Practice test ___6 Question 61
-Network layer firewalls, also called packet filters, operate at a relatively low level of the TCP/IP protocol stack, not allowing packets to pass through the firewall unless they match the established rule set. To prevent Web Application attacks an Application layer firewall would be required. References: https://en.wikipedia.org/wiki/Firewall_(computing)#Network_layer_or_packet_filters
+Network layer firewalls, also called packet filters, operate at a relatively low level of the TCP/IP protocol stack, not 
+allowing packets to pass through the firewall unless they match the established rule set. To prevent Web Application attacks
+an Application layer firewall would be required. 
+References: https://en.wikipedia.org/wiki/Firewall_(computing)#Network_layer_or_packet_filters
 
 While tuning security alerts the best approach is to tune to avoid False positives and False Negatives.
 
@@ -470,7 +473,14 @@ Udemy Practice test _5 Question 111
 
 
 Shellshock ->
-Shellshock, also known as Bashdoor, is a family of security bugs in the widely used Unix Bash shell. One specific exploitation vector of the Shellshock bug is CGI-based web servers.Note: When a web server uses the Common Gateway Interface (CGI) to handle a document request, it passes various details of the request to a handler program in the environment variable list. For example, the variable HTTP_USER_AGENT has a value that, in normal usage, identifies the program sending the request. If the request handler is a Bash script, or if it executes one for example using the system call, Bash will receive the environment variables passed by the server and will process them. This provides a means for an attacker to trigger the Shellshock vulnerability with a specially crafted server request.References: https://en.wikipedia.org/wiki/Shellshock_(software_bug)#Specific_exploitation_vectors
+Shellshock, also known as Bashdoor, is a family of security bugs in the widely used Unix Bash shell. One specific exploitation 
+vector of the Shellshock bug is CGI-based web servers.Note: When a web server uses the Common Gateway Interface (CGI) to handle
+a document request, it passes various details of the request to a handler program in the environment variable list. For
+example, the variable HTTP_USER_AGENT has a value that, in normal usage, identifies the program sending the request. If the request
+handler is a Bash script, or if it executes one for example using the system call, Bash will receive the environment variables 
+passed by the server and will process them. This provides a means for an attacker to trigger the Shellshock vulnerability with
+a specially crafted server request.References: https://en.wikipedia.org/wiki/Shellshock_(software_bug)#Specific_exploitation_vectors
+
 - Most common method to exploit the “Bash Bug” or “ShellShock" vulnerability is through web servers utilizing CGI(Common
 Gateway Interface) to send a malformed environment variable to a vunerable web server
 - Shellshock is a vulnerability in GNU's bash shell, discovered in September of 2014 that gives attackers access to run
@@ -713,7 +723,9 @@ nmap tool could be used as ->
 	packets in return for speed, while non-real time streaming videos in YouTube are buffered and use the slower, albe it
 	more reliable TCP.
 
--sn -> Ping Scan, this will not do port scanning just sends ping requests
+-sn -> Ping Scan // this will not do port scanning just sends ping requests, it list which hosts r UP
+
+-Pn -> this is used to disable host discovery, it lists the ports open on the host
 
 - nmap -sP 192.168.50.0/24 // this is to scan a subnet here we r scanning from 192.168.50.0 to 192.168.50.254, by this we r
  now looking for hosts that r up and ping able  
@@ -808,7 +820,8 @@ options which r included in a single param -A, this scan take a little longer
 - Udemy Practice test _2 Question 79
 - Udemy Practice test _3 Question 25
 - Udemy Practice test ___6 Question 37
-- Udemy Practice test ___6 Question 90 // The A record is an Address record. It returns a 32-bit IPv4 address, most commonly used to map hostnames to an IP address of the host.References:
+- Udemy Practice test ___6 Question 90 // The A record is an Address record. It returns a 32-bit IPv4 address, most commonly used
+to map hostnames to an IP address of the host.References:
 
 ##_06 Scanning Networks
 
@@ -880,6 +893,8 @@ Udemy Practice test _3 Question 12
 Udemy Practice test 5 Question 19
 
 hping3 cmdline flags -> Do from PDF page 16
+
+- hping3 -1 ip_address // -1 switch is used for Ping Scans
 
 - hping3 tool can be used for SYN flood attack(DoS attack))
 - netscan (tool for network scanning)
@@ -1050,7 +1065,8 @@ CVE maintain the list of known vulnerabilites including identification no. and d
 NVD -> U.S. National Vulnerability Database was lauched by NIST
 
 Vulnerability scanning tools ->
-- Nessus - Udemy Practice test __2 Question 7, - Udemy Practice test __2 Question 1, - Udemy Practice test __2 Question 50, - Udemy Practice test __3 Question 71
+- Nessus - Udemy Practice test __2 Question 7, - Udemy Practice test __2 Question 1, - Udemy Practice test __2 Question 50,
+	- Udemy Practice test __3 Question 71
 - OpenVAS
 - Nexpose
 - Retina
@@ -1247,7 +1263,8 @@ JPEG images use discrete cosine transformation to achieve an optimal compression
 three primary colors that are normally used in image analysis r red, green , blue
 
 Types of Stenography ->
-- White // hide information in text file using extract blank space. Using LWZ and Huffman compression method size of msg is decreased - https://drive.google.com/drive/u/1/my-drive ques 65
+- White // hide information in text file using extract blank space. Using LWZ and Huffman compression method size of msg is
+  decreased - https://drive.google.com/drive/u/1/my-drive ques 65
 - Image // techniques -> 
 	- Least significant Bit insertion
 	- Masking and Filtering
@@ -1362,9 +1379,10 @@ Phases of virus operation ->
 Virus Hoax -> https://drive.google.com/drive/u/1/my-drive ques 92
 
 Types of viruses ->
-- system or boot sector // it is designed to move actual MBR(Master Boot Record) from its actual location - Udemy Practice test __2 Question 25
-- file and multipartie // - Udemy Practice test 4 Question 37, Udemy Practice test __1 Question 113, - Udemy Practice test __3 Question 82
-    - Udemy Practice test _5 Question 44
+- system or boot sector // it is designed to move actual MBR(Master Boot Record) from its actual location
+	- Udemy Practice test __2 Question 25
+- file and multipartie // - Udemy Practice test 4 Question 37, Udemy Practice test __1 Question 113,
+	- Udemy Practice test __3 Question 82, - Udemy Practice test _5 Question 44
 - macro // it is designed for the application of microsoft word, excel and other using Visual Basic for Application(VBA), it
  automate and create a new process which is used abusively on victim's system 
 - cluster // it is designed for attack and modify the file location table or directory table
@@ -1373,7 +1391,9 @@ Types of viruses ->
 occurs, they r difficult to detect in sleep mode
 - encryption // it uses encryption to avoid detection
 - cavity // A virus that attempts to install itself inside the file it is infecting
-- sparse infector virus // is sometimes used to describe a virus. Also known as a sparse virus, a type of virus that only infects files when certain conditions are met. Examples include viruses that infect files only on their 10th. ... A sparse infector viruses use conditions before infecting files.
+- sparse infector virus // is sometimes used to describe a virus. Also known as a sparse virus, a type of virus that only infects
+files when certain conditions are met. Examples include viruses that infect files only on their 10th. ... A sparse infector viruses
+use conditions before infecting files.
 
 Virus generatiing tools ->
 - Sam's virus generator
@@ -1396,7 +1416,8 @@ CurrPort tool for monitoring TCP/IP connection
 
 Sniffing is done by using Promiscous ports which allow sniffers to capture traffic even when traffic is not for them
 
-Sniffers turn NIC of the attackers system into promiscous mode - Udemy Practice test _3 Question 29, - Udemy Practice test __3 Question 60
+Sniffers turn NIC of the attackers system into promiscous mode - Udemy Practice test _3 Question 29,
+- Udemy Practice test __3 Question 60
 
 - Udemy Practice test _1 Question 68
 - Udemy Practice test _3 Question 40
@@ -1444,7 +1465,9 @@ the target host
 
 Defence against MAC attacks is done by Port security, in dynamic port security u configure total no. of allowed MAC address
 
-DHCP starvation attack is an attack that targets DHCP servers whereby forged DHCP requests are crafted by an attacker with the intent of exhausting all available IP addresses that can be allocated by the DHCP server. Under this attack, legitimate network users can be denied service.
+DHCP starvation attack is an attack that targets DHCP servers whereby forged DHCP requests are crafted by an attacker with the
+intent of exhausting all available IP addresses that can be allocated by the DHCP server. Under this attack, legitimate network
+users can be denied service.
 
 DHCP attack types ->
 - DHCP starvation attack, tools -> dhcpstarv and yersinia
@@ -1658,8 +1681,8 @@ Techniques to defend against Botnets->
 - Black hole filtering
 - Enabling TCP intercept on Cisco IOS software
 
-DoS/ DDoS countermeasure -> Throttling // Set up routers that access a server with logic to adjust incoming traffic to levels that will be safe
-for the server to process
+DoS/ DDoS countermeasure -> Throttling // Set up routers that access a server with logic to adjust incoming traffic to levels that
+will be safe for the server to process
 
 ##_14 Session Hijacking // look into PDF for definations
 
@@ -2514,7 +2537,8 @@ Ciphers ->
 - RC4 used in SSL, WEP protocols
 - In RC4 algorithm, 24 bit IV(Initialization Vector)
 - RC5 has 128 bit key, 12 rounds, it consists of some modular additions or exclusive OR(XOR) Udemy Practice test _3 Question 87
-- RC6 (128, 192, 256 upto 2040) bit key support, it use extra multiplication operations which were not in RC5. - Udemy Practice test 3 Question 5
+- RC6 (128, 192, 256 upto 2040) bit key support, it use extra multiplication operations which were not in RC5. - Udemy Practice
+	test 3 Question 5
 - Unlike RC5 and RC6, RC4 is the stream block cipher, it is the only symmetric cipher that uses stream
 
 - In DSA the signing of document requires private key whereas verification requires public key
@@ -2582,7 +2606,8 @@ Cryptography Attacks ->
 - Known Plaintext // attack type where cryptanalyst has access to plaintext and find relation between it's cipher text
 - Cipher-text only // attack type where cryptanalyst has access to cipher text but not to plaintext
 - Choosen Plaintext // - Udemy Practice test 4 Question 26 // attack type where cryptanalyst can encrypt a plaintext and 
-observer resulting ciphertext, it is common for asymmetric cryptography - Udemy Practice test __1 Question 41 Udemy Practice test ___6 Question 97
+observer resulting ciphertext, it is common for asymmetric cryptography - Udemy Practice test __1 Question 41,
+-Udemy Practice test ___6 Question 97
 - Choosen Cipher-text // attack type where cryptanalyst chooses a ciphertext and attempts to find it's plaintext
 - Adaptive chosen Cipher-text // it is interactive type of choosen plaintext attack where attacker sends some ciphertexts
 to be decrypted and observe the result of decryption
@@ -2738,8 +2763,8 @@ password attacks
 
 - Arduino, Rasberrypi (microcontroller)
 - gattool (cmdline tool for IOT attacks)
-- wireshark capture traffic - Udemy Practice test _3 Question 119 - Udemy Practice test 5 Question 15, - Udemy Practice test __2 Question 6
-  - Udemy Practice test 5 Question 47 - Udemy Practice test ___6 Question 82
+- wireshark capture traffic - Udemy Practice test _3 Question 119 - Udemy Practice test 5 Question 15,
+- Udemy Practice test __2 Question 6 - Udemy Practice test 5 Question 47 - Udemy Practice test ___6 Question 82
 - nbtstat (used in windows for netbios over TCP/IP)
 - netbios enumerator, winfingerprint ( tools for netbios enumeration)
 - snsscan tool (for devices with SNMP available on them)
@@ -3113,4 +3138,9 @@ For SSL strip just the https:website.com would be loaded as website.com and peop
 SSL Strip -> Screenshot(410), ARPwatch to check Arp Spoofing
 
 HSTS -> HTTP Strict Transport Security
+
+VNCviewer -> Virtual network computing (VNC) is a type of remote-control software that makes it possible to control another computer
+over a network connection. ... It also interprets commands coming from the viewer and carries them out on the remote computer. VNC
+is platform independent and is compatible with any operating system.
+
 
