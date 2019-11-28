@@ -907,6 +907,10 @@ hping3 cmdline flags -> Do from PDF page 16
 - hping3 -8 0-5000 -S ip_address // -8 enables SCAN mode, -S is to set SYN flag, 0-5000 is range of ports
 	In the output u will get the list of ports which r responding means they r open on the system and not prevented by firewall
 	or the firewall was not present on target otherwise all the ports would be represent as Closed or 'Not Responding Ports'
+- hping3 -c 1 -V -p 80 -s 5555 -A ip_address // -c is packet count, -V is Verbose, -s is base port from where the packets r sent,
+	-A is ACK flag , the output shows the no. of packet losts
+- hping3 -c 1 -V -p 80 -s 5555 -M 0 -UPF ip_address // -M is to setTCP sequence no., -UPF is for URG, Push and FIN flags, this scan
+is also known as XMAS scan, the output shows the no. of packet losts
 
 - hping3 tool can be used for SYN flood attack(DoS attack))
 - netscan (tool for network scanning)
