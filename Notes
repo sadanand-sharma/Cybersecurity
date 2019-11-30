@@ -105,6 +105,8 @@ files, thus locate is much faster then find, but can be inaccurate if the databa
 - ifconfig eth0 up      // this will enable the internet connection
 - ifconfig eth0 down    // this will disable the internet connection
 
+- ipcalc ip_Address   // very usefull tool to understand Network segments such as Host, Network, Network Type, range etc
+
 - ls /home/                 // to know the users
 - 'passwd' cmd allows u to change the password for the user
 - sudo passwd user_name // now u can change the password for the entered user if u enter username as root then it will
