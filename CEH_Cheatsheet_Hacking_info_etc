@@ -790,27 +790,29 @@ Active Stack fingerprinting is based on the fact that various vendors of OS impl
 The basic knowledge this question checks is vulnerabilities are mostly related to the OS involved, it is hence very important
 to focus on finding the OS on the target machine.
 
--sO -> Udemy Practice test __1 Question 127 
+{{ -sO }}-> Udemy Practice test __1 Question 127 - 
 
 -O -> 'Active OS fingerprinting' is also use to identify the OS and other info such as versions, tool -> nmap, but the OS
-      scan from nmap would require root privilages 
+      scan from nmap would require root privilages - @@
 
 'Passive OS fingerprinting' is done by analyzing network traffic along with TTL values and Window size
 
--sV -> for banner grabing which help identify the service running on machine and their versions - Udemy Practice test _3 Question 59
+-sV -> for banner grabing which help identify the service running on machine and their versions -@@
+- Udemy Practice test _3 Question 59
 
 --reason -> To tell why that port is open // https://geek-university.com/nmap/the-reason-flag/
 
 -A -> aggressive scanning and give more info , Udemy Practice test _5 Question 125
 //This is aggressive scan be carefull with this as it more easily detectable then the previous scans, this uses a variety of scan
-options which r included in a single param -A, this scan take a little longer
+options which r included in a single param -A, this scan take a little longer, this is also Banner Grabing  -@@
+
 -sSV -> 'OS and Version scanning'
 
 -oX -> Output the results in XML format to a file
 
 -iL -> list file
 --exclude -> exlude IP
--sL -> list hosts
+-sL -> list hosts - @@
 -sn -> 'No port scan', tells host up or down,  Udemy Practice test _5 Question 76
 -Pn -> 'No ping scan', tells how many ports open
 -PU -> 'UDP ping'
@@ -831,6 +833,22 @@ options which r included in a single param -A, this scan take a little longer
 - Udemy Practice test ___6 Question 37
 - Udemy Practice test ___6 Question 90 // The A record is an Address record. It returns a 32-bit IPv4 address, most commonly used
 to map hostnames to an IP address of the host.References:
+
+Important real scans for Nmap -> the 'ip_address' represents that only use single IP and ip_address/24 represents that we can use
+	range of IPs
+- nmap -sS -O -reason ip_address/24	// for mild OS and open ports info 
+- nmap -sA ip_address/24 // for firewall info
+- nmap -sS -A -p 80 -reason ip_address // for detailed info for service on port and OS (Very detailed then -O)
+- nmap -F ip_address/24  // this fast scan but scan for only few ports as important kind but not all of them
+- nmap -sV ip_address // to know versions of ports on target
+- nmap -sS ip_address/24 | grep open | cat >> results.txt // the better way to filter out results using grep for word open here 
+	and store our desired output in file
+- nmap -O target_ip_address -D pretended_ip_address_1, pretended_ip_address_1, pretended_ip_address_1 // using the -D will make
+the source IP pretended as the mentioned fake IPs this way the target will not get the attacker IP address and out real IP address
+won't be blocked by target, I have tested this on Virtual machine using tcpdump
+- --spoof-mac // for spoofing the MAC address works same way as '-D'
+- nmap -sS -sU -PN ip-address // this scan will drop the initial ping which firewalls might block bcz some times bcz of that some
+devices r not discovered
 
 ##_06 Scanning Networks
 
