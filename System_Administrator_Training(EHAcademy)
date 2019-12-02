@@ -388,18 +388,8 @@ Free resources and Used Resources ->
                                     // the cmd
 
 
-- 'head' and 'tail' cmds generally we use them with files, So 'head' cmd could be used to output the first part of the file and  
-  the 'tail' cmd could be used to output the last part of the file
-- Bydefault 'head' will print first 10 lines and 'tail' will print last 10 cmds
-- head file_name        // syntax for head
-- tail file_name        // syntax for tail
-- head -nNumber_of_lines file_name  // to give limit for the no. of lines to display, no space between -n and Number_of_lines
-- tail -nNumber_of_lines file_name  // to give limit for the no. of lines to display
-- head -Number_of_lines file_name   // works same as cmd -> head -nNumber_of_lines file_name 
 - tail -f file_name         // this will print the last 10 lines but the terminal session for 'tail' would not be ended ,-f flag
                             // stands for follow, this would be helpfull when u input or output things   - (Not Clear)
-- head file1 file2          // to see first 10 lines of multiple files
-- head -Number_of_lines file1 file2     // to see first desired number of lines for multiple files
 
 
 - find cmd is to search for files in the directory hierachy
