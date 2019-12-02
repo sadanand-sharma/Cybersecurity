@@ -821,7 +821,7 @@ options which r included in a single param -A, this scan take a little longer, t
 -PP -> 'ICMP timestamp ping'
 -PR -> 'ARP traffic'
 
--T4 -A -v -> intense scan 
+-T4 -A -v -> intense scan, O/P is Open ports with detailed versions and OS detection, this is default scan for Zenmap - @@
 
 - Udemy Practice test __1 Question 37
 -p -> for the port scan // Udemy Practice test __1 Question 40, - Udemy Practice test _5 Question 55
@@ -849,6 +849,7 @@ won't be blocked by target, I have tested this on Virtual machine using tcpdump
 - --spoof-mac // for spoofing the MAC address works same way as '-D'
 - nmap -sS -sU -PN ip-address // this scan will drop the initial ping which firewalls might block bcz some times bcz of that some
 devices r not discovered
+- nmap -T4 -A -v ip_address_1 ip_address_2
 
 ##_06 Scanning Networks
 
@@ -3177,4 +3178,8 @@ VNCviewer -> Virtual network computing (VNC) is a type of remote-control softwar
 over a network connection. ... It also interprets commands coming from the viewer and carries them out on the remote computer. VNC
 is platform independent and is compatible with any operating system.
 
-
+- dig(Domain Information Gropper) tool can be used for Zone transfer
+ cmd -> dig axfr abc.com attacker_ip_address    // 'axfr' is used to provide a complete listing of domain records, 'abc.com' is target
+ 
+ - finger 
+ cmd -> finger -s root // this display the information about all the users available on the system
