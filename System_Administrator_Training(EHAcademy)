@@ -290,25 +290,6 @@ back then we can use '/' as -> cd /etc/  //as the '/' is the base folder locatio
     - ?book         // to search for 'book' in file from down to up
     - press 'q' to quit from less
 
-- sudo -s       // this will give u the root user privilages which is super user mode
-- sudo su    // To go to the root user and give root permissions)
-
-- pidof process_name // to find the pid of process
-
-
-- kill -flags pid_of_process        // syntax for kill cmd
-- kill pid_no                       // to kill the process
-- kill -KILL pid_no                 // this will force kill only use when needed
-- kill -9 pid_no                    // this also a kind of force kill but not as powerfull as -KILL
-
-
-- ps -ux            // to get the long list of all running processes this is usefull in knowing the name of process or the
-                    // process id of some process
-- ps -aux           // the 'ps -ux' gives processes list for the current user only, to know all the processes by all users use
-                    // 'ps -aux' cmd
-- ps -U user_name   // this will give all the processes of the entered user
-- ps -C name_of_process     // this will list out all the instances or processes which r related to process entered
-
 
 - echo string or echo "string"          // to display the string it is best practice to use "" with string
 - myvar="Sadanand"                      // This is variable initialization, don't provide space before and after '='
@@ -402,15 +383,6 @@ Free resources and Used Resources ->
                                         // as it will look in the suggested location and -mtime flag is used to set the time
                                         // period here we r using '-1' which means we r looking for file created 1 day ago to
                                         // till now and if u input '1' then it will only look for files created 1 day ago
-                                        
-                                        
-- 'wc' cmd or wordcount prints a count of new lines, words and bytes for each input file
-- wc file_name  // o/p -> 1 6 42 file_name , here ist param '1' represents the no. of lines in file, 2nd param '6' represents
-                // the no. of words and 3rd param '42' represents the no. of characters in file and 4th is name of file
-- wc -c file_name   // this will give the no. of bytes or no. of characters in file
-- wc -l file_name   // this will give the no. of lines in file
-- wc -w file_name   // this will give the no. of words in file
-- wc -L file_name   // this will give the length of the longest line in file
 
 
 - 'cal' cmd is used to display conventionally formated calender on cmd line
@@ -459,18 +431,6 @@ Free resources and Used Resources ->
 - tar -xzvf file_name.tar.gz        // to decompress gz format file
 
 
-- 'grep'(global regural expression print), 'grep' cmd processes text line by line and print any line which matches the 
-  specified pattern, So 'grep' cmd could be used to search some kind of pattern or word or sentence in a text file or
-  no. of text file
-- grep "word_or_text_to_search" file_name // this cmd will search the entered word from the input file, and the 'grep' cmd is     
-                                         // sensitive case hence the exact word or text would be searched 
-- grep -i "word_or_text_to_search" file_name  // to make the search not case-sensitive
-- grep -n "word_or_text_to_search" file_name  // to print the line no. with output 
-- grep -n "word_or_text_to_search" file1 file2 file3  // to search in multiple files 
-- grep -n "word_or_text_to_search" *      // to search from all the files
-- grep -nv "word_or_text_to_search" file_name    // this will o/p all the lines which doesn't contain the input text
-
-
 Note - if u get the .part on doing the ls while the downloading is going on then it means the download is only partially
         complete
 
@@ -498,7 +458,7 @@ Enable ssh ->
 
 - sudo ifconfig eth0 192.168.0.1 netmask 255.255.255.0 // to change IP4 address
 
-- sudo init 6 // to restart the machine
+
 - init command -> https://www.lifewire.com/how-to-use-the-init-command-in-linux-4066930
 
 - nslookup -> It is used for quering and testing DNS resolution and also for DNS troubleshooting, nslookup is in both Windows and Linux
