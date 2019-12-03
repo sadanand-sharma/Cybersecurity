@@ -298,19 +298,6 @@ Note -> If U get permission denied while listing of files with any command then 
                                             // removed before executing it completely
                                             
 
-- 'tar' cmd is used to create, maintain, modify and extract files which r archived in the tar(Tape Archive) format, tar is an
-  archiving file format just like zip file
-- tar -cvf        // 'c' for creating an archive, 'v' for verbose, 'f' allows u to specify the file name if it not used then
-                  // linux is going to create a Zip file which is going to be system dependent and it's name is not defined
-                  // by u
-- tar -cvf  name_of_file_u_wants_to_give.tar file_name_which_has_to_be_compresed  // this will compress the file to tar, it's
-                                                                                  // better to give .tar extension in the name
-                                                                                  // for the file u r going to create
-- tar -xvf  name_of_tar_file        // to will decompress the file
-- tar -czvf name_of_file_u_wants_to_give.tar.gz file_name_which_has_to_be_compresed //here 'z' will create the file with gz
-                                                                                    // format
-- tar -xzvf file_name.tar.gz        // to decompress gz format file
-
 
 Note - if u get the .part on doing the ls while the downloading is going on then it means the download is only partially
         complete
