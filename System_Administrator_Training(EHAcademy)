@@ -148,8 +148,6 @@ and ur settings.
 
 - Every Linux OS has root folder underwhich all the files resides such as Downloads, Documents etc
 
-- man any_cmd (this gives the manual of the cmd) // we can also use --help in the place of 'man' Ex -> any_cmd --help
-
 - In the 'opt' directory of linux machine u r supposed to put all ur optional programs such as pycharm editor could be put
   in this directory
 
@@ -193,9 +191,6 @@ back then we can use '/' as -> cd /etc/  //as the '/' is the base folder locatio
 - cat -s filename // this squeses the extra blank line and only show data with one blank line between the contents
 - cat -E filename // this adds a $ symbol at the end of each line
 
-- cat filename1 filename2 > filename3 // this will add the data of filename1 and filename2 and store it in filename3
-- cat filename1 >> filename2 // this will add the data of filename1 to filename2
-
 - mkdir folder1/folder2  // this will create folder2 directory inside the existing directory folder1, folder1 should exists
                          // otherwise it give error     
 - mkdir -p folder1/folder2 // to create the whole directory structure means for the all directories and sub directories which
@@ -229,60 +224,10 @@ back then we can use '/' as -> cd /etc/  //as the '/' is the base folder locatio
                         // non existing of the directory the dir1 will not be move to dir2 instead the contents of dir1 will
                         // be moved to dir2
 			
-- 'less' cmd is used for reading the file or to search something inside the file, 'less' is better then the cat cmd to read
-  the  file contents as the size of the opened terminal window will not create any hurdle to display the data which was too
-  big and we were not able to scroll further in terminal
-- less filename     // to read the data from the file and scroll the content of file as u proceed by scrolling
-    - press space after executing above cmd will display the data on terminal page by page
-    - press shift + B to go up the pages
-    - press shift + G to go at end of the file
-    - press g       // this go at the top of the file
-    - /book         // this is search for the 'book' keyword in file and to go to next 'book' in file press 'n'
-    - ?book         // to search for 'book' in file from down to up
-    - press 'q' to quit from less
 
 
-- echo string or echo "string"          // to display the string it is best practice to use "" with string
-- myvar="Sadanand"                      // This is variable initialization, don't provide space before and after '='
-  echo $myvar                           // to display the value of 'myvar' variable
-- echo "My name is $myvar"              // to use variable to display string
-- echo -e 'Some \text'                  // here 't' of word 'text' will be escaped bcz we use -e, O/P -> Some ext
-- echo -e 'Some \n text'  // o/p -> Some
-                                    text
                                     
-                                    
-- which cmd is used to return the path name of a file or a command which we use with this 'which' cmd
-- which ls //to know the location of the ls cmd
-- In bash scripting it is gud practice to use the full path name as we should use -> '/bin/ls' instead of just 'ls' , bcz some
-  OS recognize the 'ls' cmd and some will require u to enter the full path for the 'ls' cmd
-
-
-- 'whatis' cmd will display short manual page discription for cmd -> whatis ls
-
-
-- 'useradd' cmd is used to create a user
-- sudo useradd user_name -m -s /bin/bash -g users -c "Coments"      // -m is going to create a default home directory for this
-                                                                    // user, -s is used for allowing the user to use the shell
-                                                                    // which we provide and here it is bash 
-                                                                    // -g is the default user flag and user will be assigned to 
-                                                                    // the group u mention, always use -g flag with the 'users'
-                                                                    // group, -c flag is used for providing the comments
-
-- 'userdel' cmd is used to delete the user
-- sudo userdel user_name // it will delete the user but it will not delete the directory of the user which u can see by using          
-  cmd -> ls /home/, Hence the user will be deleted but his data will not
-- sudo userdel -r user_name   // this will delete the home directory also with the user
-- sudo rm -r /home/mark/      // this will remove all the data of the user, So use it carefully
-
-
-- groups                 // this will show u that to which groups ur current user is connected too.
-- cat /etc/group         // to list all the groups which r available on ur OS
-- sudo groupadd name_of_group           // to add the new group
-- sudo groupdel name_of_group           // to delete the group
-- sudo gpasswd -a user_name group_name  // assign user to a group
-- sudo gpasswd -d user_name group_name // to remove user from the group
-
-
+                                   
 - .bashrc file is a script that is executed whenever a new terminal session is started in interactive mode
 - when u do -> ls -a , in ur root directory u can see a file .bashrc in the list, whenever u open a new terminal this .bashrc
   file is executed
@@ -299,18 +244,6 @@ back then we can use '/' as -> cd /etc/  //as the '/' is the base folder locatio
 Note -> If U get permission denied while listing of files with any command then use 'sudo' with that cmd
 
 
-Free resources and Used Resources ->
-- df        // this cmd reports the amount of Disk space being used and avilable by ur file system
-- df -h     // displays the data in more human readable format
-- du        // this cmd is used to estimate and display disk space used by files, navigate into the directory on which u wants
-            // to use this cmd and in the last of all listing it will shoe u the size of the folder
-- du -h     // displays the data in more human readable format
-- du -sh    // '-s' is for summary , 'h' is for human redable, this will calculate the disk space and all of it used
-- du -sh foler_name     // to know the details for the following folder
-- free      // dispalys the total amount of free and used physical and swap memory in the system as well as the buffer used by
-            // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by ur machine
-- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte and
-            // 't' for terabyte
             
             
 - 'watch' cmd can run scripts or cmds at a regular interval or repeatedly 
