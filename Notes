@@ -5,12 +5,65 @@ Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10
 Commands ->
 
 - whoami // to find who is logged in the system
+- ls /home/                 // to know the users
+- 'passwd' cmd allows u to change the password for the user
+- sudo passwd user_name // now u can change the password for the entered user if u enter username as root then it will
+change the password for root 
 
-- login -p username // to login into system
+- 'useradd' cmd is used to create a user
+- sudo useradd user_name -m -s /bin/bash -g users -c "Coments"      // -m is going to create a default home directory for this
+                                                                    // user, -s is used for allowing the user to use the shell
+                                                                    // which we provide and here it is bash 
+                                                                    // -g is the default user flag and user will be assigned to 
+                                                                    // the group u mention, always use -g flag with the 'users'
+                                                                    // group, -c flag is used for providing the comments
 
-- xdg-open filename // to open file
+- 'userdel' cmd is used to delete the user
+- sudo userdel user_name // it will delete the user but it will not delete the directory of the user which u can see by using          
+  cmd -> ls /home/, Hence the user will be deleted but his data will not
+- sudo userdel -r user_name   // this will delete the home directory also with the user
+- sudo rm -r /home/mark/      // this will remove all the data of the user, So use it carefully
+
+
+- groups                 // this will show u that to which groups ur current user is connected too.
+- cat /etc/group         // to list all the groups which r available on ur OS
+- sudo groupadd name_of_group           // to add the new group
+- sudo groupdel name_of_group           // to delete the group
+- sudo gpasswd -a user_name group_name  // assign user to a group
+- sudo gpasswd -d user_name group_name // to remove user from the group
+
+Types of help commands -> Screenshot(415)
+- man any_cmd (this gives the manual of the cmd) // we can also use --help in the place of 'man' Ex -> any_cmd --help
+
+- 'whatis' cmd will display short manual page discription for cmd -> whatis ls
+
+- which cmd is used to return the path name of a file or a command which we use with this 'which' cmd
+- which ls //to know the location of the ls cmd
+- In bash scripting it is gud practice to use the full path name as we should use -> '/bin/ls' instead of just 'ls' , bcz some
+  OS recognize the 'ls' cmd and some will require u to enter the full path for the 'ls' cmd
 
 - ip addr // for seeing IP related data
+
+- ifconfig              // to show ethernet settings and other internet config things, if 'eth0' is their in o/p then it means
+                        // their is wired connection , if u see 'wlan0' then it is wireless connected, additional ethernet
+                        // connections would be shown as 'eth1' and so on
+                        // 'lo' is a loop back interface which is a special interface which system uses to communicate with
+                        // itself, 'inet addr' is the local are LAN address or NAT address, 'RX packets' is the received packet
+                        // 'TX packet' is the transmitted packet
+- ifconfig eth1         // it will now show details for 'eth1' interface only
+- ifconfig eth0 up      // this will enable the internet connection
+- ifconfig eth0 down    // this will disable the internet connection
+
+- ipcalc ip_Address   // very usefull tool to understand Network segments such as Host, Network, Network Type, range etc
+
+- 'sudo' cmd allows extra privilages as administrator or more then normal user
+- 'sudo' infront of any cmd will enhance the privilage criteria for that cmd
+- su - // to become root user
+- sudo -s       // this will give u the root user privilages which is super user mode
+- sudo su    // To go to the root user and give root permissions)
+- -su // to login as root
+
+- login -p username // to login into system
 
 - pwd       // This cmd shows the current working directory
 
@@ -20,18 +73,6 @@ Commands ->
 - ls -al                // this will show the hidden files and the details about all files
 - ls -ltr		// to list every thing in timely reverse order 
 - ls -li 		// to list the inodes 
-
-- cat options_cmd filename1 filename2 .... // syntax for cat
-- cat               // this will allow u to write something on terminal and echo things u enter
-- use ctrl+d to come out of 'cat' cmd
-- cat file_name // to display contents of the file
-- cat filename1 filename2 // this will combine and display the contents of two files
-
-I/O Redirection -> to capture output from one file or program and send it to another file and program
-- output_cmd > file_name // syntax for redirection
-- cat > file_name // to write something in the file, it will also create file if not created and data will we overwritten if                
-                  //  it already contains some data in it
-- cat >> file_name // this will append the data with the previous data in the file not overwrite it
 
 - mkdir directory_name // to create the directory
 
@@ -49,6 +90,12 @@ I/O Redirection -> to capture output from one file or program and send it to ano
 - mv file1 dir1 // this will move file1 to dir1 directory and if file1 exists then the data in it will be overwritten
 - mv -v file1 dir1      // for the verbose mode
 
+- cat options_cmd filename1 filename2 .... // syntax for cat
+- cat               // this will allow u to write something on terminal and echo things u enter
+- use ctrl+d to come out of 'cat' cmd
+- cat file_name // to display contents of the file
+- cat filename1 filename2 // this will combine and display the contents of two files
+
 - 'touch' cmd is a way to create files in linux it is also used to change the timestamps on existing files and directories, u 
   cannot use 'touch' cmd to create directories
 - touch filename                        //syntax to create a new file
@@ -58,18 +105,6 @@ I/O Redirection -> to capture output from one file or program and send it to ano
 - nano filename // this will create the file if not exists
 - ctrl+o // to save the data in file and then press enter
 - other common cmds which will be used in nano editor will be already listed at bottom of the editor
-
-- 'sudo' cmd allows extra privilages as administrator or more then normal user
-- 'sudo' infront of any cmd will enhance the privilage creteria for that cmd
-- su - // to become root user
-
-- 'top' cmd provides dynamic real time view of ur system, Suppose u wants to know which process in ur computer is taking most
-of the CPU etc then use cmd -> top // a window will appear with data, Here PID -> Process ID, in linux every program and 
-process has it's own ID, u can see CPU usage, Memory usage etc
-- 'top' refreshes the data of process usage table in every 3 seconds bydeafult
-- U can change the delay time from 3 seconds to other interval also by pressing 's' after 'top' cmd is executed
-- To filter out ideal processes(processes u need not to know as they will always we running) press 'i'
-- To kill any process press 'k' and then enter the 'pid' of the process
 
 VIM Editor ->
 - sudo apt-get install vim // to install vim
@@ -83,6 +118,42 @@ VIM Editor ->
       - :q! // to exit file without saving
       - press o // to get into the next line , don't press it in the insert mode
 
+- 'top' cmd provides dynamic real time view of ur system, Suppose u wants to know which process in ur computer is taking most
+of the CPU etc then use cmd -> top // a window will appear with data, Here PID -> Process ID, in linux every program and 
+process has it's own ID, u can see CPU usage, Memory usage etc
+- 'top' refreshes the data of process usage table in every 3 seconds bydeafult
+- U can change the delay time from 3 seconds to other interval also by pressing 's' after 'top' cmd is executed
+- To filter out ideal processes(processes u need not to know as they will always we running) press 'i'
+- To kill any process press 'k' and then enter the 'pid' of the process
+
+- pidof process_name // to find the pid of process
+
+- kill -flags pid_of_process        // syntax for kill cmd
+- kill pid_no                       // to kill the process
+- kill -KILL pid_no                 // this will force kill only use when needed
+- kill -9 pid_no                    // this also a kind of force kill but not as powerfull as -KILL
+
+- ps -ux            // to get the long list of all running processes this is usefull in knowing the name of process or the
+                    // process id of some process
+- ps -aux           // the 'ps -ux' gives processes list for the current user only, to know all the processes by all users use
+                    // 'ps -aux' cmd
+- ps -U user_name   // this will give all the processes of the entered user
+- ps -C name_of_process     // this will list out all the instances or processes which r related to process entered
+
+Free resources and Used Resources ->
+- df        // this cmd reports the amount of Disk space being used and avilable by ur file system
+- df -h     // displays the data in more human readable format
+- du        // this cmd is used to estimate and display disk space used by files, navigate into the directory on which u wants
+            // to use this cmd and in the last of all listing it will shoe u the size of the folder
+- du -h     // displays the data in more human readable format
+- du -sh    // '-s' is for summary , 'h' is for human redable, this will calculate the disk space and all of it used
+- du -sh foler_name     // to know the details for the following folder
+- free      // dispalys the total amount of free and used physical and swap memory in the system as well as the buffer used by
+            // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by ur machine
+- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte and
+            // 't' for terabyte
+
+
 - updatedb 	// this will build the database for file and directory, use this before using locate but not all the time, once
  when u start using kali linux just execute it in starting.
 
@@ -95,22 +166,64 @@ VIM Editor ->
 'locate' uses a prebuilt database, which should be regularly updated, while 'find' interates over a filesystem to locate
 files, thus locate is much faster then find, but can be inaccurate if the database(can be seen as a cache) is not updated
 
-- ifconfig              // to show ethernet settings and other internet config things, if 'eth0' is their in o/p then it means
-                        // their is wired connection , if u see 'wlan0' then it is wireless connected, additional ethernet
-                        // connections would be shown as 'eth1' and so on
-                        // 'lo' is a loop back interface which is a special interface which system uses to communicate with
-                        // itself, 'inet addr' is the local are LAN address or NAT address, 'RX packets' is the received packet
-                        // 'TX packet' is the transmitted packet
-- ifconfig eth1         // it will now show details for 'eth1' interface only
-- ifconfig eth0 up      // this will enable the internet connection
-- ifconfig eth0 down    // this will disable the internet connection
+- 'head' and 'tail' cmds generally we use them with files, So 'head' cmd could be used to output the first part of the file and  
+  the 'tail' cmd could be used to output the last part of the file
+- Bydefault 'head' will print first 10 lines and 'tail' will print last 10 cmds
+- head file_name        // syntax for head
+- tail file_name        // syntax for tail
+- head -nNumber_of_lines file_name  // to give limit for the no. of lines to display, no space between -n and Number_of_lines
+- tail -nNumber_of_lines file_name  // to give limit for the no. of lines to display
+- head -Number_of_lines file_name   // works same as cmd -> head -nNumber_of_lines file_name 
+- head file1 file2          // to see first 10 lines of multiple files
+- head -Number_of_lines file1 file2     // to see first desired number of lines for multiple files
 
-- ipcalc ip_Address   // very usefull tool to understand Network segments such as Host, Network, Network Type, range etc
+- sort filename // this to sort the data in the given file based on Alphabets
 
-- ls /home/                 // to know the users
-- 'passwd' cmd allows u to change the password for the user
-- sudo passwd user_name // now u can change the password for the entered user if u enter username as root then it will
-change the password for root 
+- nl filename // this to display the file with no.'s on the terminal
+- nl -s '# ' -w 6  filename // this to display the file with no.'s with # displayed after no.s on the terminal using the
+	flag '-s' and '-w' is the no. width used to display data properly
+
+
+- 'wc' cmd or wordcount prints a count of new lines, words and bytes for each input file
+- wc file_name  // o/p -> 1 6 42 file_name , here ist param '1' represents the no. of lines in file, 2nd param '6' represents
+                // the no. of words and 3rd param '42' represents the no. of characters in file and 4th is name of file
+- wc -c file_name   // this will give the no. of bytes or no. of characters in file
+- wc -l file_name   // this will give the no. of lines in file
+- wc -w file_name   // this will give the no. of words in file
+- wc -L file_name   // this will give the length of the longest line in file
+
+- tac filename // tac is opposite of cat as it displays the data from top to bottom
+
+- cat filename|sed 's/t/T'	// here in 's/t/T' the 's' is for substitude hence it will replace the 't' with 'T' for every
+		first 't' char in the file
+		Note -> These changes will not be saved
+
+- sed 's/t/T/g' filename // here in 's/t/T/g' the 'g' which is global is to tell that substitude every 't' character with 'T'
+
+- sed -i 's/t/T/g' filename // here in 'i' will make the changes to the original file
+
+- 'grep'(global regural expression print), 'grep' cmd processes text line by line and print any line which matches the 
+  specified pattern, So 'grep' cmd could be used to search some kind of pattern or word or sentence in a text file or
+  no. of text file
+- grep "word_or_text_to_search" file_name // this cmd will search the entered word from the input file, and the 'grep' cmd is     
+                                         // sensitive case hence the exact word or text would be searched 
+- grep -i "word_or_text_to_search" file_name  // to make the search not case-sensitive
+- grep -n "word_or_text_to_search" file_name  // to print the line no. with output 
+- grep -c "word_or_text_to_search" file1 file2 file3  // to search in multiple files, -c will count the word or text
+- grep -n "word_or_text_to_search" *      // to search from all the files
+- grep -nv "word_or_text_to_search" file_name    // this will o/p all the lines which doesn't contain the input text
+
+- 'less' cmd is used for reading the file or to search something inside the file, 'less' is better then the cat cmd to read
+  the  file contents as the size of the opened terminal window will not create any hurdle to display the data which was too
+  big and we were not able to scroll further in terminal
+- less filename     // to read the data from the file and scroll the content of file as u proceed by scrolling
+    - press space after executing above cmd will display the data on terminal page by page
+    - press shift + B to go up the pages
+    - press shift + G to go at end of the file
+    - press g       // this go at the top of the file
+    - /book         // this is search for the 'book' keyword in file and to go to next 'book' in file press 'n'
+    - ?book         // to search for 'book' in file from down to up
+    - press 'q' to quit from less
 
 Wildcards -> Screenshot(352, 353, 354)
 {} widlcard, Ex -> touch abcd{1..9}-xyz // this will create 9 files with name as abcd1-xyz to abcd9-xyz
@@ -191,5 +304,4 @@ a hacker is using it.
  arp -a // it will list the table of IP addresses with their corresponding MAC addresses, The ARP is used to find the MAC 
  address for Known IP addresses and the RARP(Reverse ARP) is to find IP addresses for known MAC addresses
 
-
-
+- xdg-open filename // to open file
