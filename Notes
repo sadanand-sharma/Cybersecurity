@@ -206,6 +206,7 @@ files, thus locate is much faster then find, but can be inaccurate if the databa
 - sed 's/t/T/g' filename // here in 's/t/T/g' the 'g' which is global is to tell that substitude every 't' character with 'T'
 
 - sed -i 's/t/T/g' filename // here in 'i' will make the changes to the original file
+Sed tutorial -> https://academy.ehacking.net/courses/551622/lectures/10003044
 
 - 'grep'(global regural expression print), 'grep' cmd processes text line by line and print any line which matches the 
   specified pattern, So 'grep' cmd could be used to search some kind of pattern or word or sentence in a text file or
