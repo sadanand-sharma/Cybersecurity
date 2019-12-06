@@ -25,10 +25,10 @@ change the password for root
   cmd -> ls /home/, Hence the user will be deleted but his data will not
 - sudo userdel -r user_name   // this will delete the home directory also with the user
 - sudo rm -r /home/mark/      // this will remove all the data of the user, So use it carefully
-
+- less /etc/passwd 	// to list the users and follow link to understand the logs ->
+		https://linuxize.com/post/how-to-list-users-in-linux/
 
 - groups                 // this will show u that to which groups ur current user is connected too.
-- cat /etc/group         // to list all the groups which r available on ur OS
 - sudo groupadd name_of_group           // to add the new group
 - sudo groupdel name_of_group           // to delete the group
 - sudo gpasswd -a user_name group_name  // assign user to a group
@@ -104,9 +104,8 @@ Types of help commands -> Screenshot(415)
 - touch hello.sh  //.sh extention is not necessary but for editor it is usefull, it is also best practice to provide extension
 - touch file1     // file1 should be already exist now the timestamp of the file would be the current time
 
-- nano filename // this will create the file if not exists
-- ctrl+o // to save the data in file and then press enter
-- other common cmds which will be used in nano editor will be already listed at bottom of the editor
+Linux File Editor -> Screenshot(427)
+vi or vim cmds -> Screenshot(428)
 
 VIM Editor ->
 - sudo apt-get install vim // to install vim
@@ -119,6 +118,10 @@ VIM Editor ->
       - :wq // to save and close the file or we can also use ZZ for the same task
       - :q! // to exit file without saving
       - press o // to get into the next line , don't press it in the insert mode
+
+- nano filename // this will create the file if not exists
+- ctrl+o // to save the data in file and then press enter
+- other common cmds which will be used in nano editor will be already listed at bottom of the editor
 
 - 'top' cmd provides dynamic real time view of ur system, Suppose u wants to know which process in ur computer is taking most
 of the CPU etc then use cmd -> top // a window will appear with data, Here PID -> Process ID, in linux every program and 
