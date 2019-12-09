@@ -311,3 +311,144 @@ a hacker is using it.
  address for Known IP addresses and the RARP(Reverse ARP) is to find IP addresses for known MAC addresses
 
 - xdg-open filename // to open file
+
+- sudo init 6 // to restart the machine
+- init 0 // to shutdown the machine
+
+- if u do cmd -> ls -l     // then u will see as o/p -> -rw-rw-r-- 1 sadanand sadanand 22 Jul 23 18:55 test
+- Here in the 1st '-' means it's a normal file, if it would be 'd' then it means it is a directory and if it is 'c' then it
+  is character special file, if it is 'b' then it is binary special file.,if file is 'l' it is link
+- First -rw here is for the owner of the file
+- Second -rw means read and write for the group of the file and
+- 3rd r-- is the permission for everybody else
+- 4th '1' represents the symbolic links of the file
+- 5th sadanand it is the name for the owner of the file
+- 6th sadanand it is the name for the group of the file
+- 7th '22' it is the size of the file
+- 8th 'Jul 23 18:55' is the date on which it's created
+- 9th 'test' is the file name
+- rwx means the read, write and execute
+- To change the permissions -> chmod o+x file_name  // Here 'o' stands for others '+' is for adding the permission and '-'
+  is for subtracting the permission and x is for executable, So permission for others has now executable permission.
+- same way -> chmod o+w file_name    // to set permissions for the others as writeable
+- chmod g+x file_name    //  to set the executable permission for group
+- chmod g-wx file_name   // to set the permissions for executable and write for the group
+- chmod ug=rwx file_name // this will change the permissions for the owner and the group of the file together to read, write
+  and execute, '=rwx' and '+rwx' works same way
+- chmod a-rwx file_name // we can use 'a' for all to set permissions for read, write and execute we could also use 
+  'chmod ugo-rwx file_name' cmd
+- chmod u+rw,g=rw,o+r file_name // this is for the setting seperate permissions for owner, group and others together
+- chmod u-w directory_name   // to set the permissions for the owner for write in directory and lock symbol will appear on
+  the directory on visual(graphical view) folder
+- Note -> we can also revoke the permissions for executable from the directory, in which case the user cannot 'cd' into the
+  directory
+
+- Octal and Numerical Permissions -> Octal Permission is the numerical representation of the file permission,
+ the octal representation for -> -rw-rw-r-- 1 sadanand sadanand 22 Jul 23 18:55 test as
+
+ Users          Groups          Others
+ r w x          r w x           r w x   // use 1 for providing the permissions and 0 for not providing permissions
+ 1 1 1          1 0 1           0 0 0   // taking 1 1 1 for all if we r providing permissions for all which is binary value 
+ 4 2 1          4 0 1                   // 4 2 1 came in group as we take 1 for 'x' in Users then 'w' become 2 bcz as go from
+                                        // right to left in binary the values doubles and for the same reason 'r' is 4
+// now 4+2+1 = 7 so now if u wants the owner to read, write and execute the file then u need to give the no. notation 7
+// now in groups if we doesn't wants to give the write permission to the group then denote 'w' as 0 as for the negative 
+   permissions, 'r' and 'x' as 1 as for the positive permissions
+// hence for groups the value notation will be 4+0+1 = 5, So when ever u wants to give only read and execute permission we
+   can use '5', So this way we can calculate the notations
+// Hence to change permissions -> chmod 000 file_name  // so here we r saying that we r providing no permission for owner
+   hence 0,n o permission for group hence 0, no permission for others hence 0 So it becomes 000
+// For owner to read, write, execute and for group it is only read and execute hence cmd -> chmod 750 file_name
+
+- If the tab is not completing the script then check the permissions for the file whether it is read only by cmd->'ls -al'
+  then do cmd -> 'chmod +x file_name' to do the executable permissions for owner, group and others all together.
+- To revert the permissions use cmd -> 'chmod -x file_name'
+
+File Ownership -> Screenshot(414)
+cmd -> chown user_name file_name // this will change the owner of the file to the entered user_name
+cmd -> chgrp group_name file_name // this will change the owner of the file to the entered group_name
+
+User Account Manangement cmds -> Screenshot(430)
+
+
+
+  
+Tab (Button) in Linux -> Screenshot(416), Press tab 2 times if on one press it doesn't complete the cmd this way it
+ will list the available options with the same initials in the cmd or file.
+
+I/O Redirection -> to capture output from one file or program and send it to another file and program
+- output_cmd > file_name // syntax for redirection
+- cat > file_name // to write something in the file, it will also create file if not created and data will we overwritten if                
+                  //  it already contains some data in it
+- cat >> file_name // this will append the data with the previous data in the file not overwrite it 
+Redirect cmds -> Screenshot(417)
+- cat filename1 filename2 > filename3 // this will add the data of filename1 and filename2 and store it in filename3
+- cat filename1 >> filename2 // this will add the data of filename1 to filename2
+
+- echo string or echo "string"          // to display the string it is best practice to use "" with string
+- myvar="Sadanand"                      // This is variable initialization, don't provide space before and after '='
+  echo $myvar                           // to display the value of 'myvar' variable
+- echo "My name is $myvar"              // to use variable to display string
+- echo -e 'Some \text'                  // here 't' of word 'text' will be escaped bcz we use -e, O/P -> Some ext
+- echo -e 'Some \n text'  // o/p -> Some
+                                    text
+
+tee cmd -> Screenshot(418) // if tee is used on the existing file then the data in that file would be overwritten
+cmd -> echo 'Data'| tee -a file_name // this will not overwrite the data instead it will append the new into existing data
+cmd -> echo 'Data'| tee  file1 file2 file3 // for multiple files
+
+Pipes cmd -> Screenshot(419) 
+
+more cmd -> it display one page data of a file at a time, to display futher data press 'space' button and 'q' for exit
+
+File Maintenance Commands -> Screenshot(420) 
+
+chown owner_name:group_name file_name // this will change the ownership and group together for a file
+
+cmd -> exit // to logout from the current user
+
+Linux Logs ->
+- cat /var/log/syslog   // keeps logging information of system for lot of things
+Note -> If u don't keep ur log files in check on linux it will grow too big, check for other logs in '/var/log' directory
+
+
+Filters/ Text Processors Commands -> Screenshot(421)
+
+File Display Commands -> Screenshot(422)
+- cmd -> cut -c position_no_of_char_in_sentence file_name // this will display the character from each line to the
+given position starting from 1.
+- cmd -> cut -c position1-position2 file_name	// here we r providing range
+
+- awk '{print $position}' file_name	// this will give the word from the each line at the mentioned position
+
+- file_name |sort |uniq	// it removes the duplicate from the file, always use 'sort' cmd before 'uniq' otherwise uniq
+	won't work
+	
+Compare Files -> Screenshot(423)
+- cmd -> diff file1 file2 // tells the difference between two files line by line
+- cmd -> cmp file1 file2 // tells the difference in files in respect of bytes 
+
+- 'tar' cmd is used to create, maintain, modify and extract files which r archived in the tar(Tape Archive) format, tar is an
+  archiving file format just like zip file
+- tar -cvf        // 'c' for creating an archive, 'v' for verbose, 'f' allows u to specify the file name if it not used then
+                  // linux is going to create a Zip file which is going to be system dependent and it's name is not defined
+                  // by u
+- tar -cvf  name_of_file_u_wants_to_give.tar file_name_which_has_to_be_compresed  // this will compress the file to tar, it's
+                                                                                  // better to give .tar extension in the name
+                                                                                  // for the file u r going to create
+- tar -xvf  name_of_tar_file        // to will decompress the file
+- tar -czvf name_of_file_u_wants_to_give.tar.gz file_name_which_has_to_be_compresed //here 'z' will create the file with gz
+                                                                                    // format
+- tar -xzvf file_name.tar.gz        // to decompress gz format file
+Note -> tar cmd is not suitable to compress instead we should use 'gzip'
+- cmd -> gzip file_name // this cmd will compress the file
+- cmd -> gzip -d file_name // this will uncompress the file
+
+truncate -> Screenshot(424) // it start removing the size for the file by deleting the data in file from end point in file,
+on increasing the size using the truncate cmd it will add the data just increase the size of the file
+
+Combining and Spliting Files -> Screenshot(425) // if u don't put the name for the split file it might name as 'xaa' and next
+time it will overwrite the same file with name as 'xaa'
+
+Windows Vs Linux cmds -> Screenshot(426)
+
