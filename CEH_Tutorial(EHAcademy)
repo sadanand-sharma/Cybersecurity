@@ -194,11 +194,6 @@ https://www.test-questions.com/ceh-exam-questions-02.php
   information.
 		
 
-- exploit-db.com // to know about vulnerabilites of certain databases and it also gives u the results on the basis of 
-  ports, platforms, author etc.
-- On exploit-db.com in the left panel, go to "GHDB" for better reconnaissance using google search techniques.
-- We can also search for the vulnerable routers and get its access such as accessing router and gets the router location, 
-  access webcams  
 
 - Footprinting Recon Tools ->
 	- Firebug -> it's a extention for google chrome
@@ -207,18 +202,7 @@ https://www.test-questions.com/ceh-exam-questions-02.php
    	  being avilable on Kali Linux OS
 	- webhttrack -> for getting graphical console of httrack
 	
-- Metagoofil Metadata Tool ->
-	- This tool can be used to do reconnaissance on victim website, it also uses the google database form the exploit-db.com
-	- It gather and extract metadata of public docs, download the files from victim and at end it will generate a report
-	- This tool works on kali linux machine
-	- cmd -> apt-get install metagoofil
-	- cmd -> metagoofil
-	- cmd -> take the help of the example mentioned now in the terminal
 	
-- It's good to collect information of the people in the organization, for this we can use "pipl.com" website and just provide
- the name or email or any other data and it will search for u about people, other websites like this is 'zabasearch.com' but
- it is only related to US, it can also provide info such as background check and property check, use other sites also like
- 'linkedin' to know the professional information about people.
 
 - Maltego -> Do it from Zaid Pentesting for brief usage, Maltego is an intelligence tool which do the task of footprinting
  for which we use different websites and tools.
