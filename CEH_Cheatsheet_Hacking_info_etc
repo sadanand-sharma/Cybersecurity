@@ -626,13 +626,6 @@ Mantraps -> - Udemy Practice test _2 Question 35
 
 ##_04 Footprinting & Reconnaissance
 
-Footprinting phase allows the attacker to gather the information regarding internal and external security architecture, he 
-has to face a target
-
-Pseudonymous Footprinting -> It includes footprinting through online sources, identity is hidden and misguided
-
-Internet Footprinting -> includes footprinting and reconnaissance methods for gaining information through internet such as
-Google Hacking
 
 Objectives of Footprinting ->
 - To know security posture
@@ -651,14 +644,6 @@ Techniques used by hackers ->
 - DNS
 - Network
 - Social Engineering
-
-Gather information from finanacial services -> there r some Financial services powered by different search engines which
-provide financial info of international known organizations such as->
-- www.google.com/finance
-- finance.yahoo.com
-
-Advance google search operators -> Page 11 Do from PDF
-- Udemy Practice test _2 Question 64
 
 Website Foorprinting -> it includes monitoring and investigating about the target organization official website for gaining
 information such as Software running, version's of these software's, operating systems, sub-directories, database etc
@@ -683,10 +668,7 @@ Traking email from email header offer hop by hop trace of email along with IP ad
 used emailtrackerpro  
 
 - Sans.org (provides seurity policies for various fields)
-- Online websites for Pentesting - AltoroMutual(online Banking), megacorpone.com, certifiedhacker.com, OWASP bricks,
-	hackthissite.org
 - whois.sc(domain registration info)
-- netcraft(tech info on website)
 - waybackmachine (history of website, archives)
 - anywho, pipl, zabasearch(for US)(person info gathering websites)
 - cvedetails, securityfocus, exploit-db(for cve's)
