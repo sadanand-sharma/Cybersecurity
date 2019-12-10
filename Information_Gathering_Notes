@@ -55,7 +55,8 @@ Step - Footprinting phase allows the attacker to gather the information regardin
             are web based means online hence if we search the specific url for the webcam then we can access it same goes for
             printer and other perifheral devices.
             Ex: intitle: webcam 7 inurl: 8080 ,in google search and u will get the webcam results accordingly 
-          - intitle:"Index Of" intext:.ftpconfig site:target_site // to find a file on the target website
+          - intitle:"Index Of" intext:.ftpconfig site:target_site // to find a file on the target website, this way we can also 
+            check if our own website has such vulnerability or not
           - inurl: .php?id=   // to search for websites with specific url 
        
        Advance google search operators -> Screenshot(431)
@@ -63,6 +64,25 @@ Step - Footprinting phase allows the attacker to gather the information regardin
        information and files. These files may contain information about passwords, system functions, or documentation. What command
        will help you to search files using Google as a search engine?
        Answer -> site:target.com filetype:xls username password email
+
+Step - exploit-db.com // to know about vulnerabilites of certain databases and it also gives u the results on the basis of 
+     ports, platforms, author etc.
+    - On exploit-db.com in the left panel, go to "GHDB" for better reconnaissance using google search techniques.
+    - We can also search for the vulnerable routers and get its access such as accessing router and gets the router location, 
+      access webcams
+      
+Step - Metagoofil Metadata Tool ->
+    - This tool can be used to do reconnaissance on victim website, it also uses the google database from the exploit-db.com
+    - It gather and extract metadata of public docs, download the files from victim and at end it will generate a report
+    - This tool works on kali linux machine
+    - cmd -> apt-get install metagoofil
+    - cmd -> metagoofil
+    - cmd -> metagoofil -d hackthissite.org -t doc,pdf -l 200 -n 5 -o hackthissite_metagoofil -f
+    
+Step - It's good to collect information of the people in the organization, for this we can use "pipl.com" website and just provide
+      the name or email or any other data and it will search for u about people, other websites like this is 'zabasearch.com' but
+      it is only related to US, it can also provide info such as background check and property check, use other sites also like
+      'linkedin' to know the professional information about people.
 
 
 
