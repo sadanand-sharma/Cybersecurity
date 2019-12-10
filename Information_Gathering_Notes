@@ -1,1 +1,72 @@
+- Websites to Practice Pentesting ->
+  - AltoroMutual(online Banking Website, https://demo.testfire.net)
+  - certifiedhacker.com
+  -	hackthissite.org
+  - hrithikrules.com
 
+Step - Check the Webiste urself by exploring it (look for contact info and career info in website)
+      - Try to look for the career tab in a website so this way u get to know what technology stacks the target organizations r
+        using.
+
+Step - Check whois info for target
+  - "whois.sc" or "whois.domaintools.com" this website contains the info about the domain registrations, the registration date info, 
+  hackers some time buy the domains at the time of the expiration and then resale it to the company again at very high prices bcz they
+  need that domain for their buissness.
+  Whois Lookup -> It is a protocol which is used to find owners of the internet resources(such as servers, IP and domain)
+  Ex go to ->
+  Note - if u do ping w3schools.com // u can get the IP of the application
+
+Step -  How to know about the technologies used by the target website and other info?
+        go to toolbar.netcraft.com/site_report
+        
+        - 'netcraft' website is used to know about the technology used by the website and also it's subsites, u can get the
+          information about the organization of that website and its hosting info.
+
+Step - 
+    cmd -> msfconsole
+      > help // to get list of cmds
+      > use gather/search_email_collector // to start working in search_email_collector auxillary(module)
+      > show options // it will list the inputs needed to execute this module
+      > set DOMAIN hackthissite.org // to input value in DOMAIN variable
+      > set OUTFILE hackthissite_msf_sec // to input other value to write output
+      > exploit   // to launch the auxillary
+      o/p - list the emails associated with the target
+      
+Step - Footprinting phase allows the attacker to gather the information regarding internal and external security architecture, he 
+       has to face a target
+       Pseudonymous Footprinting -> It includes footprinting through online sources, identity is hidden and misguided
+       Internet Footprinting -> includes footprinting and reconnaissance methods for gaining information through internet such as
+                                Google Hacking
+       Gather information from finanacial services -> there r some Financial services powered by different search engines which
+       provide financial info of international known organizations such as->
+       - www.google.com/finance
+       - finance.yahoo.com
+       
+       - "Google Hacking" means that how efficiently we can use google to do our hacking tasks such as for reconnaissance.
+          - On google search use following syntaxs for better search ->
+          - redmi note 5 -flipkart.com // this will not give the results from the flipkart.com
+          - redmi note 5 -flipkart.com -mi.com // multiple website filtering for google search
+          - redmi note 5 site:flipkart.com // this will give the result only from flipkart.com
+          - Open google.com then go to settings and then Advance search and here u can set filters to do the search as u like
+          - "Happy Message" this gives u the result for the both words combined otherwise the google would search and give the
+            results by searching seperatly for Happy and seperatly for Message.
+          - U can do the mathematical calculations in the google search
+          - inurl:eccouncil // this will only show the results in whose url the eccouncil is present, now days most of the webcams
+            are web based means online hence if we search the specific url for the webcam then we can access it same goes for
+            printer and other perifheral devices.
+            Ex: intitle: webcam 7 inurl: 8080 ,in google search and u will get the webcam results accordingly 
+          - intitle:"Index Of" intext:.ftpconfig site:target_site // to find a file on the target website
+          - inurl: .php?id=   // to search for websites with specific url 
+       
+       Advance google search operators -> Screenshot(431)
+       Question -> When you are collecting information to perform a data analysis, Google commands are very useful to find sensitive
+       information and files. These files may contain information about passwords, system functions, or documentation. What command
+       will help you to search files using Google as a search engine?
+       Answer -> site:target.com filetype:xls username password email
+
+
+
+
+  
+Target -> find which r the extra sites hosted on the server hackthissite.org and demo.te...
+- email harvest not working for eccouncil.org, w3schools etc ?
