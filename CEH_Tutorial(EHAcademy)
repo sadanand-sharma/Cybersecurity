@@ -27,11 +27,7 @@ releases a patch for that vulnerability.
 - Non-Repudation -> It will not allow a person to deny from the work that person has done, such as a person can not deny that
   if he has sent the mail or not.
 
-- "altoro mutual" this is a website which is build to do the Pentesting 
 
-- "whois.sc" this website contains the info about the domain registrations, the registration date info, hackers some time buy the
-  domains at the time of the expiration and then resale it to the company again at very high prices bcz they need that
-  domain for their buissness.
 
 
 ------------------------------------------------------------------------------------------------------------
@@ -46,7 +42,7 @@ releases a patch for that vulnerability.
 
 - link-local unicast working with MAC ?
 - Bit Flipping ?
-- email harvest not working for eccouncil.org, w3schools etc ?
+
 - How to evade honeypots ?
 - Screenshot(14) CEH notes practice cmds?
 - brute force vs rainbow table attack?
@@ -190,43 +186,13 @@ https://www.test-questions.com/ceh-exam-questions-02.php
 - Attacker can also crack the email present in the registration info and use it take control of the website but to save them
  from it people provide the email of the ISP or network provider which is more secure.
 
-- 'netcraft' website is used to know about the technology used by the website and also it's subsites, u can get the
-  information about the organization of that website and its hosting info.
 
-- Try to look for the career tab in a website so this way u get to know what technology stacks the target organizations r
-  using.
 
 - "way back machine" is a website which helps in collecting info or history of any website by going through snapshots of it.
 
 - "Any who" is a website from were u can get the information about the person, also use the job websites for getting more
   information.
-
-- Email harvest -> it is a tool which is present in the metasploit framework 
-	- kali terminal cmd -> msfconsole
-	  > use gather/search_email_collector 
-	  > show options // this is to show us all the options
-	  > set DOMAIN eccouncil.org	// to check for emails with the input domains
-	  > set OUTFILE file_name	// to get the result in some file
-	  > show options // this time to check if the changes r done
-      > exploit // to gather all the emails related to target
-	
-- "Google Hacking" means that how efficiently we can use google to do our hacking tasks such as for reconnaissance.
-- On google search use following syntaxs for better search ->
-	- redmi note 5 -flipkart.com // this will not give the results from the flipkart.com
-	- redmi note 5 -flipkart.com -mi.com // multiple website filtering for google search
-	- redmi note 5 site:flipkart.com // this will give the result only from flipkart.com
-	- Open google.com then go to settings and then Advance search and here u can set filters to do the search as u like
-	- "Happy Message" this gives u the result for the both words combined otherwise the google would search and give the
-	  results by searching seperatly for Happy and seperatly for Message.
-	- For more search for -> google advanced search operator cheat sheet in google and download the pdf containing all
-	  the syntax for the search tricks in google
-	- U can do the mathematical calculations in the google search
-	- inurl:eccouncil // this will only show the results in whose url the eccouncil is present, now days most of the webcams
-	  are web based means online hence if we search the specific url for the webcam then we can access it same goes for
-	  printer and other perifheral devices.
-	  Ex: intitle: webcam 7 inurl: 8080 ,in google search and u will get the webcam results accordingly 
-	- intitle:"Index Of" intext:.ftpconfig site:target_site // to find a file on the target website
-	
+		
 
 - exploit-db.com // to know about vulnerabilites of certain databases and it also gives u the results on the basis of 
   ports, platforms, author etc.
