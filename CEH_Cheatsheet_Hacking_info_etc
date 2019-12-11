@@ -2767,8 +2767,6 @@ password attacks
 - cupp (tool to create wordlist on basis of reconissance info)
 - email harvest, SNMP enumeration, web server hacking, android attacks - msf
 - Armitage (GUI for msf) 
-- metagoofil for reconissance
-- maltego for footprinting
 - emkei.cz (website for creating fake mails)
 - didtheyreadit.com (to check if recievers have read mail)
 - emailtrackerpro tool for email info
