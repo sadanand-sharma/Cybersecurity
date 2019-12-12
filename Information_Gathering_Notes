@@ -3,6 +3,7 @@
   - certifiedhacker.com
   -	hackthissite.org
   - hrithikrules.com
+  - eplanetsoft.com // use only for Information Gathering
 
 Step - Check the Webiste urself by exploring it (look for contact info and career info in website)
       - Try to look for the career tab in a website so this way u get to know what technology stacks the target organizations r
@@ -85,11 +86,47 @@ Step - It's good to collect information of the people in the organization, for t
       'linkedin' to know the professional information about people. 
      - Try to create pipl.com account -??
      
-Step - Maltego tool ->
-
-
-
+Step - Maltego tool -> 
+    - From a Web Domain to find in Maltego
+      - Domain
+      - Website(NS, MX, Tracking Codes)
+      - IP Address
+      - Netblock
+      - AS Number
+      
+      Steps to Proceed in Maltego ->
+      - Take a 'Domain' target from the left panel to drag and drop
+      - Right click on domain icon of target and then select the Transform 'To Website[Quick Lookup]' // O/P this will load the
+        website inside the Maltego
+      - Right Click on Loaded website icon and then selct the Transform 'To Tracking Codes' // this gives info of other websites 
+      which r using the same tracking code at the same organization owns, and on running the transform we will get the tracking 
+      code back
+      - Right Click on Tracking code and select transform 'To other sites with the same code' // this will list the websites that
+      r using the same tracking code
+      - Rigth click on Domain and run transform 'To DNS Name - MX(mail server)' // O/P it list the servers used by target for mail
+      server
+      - Right Click on Domain and run Transform 'To DNS Name - NS(name server)' // o/p it list the name servers for the target
+      - Right Click on Domain and run transform 'To Domains [DNS]' // o/p This will give as any other domain that r on the same DNS
+      - Right Click on Domain and run Transform 'To DNS Name - interesting[Robtex]'
+      - Right Click on Domain and run Transform 'To DNS Name - [Find Common DNS Names]' // o/p it list futher DNS info
+      - Right Click on Domain and run Transform 'To DNS Name - interesting[Robtex]'
+      - Right Click on 'Loaded Website' and run Transform 'To DNS Name - [Enumerate hostname numerically]' with default settings
+      - Right Click on 'Loaded Website' and run Transform 'To IP Address - [DNS]'
+      - Right Click on 'IP Address' and run Transform 'To DNS Name - [Ohter DNS names]' // to find more servers on the same IP address
+      - On Graph press 'Ctrl + A' and this will list all the stuff on forms of the entity on 'Right Panel' select all from the 
+      Right panel and run the transform 'To IP Address DNS'
+      Note -> Netblocks r huge range of IP addresses
+      - On the Right Panel just select all IP addresses and run the transform on them 'To Netblock [Using routing info]'
+      - On the Right Panel just select all Netblocks and run the transform 'To AS number' // AS no is a top level service no. that
+      is provided by the telecommunications companies in such to provide a large set of switches
+      - On the Right Panel just select all AS no.'s and run the transform 'To Netblocks in the AS[Robtex]' // to known is company
+      is using their known AS no.'s or someone elses
+      - On the Right Panel just select all Netblocks and run the transform 'To DNS Names in Netblock[Reverse DNS]'// to find out any
+      websites associated with our target by jumping up a chain a bit, we know get to understand the sub services they use
+      - Now on the servers appeared on the above step select on server and try to run transform 'To Web Site[Quesry ports]'
+      - Change the Views to understand relationships among entities
 
   
 Target -> find which r the extra sites hosted on the server hackthissite.org and demo.te...
 - email harvest not working for eccouncil.org, w3schools etc ?
+- why on 'hrithikrules.com' in maltego the 'To Track Codes' transform doesn't work
