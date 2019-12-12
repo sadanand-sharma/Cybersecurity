@@ -4,6 +4,8 @@
   -	hackthissite.org
   - hrithikrules.com
   - eplanetsoft.com // use only for Information Gathering
+  - spacex.com // use only for maltego
+  - google-gruyere.appspot.com
 
 Step - Check the Webiste urself by exploring it (look for contact info and career info in website)
       - Try to look for the career tab in a website so this way u get to know what technology stacks the target organizations r
@@ -125,7 +127,13 @@ Step - Maltego tool ->
       websites associated with our target by jumping up a chain a bit, we know get to understand the sub services they use
       - Now on the servers appeared on the above step select on server and try to run transform 'To Web Site[Quesry ports]'
       - Change the Views to understand relationships among entities
-
+--------------------------
+      - Take a 'Domain' target from the left panel to drag and drop
+      - Right click on domain icon of target and then select the Transform 'To Email addresses[PGP]'
+      - Right click on domain icon of target and then select the Transform 'To Email addresses[using Search Engine]'
+      - Right click on domain icon of target and then select the Transform 'To Email @domain[using Search Engine]'
+      - In terminal cmd -> theharvester -d spacex.com -l 1500 -b pgp
+  
   
 Target -> find which r the extra sites hosted on the server hackthissite.org and demo.te...
 - email harvest not working for eccouncil.org, w3schools etc ?
