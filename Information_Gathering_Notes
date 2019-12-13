@@ -28,7 +28,10 @@ Step -  How to know about the technologies used by the target website and other 
           information about the organization of that website and its hosting info.
 
 Step - 
+    cmd -> service postgresql start // required to start the service before msfconsole
     cmd -> msfconsole
+      > search vsftpd  // here vsftpd is a version of FTP and we r here searching for it's exploit available in msfconsole then use
+      the path mentioned in exploit with 'use'
       > help // to get list of cmds
       > use gather/search_email_collector // to start working in search_email_collector auxillary(module)
       > show options // it will list the inputs needed to execute this module
