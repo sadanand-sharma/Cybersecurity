@@ -133,8 +133,67 @@ Step - Maltego tool ->
       - Right click on domain icon of target and then select the Transform 'To Email addresses[using Search Engine]'
       - Right click on domain icon of target and then select the Transform 'To Email @domain[using Search Engine]'
       - In terminal cmd -> theharvester -d spacex.com -l 1500 -b pgp
+      // this is incomplete  
+----------------------------------
+    
+     - Right Click on Domain and run Transform 'To DNS Name - interesting[Robtex]'
+     - Right click on domain icon of target and then select the Transform 'To Email addresses[using Search Engine]' // to know the
+     associated emails for this target
+     - Right click on domain icon of target and then select the Transform 'To Email @domain[using Search Engine]'
   
-  
+Step - "way back machine" or archive.org is a website which helps in collecting info or history of any website by going through
+        snapshots of it. // by using this u can gather the info which has been removed form the website now but it was present 
+        their on the earlier times of the website
+        - "Any who" is a website from were u can get the information about the person, also use the job websites for getting more
+        information.
+
+Step - Different tools give different results, so it's recommended to use mulitple tools for foot printing not just one.
+     - "internet archive" this website will show u the archives of a target even if that target website is removed or changed the
+        website, it will also show u that how the website look like at that previous time and dates # CEH Exam imp
+     - If something new comes on a website and u wants instant update on it u can do this by using "alert" of google and 
+        specifying the website their -> www.google.com/alerts, this will notify using email.
+
+Step - How to get comprehensive DNS information on target website?
+        go to robtex.com we can look into the 'a' records of RECORDS Section (which r used for combining the website name with 
+        IP), 'ns' the name server records, 'mx' the mail server records DSBL section shows the blocked as they r considered spam.
+        
+Step -    Discovering Websites on the same server ->
+          We can hack into the other website which is installed on the same server and then attack the target website
+
+        - Attackers can also use the mail server and name server as by pretending them and do social engineering attacks
+
+          Websites hosted by the same webserver would have the same IP's such as phs63.org and zaid.com website ->
+          https://www.yougetsignal.com/tools/web-sites-on-web-server/ or we can also go on bing.com and enter IP their as
+          ip:ip_address_here and all the websites shown their r the websites which r on the same web server
+
+Sub Domains -> Such as beta.facebook.com, the sub domains r for certain users or customers, the search engines never have sub
+domains and u will also not see the link leading to them, so we can use the sub domains also to exploit the websites
+To know about the sub domains we use the tool called 'knock' // it use the brute force attack
+cmd -> git clone https://github.com/guelfoweb/knock.git
+cmd -> cd knock/knockpy
+cmd -> python knockpy.py website_name
+
+Find the Files and directories stored on the target computer or website ->
+To check if we go to our metasplot machine and do cmd -> cd /var/www then cmd -> ls -la
+we can see the directory for the web application mutillidae
+So to open it from our attacker machine we can use-> ip_of_web_server/mutillidae
+
+   we can use dirb as cmd -> man dirb  // this cmd also uses brute force
+   cmd -> dirb http://ip_address/path  // it use a wordlist file So we can use the cmd as like this also
+   dirb http://ip_address/path wordlist_file_path
+
+By using the above cmds we would get the list of all the files and directories such as phpinfo.php, config.inc and robots.txt // we 
+can use the robots.txt to find about the files which website wants to hide and we can use phpinfo.php to find the data about the php
+machine and details.
+
+   Detection of Web Application Firewall with WAFW00F ->
+       - in the most cases their is web application firewall available, So here firewall stops the malicious requests
+       - in the attacker machine terminal -> wafw00f
+       -> wafw00f https://66.29.212.110 // and it will simply tell u whether their is firewall or not
+
+
+
+
 Target -> find which r the extra sites hosted on the server hackthissite.org and demo.te...
 - email harvest not working for eccouncil.org, w3schools etc ?
 - why on 'hrithikrules.com' in maltego the 'To Track Codes' transform doesn't work
