@@ -6,7 +6,9 @@
   - eplanetsoft.com // use only for Information Gathering
   - spacex.com // use only for maltego
   - google-gruyere.appspot.com
-
+  - scanme.nmap.org 	// this website is used for testing nmap cmds
+  - https://digi.ninja/projects/zonetransferme.php  // this site is for testing also
+  
 Step - Check the Webiste urself by exploring it (look for contact info and career info in website)
       - Try to look for the career tab in a website so this way u get to know what technology stacks the target organizations r
         using.
@@ -141,6 +143,11 @@ Step - Maltego tool ->
      associated emails for this target
      - Right click on domain icon of target and then select the Transform 'To Email @domain[using Search Engine]'
   
+--------------------------------------------
+      - Right click on domain icon of target and then select the Transform 'To Files(interesting)[using Search Engine]'
+      Note - If arrow is going from the IP to the website shows that these websites are on this IP, and the arrow which is going
+      form the website to the IP r hosting companies.
+      
 Step - "way back machine" or archive.org is a website which helps in collecting info or history of any website by going through
         snapshots of it. // by using this u can gather the info which has been removed form the website now but it was present 
         their on the earlier times of the website
@@ -176,7 +183,7 @@ Step -    Sub Domains -> Such as beta.facebook.com, the sub domains r for certai
           cmd -> cd knock/knockpy
           cmd -> python knockpy.py website_name
 
-Step -   Find the Files and directories stored on the target computer or website ->
+Step -    Find the Files and directories stored on the target computer or website ->
           To check if we go to our metasplot machine and do cmd -> cd /var/www then cmd -> ls -la
           we can see the directory for the web application mutillidae
           So to open it from our attacker machine we can use-> ip_of_web_server/mutillidae
@@ -185,15 +192,45 @@ Step -   Find the Files and directories stored on the target computer or website
          cmd -> dirb http://ip_address/path  // it use a wordlist file So we can use the cmd as like this also
          dirb http://ip_address/path wordlist_file_path
 
-By using the above cmds we would get the list of all the files and directories such as phpinfo.php, config.inc and robots.txt // we 
-can use the robots.txt to find about the files which website wants to hide and we can use phpinfo.php to find the data about the php
-machine and details.
+         By using the above cmds we would get the list of all the files and directories such as phpinfo.php, config.inc and 
+         robots.txt // we can use the robots.txt to find about the files which website wants to hide and we can use phpinfo.php to
+         find the data about the php machine and details.
 
-   Detection of Web Application Firewall with WAFW00F ->
-       - in the most cases their is web application firewall available, So here firewall stops the malicious requests
-       - in the attacker machine terminal -> wafw00f
-       -> wafw00f https://66.29.212.110 // and it will simply tell u whether their is firewall or not
+Step -   Detection of Web Application Firewall with WAFW00F ->
+        - in the most cases their is web application firewall available, So here firewall stops the malicious requests
+        - in the attacker machine terminal -> wafw00f
+        -> wafw00f https://66.29.212.110 // and it will simply tell u whether their is firewall or not
 
+Step -   dnsenum tool // go to location -> /usr/share/dnsenum and open file dns.txt(this file contains the list for testing) 
+cmd-> dnsenum --dnserver 8.8.8.8 --enum --noreverse -f /usr/share/dnsenum/dns.txt --subfile /root/Results/dnsenum_1.txt hackthissite.org
+	      // --dnserver flag is to set DNS here we r using Google DNS, --noreverse is to skip the reverse lookup operations
+        // O/P is -> 'Host's addresses' means the list of IPs running target website
+                     'Name Servers' lists for target website
+                     'Mail Servers' lists for target website
+                     'Sub domains' lists for target website etc.
+
+        Lists of dnsserver could be used ->
+        - 8.8.8.8 // Google
+        - nsztm1.digi.ninja // for zone tranfer vulnerability by dnsenum
+
+Step -  dig tool // dig tool gives the DNS zonetransfer info more reliable
+        cmd -> dig axfr @nsztm1.digi.ninja zonetransfer.me
+        ping.eu/traceroute/ <- website for traceroute info
+
+Step -  dnstracer tool //
+        cmd -> dnstracer -v -o gmail.com
+        cmd -> dnstracer -q soa -o gmail.com
+
+Step -  Dimitry tool ->  // not used now days
+        - Port scan is considered by some websites as illegal activity
+        - cmd -> dmitry -wnse target_website.com 
+        // -w for whois info, -n for netcraft info, s for sub domains info, e for email info
+        - cmd -> dmitry -pb target_ip 	// p for port scanning, b for banner grabing
+
+Step -  theHarvester tool -> 
+        cmd -> theHarvester -d eplanetsoft.com -b google -c // use -c is for brute forcing and use -v if u wants to find out virtual
+        hosts to find out other websites served on the same server
+        // use harvester to generate reports
 
 
 
