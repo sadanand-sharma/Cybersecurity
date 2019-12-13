@@ -186,12 +186,6 @@ https://www.test-questions.com/ceh-exam-questions-02.php
 - Attacker can also crack the email present in the registration info and use it take control of the website but to save them
  from it people provide the email of the ISP or network provider which is more secure.
 
-
-
-- "way back machine" is a website which helps in collecting info or history of any website by going through snapshots of it.
-
-- "Any who" is a website from were u can get the information about the person, also use the job websites for getting more
-  information.
 		
 
 
@@ -203,16 +197,6 @@ https://www.test-questions.com/ceh-exam-questions-02.php
 	- webhttrack -> for getting graphical console of httrack
 	
 	
-
-- Maltego -> Do it from Zaid Pentesting for brief usage, Maltego is an intelligence tool which do the task of footprinting
- for which we use different websites and tools.
-
-- Different tools give different results, so it's recommended to use mulitple tools for foot printing not just one.
-- "internet archive" this website will show u the archives of a target even if that target website is removed or changed the
-  website, it will also show u that how the website look like at that previous time and dates # CEH Exam imp
-- If something new comes on a website and u wants instant update on it u can do this by using "alert" of google and 
-  specifying the website their -> www.google.com/alerts, this will notify using email.
-
 - For footprinting which is passive reconnaissance u do not need permission but for the network scanning which is active 
   reconnaissance u need permission. 
 	
@@ -1182,12 +1166,7 @@ Physical Security -> Screenshot(121), Screenshot(122), Screenshot(123)
 CISSP summary PDF - go through it very important.
 
 Operations Security Control Methods -> Screenshot(124)
-CISSP summary PDF - go through it very important.
-
-
- 
-------------------------------------------------------------------------------------------------------------------------
-
+CISSP summary PDF - go through it very important
 
 CEH based -> https://quizlet.com/2409391/certified-ethical-hacker-ceh-flash-cards/
 https://www.reddit.com/r/CEH/comments/9yezaa/passed_ceh_v10_november_2018_how_to_pass_tips/
@@ -1195,9 +1174,4 @@ https://adriancitu.com/2015/07/22/my-ceh-cheat-sheet/
 https://github.com/Optixal/CEHv10-Notes/blob/master/CEH%20Tools.pdf
 
 - Botnet c&c -> https://www.youtube.com/watch?v=GvR_LLKC1Lc , look for the other videos in the same channel for the same topic
-
---------------------------------------------------------------------------------------------------------------------
-
-Module 5, Vulnerability Analysis ->
-Vulnerability Analysis is a part of the scanning phase. In the Hacking cycle it is the major and important part.
 
