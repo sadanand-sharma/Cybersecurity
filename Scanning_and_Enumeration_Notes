@@ -1,4 +1,4 @@
-##_05 Nmap
+Nmap ->
 
 https://securitytrails.com/blog/top-15-nmap-commands-to-scan-remote-hosts
 https://acc3ssp0int.com/2019/03/03/breaking-down-nmap-part-2/    <-  Very important to understand o/p analysis for nmap flags
@@ -29,7 +29,46 @@ nmap tool could be used as ->
 	packets in return for speed, while non-real time streaming videos in YouTube are buffered and use the slower, albe it
 	more reliable TCP.
 
--sn -> Ping Scan // this will not do port scanning just sends ping requests, it list which hosts r UP - @@
+Port Scanning -> By doing this u will be able to identify vulnerable ports and vulnerable services, we can also use nmap for
+this task.
+terminal 1 -> nmap -sT ip_address // also run the wirehark when u execute this cmd, here -T is doing vanilla scan, and it is 
+detectable but cmd -> nmap ip_address //is not detectable as this doesnot complete the 3 way handshake and also known as syn
+scanning or half open scan.
+
+Advance Scanning Techniques ->
+- To learn more about scanning go to -> nmap.org/book/man-port-scanning-techniques.html and u will find different types of
+ scans with different flag usage in 3 way handshake
+- X-mas scan cmd -> nmap -sX ip_address // this send FIN, PSH, URG packets only, see Screenshot(7) to understand working
+- Fin scan working -> Screenshot(6)
+- So different techniques and scans have different advantages.
+
+To get more info on victim ->
+- nmap -sV -A -O ip_address // -V will help to capture the banner which help identify the service running on machine, -A will
+ make the scanning aggressive and give more info, -O is to identify the OS and other info such as versions, computer name
+- the only problem with nmap is that it generate a lot of traffic and also could get the network down, So be carefull while
+ using nmap
+- nmap -sV -A -O ip_address > victim // to write the data in file. 
+
+NMAP NSE Scripts-> these scripts help u to search for vulnerability, to do enumeration etc
+- cd /usr/share/nmap/scripts/
+- ls // to list these NSE scritps
+
+
+-sn -> Ping Scan // this will not do port scanning just sends ping requests, it list which hosts r UP // use -sP in it's place
+Identifying Live Sytems -> Live host means the computer that is connected to the network
+- ping ip_address // this is detectable, as it uses "icmp" or 'echo' protocol and if the victim has this protocol up and
+ running he will reply back with the same amount of packets and same size but most firewall prevent them, if it is prevented
+ then their will be no reply.
+- nmap // do it from linux_networking, this is best tool considered for networking scanning.
+- nmap -sn 192.168.50.1-254
+- nmap was able to identify while ping does not bcz ping uses icmp protocol while nmap uses the ARP protocol, as ARP protocol
+  is used to resolve IP to MAC address, Screenshot(5)
+
+wireshark capture all the traffic going between the victim machine and hacker machine.
+- On wireshark search for the port which are detected on the nmap, it will show that how the 3way handshake is done by nmap, 
+So it shows that the 3 way handshake is done on each port by nmap to check whether the port is open or not, if a syn/ack is
+recieved then that means the port is open 
+- Now if the firewall checks out that a 3 way handshake is done and the firewall will block this IP. 
 
 -Pn -> this is used to disable host discovery, it lists the ports open on the host, just cmd -> nmap ip_address // gives
 the same output as using '-Pn' flag // it will return open ports and it return the services that belong to the open ports -@@
@@ -38,9 +77,8 @@ the same output as using '-Pn' flag // it will return open ports and it return t
 this we r now looking for hosts that r up and ping able, 'sP' This option tells Nmap not to do a port scan after host discovery, and
 only print out the available hosts that responded to the scan.  It is also known as 'ping sweep', to check live host as host 'UP'
 using ICMP packets.  - Udemy Practice test _3 Question 105 -@@
-
--sP -PE -PA -> 'PA' flag // 'TCP ACK ping', use when ICMP and SYN r blocked, 'PE' is for ICMP echo, timestamp and netmask
-	request discovery probes
+        -sP -PE -PA -> 'PA' flag // 'TCP ACK ping', use when ICMP and SYN r blocked, 'PE' is for ICMP echo, timestamp and netmask
+	request discovery probes  - ??
 -PS -> 'TCP SYN scan'
 
 Ping sweep tools -> Solarwinds Ping sweep tool, Angry IP scanner
@@ -141,6 +179,7 @@ to map hostnames to an IP address of the host.References:
 
 Important real scans for Nmap -> the 'ip_address' represents that only use single IP and ip_address/24 represents that we can use
 	range of IPs
+- nmap -sP 192.168.50.0/24   // for hosts UP and running or Identifying Live Sytems
 - nmap -sS -O -reason ip_address/24	// for mild OS and open ports info 
 - nmap -sA ip_address/24 // for firewall info
 - nmap -sS -A -p 80 -reason ip_address // for detailed info for service on port and OS (Very detailed then -O)
@@ -155,4 +194,8 @@ won't be blocked by target, I have tested this on Virtual machine using tcpdump
 - nmap -sS -sU -PN ip-address // this scan will drop the initial ping which firewalls might block bcz some times bcz of that some
 devices r not discovered
 - nmap -T4 -A -v ip_address_1 ip_address_2
+
+Zenmap -> It is the graphical tool of nmap, here u will also get the topology which will make ur work more easier as it
+ indicates that which one is more vunerable part in the network by indicating them.
+
 
