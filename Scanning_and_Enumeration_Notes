@@ -198,4 +198,8 @@ devices r not discovered
 Zenmap -> It is the graphical tool of nmap, here u will also get the topology which will make ur work more easier as it
  indicates that which one is more vunerable part in the network by indicating them.
 
+Nikto tool -> It give information about the versions of the machine and exploits available in Open source Vulnerability DB(OSVDB) 
+cmd -> nikto -h ip_address
 
+OpenVAS tool -> 
+cmd -> openvas-setup
