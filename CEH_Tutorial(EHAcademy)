@@ -200,7 +200,6 @@ https://www.test-questions.com/ceh-exam-questions-02.php
 - For footprinting which is passive reconnaissance u do not need permission but for the network scanning which is active 
   reconnaissance u need permission. 
 	
-- Network scannning can be detected by IDS and Firewall but after a professional knowledge u can even escape these detections
 	
 - Email Recon Footprint ->
 - This will help us to know the sender email address, sender IP address, sender location, network whois etc
