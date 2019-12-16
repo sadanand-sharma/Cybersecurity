@@ -452,3 +452,6 @@ time it will overwrite the same file with name as 'xaa'
 
 Windows Vs Linux cmds -> Screenshot(426)
 
+apt-get update --fix-missing // to only install which r missing
+apt-get install -y openvas	// if we use -y it will not ask for surity to install while installing the module
+
