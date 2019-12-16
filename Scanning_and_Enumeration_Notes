@@ -203,3 +203,6 @@ cmd -> nikto -h ip_address
 
 OpenVAS tool -> 
 cmd -> openvas-setup
+cmd -> openvasmd --user=admin --new-password=admin // to change credentials when setup is done
+cmd -> openvas-start // to start the tool
+- click on the wizard icon on the Top left for simple and quick scan
