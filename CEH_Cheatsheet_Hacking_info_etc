@@ -731,32 +731,6 @@ SSDP(Simple Service Discovery Protocol) -> It is a protocol used for discovery o
 based configurations like DHCP, DNS and static network host configuration. SSDP protocol can discover Plug&Play devices
 with UPnP(Universal Plug and Play), It is compatible with IPv4 and IPv6
 
-Hping cmdline TCP/IP packet assembler and analyzer can be used to send customirized TCP/IP packets and display the target
-reply as ping cmd display the ICMP Echo reply packet from targeted host, It supports TCP, UDP, ICMP and RAW-IP. hping can
-be used for ->
-- fragmentation, customirize packet 
-- Test firewall rules
-- advance port scanning
-- testing net performance
-- Remote OS fingerprinting
-- transfering files
-- traceroute
-Udemy Practice test _3 Question 12
-Udemy Practice test 5 Question 19
-
-hping3 cmdline flags -> Do from PDF page 16
-
-- hping3 -1 ip_address // -1 switch is used for Ping Scans
-- hping3 -8 0-5000 -S ip_address // -8 enables SCAN mode, -S is to set SYN flag, 0-5000 is range of ports
-	In the output u will get the list of ports which r responding means they r open on the system and not prevented by firewall
-	or the firewall was not present on target otherwise all the ports would be represent as Closed or 'Not Responding Ports'
-- hping3 -c 1 -V -p 80 -s 5555 -A ip_address // -c is packet count, -V is Verbose, -s is base port from where the packets r sent,
-	-A is ACK flag , the output shows the no. of packet losts
-- hping3 -c 1 -V -p 80 -s 5555 -M 0 -UPF ip_address // -M is to setTCP sequence no., -UPF is for URG, Push and FIN flags, this scan
-is also known as XMAS scan, the output shows the no. of packet losts
-
-- hping3 tool can be used for SYN flood attack(DoS attack))
-- netscan (tool for network scanning)
 
 Tool for mobile network scanning->
 - network scanner
