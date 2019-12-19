@@ -206,6 +206,7 @@ cmd -> openvas-setup
 cmd -> openvasmd --user=admin --new-password=admin // to change credentials when setup is done
 cmd -> openvas-start // to start the tool
 - click on the wizard icon on the Top left for simple and quick scan
+- For tutorial of features in OpenVAS -> https://academy.ehacking.net/courses/45262/lectures/656258
 
 Hping cmdline TCP/IP packet assembler and analyzer can be used to send customirized TCP/IP packets and display the target
 reply as ping cmd display the ICMP Echo reply packet from targeted host, It supports TCP, UDP, ICMP and RAW-IP. hping can
