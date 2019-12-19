@@ -104,7 +104,7 @@ Step -
 		  > shell // to get the shell on target
 		  	> id 
 			> exit
-		  > 
+		  > in the meterpreter session u can run cmds such as ifconfig, netstat, arp ,route, upload and download
       			
       
 Step - Footprinting phase allows the attacker to gather the information regarding internal and external security architecture, he 
