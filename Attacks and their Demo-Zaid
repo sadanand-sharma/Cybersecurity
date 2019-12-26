@@ -348,8 +348,9 @@ If it is happening at the client side then the filtering would be happening befo
 So for the client side we can bypass it using burp proxy and it also helps us identify whether it is happening client side or 
 server side.
 
-Steps -> Start burp and put username as admin and password as aaa' or 1=1#, Now if in the burp the packet is not send then it is
-client side filtering
+Step for this ->
+Start burp and put username as admin and password as aaa' or 1=1#, Now if in the burp the packet is not send then it is client 
+side filtering
 - So now lets put username = admin and password = random_string // as this is a valid request so it won't be stopped by client 
 side filters
 - Now in the burp in Params tab u can modify the password values here as aaa' or 1=1#
@@ -360,6 +361,7 @@ How to prevent SQL Injections in login Pages ->
 - So in php we can use things like 'real_escape_string' for filtering the inputs
 - look this video-> https://www.udemy.com/learn-website-hacking-penetration-testing-from-scratch/learn/v4/t/lecture/6019328?start=0
 
+Step 6 ->
 SQL Injections in GET ->
 Steps ->
 - Go to the left menu then to OWASP TOP 10 -> A1 Injection -> SQLi-Extract Data -> User Info // this is user info page
