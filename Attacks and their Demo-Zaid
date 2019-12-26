@@ -54,8 +54,6 @@ Ways to hack the website ->
     - DNS records
     - Unlisted files, sub domains, directories
 
-
-
 #(02)- File Upload Vulnerabilities ->
 
   Weevly -> It generates php shells and allow us to gain access on the target computer
