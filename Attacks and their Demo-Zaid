@@ -660,7 +660,7 @@ sqlmap -u "paste_above_url" --columns -T accounts -D owasp10 // to get columns a
 all columns
 sqlmap -u "paste_above_url" -T accounts -D owasp10 --dump // --dump to get the data and we get all the data
 
-Step 21 - Get Direct SQL Shell using sqlmap ->
+Step 21 -> Get Direct SQL Shell using sqlmap -
 SQL map also allows u to get different types of shells on the target server so we can try to get an OS shell
 sqlmap -u "paste_above_url" --os-shell // in this case we cann't actually uplaod the files to the server so it is asking which
 language the server is using
@@ -677,7 +677,7 @@ attacks
 - enter -> select table_name from information_schema.tables where table_schema = 'owasp10'
 So here we can run any sql statement we want
 
-- Prevent from SQL Injections
+Step 22 -> Prevent from SQL Injections - Screenshot(475)
 - People try to use the filters to show that their r no exploits but when u try harder using different types encoding or using a
 proxy then u will be able to bypass most of these filters
 - some programmers use blacklist so that they can for example prevent the use of union, insert and stuff like that but it is not 
@@ -703,10 +703,10 @@ Safe:       // best way to do
 
 - also try to use the least privilage mechanism like AWS as much as possible
 
-- XSS (Cross Site Scripting) -> this attack allows an attacker to inject javascript code into the page, this attack affects the
+# XSS (Cross Site Scripting) -> this attack allows an attacker to inject javascript code into the page, this attack affects the
 user or the client who is browsing the webpage it is not executing on the server, so even if ur code gives u a reverse shell, the
 shell will be coming from the user who is browsing the page and it is not gonna coming from the website, So it works on the target
-user.
+user. Screenshot(476)
 
 Their r 3 main types of XSS vulnerabilities ->
 1 -> Persistent or Stored XSS // it get stored in the database, so the code we inject stored in the database or into the page, So
@@ -717,16 +717,18 @@ run on the client side without having any communication with the web server, the
 some sort of filters for XSS but the DOM based never gets send to the web server
 Ex for DOM based so suppose we use web sites where u put ur username without having to check for the web server etc
 
-Discover Basic XSS -> similar to sql injections u browse through ur target and try to inject any text box or any url that looks
-similar to this -> http://target.com/page.php?something=something, so try to inject in url parameters or in text boxes
+Step 1 -> Discover Basic XSS -> similar to sql injections u browse through ur target and try to inject any text box or any url 
+that looks similar to this -> http://target.com/page.php?something=something, so try to inject in url parameters or in text boxes
+Screenshot(477, 478)
 
 Go to the dvwa website and set the security as low and then go to topic XSS reflected and put ur name in the text box and it will
 say Hello with ur name
 So in the text box input the code -> <script>alert("XSS")</script> , then click on Submit
 now if u see in the URL it would have also executed it but still we can use this URL like ->
-10.0.2.4/dvwa/vulnerabilities/xss_r/?name=<script>alert("XSS")</script>
+10.0.2.4/dvwa/vulnerabilities/xss_r/?name=<script>alert("XSS")</script>, u can send this link to some one know to execute it on
+their machine
 
-Discover Advanced Reflected XSS ->
+Step 2 -> Discover Advanced Reflected XSS -
 - Go to the dvwa website and then go to topic XSS reflected enter ur name and then inspect the output part by using the browser
   debugger
 - Now will see Hello is written and followed by our script code so it is being injected in the same way written in the text box and
@@ -745,55 +747,60 @@ we can also use for ex ->    // these r included in cheat sheet as well
 <IMG SRC=# onmouseover="alert('XSS')">  	// here we r using javascript event
 <IMG SRC=/ onerror="alert('XSS')"></img>    // here we can give the wrong source code and execute it when their is error
 
-- Discovering even more advance Reflected XSS ->
+Step 3 -> Discovering even more advance Reflected XSS -
 try to exploit the website urself don't always copy and paste it
-- Go to mutilladae website then to owasp Top 10 -> A1 Injection -> Javascript Injection -> Password Generator // this page just generates random
-passwords for u on clicking of generate
-- generate one password and in the URL for the 'username' parameter remove anonymous and put any word and execute it, now the thing to note is
-whatever u write in the username parameter in URL is displayed on the web page // now this indicates that their could be XSS vulnerability
-- So this time in the URL for the 'username' parameter insert <script>alert('XSS')</script> and execure URL // now u can see the exploit
-didn't run but still something went wrong and it shows the code on the page
-- now inspect the element on the code displayed and u can see inside the script tag which is inside the blockquote that the code is broken
-- why this happen bcz here the app is automatically trying to put the code inside script tag earlier we were putting the code inside the script
-tag , So now we know that we don't need the script tag in our injecting code bcz they r already their and also note that the code was actually
-inserted inside the quotes "" as like as string
+- Go to mutilladae website then to owasp Top 10 -> A1 Injection -> Javascript Injection -> Password Generator // this page just
+generates random passwords for u on clicking of generate
+- generate one password and in the URL for the 'username' parameter remove anonymous and put any word and execute it, now the thing
+to note is whatever u write in the username parameter in URL is displayed on the web page // now this indicates that their could
+be XSS vulnerability
+- So this time in the URL for the 'username' parameter insert <script>alert('XSS')</script> and execure URL // now u can see the
+exploit didn't run but still something went wrong and it shows the code on the page
+- now "inspect the element" on the code displayed and u can see inside the script tag which is inside the blockquote that the code
+is broken
+- why this happen bcz here the app is automatically trying to put the code inside script tag earlier we were putting the code inside
+the script tag , So now we know that we don't need the script tag in our injecting code bcz they r already their and also note that
+the code was actually inserted inside the quotes "" as like as string
 - now in order to exit these quotation marks we need to add one in our exploit code now the code will be like this
 -> " ;alert('XSS'); // , here semicolon is indicating the next line, so the alert part will be executed as the another line
-- now copy the above code and paste it in the URL in place for the "username" parameter and execute the URL // u will see nothing is happened
-but when we click on generate nothing happened so we inspect the code and see that we need to comment the hard coded part also
+- now copy the above code and paste it in the URL in place for the "username" parameter and execute the URL // u will see nothing
+is happened but when we click on generate nothing happened so we inspect the code and see that we need to comment the hard coded
+part also
 - So now we use code as -> " ;alert('XSS'); // , here we use '//' to comment the code which is hard coded and execute the URL
 - now u can see the code is being able to executed
 - now u can share this link with any javascript code u want and that will be executed on the target person
 
-- Discovering Stored XSS ->
-The difference between stored and reflected is that in the reflected u have to send the URL to the target for the exploit to run and in stored
-XSS the code will actually stored in the database or into the page so any time someone runs that page ur code will be executed, so u do not need
-to interact with any user, so it is much more dangerous then reflected XSS
+Step 4 -> Discovering Stored XSS - Screenshot(479)
+The difference between stored and reflected is that in the reflected u have to send the URL to the target for the exploit to run
+and in stored XSS the code will actually stored in the database or into the page so any time someone runs that page ur code will
+be executed, so u do not need to interact with any user, so it is much more dangerous then reflected XSS
 
-- Go to dvwa website and click on XSS stored tab enter the name and msg then click sign the guestbook and u will see one uneditable text box
-appeared with the inputs
-- now if u open it from the metasploit machine u will see that the inputs appeared on the above page are also available from the other machine
+- Go to dvwa website and click on XSS stored tab enter the name and msg then click sign the guestbook and u will see one
+uneditable text box appeared with the inputs
+- now if u open it from the metasploit machine u will see that the inputs appeared on the above page are also available from the
+other machine
 this is because the input is stored in the DB
-to open the web browser page from the metasploit
--> on terminal -> python -m webbrowser "10.0.2.4/dvwa" // then navigate with arrowkeys to reach that page and u will see the same output
+-> to open the web browser page from the metasploit
+-> on terminal -> python -m webbrowser "10.0.2.4/dvwa" // then navigate with arrowkeys to reach that page and u will see the 
+same output
 
-- In the dvwa website in the XSS stored inject the code in the message body as -> <script>alert("XSS")</script> //using double quotes is
- mandatory and click then button if u r doing this code insertion from kali and mozilla then it is working fine but on microsoft edge it is
- creating a problem - need to try this from another machine
+- In the dvwa website in the XSS stored inject the code in the message body as -> <script>alert("XSS")</script> //using double 
+quotes is mandatory and click then button if u r doing this code insertion from kali and mozilla then it is working fine but on
+microsoft edge it is creating a problem - need to try this from another machine
 
 - u can reset database by going to setup tab and then to click on button Reset database
 
-- Discovering Advance Stored XSS ->
+Step 5 -> Discovering Advance Stored XSS -
 - set the dvwa security as medium ,now the msg text box is not injectable
-- in the name text box we have limit of 10 characters only we can by pass it by doing inspect element on text box and then chnage the maxlength
-and then enter the code as <sCript>alert("XSS")</scRipt> // we r changing the "script" characters bcz it is actually filtering for string
-"script" , then click the sign guestbook button // and then the vulnerability will appear
-- now some filers will try to filter the single or double quote to bypass those filters we can use "String.fromCharCode" method and we will
-convert the string "XSS" to charcode
-- google charcode calculater and use the site -> jdstilles.com and put XSS string and get the charcode , copy that and now the code would be
-like this -> <sCript>alert(String.fromCharCode(120.115.115.50))</scRipt> and u will see the exploit worked
+- in the name text box we have limit of 10 characters only we can by pass it by doing inspect element on text box and then change
+the maxlength and then enter the code as <sCript>alert("XSS")</scRipt> // we r changing the "script" characters bcz it is actually
+filtering for string "script" , then click the sign guestbook button // and then the vulnerability will appear
+- now some filers will try to filter the single or double quote to bypass those filters we can use "String.fromCharCode" method and
+we will convert the string "XSS" to charcode
+- google charcode calculater and use the site -> jdstilles.com and put XSS string and get the charcode , copy that and now the 
+code would be like this -> <sCript>alert(String.fromCharCode(120.115.115.50))</scRipt> and u will see the exploit worked
 
-- Hooking victims to BeEF Using Reflected XSS
+Step 6 -> Hooking victims to BeEF Using Reflected XSS Screenshot(480)
 Beef Framework allows us to run large no. of commands to hook browsers and to hook a browser to beef a javascript code has to be executed on that browser
 and bcz beef uses JS it's very easy for us to inject that code into XSS vulnerable web pages and that code will be executed every time a person
 runs that page
