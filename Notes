@@ -75,6 +75,7 @@ Types of help commands -> Screenshot(415)
 - ls -al                // this will show the hidden files and the details about all files
 - ls -ltr		// to list every thing in timely reverse order 
 - ls -li 		// to list the inodes 
+- ls -sh		// to display size in human readble format
 
 - mkdir directory_name // to create the directory
 
