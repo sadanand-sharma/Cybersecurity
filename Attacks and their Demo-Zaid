@@ -19,7 +19,7 @@ Username -> admin
 Password -> password
 
 Beef ->
-username and password -> beef
+username and password -> beef1
 
 - Already multiple websites r installed in the metasploit which we can exploit
 
@@ -777,6 +777,7 @@ be executed, so u do not need to interact with any user, so it is much more dang
 
 - Go to dvwa website and click on XSS stored tab enter the name and msg then click sign the guestbook and u will see one
 uneditable text box appeared with the inputs
+as it of the input u have entered -> <script>alert('XSS')</script>
 - now if u open it from the metasploit machine u will see that the inputs appeared on the above page are also available from the
 other machine
 this is because the input is stored in the DB
@@ -799,6 +800,7 @@ filtering for string "script" , then click the sign guestbook button // and then
 we will convert the string "XSS" to charcode
 - google charcode calculater and use the site -> jdstilles.com and put XSS string and get the charcode , copy that and now the 
 code would be like this -> <sCript>alert(String.fromCharCode(120.115.115.50))</scRipt> and u will see the exploit worked
+If above do not work try this -> <IMG SRC=/ onerror="alert(String.fromCharCode(88,83,83))"></img>
 
 Step 6 -> Hooking victims to BeEF Using Reflected XSS Screenshot(480)
 Beef Framework allows us to run large no. of commands to hook browsers and to hook a browser to beef a javascript code has to be executed on that browser
