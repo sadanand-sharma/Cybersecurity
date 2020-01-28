@@ -238,3 +238,14 @@ is also known as XMAS scan, the output shows the no. of packet losts
 - packeth // it is GUI alternative for hping, we can create and send ethernet packet
 
 - netscan (tool for network scanning)
+------------------------------------------------------------
+
+DNS Enumeration ->
+
+cmd -> host hsppoit.com
+cmd -> host -t ns hsploit.com
+
+DNSRecon ->
+
+cmd -> dnsrecon -d google.com // to perform simple DNS enumeration
+cmd -> dnsrecon -d google.com -t axfr // to start zone transfer
