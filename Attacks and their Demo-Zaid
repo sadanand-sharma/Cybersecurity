@@ -137,6 +137,16 @@ Such as suppose we r allowing to do ping and execute an cmd ping and input box i
 as in the linux and unix based systems we can enter multiple cmds by using ';' Now if the extra cmds r being executed then it is
 code execution vulnebilites
 
+Use netcat for banner grabbing cmd -> nc -nv target_ip port_no
+
+transfer data using netcat:
+cmd -> nc -nvlp port_no // here lp is saying local IP to listen
+cmd on other target -> nc -nv localIP_in_above_cmd  port_no_mentioned_above // to make connection to listening server
+
+Note -> U can also use netcat to write shell or executable file by using above method as on the listening side u can listen via
+netcat like this cmd -> nc -nvlp port_no > exploit.sh // now the shell file would be created to execute can be used to make
+payload of executable.
+
 Step 1-> Set security level to low
 In the attacker terminal cmd -> nc -vv -l -p 8080 // this uses netcat, Netcat is a tool that allows u to connect and listen 
 computers together
