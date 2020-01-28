@@ -3,6 +3,7 @@
   - certifiedhacker.com
   -	hackthissite.org
   - hrithikrules.com
+  - hsploit.com // for information gathering website form hackersploit
   - eplanetsoft.com // use only for Information Gathering
   - spacex.com // use only for maltego
   - google-gruyere.appspot.com
@@ -13,16 +14,21 @@ Step - Check the Webiste urself by exploring it (look for contact info and caree
       - Try to look for the career tab in a website so this way u get to know what technology stacks the target organizations r
         using.
 
-Step - Check whois info for target
+Step - Check whois info for target (Passive)
   - "whois.sc" or "whois.domaintools.com" this website contains the info about the domain registrations, the registration date info, 
   hackers some time buy the domains at the time of the expiration and then resale it to the company again at very high prices bcz they
   need that domain for their buissness.
   Whois Lookup -> It is a protocol which is used to find owners of the internet resources(such as servers, IP and domain)
   Ex go to ->
   Note - if u do ping w3schools.com // u can get the IP of the application
+  
+  - U can also go to website dnsstuff.com, it allows u to enumerate and gather info regarding DNS reconnaisance go to free tools
+  section and then to DNSreport section and enter the target
+  
+  - cmd -> whois hsploit.com // to see whois lookup info
 
 Step -  How to know about the technologies used by the target website and other info?
-        go to toolbar.netcraft.com/site_report
+        go to toolbar.netcraft.com/site_report (Passive)
         
         - 'netcraft' website is used to know about the technology used by the website and also it's subsites, u can get the
           information about the organization of that website and its hosting info.
@@ -371,8 +377,8 @@ Step -  Dimitry tool ->  // not used now days
         // -w for whois info, -n for netcraft info, s for sub domains info, e for email info
         - cmd -> dmitry -pb target_ip 	// p for port scanning, b for banner grabing
 
-Step -  theHarvester tool -> 
-        cmd -> theHarvester -d eplanetsoft.com -b google -c // use -c is for brute forcing and use -v if u wants to find out virtual
+Step -  theHarvester tool -> (Passive)
+        cmd -> theHarvester -d infostretch.com -b google -c // use -c is for brute forcing and use -v if u wants to find out virtual
         hosts to find out other websites served on the same server
         // use harvester to generate reports
 
