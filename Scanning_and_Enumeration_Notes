@@ -122,7 +122,7 @@ Firewall present -> No response(means statefull firewall is filtering), firewall
        Exercise -> Try this scan on windows machine by doing following changes to Firewall -> Screenshot(412)
 
 open port response -> No response, closed port response -> Port Unreachable msg
--sU -v -> 'UDP port scanning' // most of the Malicious Programs, Trojans, Spywares uses UDP ports to access the target.
+-sU -v -> 'UDP port scanning' // most of the Malicious Programs, Trojans, Spywares uses UDP ports to access the target. -@@
 
 OS fingerprinting is the method used to determine the operating system running on a remote target system. It is an important
 scanning method, as the attacker will have a greater probability of success if he/she knows the OS. Active stack 
@@ -183,6 +183,7 @@ Important real scans for Nmap -> the 'ip_address' represents that only use singl
 - nmap -sS -O -reason ip_address/24	// for mild OS and open ports info 
 - nmap -sA ip_address/24 // for firewall info
 - nmap -sS -A -p 80 -reason ip_address // for detailed info for service on port and OS (Very detailed then -O)
+- nmap -sU ip_address // for UDP scan
 - nmap -F ip_address/24  // this fast scan but scan for only few ports as important kind but not all of them
 - nmap -sV ip_address // to know versions of ports on target
 - nmap -sS ip_address/24 | grep open | cat >> results.txt // the better way to filter out results using grep for word open here 
