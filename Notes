@@ -13,6 +13,7 @@ change the password for root
   domain name. A hostname is a name which is given to a computer and it attached to the network. Its main purpose is to uniquely
   identify over a network.
 - 'useradd' cmd is used to create a user
+- su username // to change user
 - sudo useradd user_name -m -s /bin/bash -g users -c "Coments"      // -m is going to create a default home directory for this
                                                                     // user, -s is used for allowing the user to use the shell
                                                                     // which we provide and here it is bash 
