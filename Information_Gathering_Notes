@@ -37,8 +37,22 @@ Metasploit framework ->
 
 exploit/module/auxillary -> use to exploit the vulnerability
 payload -> we can use reverse shell or meterpreter to give access to target
+	- singles r for single action
+	- stagers r used for creating a communication between target and attacker
+	- stages r large payloads which give attacker a good control over the target such as to have meterpreter instances and vnc etc
+auxillary -> it will give things like dos analysers, crawlers,spoofers, scanners etc. it kind of gives robust tools which r primaryly
+	used to scan the target system for vulnerabilities or DOS attacks
+encoders -> it is used to re-encode payloads and exploits to bypass security systems kind of evading method based upon the target
+	system such as php, x64, x86 etc
+nops -> it causes the system or CPU to do nothing for entire clock cycle or we can say they allow run a specific file or code after
+	u have exploited the buffer overflow, they allow u to run remote execute code on the target machine, it comes handy for tightly
+	secured systems
+post -> it for post exploitations after the system has been exploited
 
-cd /usr/share/metasploit-framework // all msf modules lies here
+
+cd /usr/share/metasploit-framework/modules // all msf modules lies here
+if u do cd exploits // u will see the categories of the exploits and further 'cd' will show more categories 
+
 
 Step - 
     cmd -> service postgresql start // required to start the service before msfconsole
