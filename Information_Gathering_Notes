@@ -213,10 +213,15 @@ Nessus msfconsole -> on Kali terminal -> service nessusd status // to check ness
 ------------------------------------------------------------------
 
 	> search ssh_version
-	> use auxillary/scanner/ssh/ssh_version
+	> use auxillary/scanner/ssh/ssh_version // auxillary scans r more accurate then nmap
 	> set RHOSTS ip
-	> set THREADS 100
+	> set THREADS 100 // more the threads fast the process
 	> run
+	
+	
+------------------------------------------------------------------
+
+ssh login brute force -> https://www.youtube.com/watch?v=_C7nRJ6WsmI , time -> 39:00 around
 
 ------------------------------------------------------------------
 
