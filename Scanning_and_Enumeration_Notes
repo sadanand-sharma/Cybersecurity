@@ -201,6 +201,8 @@ Zenmap -> It is the graphical tool of nmap, here u will also get the topology wh
 
 Nikto tool -> It give information about the versions of the machine and exploits available in Open source Vulnerability DB(OSVDB) 
 cmd -> nikto -h ip_address
+Note -> nikto is good to detect server misconfiguration
+
 
 OpenVAS tool -> 
 cmd -> openvas-setup
