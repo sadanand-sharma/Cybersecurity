@@ -221,7 +221,12 @@ Nessus msfconsole -> on Kali terminal -> service nessusd status // to check ness
 	
 ------------------------------------------------------------------
 
-ssh login brute force -> https://www.youtube.com/watch?v=_C7nRJ6WsmI , time -> 39:00 around
+ssh login brute force msfconsole -> https://www.youtube.com/watch?v=_C7nRJ6WsmI , time -> 39:00 around
+
+apache tomcat login brute force msfconsole -> https://www.youtube.com/watch?v=_C7nRJ6WsmI , time -> 46:00 around
+
+use rockyou.txt wordlist for brute forcing wifi, location for file -> usr/share/wordlists
+ use metasploit wordlists for normal bruteforce such as mirai_user_pass.txt
 
 ------------------------------------------------------------------
 
