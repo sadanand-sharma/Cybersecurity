@@ -874,12 +874,13 @@ Step 9 -> Beef Running basic cmds on victim ->
 - now search "redirect" select the option "redirect browser" then redirect the user to the URL u want and u can trick them to ask
   them to download an update and instead of an update I can put the backdoor
 
-Stealing Credentials/Passwords using a fake login prompt // so baiscally the way it happens it will dim the screen and it will tell the person
-that u r logged out so plz log in into ur account again so u can get authenticated and this will allow us to bypass HTTPS and all other security
-used by the target account page bcz u know now the username and password of the account
-- go to "social engineering" category and then expand it choose the option "Pretty theft" choose the option such as facebook , youtube etc based
-on the account u hijacked and then click on execute button
-- and when on the command u have just executed u will see the username and password for the account
+Step 10 -> Stealing Credentials/Passwords using a fake login prompt // so baiscally the way it happens it will dim the screen and
+	it will tell the person that u r logged out so plz log in into ur account again so u can get authenticated and this will
+	allow us to bypass HTTPS and all other security used by the target account page bcz u know now the username and password
+	of the account
+	- go to "social engineering" category and then expand it choose the option "Pretty theft" choose the option such as facebook
+	, youtube etc based on the account u hijacked and then click on execute button
+	- and when on the command u have just executed u will see the username and password for the account
 
 Veil 3.1 ->
 - Veil is a framework which is used for generating Undectable backdoor, link -> https://github.com/Veil-Framework/Veil/
