@@ -882,16 +882,15 @@ Step 10 -> Stealing Credentials/Passwords using a fake login prompt // so baisca
 	, youtube etc based on the account u hijacked and then click on execute button
 	- and when on the command u have just executed u will see the username and password for the account
 
-Veil 3.1 ->
+Veil 3.1 -> // Python is mostly prefered to generate payloads
 - Veil is a framework which is used for generating Undectable backdoor, link -> https://github.com/Veil-Framework/Veil/
 - on the kali terminal do -> cd /opt // opt is a directory where u should install optional software
 - git clone https://github.com/Veil-Framework/Veil.git
-- cd Veil
-note -> veil relies on 3rd party libraries which we first also need to install before running veil
+- cd Veil // veil relies on 3rd party libraries which we first also need to install before running veil
 - cd config
-- ./setup.sh --silent --force// it will install all the third party libraries which r needed , --silent will run the installed as an unattened installed
-so basically it will install every thing with it's default settings and won't ask us to configure anything, --force is u for the case if u have
-already installed it will overwrite any existing installation
+- ./setup.sh --silent --force// it will install all the third party libraries which r needed , --silent will run the installed as
+an unattened installed so basically it will install every thing with it's default settings and won't ask us to configure anything,
+--force is u for the case if u have already installed it will overwrite any existing installation
 - if u r in root location then -> cd /opt/Veil
 -> ./Veil.py //this will start the Veil
 - now u will see the main cmds on the screen such as info, list, update etc
