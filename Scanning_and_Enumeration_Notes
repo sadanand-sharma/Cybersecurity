@@ -203,6 +203,25 @@ Nikto tool -> It give information about the versions of the machine and exploits
 cmd -> nikto -h ip_address
 Note -> nikto is good to detect server misconfiguration
 
+wpscan can be only used for wordpress site it has same functionality as nikto
+wpscan working -> https://www.udemy.com/course/the-complete-ethical-hacking-masterclass/learn/lecture/10335706?start=15#overview
+
+John the Ripper -> https://www.udemy.com/course/the-complete-ethical-hacking-masterclass/learn/lecture/10335712#overview
+John the Ripper can be used to brute force on the zip files which r encrypted, it can be used for cracking password hashes
+
+Hydra - Brute force password cracking on SSH using Hydra ->
+https://www.udemy.com/course/the-complete-ethical-hacking-masterclass/learn/lecture/10335718#overview
+Note -> prefer using xhydra then the hydra for beginners, sometimes the password is empty or no password for the small level targets,
+	keep the Number of Tasks in Tunning tab of xhydra up to 5 bcz after that the site or service is gonna let locked for a time
+	period if their r more failed attempts 
+	
+Medusa -> Bruteforce password cracking
+Note -> Medusa is light waited and multi threaded which allows u to scan multiple hosts at a time and if it work on multiple services
+	such as telnet, smtp and many more
+Link -> https://www.udemy.com/course/the-complete-ethical-hacking-masterclass/learn/lecture/10335724#overview
+Note -> Prefer to use Medusa over Hydra as hydra is great for cracking online portals and stuff like that but for services like ftp,
+	telnet, mysql etc. medusa is much better
+
 
 OpenVAS tool -> 
 cmd -> openvas-setup
