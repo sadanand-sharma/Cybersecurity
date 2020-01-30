@@ -895,6 +895,9 @@ an unattened installed so basically it will install every thing with it's defaul
 -> ./Veil.py //this will start the Veil
 - now u will see the main cmds on the screen such as info, list, update etc
 - enter "list" in option then we have to choose option 1 "Evasion" so enter "use 1"
+- list
+- syxtax for payload as -> go/meterpreter/rev_https.py // go represents the programming language the target computer understand
+  , meterpreter represents the type of the code to be executed on the target computer and the meterpreter runs in the memory
 
 
 --------------------------------------------------------------------------------------------------------------------------------
