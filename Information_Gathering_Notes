@@ -227,6 +227,14 @@ apache tomcat login brute force msfconsole -> https://www.youtube.com/watch?v=_C
 
 use rockyou.txt wordlist for brute forcing wifi, location for file -> usr/share/wordlists
  use metasploit wordlists for normal bruteforce such as mirai_user_pass.txt
+ 
+ Armitage -> https://www.udemy.com/course/the-complete-ethical-hacking-masterclass/learn/lecture/10335738#overview
+ 
+cmd -> service postgresql start
+then start Armitage , click connect and then yes buttons
+Armitage also lists the attacks which can be performed on the target
+
+
 
 ------------------------------------------------------------------
 
