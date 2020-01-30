@@ -219,6 +219,7 @@ Nessus msfconsole -> on Kali terminal -> service nessusd status // to check ness
 	> run
 	
 	
+	Note -> 'set' and 'use' r similar in metasploit cli only different in msfconsole 
 ------------------------------------------------------------------
 
 ssh login brute force msfconsole -> https://www.youtube.com/watch?v=_C7nRJ6WsmI , time -> 39:00 around
