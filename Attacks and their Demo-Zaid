@@ -1011,8 +1011,23 @@ To Prevent CSRF vulnerabilities ->
 - Mutillade -> OWASP 2013 -> A8(CSRF) -> Add to ur blog  , toggle security to high, here do 'inspect element' and look in the
  'input' tag as name="csrf-token", on refresh u will notice that the value of CSRF token is changing everytime
  
- 
+Brute Force -> Cover all possible combinations
+Dictionary Attacks -> Use a wordlist, try every word in the wordlist only 
 
+Creating a Wordlist using crunch -> Screenshot(506)
+cmd -> crunch 6 8 abc12@$ -o filename.txt
+
+Creating a Wordlist using hydra -> Screenshot(507) // hydra can be used to brute force anytype of service
+- Do inspect element on the login webpage to know the http method of the login form
+- cmd -> hydra -U http-post-form // to get more info on http-post-form
+- use burp suite to know the parameters name for the http request, go to the headers section and see copy all the parameters and
+other things at the bottom most or outside of table
+- cmd -> hydra target_ip -l target_username -P wordlist_path type_of_service "url_for_the_page_to_attack:param1=^USER^&param2=^PASS^
+ &what_is_after_params_in_request:S=msg" // use S for success and F for fail output and execute the cmd to do Brute force
+- U can use -R to resume the previously stopped attack
+
+Automatically Discover Vulnerabilities in Web Application -> Screenshot(508) these type of tools can also made mistakes and show
+false positives
 
 --------------------------------------------------------------------------------------------------------------------------------
 
