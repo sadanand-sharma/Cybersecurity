@@ -11,8 +11,11 @@ Metaspolit ->
 Password and username -> msfadmin
 to turn of machine -> sudo poweroff
 
-Windows VM ->
+Windows 10 VM ->
 Password -> Passw0rd!
+
+Windows 7 VM ->
+username/password -> admin7
 
 DVWA ->
 Username -> admin
@@ -996,7 +999,19 @@ Step 6 -> On the Windows -> open DVWA website and login -> access the webpage fo
 	
 To Prevent CSRF vulnerabilities -> 
 	
-
+- On swtiching the DVWA to high u will see that now they r also asking for the Current Password but it only for this case
+- Best way is to make sure that the user is submitting data via page that was served to him by the web application and not by
+  other means we can implemet that by synchronizing CSRF Tokens. Screenshot(504)
+- Here we want to generate a unique and random token on the server side and then when the form is loaded we r going to embed 
+ this generated token into that page as a hidden form and when the form is submitted we r going to make sure that the form was
+ submitted with that token that we sent to that specific user and this way the token the hacker gets will only work for the
+ hacker, So even if he generates the page and send it to the target and the target runs the page the form will be submitted but
+ it will be refused by the server bcz it did not give that token to that user as it was given to hacker
+- Screenshot(505) Token properties to be presentin CSRF Token
+- Mutillade -> OWASP 2013 -> A8(CSRF) -> Add to ur blog  , toggle security to high, here do 'inspect element' and look in the
+ 'input' tag as name="csrf-token", on refresh u will notice that the value of CSRF token is changing everytime
+ 
+ 
 
 
 --------------------------------------------------------------------------------------------------------------------------------
