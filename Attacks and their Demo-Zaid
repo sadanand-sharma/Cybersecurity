@@ -1029,6 +1029,10 @@ other things at the bottom most or outside of table
 Automatically Discover Vulnerabilities in Web Application -> Screenshot(508) these type of tools can also made mistakes and show
 false positives
 
+start ZAP proxy cmd -> zap.sh
+Step 1 -> In the bottom press '+' then select 'Active Scan' > then In Active Scan tab press on button with keyboard buttons on
+	hovering on it 'Scan Policy Manager' then select 'Default Policy' then select 'Modify' and change the settings for the
+	policy as suited, U can change the Threshold, Stren
 --------------------------------------------------------------------------------------------------------------------------------
 
 - burp-suite-hacking-course-beginner-to-advance Udemy tutorial
