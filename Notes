@@ -12,6 +12,9 @@ change the password for root
 - hostname // It is used to obtain the DNS(Domain Name System) name and set the system's hostname or NIS(Network Information System)
   domain name. A hostname is a name which is given to a computer and it attached to the network. Its main purpose is to uniquely
   identify over a network.
+  
+- Screenshot(515)
+- id username //to see uid and gid and to know whether user is existing or not
 - 'useradd' cmd is used to create a user
 - su username // to change user
 - sudo useradd user_name -m -s /bin/bash -g users -c "Coments"      // -m is going to create a default home directory for this
