@@ -13,6 +13,8 @@ change the password for root
   domain name. A hostname is a name which is given to a computer and it attached to the network. Its main purpose is to uniquely
   identify over a network.
   
+  Adding a New Non-Root User in Kali Linux -> https://thecrazybastard.com/how-to-add-a-new-user-in-kali-linux/
+  
 - Screenshot(515)
 - id username //to see uid and gid and to know whether user is existing or not
 - 'useradd' cmd is used to create a user
