@@ -247,25 +247,6 @@ Vulnerability Scanning -> Screenshot(8), we can use tool "nesus home" for this, 
 Here we can define the policies for scan, it even give us the options for the type of scans we wants to do
 - it will list all the vulnerability on the systems in the network and it will also provide the solution etc, but not how to
  exploit, we can use other websites for that.
- 
-Hiding Identity ->
-Proxy Servers -> Screenshot(9), It's hard to find the identity of a hacker, We can use Tor browser for this task, tor
-ctually transfers ur data or request from multiple proxies(proxy chain) which makes it difficult to trace back the real user.
-Tor browser will only hide when u r browsing some website but not if u r using system it won't help u.
-
-To configure a local proxy server->
-- We use a program "proxy workbench"
-- download "proxy workbench" on machine 1, then run it on machine 1 // if we have this program on another machine also then
- we can also make a proxy chain
-- now connect to machine 2 //look through the tutorial video for configuration
-
-Using Public Proxy ->
-- We use a tool for this task "Proxy Switcher", it hides ur IP address from the websites u visit.
-- Note -> Exam will have few questions about specific tool, they will ask what is this tool doing # CEH_exam_imp
-- Exam could ask u about few tools and proxy switcher is one of them # CEH_exam_imp
-- download "proxy switcher", u do not need to change any configuration for this
-- a list will appear of the available proxy servers, and select one of them
-
 
 
 DNS Enumeration ->
