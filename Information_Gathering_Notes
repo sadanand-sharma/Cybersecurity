@@ -220,6 +220,17 @@ Nessus msfconsole -> on Kali terminal -> service nessusd status // to check ness
 	
 	
 	Note -> 'set' and 'use' r similar in metasploit cli only different in msfconsole 
+	
+	
+-----------------------------------------------------------------
+
+email harvest from domain->
+
+cmd -> msfconsole
+	>use auxillary/gather/search_email_collector 
+	> set DOMAIN domain_name
+	> set OUTFILE filename.txt
+
 ------------------------------------------------------------------
 
 ssh login brute force msfconsole -> https://www.youtube.com/watch?v=_C7nRJ6WsmI , time -> 39:00 around
