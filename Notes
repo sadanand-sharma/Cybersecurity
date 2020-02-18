@@ -2,6 +2,13 @@ Course Link -> https://academy.ehacking.net/courses/551622/lectures/10002114
 
 Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
 
+- Basic difference between Linux flavours is that Ubuntu or Debian based flavours use 'apt-get' and fedora or other same one
+uses the 'yum'
+
+- cmd -> echo $SHELL , o/p -> the path to the shell which is being used
+
+- cd /root/Desktop  // this navigation is also correct, no need to 1st execute cd ~ then go to Desktop
+
 Commands ->
 
 - whoami // to find who is logged in the system
