@@ -266,44 +266,7 @@ Using Public Proxy ->
 - download "proxy switcher", u do not need to change any configuration for this
 - a list will appear of the available proxy servers, and select one of them
 
-Enumeration ->
-- Screenshot(15), Screenshot(10), Screenshot(14)
 
-NetBios Enumeration ->
-- Screenshot(11), it is an old naming system and right now in naming system we r using DNS, A naming system is a service that
- resolve name to IP, NetBios is not used any more but it is still running on some machines bcz some of the services in
- Microsoft like sharing for instance or schedule task need to use NetBios to able to work effectively.
-- So on scanning a network if u find NetBios so then u can connect to that machine and connect to them
-- NetBios use specific ports which r 135, 139 and 445. So if any machine has those ports open then this is an indication that
- they have NetBios 
-- run a network scan to search for net bios using zenmap or nmap
-- on the systems with netbios on them
-	cmd -> nbtstat -A ip_of_machine_with_netbios // to get more info, go to the page of nbtstat so that u can understand the
-	abbrivations given in output
-	cmd -> net view \\ip_of_machine_with_netbios  // if the machine has any sharing it will show here, Screenshot(13)
- - u can also use tool "netbios enumerator" Screenshot(16), "winfingerprint" Screenshot(17)
-
-SNMP(Simple Network Manage Protocol) Enumeration -> Screenshot(12)
-- This SNMP protocol is needed on devices to be able to allow the adminstrator to manage them, U can find this protocol on
- CISCO router, on windows, on printers
-- SNMP protocol have different version, ver1 and ver 2 were very vulnerable and the latest version(ver 3) was a patch
-- If victim is using SNMP on his machine or on office devices such as router or a printer anything, u will be able to get
-  tons of information and much more info then NetBIOS.
-- On the system, router or printer on which SNMP is avilable or we can also install it. 
-- In SNMP ver 1 and 2 the default settings contains the option in Security configuration as "Accept SNMP packets from any
-  host"
-- "snscan" this tool is used to scan every device computer router printer which has SNMP available. 
-- after starting scan from 'snscan', it will find the port with 161 on devices as SNMP uses the port 161 // in tool we can
-  also select other ports to scan as in options mentioned.
-- on kali machine terminal 
-- cmd -> msfconsole
-  > search snmp	// this will search for snmp in it's database and give info for snmp, out of them all u will also find
-                // auxiliary/scanner/snmp/snmp_enum_hp_laserjet
-  > use auxiliary/scanner/snmp/snmp_enum_hp_laserjet
-  > show options
-- cmd -> set RHOSTS	ip_address //RHOSTS is the target address range or CIDR indetifier
-  > show options // now u will see that the ip entered in above cmd is inserted in the options list
-  > run          // now we will be able to see the hardware info, users on machine and many other informations.
 
 DNS Enumeration ->
 - "megacorpone.com" this is demo website for testing.
