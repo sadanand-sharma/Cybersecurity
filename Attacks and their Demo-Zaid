@@ -18,7 +18,7 @@ Windows 7 VM ->
 username/password -> admin7
 
 Windows 2012 Server-> Press Ctrl+del to go to sign in windows
-passwd -> Passw0rd!
+username/passwd -> admin12/Passw0rd!
 
 DVWA ->
 Username -> admin
