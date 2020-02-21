@@ -179,6 +179,13 @@ VIM Editor ->
 - ctrl+o // to save the data in file and then press enter
 - other common cmds which will be used in nano editor will be already listed at bottom of the editor
 
+Note -> - Applications and Linux r also known as Service
+	- Shell Script is a package of cmds in a file
+	- When u run a application it generates process and it's process it
+	- Daemon is something which contiounously runs in the background, Ex 'ntp' is process while 'ntpd' is daemon
+	- Every process could have a multiple threads in background
+	- Job is created by schedular to run those applications and services 
+	
 - 'top' cmd provides dynamic real time view of ur system, Suppose u wants to know which process in ur computer is taking most
 of the CPU etc then use cmd -> top // a window will appear with data, Here PID -> Process ID, in linux every program and 
 process has it's own ID, u can see CPU usage, Memory usage etc
@@ -193,9 +200,10 @@ process has it's own ID, u can see CPU usage, Memory usage etc
 - kill pid_no                       // to kill the process
 - kill -KILL pid_no                 // this will force kill only use when needed
 - kill -9 pid_no                    // this also a kind of force kill but not as powerfull as -KILL
+- pkill procecss_name     // this is used to kill process via name
 
-- ps -ux            // to get the long list of all running processes this is usefull in knowing the name of process or the
-                    // process id of some process
+- ps -ux | grep service_name  // to get the long list of all running processes this is usefull in knowing the name of process or the
+                    // process id of some process and use grep to find particular process
 - ps -aux           // the 'ps -ux' gives processes list for the current user only, to know all the processes by all users use
                     // 'ps -aux' cmd
 - ps -U user_name   // this will give all the processes of the entered user
@@ -213,7 +221,38 @@ Free resources and Used Resources ->
             // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by ur machine
 - free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte and
             // 't' for terabyte
+	    
+- nice // it is used to prioritize process, Ex -> nice -n 5 procecss   // this will tell the process to be in top 5 priority process
+ 	Note -> the niceness scale goes from -20 to 19, The lower the no. the more priority it has
 
+- systemctrl or service, Ex -> systemctl restart ntpd
+- crontab // is used to schedule scripts, cmds in system
+	Ex -> crontab -e // this will open an editor mode
+		> 22 13 * 3 * echo "This is crontab" > crontab -entry   // here 22 is the date, 13 is the time to change and '* 3'
+		tells that how many times to repeat this
+		
+		Types of Cronjobs -> Hourly, Daily, Weekly, monthly // u can add cronjobs in their directories on system as path
+		/etc/cron.daily, /etc/cron.hourly and so on
+		The timing for each is set in - /etc/anacrontab  // except hourly as it is in 
+		Ex to set -> https://academy.ehacking.net/courses/551622/lectures/10003185
+		
+		
+- at // it is like crontab except at is scheduled one time basis
+
+# Process management ->
+- Background cmds -> first start a process // as the process is not run it will not give u prompt back to do additional tasks
+		     use ctrl + z to stop the process
+		     jobs // to list what is stoped
+		     bg // to put process in background
+		     
+- Foregroundcmds -> fg // to see the process in background
+- To Run process even after exit -> nohup process_name & or u can use this cmd ->
+	nohup process_name > /dev/null 2>&1 & // as it will prevent the warnings to occur
+	
+	
+		     
+		
+		   
 
 - updatedb 	// this will build the database for file and directory, use this before using locate but not all the time, once
  when u start using kali linux just execute it in starting.
