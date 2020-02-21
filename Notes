@@ -23,6 +23,9 @@ place where the changes r done for hostname -> /etc/hostname
 - uname -a // for kernel info
 - dmidecode // to get proper and detailed info for the system
 
+- history // to know the cmds executed
+- !cmd_no. // the history cmd gives the cmd no. for the cmds we can use it's no. to execute the cmd
+
 - ls /home/                 // to know the users
 - visudo  /etc/sudoers  // it is to edit file which is configuration file that allows u to add or remove the rights to run cmds
  look for the string 'wheel' the users in this group can run all cmds 
