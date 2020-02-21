@@ -41,6 +41,8 @@ change the password for root
 
 - su username // to change user
 
+Note -> If U get permission denied while listing of files with any command then use 'sudo' with that cmd
+
 - 'useradd' cmd is used to create a user
 - usermod -G groupname username // to change the group for a user
 cmd imp -> useradd -g groupname -s /bin/bash -c "Description msg" -m -d /home/username username // this cmd will done the all work
