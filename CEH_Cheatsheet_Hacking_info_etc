@@ -533,20 +533,6 @@ ISAPI filters - To defend against Web Server attacks
 SSO(Single Sign On) is a access control mechanism allows for multiple systems to use a Central Authentication Server (CAS)
 that permits users to authenticate once and gain access to multiple systems.
 
-ICMP ->
-- ICMP (type 11, code 0) denotes Time Exceeded
-- ICMP (type 13, code 3) denotes router is blocking ICMP
-- ICMP ping and ping sweeps are used to check for active systems and to check, if ICMP ping traverses a firewall
-- Test-NetConnection tool for troubleshooting at transport layer, default use ICMPs
-- Traceroute cmd uses UDP packets, on windows ICMP packets - https://drive.google.com/drive/u/1/my-drive ques 28
-- mtr (linux tool) and pathping (windows tool) for same tool as traceroute
-- Udemy Practice test _2 Question 48
-Traceroute works by increasing the "time-to-live" value of each successive batch of packets sent. The first three packets
-have a time-to-live (TTL) value of one (implying that they make a single hop). The next three packets have a TTL value of 2,
-and so on. When a packet passes through a host,normally the host decrements the TTL value by one,and forwards the packet to
-the next host. When a packet with a TTL of one reaches a host,the host discards the packet and sends an ICMP time exceeded
-(type 11) packet to the sender. The traceroute utility uses these returning packets to produce a list of hosts that the
-packets have traversed en route to the destination.
 
 
 Covert Channels -> 
@@ -612,7 +598,6 @@ applying some basic IPS rules, no other configuration has been made. You come in
  
 - Logs could be used to monitor application errors and violations on a web server or application
  
-- The Ping of Death first appeared in 1996 because applications misinterpreted oversized packets.
  
 - In step 1, the host sends a segment to the server, indicating it wants to open a communications session. Inside this 
  segment, the host turns on the SYN flag and sets an initial sequence number (any random 32-bit number). When the recipient
