@@ -81,8 +81,11 @@ a send a request to the Directory server to authenticate and in response the ser
 to log in, in windows their is AD(Active Directory) here u do the same as u create a Account in Active Directory of the Windows Server
 , the protocol used for this task is LDAP protocol to authenticate against a directory
 
+Diff bw AD, LDAP, IDM, WinBIND, OpenLDAP -> https://academy.ehacking.net/courses/551622/lectures/10003046
 
-
+cal - this cmd is for calculator
+bc - this is for binary calculator
+uptime - this tells how long the system being up for and load, users etc. Screenshot(521)
 
 
 
