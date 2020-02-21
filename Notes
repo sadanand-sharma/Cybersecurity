@@ -112,19 +112,6 @@ Types of help commands -> Screenshot(415)
 - In bash scripting it is gud practice to use the full path name as we should use -> '/bin/ls' instead of just 'ls' , bcz some
   OS recognize the 'ls' cmd and some will require u to enter the full path for the 'ls' cmd
 
-- ip addr // for seeing IP related data
-
-- ifconfig              // to show ethernet settings and other internet config things, if 'eth0' is their in o/p then it means
-                        // their is wired connection , if u see 'wlan0' then it is wireless connected, additional ethernet
-                        // connections would be shown as 'eth1' and so on
-                        // 'lo' is a loop back interface which is a special interface which system uses to communicate with
-                        // itself, 'inet addr' is the local are LAN address or NAT address, 'RX packets' is the received packet
-                        // 'TX packet' is the transmitted packet
-- ifconfig eth1         // it will now show details for 'eth1' interface only
-- ifconfig eth0 up      // this will enable the internet connection
-- ifconfig eth0 down    // this will disable the internet connection
-
-- ipcalc ip_Address   // very usefull tool to understand Network segments such as Host, Network, Network Type, range etc
 
 - 'sudo' cmd allows extra privilages as administrator or more then normal user
 - 'sudo' infront of any cmd will enhance the privilage criteria for that cmd
@@ -269,29 +256,6 @@ process has it's own ID, u can see CPU usage, Memory usage etc
 - iostat // this is for inout and output statictics that how we r communocating among the devices connected to system
 - iostat 1 // output the data in every second
 
-- 'netstat' it is a cmd line tool that is used to display network connections, routing tables and network interfaces, it can
-be used to see network protocol statics
-- netstat -ie // gives same output as ifconfig
-- netstat -r  // to display routing table
-- netstat -c // display all continous listening services
-- netstat -a // display all current connections
-- netstat -at | less  // this will show only tcp connections
-- netstat -l | less   // this show the programs which r in listening state
-- netstat -lt | less   // this will show u listening tcp connection
-- netstat -lu | less   // this will show u listening udp connection
-- netstat -s | less   // this will show u the statictics such as the ip packets received and delivered
-- netstat -st | less  // to see statistics for the packets recived and delivered packets in tcp connection
-- netstat -su | less  // to see statistics for the packets recived and delivered packets in udp connection
-- netstat -p | less  // to see the pid of all connection which r available
-- netstat -n | less  // to see the numberic ports which r being used by different interfaces in ur system
-- netstat -an | grep  ':80'// now it will show the output for the connections with the grep entered pattern of text
-- netstat -ano // it will show that which port of ur computer is connected to the port of another computer in Local Address and
-Foreign Address and the if the connection is their between the local and Foreign address then the "state" would be "established"
-and also tell the process ids so we can check from their that what service connection is established their such as Dropbox or
-a hacker is using it. 
-
-- impt cmd -> netstat -rnv 
-
 Note - if u get the .part on doing the ls while the downloading is going on then it means the download is only partially
         complete
 
@@ -431,23 +395,6 @@ File Permissions -> Screenshot(368)
 route // display existing kernel routing table entries
 
 netcat // https://www.youtube.com/watch?v=Dbz8wQLz2Sw&list=PLZOToVAK85MpiuxbK7Sg6CtQtlW9QygC-&index=4
-
-- tcpdump -D // lists the interfaces which tcpdump is capable of Listening or capture from
-- tcpdump -i interface_name -nn // to capture traffic on particular interface, -nn will display the ports instead of protocol 
-  Ex -> http will be shown as 80 using -nn
-- tcpdump -w file_name.pcap '(src src_IP and dst dst_IP) or (src src_IP and dst dst_IP)' // to capture packets on desired hosts
-networks, -w is to write captured data to file with extension pcap
-- tcpdump -r file_name.pcap // to read file with captured packets
-- tcpdump host host_ip_address port 80 // use 'port' to define port
-- tcpdump -i eth0 -v src port 443 and dst dst_IP_address // here we r defining src port and and destination IP address
-- tcpdump -i eth0 tcp net 192.168.1.0/24  // to capture traffic on subnet and only show TCP data only
-
-Note -> use tcpdump to capture traffic and wireshark to analyse traffic
-
-
-
- arp -a // it will list the table of IP addresses with their corresponding MAC addresses, The ARP is used to find the MAC 
- address for Known IP addresses and the RARP(Reverse ARP) is to find IP addresses for known MAC addresses
 
 - xdg-open filename // to open file
 
