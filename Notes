@@ -12,40 +12,79 @@ uses the 'yum'
 Commands ->
 
 - whoami // to find who is logged in the system
-- ls /home/                 // to know the users
-- 'passwd' cmd allows u to change the password for the user
-- sudo passwd user_name // now u can change the password for the entered user if u enter username as root then it will
-change the password for root 
 - hostname // It is used to obtain the DNS(Domain Name System) name and set the system's hostname or NIS(Network Information System)
   domain name. A hostname is a name which is given to a computer and it attached to the network. Its main purpose is to uniquely
   identify over a network.
+
+- ls /home/                 // to know the users
+- visudo  /etc/sudoers  // it is to edit file which is configuration file that allows u to add or remove the rights to run cmds
+ look for the string 'wheel' the users in this group can run all cmds 
+- cat /etc/group // to list the groups
+- cat /etc/shadow // it is for the password of the users we create it
+- less /etc/passwd 	// to list the users and follow link to understand the logs ->
+		https://linuxize.com/post/how-to-list-users-in-linux/
+
+- 'passwd' cmd allows u to change the password for the user
+- sudo passwd user_name // now u can change the password for the entered user if u enter username as root then it will
+change the password for root 
   
   Adding a New Non-Root User in Kali Linux -> https://thecrazybastard.com/how-to-add-a-new-user-in-kali-linux/
   
 - Screenshot(515)
-- id username //to see uid and gid and to know whether user is existing or not
-- 'useradd' cmd is used to create a user
-- su username // to change user
-- sudo useradd user_name -m -s /bin/bash -g users -c "Coments"      // -m is going to create a default home directory for this
-                                                                    // user, -s is used for allowing the user to use the shell
-                                                                    // which we provide and here it is bash 
-                                                                    // -g is the default user flag and user will be assigned to 
-                                                                    // the group u mention, always use -g flag with the 'users'
-                                                                    // group, -c flag is used for providing the comments
 
-- 'userdel' cmd is used to delete the user
-- sudo userdel user_name // it will delete the user but it will not delete the directory of the user which u can see by using          
-  cmd -> ls /home/, Hence the user will be deleted but his data will not
-- sudo userdel -r user_name   // this will delete the home directory also with the user
-- sudo rm -r /home/mark/      // this will remove all the data of the user, So use it carefully
-- less /etc/passwd 	// to list the users and follow link to understand the logs ->
-		https://linuxize.com/post/how-to-list-users-in-linux/
+- su username // to change user
+
+- 'useradd' cmd is used to create a user
+- usermod -G groupname username // to change the group for a user
+cmd imp -> useradd -g groupname -s /bin/bash -c "Description msg" -m -d /home/username username // this cmd will done the all work
+together mostly used in IT by system admin to add user
+    // -m is going to create a default home directory for this
+    // user, -s is used for allowing the user to use the shell
+    // which we provide and here it is bash 
+    // -g is the default user flag and user will be assigned to 
+    // the group u mention, always use -g flag with the 'users'
+    // group, -c flag is used for providing the comments
 
 - groups                 // this will show u that to which groups ur current user is connected too.
 - sudo groupadd name_of_group           // to add the new group
 - sudo groupdel name_of_group           // to delete the group
 - sudo gpasswd -a user_name group_name  // assign user to a group
 - sudo gpasswd -d user_name group_name // to remove user from the group
+Note -> on doing cmd in home directory -> ls -ltr // u might see that the username and groupname for the user is same even after
+changing it and the reason for that the actual group of the user will always remain the username it is just now part of the another
+group to change it properly use the 
+cmd -> chgrp -R groupname username // this will make changes to every folder of the username 
+
+- 'userdel' cmd is used to delete the user
+- sudo userdel user_name // it will delete the user but it will not delete the directory of the user which u can see by using          
+  cmd -> ls /home/, Hence the user will be deleted but his data will not
+- sudo userdel -r user_name   // this will delete the home directory also with the user
+- sudo rm -r /home/mark/      // this will remove all the data of the user, So use it carefully
+
+
+# Monitor User ->
+- who // to see how many people r logged in
+- last // this will tell u about the every user logged in ever in system, for not whole list just unique names of all users logged
+  so far use cmd -> last | awk '{print $1}' | sort | uniq
+- w // it is same work as 'who' but gives more detailed info related
+- finger // it is to do trace of ur user where it is coming from what kind of protocol he is using
+- id username //to see uid and gid and to know whether user is existing or not
+
+- users // to list the users logged in the system
+- wall // this will broadcast or msg to anyone who is logged in the linux system
+- write username_to_send_them // it for specific user to another
+
+Note -> In Linux their r 2 types of accounts ->
+- local account // which is created normally with above cmds
+- Domain/Directory account // when u need to addd user for access to 1000 servers then we use these accounts, the client will send
+a send a request to the Directory server to authenticate and in response the server tells that the user is authenicated and allowed
+to log in, in windows their is AD(Active Directory) here u do the same as u create a Account in Active Directory of the Windows Server
+, the protocol used for this task is LDAP protocol to authenticate against a directory
+
+
+
+
+
 
 Types of help commands -> Screenshot(415)
 - man any_cmd (this gives the manual of the cmd) // we can also use --help in the place of 'man' Ex -> any_cmd --help
