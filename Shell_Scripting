@@ -435,3 +435,14 @@ done
 
 o/p whould be the whole file content will be printed
 
+- .bashrc file is a script that is executed whenever a new terminal session is started in interactive mode
+- when u do -> ls -a , in ur root directory u can see a file .bashrc in the list, whenever u open a new terminal this .bashrc
+  file is executed
+- nano .bashrc          // to see the contents of the file
+- gedit .bashrc         // this will also open the file, gedit is also an notepad kind of editor
+- In some linux systems this .bashrc file exists and in some not, if it is present then it is OK otherwise u can create ur own
+- whatever u add in to the script of the bashrc file it will we executed first whenever u open a new terminal session
+- Ex -> edit and add -> echo "This is test code" in the .bashrc file and the text will we displayed when ever u open terminal 
+- or try adding code -> alias ls='ls --color=auto -l' in the .bashrc file and now when ever u will do 'ls' it will do 'ls -l'
+  with the auto color. So here we changed the functionality of 'ls' cmd with 'ls -l'
+- We generally use .bashrc file for setting up the environment variables such as for JAVA, or for git etc
