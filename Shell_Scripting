@@ -446,3 +446,7 @@ o/p whould be the whole file content will be printed
 - or try adding code -> alias ls='ls --color=auto -l' in the .bashrc file and now when ever u will do 'ls' it will do 'ls -l'
   with the auto color. So here we changed the functionality of 'ls' cmd with 'ls -l'
 - We generally use .bashrc file for setting up the environment variables such as for JAVA, or for git etc
+
+- unalias alias_name // to remove the alias name for the cmds 
+
+
