@@ -1,0 +1,427 @@
+Bash scripts allow u to execute cmds from a file, Here interpretor is the Shell which gives u too much funtionalities, So if we r using
+Bash script it will work pretty much every time without installing the dependencies or additional extensions or additional modules
+
+Shell is basically the interface between us and UNIX kernal, UNIX kernal basically manages the systems resources or we can say hard ware
+Shell is accessed using the terminal
+
+So the thing like 'madhur@ubuntu:-$' here madhur is the user name and $ represents the shell
+
+to check the shell types ur system supports use cmd-> cat /etc/shells
+to know where bash is located cmd -> which bash
+
+to create a file cmd -> touch hello.sh  //.sh extention is not necessary but for editor it is usefull and it is also best practice
+
+cmd -> clear // to clear the screen
+cmd -> who am i // this display username ur terminal id and then the time u logged in
+cmd -> pwd // to tell the current diractory
+cmd -> cal // to view the calender
+
+Bash Scripting is preferred more then Python bcz Shell is built in Unix and that means u can utilize the entire uniz tool set
+With Bash ScriptingFile Management is fully automated(Copy file, update file etc)
+Bash is not that gud like python for analytics and Big Data, it is more for controlling the system and automating tasks
+
+extension is .sh for shell scripts
+
+- to display a string use echo on terminal ->echo hello  o/p-> hello
+- in the editor ->
+ #!/bin/bash        // declaring then bash interpretor , bash is terminal instance which give u much more stream lined linux experience
+ #!/bin/sh          // declaring the shell interpretor , this does not gives u full functionalities
+ #!/bin/python
+
+ echo "Hello World"
+
+ if in the pyhton script the interpretor is not defined like this '#!/bin/python' and we try to execute the script like this ./filename
+ then it will give the invalid argument specification error
+
+ if u do cmd -> ls -al
+ then u will see as -rw-rw-r-- // here the 1st -rw means the read nad write for u, 2nd -rw means read and write for the group and 3rd
+ r-- means read only permission for the user, rwx means the read write and execute
+
+ if the tab is not completing the script then check the permissions for the file whether it is only read by doing cmd->'ls -al'
+ and if it having 'r--' in the file specification then it is only read file, to change the specifications of the file u can do cmd
+ 'chmod +x file_name'
+ to revert the permissions use 'chmod -x file_name' cmd
+
+- Variables ->
+
+Their r two types of variables -> System Variables and User Defined Variables
+System Varaibles -> These r created or maintained by Linux OS. // generally these variables r in Capital letters
+Ex: $BASH // this gives u the bash shell name, echo $BASH o/p-> /bin/bash
+$BASH_VERSION
+$HOME  // this gives u home directory
+$PWD
+
+User Defined Variables ->
+
+NAME="Sadanand"  // variable name should be always in Uppercase and no spaces after the variable and after the assignment operator
+SPORT="Foot"
+STUDENT_01 = "John"
+echo "My name is $NAME" // to call a variable use the $ before the variable
+echo "The most famous sport is ${SPORT}ball"  // here we use the $ with curry braces for doing the concatenation of Strings
+
+- User Inputs and Comments ->
+
+read -p "Enter your Name: " NAME           // to get the user input -p is for prompt msg and 'NAME' is the variable in which it
+echo "Your name is $NAME"                  // is going to be store the input value and 'read' tells to read from terminal
+# User input                               // # is ur for comment
+
+read -sp "Enter ur Password: " PASSWORD   // with this the variable will get the value but not show on the o/p screen
+echo PASSWORD
+
+echo "Enter Names"
+read -a names                           // this is to read a arrray ,So if input is -> tom max
+echo "Names: ${names[1]}"               // o/p is -> max
+
+echo "Enter Name"
+read                                  // using no variable
+echo "Name: $REPLY"                   // $REPLY is a built in variable to get the latest read input data
+
+echo -e "Enter your Full name \c"  // \c is used to keep the cursor on the same line and -e is used for \c otherwise it will print \c
+read FNAME LNAME        // to get the data into variables now in FNAME the 1st input string will come and in LNAME the 2nd input string
+
+#in terminal after executing the script
+Enter ur Full name
+Sadanand Sharma         // here the user has entered the Input and Sadanand will go in FNAME and Sharma will go in LNAME
+
+- Conditional Statements ->
+Synatx if statement->
+if [ condition ];    // always use the space between the bracket '[' and the condition staement
+then
+    statement to be executed        // use indent after the next line of then as the best practice
+fi
+
+Ex if statement->
+NAME="Sadanand"
+if [ "$NAME" = "Sadanand" ];       // always use the quotation on the variable always use the space between the varibale and = bcz
+then                               // if u do like this "$NAME"="Sadanand" this means assignment instead of checking equal
+    echo "Welcome $NAME"
+fi                                  // to end the condition execution
+
+Synatx if else statement->
+if [ condition ];    // always use the space between the bracket '[' and the condition staement
+then
+    statement to be executed        // use indent after the next line of then as the best practice
+elif                                // else if statement
+then
+    statement
+else
+    statement to be executed
+fi
+
+contional Operator we can use -> -eq //is equal to, -ne // is not equal to, -gt //is greater than, -ge //is greater than or equal to,
+-lt //is less than, -le // is less than or equal to
+
+EX-> if [ "$a" -eq "$b"]
+
+for using the sign operators
+
+Ex-> if (("$a" < "$b"))    // u need to use (( )) brackets for using the sign operators
+
+For string comparisions ->
+= //is equal to, == //is equal to, != //is not equal to, < , >, -z // string is null or has zero length
+EX -> if [ "$a" = "$b" ]    // for string we need not to use the (())
+in ASCII alphabetical order ->   if [[ "$a" < "$b" ]]
+
+- Test Scripts ->
+- cmd -> help test // to open the documentation for the test cmd
+- nano file_name // to open the file in editor and then ctrl+o to save
+
+if [ -d /usr/share/wordlists ];         // to check for the file use -e in place of -d which is to check for directory condition will
+then                                        // will be if [ -e /usr/share/wordlists/rockyou.txt ];
+    echo "Yes it exists"
+else
+    echo "The file does not exists"
+fi
+
+Same way we have other cmds too such as:
+if [ -f /usr/share/wordlists/rockyou.txt ];    // to check if file or not
+
+Their r two types of files block special file ans character special file , Character special file is a normal file which contain data
+or text and Block special file is the binary file or picture file or video file
+
+if [ -b /usr/share/wordlists/rockyou.txt ];    // to check for block special file
+if [ -c /usr/share/wordlists/rockyou.txt ];    // to check for character special file
+if [ -s /usr/share/wordlists/rockyou.txt ];    // to check whether file is empty or not
+if [ -r /usr/share/wordlists/rockyou.txt ];    // to check for the read permission
+if [ -w /usr/share/wordlists/rockyou.txt ];    // to check for the write permission
+if [ -x /usr/share/wordlists/rockyou.txt ];    // to check for the execute permission
+
+use cmd -> ls -l to check the file details and size of it
+
+cmd -> cat > file_name // to write something in the file
+use ctrl+d to come out of cat cmd
+
+- For Loops ->
+Syntax ->
+for VARIABLE in $(); do
+    commands
+done
+
+Ex: ->
+nano list.txt   // this file to create a list
+
+Alexis
+John
+Superman        // creating a list in file list.txt
+
+ctrl+o
+
+for NAMES in $(cat list.txt); do          // cat cmd is for fast execution when u r reading the information
+    echo "The names r: $NAMES"
+done
+
+// then execute the file
+
+- Ping Sweep Script         // this is to ping on subnet and do diagnosis
+
+man ping // to get the documention of ping cmd
+
+echo "Please enter the subnet"
+read SUBNET                     // enter the first three ranges of the IP4 such as 192.168.1
+for IP in $(seq 1 254); do      // here we r specifying the range
+    ping -c 1 $SUBNET.$IP                  // -c is for count the no. of times u wannna ping it otherwise it will keep going
+done
+
+// then execute the file
+
+- Password Generator ->
+
+-library used here is open SSL which is used by transport layer to secure various aspects of security such as websockets etc
+
+echo "This is a Simple Password Genrator"
+echo "Plz enter the length of the Password"
+read PASS_LENGTH
+
+for p in  $(seq 1); do          // to increase the variety of password increase the seq no. form 1 to further like $(seq 1 5);
+    openssl rand -base64 48 | cut -cl-$PASS_LENGTH // rand for random characters, 48 is for the no. of characters , cut operator
+done                                            //to cut the  password -cl to cut the column
+// So basically here we r using openssl library to generate random password characters in base64 format through the whole
+character range og base64 which is 48 then we r filtering it and cutting it to the first character to the password length the
+user has specified , we can use 'hex' in place of 'base64' but we base64 for is better we bcz brute force attack is difficult on it
+
+- Functions ->
+
+Syntax ->
+
+function func_name(){      // the function should be declared first then called
+    // code to put
+}
+func_name  // calling the function
+
+Ex ->
+
+function test_shadow(){
+if[ -e /etc/shadow ];
+then
+    echo "It exists"
+else
+    echo "The file does not exist"
+fi
+test_password      // calling the function with the function
+}
+
+function test_password(){
+if[ -e /etc/password ];
+then
+    echo "It exists"
+else
+    echo "The file does not exist"
+fi
+}
+
+test_shadow
+
+- Positional Parameters ->
+
+./file_to_be_executed input_to_be_passed   // to pass data to the script
+
+- positional parameters are ranged from 0 to 9 and they r denoted by $ as $0 - $9
+So ./file_name 10 name // So the 10 is given to $1 and name is given to range to $2
+
+echo "Excetution of File: $0 $1"  o/p -> Excetution of File: file_name 10
+
+to pass arguments in bash script as array
+
+args=("$@")    //$@ stores the argument as an array , So if Input is ->./filename  tom mark
+
+echo ${args[0]}  // o/p is tom , the index 0 is not taking the filename as the input
+
+echo $@   // o/p is -> tom mark
+
+echo $#     // to count the no. of arguments ,So o/p is 2
+
+- File Encrypter and Decrypter
+// gpg allows u to encrypt data and genrate keys
+
+echo "This is a simple file encrypter/decrypter"
+echo "Plz choose what u want to do"
+
+choice="Encrypt Decrypt"  // this the list
+
+select option in $choice; do   //  this is show the options from the list and assign the numbers to them
+   if [ $REPLY=1 ];         // $REPLY is associated with select option it is predefined and 1 defines the Encrypt from the List
+then
+    echo "You have selcted Encryption"
+    echo "Please enter the file name"
+    read file;
+    gpg -c $file    // this is to encrypt the file
+    echo "The file is encrypted"
+else
+    echo "You have selcted Decryption"
+    echo "Please enter the file name"
+    read file2;
+    gpg -d $file2    // this is to decrypt the file
+    echo "The file is decrypted"
+fi
+done
+
+Note: if the file has beed executed from the same computer for decryption then the passphrase for decryption would not been asked
+bcz the data keys r stored for us by the gpg in our computer but if we run the file from the another computer then it will ask for
+the passphrase
+
+- How to append text to an File?
+
+echo -e "Enter the file name : \c"
+read file_name
+
+if [ -f $file_name ];
+then
+    if [ -w $file_name ]
+    then
+       echo "Type some data. To quit press Ctrl + D"
+       cat >> $file_name      // >> is used for appending by cat and > is used for overwriting the file
+    else
+       echo "The file do not have write permissions"
+    fi
+    echo "$file_name a valid file"
+else
+    echo "$file_name not a valid file or not exists"
+fi
+
+cmd -> chmod -w file_name // to do not writable permissions of the file and use +w for providing write permissions
+
+-  Logical AND Operator
+their r three ways of AND operators for IF
+1-> if [ "$age" -gt 18  ] && [ "$age" -lt 30 ]
+2-> if [ "$age" -gt 18  -a "$age" -lt 30 ]     // -a stands for AND
+3-> if [[ "$age" -gt 18 && "$age" -lt 30 ]]
+
+- Logical OR Operator
+their r three ways of OR operators for IF
+1-> if [ "$age" -gt 18  ] || [ "$age" -lt 30 ]
+2-> if [ "$age" -gt 18  -o "$age" -lt 30 ]     // -o stands for OR
+3-> if [[ "$age" -gt 18 || "$age" -lt 30 ]]
+
+- Arthemetic Operations ->
+echo 1+1 , o/p is -> 1+1, Bcz echo just throw what is mentioned in it
+So,
+
+num1=20
+num2=5
+echo $((num1+num2)) ,  o/p -> 25
+
+another way is using the 'expr' cmd
+
+echo $(expr $num1 + $num2)
+echo $(expr $num1 \* $num2)  // this \ is only to be used with multiplication while using expr cmd
+
+- Floating Point math operation ->
+
+- By default scripting doesn't support decimal no. we need to use tools for it
+- cmd -> man bc // manual for basic calculator
+So we can do as -> echo "20.5+5" | bc // this means that whaterver we have done on the left side of the pipe filter will be treated as the
+cmd for the right hand side
+
+echo "20.5/5" | bc ,o/p is 4
+to do above division correctly use scale as
+echo "scale=2;20.5/5" | bc ,here scale=2 means upto 2 decimal places ,o/p is 4.10
+So always use 'scale' for the divisions in floating points
+num=27
+echo "scale=2;sqrt($num)" | bc -l  // we have to use -l because we r using math library sqrt
+echo "scale=2;3^3" | bc -l   // this is to get the power of no. means 3 to the power, 3 o/p -> 27
+
+- Case Statement
+
+Syntx ->
+case expression in
+    pattern1 )
+       statements ;;
+    pattern2 )
+       statements ;;
+    ....
+esac
+
+Ex: ->
+vehicle=$1            // taking the user input
+case $vehicle in
+   "car" )
+      echo "U choosed Car";;
+   "van" )
+      echo "U choosed Van";;
+   [a-z] )                       // this is for regex u can use all the regex expressions for case also
+      echo "U choosed Pattern";;
+   * )                           // this '*' is for default case
+      echo "Wrong Option Choosed"
+esac
+
+if u enter the capital letter and still in ur scrit it does not recognize it in the pattern case as the capital letter the go on the
+terminal and cmd -> LANG=C // The 'LANG' environment variable indicates the language /locale and encoding, where 'C' is the lamgauge setting
+
+- Array ->
+os=('ubuntu' 'windows' 'kali')   // this is the way to create an array
+echo "${os[@]}"   // this will print all the elements of array
+echo "${!os[@]}"    // using ! will print all the indexes of the array
+echo "${#os[@]}"   // this will give the length of the array
+
+os[3] = 'mac'     // this will add the element to array
+
+unset os[2]     // this will remove the element from the array unset is a predefined cmd but the output for the echo "${!os[@]}" is 0 1 3
+// in the shell the positions r not shifted means their could be Gaps in the array
+
+string=Hello
+echo "${string[@]}"  op -> Hello
+echo "${string[0]}"  op -> Hello
+echo "${string[1]}"  op ->     // blank, So u can treat any variable as an array but the array is assigned to the 0 index only
+echo "${#string[@]}"  op -> 1
+
+- While Loops ->
+Syntax ->
+while [ condition ]
+do
+   command1
+   command2
+   command3
+done
+
+EX:->
+n=1
+while [ $n -le 10 ]      // u can use the If statement changes for conditions such as using (()) etc
+do
+   echo "$n"
+   n=$((n+1))      //or u can use here (( ++n ))
+   sleep 1        // this is for the pause of 1 sec
+done
+
+// to open the terminals
+
+cmd -> gnome-terminal &    // this is only for ubuntu so check ur terminal
+
+- Read files using while loop ?
+
+while read p   // p is the variable to save the content
+do
+  echo $p
+done < hello.sh // here the input redirection menas where ever the pointed arraow is the stream goes to that direction here on left side '<'
+which means here to the while loop
+
+o/p whould be the whole file content will be printed
+
+- another way using pipe
+
+cat hello.sh | while read p // this means whatever content is read using cat cmd is now like a input for this while cmd
+do
+  echo $p
+done
+
+o/p whould be the whole file content will be printed
+
