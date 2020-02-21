@@ -15,6 +15,13 @@ Commands ->
 - hostname // It is used to obtain the DNS(Domain Name System) name and set the system's hostname or NIS(Network Information System)
   domain name. A hostname is a name which is given to a computer and it attached to the network. Its main purpose is to uniquely
   identify over a network.
+  
+- hostnamectrl -set-hostname newhostname // to change the hostname
+place where the changes r done for hostname -> /etc/hostname
+
+- cat /etc/os-release // to get info of OS
+- uname -a // for kernel info
+- dmidecode // to get proper and detailed info for the system
 
 - ls /home/                 // to know the users
 - visudo  /etc/sudoers  // it is to edit file which is configuration file that allows u to add or remove the rights to run cmds
@@ -208,19 +215,7 @@ process has it's own ID, u can see CPU usage, Memory usage etc
                     // 'ps -aux' cmd
 - ps -U user_name   // this will give all the processes of the entered user
 - ps -C name_of_process     // this will list out all the instances or processes which r related to process entered
-
-Free resources and Used Resources ->
-- df        // this cmd reports the amount of Disk space being used and avilable by ur file system
-- df -h     // displays the data in more human readable format
-- du        // this cmd is used to estimate and display disk space used by files, navigate into the directory on which u wants
-            // to use this cmd and in the last of all listing it will shoe u the size of the folder
-- du -h     // displays the data in more human readable format
-- du -sh    // '-s' is for summary , 'h' is for human redable, this will calculate the disk space and all of it used
-- du -sh foler_name     // to know the details for the following folder
-- free      // dispalys the total amount of free and used physical and swap memory in the system as well as the buffer used by
-            // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by ur machine
-- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte and
-            // 't' for terabyte
+- imp cmd -> ps -ef // display current processes
 	    
 - nice // it is used to prioritize process, Ex -> nice -n 5 procecss   // this will tell the process to be in top 5 priority process
  	Note -> the niceness scale goes from -20 to 19, The lower the no. the more priority it has
@@ -236,23 +231,85 @@ Free resources and Used Resources ->
 		The timing for each is set in - /etc/anacrontab  // except hourly as it is in 
 		Ex to set -> https://academy.ehacking.net/courses/551622/lectures/10003185
 		
-		
 - at // it is like crontab except at is scheduled one time basis
 
 # Process management ->
 - Background cmds -> first start a process // as the process is not run it will not give u prompt back to do additional tasks
 		     use ctrl + z to stop the process
 		     jobs // to list what is stoped
-		     bg // to put process in background
+		     bg // to put process in background -> https://academy.ehacking.net/courses/551622/lectures/10003186
 		     
 - Foregroundcmds -> fg // to see the process in background
 - To Run process even after exit -> nohup process_name & or u can use this cmd ->
-	nohup process_name > /dev/null 2>&1 & // as it will prevent the warnings to occur
+	nohup process_name > /dev/null 2>&1 & // as it will prevent the warnings to occur, on using nohup it will create a file
+	nohup.out for all the task nohup is doing
 	
-	
+- sleep 100 // this will make the system sleep for 100 secs before giving the prompt back
+- jobs // this will show the process just stopped
 		     
-		
-		   
+- fg // to bring process back from background -> https://academy.ehacking.net/courses/551622/lectures/10003186
+
+# Free resources and Used Resources and System monitoring ->
+- df        // this cmd reports the amount of Disk space being used and avilable by ur file system
+- df -h     // displays the data in more human readable format
+- du        // this cmd is used to estimate and display disk space used by files, navigate into the directory on which u wants
+            // to use this cmd and in the last of all listing it will shoe u the size of the folder
+- du -h     // displays the data in more human readable format
+- du -sh    // '-s' is for summary , 'h' is for human redable, this will calculate the disk space and all of it used
+- du -sh foler_name     // to know the details for the following folder
+
+- dmesg      // it gives the output for the system related warnings etc
+
+- iostat // this is for inout and output statictics that how we r communocating among the devices connected to system
+- iostat 1 // output the data in every second
+
+- 'netstat' it is a cmd line tool that is used to display network connections, routing tables and network interfaces, it can
+be used to see network protocol statics
+- netstat -ie // gives same output as ifconfig
+- netstat -r  // to display routing table
+- netstat -c // display all continous listening services
+- netstat -a // display all current connections
+- netstat -at | less  // this will show only tcp connections
+- netstat -l | less   // this show the programs which r in listening state
+- netstat -lt | less   // this will show u listening tcp connection
+- netstat -lu | less   // this will show u listening udp connection
+- netstat -s | less   // this will show u the statictics such as the ip packets received and delivered
+- netstat -st | less  // to see statistics for the packets recived and delivered packets in tcp connection
+- netstat -su | less  // to see statistics for the packets recived and delivered packets in udp connection
+- netstat -p | less  // to see the pid of all connection which r available
+- netstat -n | less  // to see the numberic ports which r being used by different interfaces in ur system
+- netstat -an | grep  ':80'// now it will show the output for the connections with the grep entered pattern of text
+- netstat -ano // it will show that which port of ur computer is connected to the port of another computer in Local Address and
+Foreign Address and the if the connection is their between the local and Foreign address then the "state" would be "established"
+and also tell the process ids so we can check from their that what service connection is established their such as Dropbox or
+a hacker is using it. 
+
+- impt cmd -> netstat -rnv 
+
+Note - if u get the .part on doing the ls while the downloading is going on then it means the download is only partially
+        complete
+
+- free      // dispalys the total amount of free and used physical and swap memory in the system as well as the buffer used by
+            // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by ur machine
+- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte and
+            // 't' for terabyte
+
+- cat /proc/cpuinfo   // to get all CPU related info
+- cat /proc/meminfo // to get memory related info
+
+# Log Monitoring -> https://academy.ehacking.net/courses/551622/lectures/10003190
+ path -> /var/log
+ 	Important files to check in this directory -> boot 
+						      cron
+						      maillog
+						      secure
+						      messages
+						      httpd
+
+- sudo init 6 or reboot // to restart the machine
+- init 0 or shutdown // to shutdown the machine
+- init 3 // multi user mode
+- halt // it shudown the computers and if their r processes that need some time to come down it doesn't care as it shutdown rightaway 
 
 - updatedb 	// this will build the database for file and directory, use this before using locate but not all the time, once
  when u start using kali linux just execute it in starting.
@@ -381,34 +438,12 @@ networks, -w is to write captured data to file with extension pcap
 
 Note -> use tcpdump to capture traffic and wireshark to analyse traffic
 
-- 'netstat' it is a cmd line tool that is used to display network connections, routing tables and network interfaces, it can
-be used to see network protocol statics
-- netstat -ie // gives same output as ifconfig
-- netstat -r  // to display routing table
-- netstat -c // display all continous listening services
-- netstat -a // display all current connections
-- netstat -at | less  // this will show only tcp connections
-- netstat -l | less   // this show the programs which r in listening state
-- netstat -lt | less   // this will show u listening tcp connection
-- netstat -lu | less   // this will show u listening udp connection
-- netstat -s | less   // this will show u the statictics such as the ip packets received and delivered
-- netstat -st | less  // to see statistics for the packets recived and delivered packets in tcp connection
-- netstat -su | less  // to see statistics for the packets recived and delivered packets in udp connection
-- netstat -p | less  // to see the pid of all connection which r available
-- netstat -n | less  // to see the numberic ports which r being used by different interfaces in ur system
-- netstat -an | grep  ':80'// now it will show the output for the connections with the grep entered pattern of text
-- netstat -ano // it will show that which port of ur computer is connected to the port of another computer in Local Address and
-Foreign Address and the if the connection is their between the local and Foreign address then the "state" would be "established"
-and also tell the process ids so we can check from their that what service connection is established their such as Dropbox or
-a hacker is using it. 
+
 
  arp -a // it will list the table of IP addresses with their corresponding MAC addresses, The ARP is used to find the MAC 
  address for Known IP addresses and the RARP(Reverse ARP) is to find IP addresses for known MAC addresses
 
 - xdg-open filename // to open file
-
-- sudo init 6 // to restart the machine
-- init 0 // to shutdown the machine
 
 - if u do cmd -> ls -l     // then u will see as o/p -> -rw-rw-r-- 1 sadanand sadanand 22 Jul 23 18:55 test
 - Here in the 1st '-' means it's a normal file, if it would be 'd' then it means it is a directory and if it is 'c' then it
