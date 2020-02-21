@@ -1,1 +1,105 @@
+Network Files ->
+
+- /etc/nsswitch.conf // it is tell where to resolve ur hostname and other config files places
+- /etc/hosts  // info regarding hostname
+- /etc/sysconfig/network or /etc/hostname
+- /etc/sysconfig/network-scripts/ifcfg-nic 
+- /etc/resolv.conf
+
+
+ICMP ->
+- ICMP (type 11, code 0) denotes Time Exceeded
+- ICMP (type 13, code 3) denotes router is blocking ICMP
+- ICMP ping and ping sweeps are used to check for active systems and to check, if ICMP ping traverses a firewall
+- Test-NetConnection tool for troubleshooting at transport layer, default use ICMPs
+- Traceroute cmd uses UDP packets, on windows ICMP packets - https://drive.google.com/drive/u/1/my-drive ques 28
+- mtr (linux tool) and pathping (windows tool) for same tool as traceroute
+- Udemy Practice test _2 Question 48
+Traceroute works by increasing the "time-to-live" value of each successive batch of packets sent. The first three packets
+have a time-to-live (TTL) value of one (implying that they make a single hop). The next three packets have a TTL value of 2,
+and so on. When a packet passes through a host,normally the host decrements the TTL value by one,and forwards the packet to
+the next host. When a packet with a TTL of one reaches a host,the host discards the packet and sends an ICMP time exceeded
+(type 11) packet to the sender. The traceroute utility uses these returning packets to produce a list of hosts that the
+packets have traversed en route to the destination.
+
+- The Ping of Death first appeared in 1996 because applications misinterpreted oversized packets.
+
+- ip addr // for seeing IP related data
+
+- ifconfig              // to show ethernet settings and other internet config things, if 'eth0' is their in o/p then it means
+                        // their is wired connection , if u see 'wlan0' then it is wireless connected, additional ethernet
+                        // connections would be shown as 'eth1' and so on
+                        // 'lo' is a loop back interface which is a special interface which system uses to communicate with
+                        // itself, 'inet addr' is the local are LAN address or NAT address, 'RX packets' is the received packet
+                        // 'TX packet' is the transmitted packet
+- ifconfig eth1         // it will now show details for 'eth1' interface only
+- ifconfig eth0 up      // this will enable the internet connection
+- ifconfig eth0 down    // this will disable the internet connection
+
+- ipcalc ip_Address   // very usefull tool to understand Network segments such as Host, Network, Network Type, range etc
+
+- 'netstat' it is a cmd line tool that is used to display network connections, routing tables and network interfaces, it can
+be used to see network protocol statics
+- netstat -ie // gives same output as ifconfig
+- netstat -r  // to display routing table
+- netstat -c // display all continous listening services
+- netstat -a // display all current connections
+- netstat -at | less  // this will show only tcp connections
+- netstat -l | less   // this show the programs which r in listening state
+- netstat -lt | less   // this will show u listening tcp connection
+- netstat -lu | less   // this will show u listening udp connection
+- netstat -s | less   // this will show u the statictics such as the ip packets received and delivered
+- netstat -st | less  // to see statistics for the packets recived and delivered packets in tcp connection
+- netstat -su | less  // to see statistics for the packets recived and delivered packets in udp connection
+- netstat -p | less  // to see the pid of all connection which r available
+- netstat -n | less  // to see the numberic ports which r being used by different interfaces in ur system
+- netstat -an | grep  ':80'// now it will show the output for the connections with the grep entered pattern of text
+- netstat -ano // it will show that which port of ur computer is connected to the port of another computer in Local Address and
+Foreign Address and the if the connection is their between the local and Foreign address then the "state" would be "established"
+and also tell the process ids so we can check from their that what service connection is established their such as Dropbox or
+a hacker is using it. 
+
+- impt cmd -> netstat -rnv 
+
+- tcpdump -D // lists the interfaces which tcpdump is capable of Listening or capture from
+- tcpdump -i interface_name -nn // to capture traffic on particular interface, -nn will display the ports instead of protocol 
+  Ex -> http will be shown as 80 using -nn
+- tcpdump -w file_name.pcap '(src src_IP and dst dst_IP) or (src src_IP and dst dst_IP)' // to capture packets on desired hosts
+networks, -w is to write captured data to file with extension pcap
+- tcpdump -r file_name.pcap // to read file with captured packets
+- tcpdump host host_ip_address port 80 // use 'port' to define port
+- tcpdump -i eth0 -v src port 443 and dst dst_IP_address // here we r defining src port and and destination IP address
+- tcpdump -i eth0 tcp net 192.168.1.0/24  // to capture traffic on subnet and only show TCP data only
+
+Note -> use tcpdump to capture traffic and wireshark to analyse traffic
+
+
+
+ arp -a // it will list the table of IP addresses with their corresponding MAC addresses, The ARP is used to find the MAC 
+ address for Known IP addresses and the RARP(Reverse ARP) is to find IP addresses for known MAC addresses
+
+- ethtool nic_interface_name // provide info for the interface NIC
+
+- lo // the loopback device is a special interface that ur computer uses to communicate with itself, It is mainly used for diagnostics
+and troubleshooting, and to connect to servers running on the local machine
+
+# NIC Bonding -> NIC  bonding is also known as network bonding, It can be defined as the aggregation or combination of multiple NIC
+into a single bond interface, It's main purpose is to provide high availability and redundancy
+
+If u combine two NIC of 1 GB then it will provide 2GB and if one fails the other would be still working, Screenshot(529)
+
+NIC bonding Procedure ->
+- modprobe bonding -> it is to get the configuration of ur driver
+- modinfo bonding -> to get the info of ur bonding
+- Create the file -> /etc/sysconfig/network-scripts/ifcfg-bond0 then edit file -> /etc/sysconfig/network-scripts/ethernet1
+and file -> /etc/sysconfig/network-scripts/ethernet2
+then u point the 1st edit and 2nd edit ethernet files to ifcfg-bond0 
+then restart the network via cmd -> systemctrl restart network, Screenshot(530)
+To do above task -> https://academy.ehacking.net/courses/551622/lectures/10003630 in virtualbox
+
+
+
+
+
+
 
