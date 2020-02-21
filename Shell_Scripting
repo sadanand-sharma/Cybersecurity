@@ -1,6 +1,6 @@
 Bash scripts allow u to execute cmds from a file, Here interpretor is the Shell which gives u too much funtionalities, So if we r using
 Bash script it will work pretty much every time without installing the dependencies or additional extensions or additional modules
-
+Screenshot(526)
 Shell is basically the interface between us and UNIX kernal, UNIX kernal basically manages the systems resources or we can say hard ware
 Shell is accessed using the terminal
 
@@ -11,9 +11,18 @@ to know where bash is located cmd -> which bash
 
 to create a file cmd -> touch hello.sh  //.sh extention is not necessary but for editor it is usefull and it is also best practice
 
-cmd -> clear // to clear the screen
-cmd -> who am i // this display username ur terminal id and then the time u logged in
-cmd -> pwd // to tell the current diractory
+What is Kernel -> Screenshot(523)
+
+What is Shell -> Screenshot(524)
+
+Types of Shell ->
+- Gnome // it is like Graphical environment that is in linux via GUI
+- KDE // It is also GUI
+- sh // it is main shell
+- bash // it is enhanced of 'sh' 
+- csh and tcsh // this is C shell, C shell does not run bash scripts
+- ksh // it is basically used for Solaris
+
 cmd -> cal // to view the calender
 
 Bash Scripting is preferred more then Python bcz Shell is built in Unix and that means u can utilize the entire uniz tool set
@@ -145,6 +154,7 @@ if [ -s /usr/share/wordlists/rockyou.txt ];    // to check whether file is empty
 if [ -r /usr/share/wordlists/rockyou.txt ];    // to check for the read permission
 if [ -w /usr/share/wordlists/rockyou.txt ];    // to check for the write permission
 if [ -x /usr/share/wordlists/rockyou.txt ];    // to check for the execute permission
+if [ -e /usr/share/wordlists/rockyou.txt ];    // if file exist or not
 
 use cmd -> ls -l to check the file details and size of it
 
