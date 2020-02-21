@@ -364,31 +364,6 @@ application settings -> https://www.youtube.com/watch?v=8WIHluQaEbs time 5:12, t
 - server NAME - set the DNS server used // ex -> server ip_address
 -----------------------------------------------------------------------------------------------------------------------------
 
-Fedora and Centos ->
-
-- apt-get replaced by yum or dn
-
------------------------------------------------------------------------------------------------------------------------------
-
-Ubuntu ->
-
-- Open terminal -> ctrl + alt + t
-
-- ctrl + shift + t -> to open multiple tabs of the terminal
-
-- lsb_release -a  //to know the version of ubuntu 
-
-- shutdown // to shutdown
-
-- sudo shutdown -P now  // to shutdown immediately
-
-- shutdown -r // to restart
-
-- sudo pm-suspend   // to sleep
-
-
--------------------------------------------------------------------------------------------------------------------------------
-
 @ -> https://www.youtube.com/watch?v=V8EUdia_kOE  - Pending
 
 - sudo !! // if u write a cmd but the shell tells u that u need to use sudo for that then instead of writing whole cmd again and 
