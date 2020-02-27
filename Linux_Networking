@@ -136,4 +136,5 @@ cmd -> rpm -qa // q to query all the packages in system and list them
 	
 - To create Local repository form CD/DVD -> https://academy.ehacking.net/courses/551622/lectures/10003634
 
-- 
+- Advance Package Management ->
+ - 
