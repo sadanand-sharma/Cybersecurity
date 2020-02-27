@@ -97,9 +97,43 @@ then u point the 1st edit and 2nd edit ethernet files to ifcfg-bond0
 then restart the network via cmd -> systemctrl restart network, Screenshot(530)
 To do above task -> https://academy.ehacking.net/courses/551622/lectures/10003630 in virtualbox
 
+wget // to download the files and apps in linux
+Ex -> wget http://website.com/file_to_download
 
+- Ping cmd will let u know if server is up but not that if the page on that server, hence to check that page we need the
+'curl' cmd
+	Ex -> curl http://website.com/filename // to check if page is up, in return it sends the page script
+		  curl -O http://website.com/filename  // if u wants to download a file, u can use this cmd in case the wget is
+												// not working
+												
+	File transfer cmds ->
+	
+	- ftp -> Ex -> Screenshot(533) 
+			To transfer the file to the server whoch is not running FTP daemon, we will try to load FTP on local host as
+			cmd -> ftp system_hostname // if daemon is not present it will say connection refused but still give ftp prompt 
+	- scp -> Ex - scp filename remote_host:path_to_copy 
+	- rsync // this is used by system admins to backup files to another system mostly using through cron job
 
+- System update and repos ->
 
+- apt-get is used for this task
 
+Note -> In some companies internet access is not allowed, In that case repos r setup locally on another server within
+the same network 
 
+- rmp (RedHat Package Manager) -> It is used when u already have package downloaded in ur system and u can install it
+locally using rpm while yum does all the things for u it downloads the package and installs aswell and then clean up the
+downloaded the package form the system
+cmd -> rpm -qa // q to query all the packages in system and list them 
+	   rpm -ihv path_to_package.rpm // on running this it will install package
+	   rpm -e package_name // to remove a package
 
+- Two types of upgrades in Linux ->
+	- Major Version upgrade from 5 to 6
+	- Minor Version upgrade from 7.1 to 7.2
+	
+	The difference in update and upgrade is that upgrade delete packages while update preserves the old packages
+	
+- To create Local repository form CD/DVD -> https://academy.ehacking.net/courses/551622/lectures/10003634
+
+- 
