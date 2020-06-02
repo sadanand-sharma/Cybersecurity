@@ -67,7 +67,8 @@ Answer -> Stateful inspection firewall
 
 Question -> During a black box pen test you attempt to pass IRC traffic over port 80/TCP from a compromised web enabled host.
 The traffic gets blocked; however, outbound HTTP traffic is unimpeded.What type of firewall is inspecting outbound traffic?
-Answer -> Statefull 
+Answer 1-> Statefull 
+Answer 2-> Application  // these answers r conflicting
 // unimpeded meaning is not obstructed or hindered
 
 Proxy Firewalls (Application-Level Gateways)->
@@ -82,10 +83,13 @@ an extra layer of separation between the “client” (the system where the pack
 your network—obscuring them to create additional anonymity and protection for your network.
 If there’s one drawback to proxy firewalls, it’s that they can create significant slowdown because of the extra steps in the
 data packet transferal process. 
+
+Question -> One advantage of an application-level firewall is the ability to
+Answer -> filter specific commands, such as http:post
+
+Question -> Which of the statements concerning proxy firewalls is correct?
+Answer -> Computer establish a connection with a proxy firewall which initiates a new network connection for the client
 - Udemy Practice test __2 Question 39
-- Udemy Practice test __2 Question 5 
-- Udemy Practice test __3 Question 128
-- Udemy Practice test ___6 Question 3
 
 Next-Generation Firewalls->
 Many of the most recently-released firewall products are being touted as “next-generation” architectures. However, there is
@@ -98,16 +102,26 @@ The issue is that there is no one definition of a next-generation firewall, so i
 capabilities such firewalls have before investing in one.
 
 Stateless -> Stateless firewalls watch network traffic and restrict or block packets based on source and destination
- addresses or other static values. They’re not ‘aware’ of traffic patterns or data flows. A stateless firewall uses simple
- rule-sets that do not account for the possibility that a packet might be received by the firewall ‘pretending’ to be
- something you asked for.
- A stateless firewall filter, also known as an access control list (ACL), does not statefully inspect traffic. Instead, it
- evaluates packet contents statically and does not keep track of the state of network connections.
-- Udemy Practice test __1 Question 72
+addresses or other static values. They’re not ‘aware’ of traffic patterns or data flows. A stateless firewall uses simple
+rule-sets that do not account for the possibility that a packet might be received by the firewall ‘pretending’ to be
+something you asked for.
+A stateless firewall filter, also known as an access control list (ACL), does not statefully inspect traffic. Instead, it
+evaluates packet contents statically and does not keep track of the state of network connections.
 
-Udemy Practice test _5 Question 119
+Question -> During a penetration test, the tester conducts an ACK scan using NMAP against the external interface of the DMZ
+firewall. NMAP reports that port 80 is unfiltered. Based on this response, which type of packet inspection is the firewall
+conducting?
+Answer -> Stateless
 
-- Udemy Practice test __1 Question 20
+Question -> Firewalls are the software or hardware systems that are able to control and monitor the traffic coming in and out
+the target network based on pre-defined set of rules. Which of the following types of firewalls can protect against SQL
+injection attacks?
+Answer -> Web application firewall
+
+Question -> You are a security officer of a company. You had an alert from IDS that indicates that one PC on your Intranet is
+connected to a blacklisted IP address (C2 Server) on the Internet. The IP address was blacklisted just before the alert. You
+are staring an investigation to roughly analyze the severity of the situation. Which of the following is appropriate to analyze?
+Answer -> Internet Firewall/Proxy log
 
 Firewalls are categorized into two; namely hardware firewall and software firewall.
 Software Firewall is placed between the normal application and the networking components of the operating system
@@ -132,11 +146,16 @@ Rule based access control is used on a router or firewall to limit network activ
 Defense-in-depth is a security strategy in which several protection layers are placed throughout an information system. It
 helps to prevent direct attacks against an information system and data because a break in one layer only leads the attacker
 to the next layer.
-- Udemy Practice test __1 Question 46
+
+Question -> What network security concept requires multiple layers of security controls to be placed throughout an IT
+infrastructure, which improves the security posture of an organization to defend against malicious attacks or potential
+vulnerabilities? What kind of Web application vulnerability likely exists in their software?
+Answer -> Defense in Depth
 
 Screened subnet - firewall architecture that is designed to host servers that offer public services
 
 Web application firewall -> - Udemy Practice test ___6 Question 61
+
 Network layer firewalls, also called packet filters, operate at a relatively low level of the TCP/IP protocol stack, not 
 allowing packets to pass through the firewall unless they match the established rule set. To prevent Web Application attacks
 an Application layer firewall would be required. 
@@ -150,9 +169,17 @@ other than authorized individuals are admitted
 True Negative: An event when no attack has taken place and no detection is made.
 True Positive: A legitimate attack which triggers to produce an alarm.
 False Positive: An event signaling to produce an alarm when no attack has taken place 
-	- Udemy Practice test __2 Question 47 
 	- Udemy Practice test __2 Question 124
 False Negative: When no alarm is raised when an attack has taken place.
+
+Question -> When analyzing the IDS logs, the system administrator noticed an alert was logged when the external router was
+accessed from the administrator's computer to update the router configuration. What type of an alert is this?
+Answer -> False Positive
+
+Question -> A network administrator received an administrative alert at 3:00 a.m. from the intrusion detection system. The
+alert was generated because a large number of packets were coming into the network over ports 20 and 21. During analysis,
+there were no signs of attack on the FTP servers. How should the administrator classify this situation?
+Answer -> False Positives
 
 https://drive.google.com/drive/u/1/my-drive ques 50
 
