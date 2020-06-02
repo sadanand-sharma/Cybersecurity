@@ -1,3 +1,131 @@
+## CEH Ports
+
+0 to 1023 – well known ports assigned to common protocols and services
+1024 to 49151 – registered ports assigned by ICANN to a specific service// ICANN(Internet Corporation for Assigned Names and
+		Numbers)
+49152 to 65535 – dynamic (private, high) ports range from 49152 to 65535. Can be used by any service on an ad-hoc basis. Ports
+		are assigned when a session is established, and released when the session ends.
+
+FTP - 20,21
+SSH/SCP/SFTP - 22 // SCP(Secure Copy Protocol) -> The SCP is a network protocol, based on the BSD RCP protocol, which supports
+	file transfers between hosts on a network. SCP uses Secure Shell (SSH) for data transfer and uses the same mechanisms 
+	for authentication, thereby ensuring the authenticity and confidentiality of the data in transit.
+    // SFTP (Secure File Transfer Protocol) is a secure version of File Transfer Protocol (FTP), which facilitates data access
+    and data transfer over a Secure Shell (SSH) data stream. It is part of the SSH Protocol. This term is also known as SSH File
+    Transfer Protocol
+    Question ->Based on the below log, which of the following sentences are true?
+               Mar 1, 2016, 7:33:28 AM 10.240.250.23 – 54373 10.249.253.15 – 22 tcp_ip
+    Answer   ->Application is SSH and 10.240.250.23 is the client and 10.249.253.15 is the server
+
+Telnet - 23 
+
+SMTP - 25 TCP // Use to send emails
+
+TACACS/TACACS+ - 49 // TACACS+, stands for Terminal Access Controller Access Control Server, is a security protocol used in AAA
+    framework to provide centralised authentication for users who want to gain access to the network.
+
+DNS - 53 (TCP/UDP) //
+    Question -> DNS cache snooping is a process of determining if the specified resource address is present in the DNS cache
+    records. It may be useful during the examination of the network to determine what software update resources are used, thus
+    discovering what software is installed. What command is used to determine if the entry is present in DNS cache?
+    Answer -> nslookup -norecursive update.antivirus.com
+
+DHCP Listens on UDP port - 67
+DHCPdiscovery msgs r always send from UDP port - 68
+DHCPv6 UDP port for clients - 546
+DHCPv6 UDP port for servers - 547
+    TFTP - 69 //Trivial File Transfer Protocol (TFTP) is an Internet software utility for transferring files that is simpler to
+    use than the File Transfer Protocol (FTP) but less capable. It is used where user authentication and directory visibility 
+    are not required.
+    Question -> An NMAP scan of a server shows port 69 is open. What risk could this pose?
+    Answer   -> Unathenticated access
+
+HTTP - 80
+HTTPS - 443
+kerberos - 88 // Kerberos is a computer-network authentication protocol that works on the basis of tickets to allow nodes 
+	communicating over a non-secure network to prove their identity to one another in a secure manner.
+POP3 - 110 TCP // POP3 (Post Office Protocol 3) is the most recent version of a standard protocol for receiving e-mail. POP3 is
+	a client/server protocol in which e-mail is received and held for you by your Internet server.
+NTP - 123 UDP // Network Time Protocol is a networking protocol for clock synchronization between computer systems over
+    	packet-switched, variable-latency data networks.
+IMAP4 - 143 TCP  // (Internet Message Access Protocol) is a standard email protocol that stores email messages on a mail server,
+	but allows the end user to view and manipulate the messages as though they were stored locally on the end user's
+	computing device(s).
+
+NetBIOS - 135-139 // it is an old naming system and right now in naming system we r using DNS
+Microsoft RPC endpoints Mapper - 135 TCP/UDP
+NBNS - 137 UDP (used for NetBIOS)
+SMB over IP - 139,445 TCP
+    Question -> You have successfully gained access to your client's internal network and successfully comprised a Linux server
+    which is part of the internal IP network. You want to know which Microsoft Windows workstations have file sharing enabled.
+    Which port would you see listening on these Windows machines in the network?
+    Answer -> 445
+    
+    Question -> Eve is spending her day scanning the library computers. She notices that Alice is using a computer whose port 
+    445 is active and listening. Eve uses the ENUM tool to enumerate Alice machine. From the command prompt, she types the
+    following command. What is Eve trying to do?
+    Answer -> Eve is trying to carry out a password crack for user Administrator
+    
+    Question -> Null sessions are un-authenticated connections (not using a username or password.) to an NT or 2000 system.
+                Which TCP and UDP ports must you filter to check null sessions on your network?
+    Answer -> 139 and 445
+
+SNMP - 161 UDP // SNMP is a network management protocol that is usually set up to use UDP instead of TCP packets
+SNMP Trap(Asynchronous) - 162 TCP/UDP
+LDAP - 389 TCP/UDP // 
+    Question -> An LDAP directory can be used to store information similar to a SQL database. LDAP uses a ____ database 
+    structure instead of SQL’s ______ structure. Because of this, LDAP has difficulty representing many-to-one relationships.
+    Answer   -> Hierarchical, Relational
+LDAP(SSL/TLS) - 636
+
+IPsec(for VPN and IKE) - open port 500 UDP(to work through firewall) and 50, 51 ports on both inbound and outbound filters
+SYSLOG - 514 //specifically designed for transporting event messages, needed in order to send log messages to a log analysis 
+	tool that resides behind a firewall
+    Question -> You are a Network Security Officer. You have two machines. The first machine (192.168.0.99) has snort installed,
+    and the second machine (192.168.0.150) has kiwi syslog installed. You perform a SYN scan in your network, and you notice
+    that kiwi syslog is not receiving the alert message from snort. You decide to run Wireshark in the snort machine to
+    check if the messages are going to the kiwi syslog machine.
+    What Wireshark filter will show the connections from the snort machine to kiwi syslog machine?
+    Answer -> tcp.dstport==514&&ip.dst==192.168.0.150
+    
+    Syslog is a standard for logging program msgs. It allows seperation of the software that generate msgs from the system that 
+    stores them and the softwares that reports and analyzes them. It also provide devices, which woul otherwise be unable to
+    communicate a means to notify administrators of problems of performance.
+
+Remote windows shutdown - 53001
+RAT - 1095-1098
+Micrososft SQL server - 1433 TCP
+L2TP - 1701 UDP // Layer Two Tunneling Protocol (L2TP) is an extension of the Point-to-Point Tunneling Protocol (PPTP) used
+    by an Internet service provider (ISP) to enable the operation of a virtual private network (VPN) over the Internet.
+PPTP - 1723
+SSDP - 1900 UDP
+NFS - 2049
+Remote Desktop Services/ Terminal Services - 3389
+IRC - 6667
+netbus - 17300 // Netbus tool(for remote adminsitration and spy tool)
+hackers paradise - 456
+masters paradise - 31
+Global Catlog Service - 3268 TCP/UDP
+
+Point-to-Point Protocol (PPP) is a data link layer (layer 2) communications protocol between two routers directly without any
+host or any other networking in between. It can provide connection authentication, transmission encryption, and compression.
+In PPP the layout of the PPP port parameters changes considerably according to the used lower layer port type such as
+PPP over SYNC LOWPO -> 1
+PPP over Frame-Relay LOWPO -> 101
+PPP over ISDN LOWPO -> 17
+PPP over EIR(S-link) LOWPO -> 200
+PPP over EIR(P-link) LOWPO -> 200
+LOWPO is Identifier of the lower level Abilis CPX port (1 - 999, NONE)
+Sets the lower level port; it can be any P-LINK or an S-LINK port.
+The value "NONE" makes the PPP port unusable.
+
+WMI - // Windows Management Instrumentation is a set of specifications from Microsoft for consolidating the management of 
+devices and applications in a network from Windows computing systems.
+// This issue can occur when the default configuration of the Windows Firewall program blocks incoming network traffic for
+Windows Management Instrumentation (WMI) connection. For the connection to succeed, the remote computer must permit incoming
+network traffic on TCP ports 135, 445, and additional dynamically-assigned ports, typically in the range of 1024 to 1034.
+
+
 ## Firewall ->
 Firewalking is a technique developed by Mike Schiffman and David Goldsmith that utilizes traceroute techniques and TTL values
 to analyze IP packet responses in order to determine gateway ACL (Access Control List) filters and map networks. It is an
@@ -169,7 +297,6 @@ other than authorized individuals are admitted
 True Negative: An event when no attack has taken place and no detection is made.
 True Positive: A legitimate attack which triggers to produce an alarm.
 False Positive: An event signaling to produce an alarm when no attack has taken place 
-	- Udemy Practice test __2 Question 124
 False Negative: When no alarm is raised when an attack has taken place.
 
 Question -> When analyzing the IDS logs, the system administrator noticed an alert was logged when the external router was
@@ -213,13 +340,35 @@ IDS ->
 - Network based IDS r best applicable for large environments where critical assets on the network need extra scrutiny and is
  ideal for observing sensitive network segments 
 - Passive IDS can monitor and alert on attacks, but cannot stop them
-- Udemy Practice test _5 Question 52
-- Udemy Practice test ___6 Question 63
-- Udemy Practice test _2 Question 124
-- Udemy Practice test __1 Question 77
-- Udemy Practice test __2 Question 50
 
-- Snort (tool for practicing IDS) - Udemy Practice test _5 Question 35
+Question -> You are monitoring the network of your organizations. You noticed that:
+1. There are huge outbound connections from your Internal Network to External IPs
+2. On further investigation, you see that the external IPs are blacklisted
+3. Some connections are accepted, and some are dropped
+4. You find that it is a CnC communication
+Which of the following solution will you suggest?
+Answer -> Update the latest signature of ur IDS/IPS. And clean the malware which r trying to communicate with the External
+Blacklist IP's
+
+Question -> The intrusion detection system at a software development company suddenly generates multiple alerts regarding
+attacks against the company's external webserver, VPN concentrator, and DNS servers. What should the security team do to
+determine which alerts to check first?
+Answer -> Investigate based on the potential effect of the incident
+
+Question -> You just set up a security system in your network. In what kind of system would you find the following string 
+of characters used as a rule within its configuration?
+alerttcp any any -> 192.168.100.0/24 21 (msg: ""FTP on the network!"";)
+Answer -> An Intrusion Detection System
+
+Question -> You need to deploy a new web-based software package for your organization. The package requires three separate 
+servers and needs to be available on the Internet. What is the recommended architecture in terms of server placement?
+Answer -> A web server facing the internet, an application server on the internal
+
+- Snort (tool for practicing IDS) ->
+Question -> You need a tool that can do network intrusion prevention and intrusion detection, function as a network sniffer, 
+and record network activity. What tool would you most likely select?
+Answer -> Snort
+
 - the three modes in which Snort can be configured to run ->
 	- Sniffer
 	- Packet logger
